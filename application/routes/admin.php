@@ -27,6 +27,13 @@ Route::set('admin-partner', $adminPrefix . 'partner(/<action>(/<id>))')
         'action' => 'index'
     ));
 
+Route::set('admin-city', $adminPrefix . 'city(/<action>(/<id>))')
+    ->defaults(array(
+        'directory' => 'admin',
+        'controller' => 'city',
+        'action' => 'index'
+    ));
+
 Route::set('admin-feedb', $adminPrefix . 'feedb(/<action>(/<id>))')
     ->defaults(array(
         'directory' => 'admin',

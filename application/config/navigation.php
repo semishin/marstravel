@@ -49,6 +49,21 @@ return array(
         'parent' => 'admin.partner.index'
     ),
 
+    'admin.city.index' => array(
+        'title' => 'Список городов',
+        'route' => 'admin-city'
+    ),
+    'admin.city.edit' => array(
+        'title' => 'Редактирование городов',
+        'route' => 'admin-city:edit',
+        'parent' => 'admin.city.index'
+    ),
+    'admin.city.create' => array(
+        'title' => 'Добавление городов',
+        'route' => 'admin-city:create',
+        'parent' => 'admin.city.index'
+    ),
+
     'admin.feedb.index' => array(
         'title' => 'Список обратной связи',
         'route' => 'admin-feedb'

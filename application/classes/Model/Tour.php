@@ -4,18 +4,33 @@ class Model_Tour extends ORM
 {
     protected $_table_name = 'tours';
 
-//    protected $_belongs_to = array(
-//        'category' => array(
-//            'model'       => 'Service_Category',
-//            'foreign_key' => 'category_id',
-//        )
-//    );
+    protected $_belongs_to = array(
+
+    );
+    protected $_has_many_to_save = array(
+        'cities'    => array(
+            'model'=> 'City',
+            'foreign_key' => 'tour_id',
+            'through'      => 'tour_cities',
+            'far_key'      => 'city_id',
+        )
+    );
+
+    protected $_has_many = array(
+        'cities'    => array(
+            'model'=> 'City',
+            'foreign_key' => 'tour_id',
+            'through'      => 'tour_cities',
+            'far_key'      => 'city_id',
+        )
+    );
 
     public function labels()
     {
         return array(
             'id' => 'Идентификатор',
             'name' => 'Наименование',
+            'cities' => 'Города',
             'price' => 'Стоимость',
             'short_content' => 'Сокращенный контент',
             'content' => 'Контент',
@@ -26,22 +41,22 @@ class Model_Tour extends ORM
             'excluded' => 'В стоимость не входит',
             'position' => 'Позиция',
             'url' => 'Ссылка',
-            '1d_name' => '1 день заголовок',
-            '1d_content' => '1 день описание',
-            '2d_name' => '2 день заголовок',
-            '2d_content' => '2 день описание',
-            '3d_name' => '3 день заголовок',
-            '3d_content' => '3 день описание',
-            '4d_name' => '4 день заголовок',
-            '4d_content' => '4 день описание',
-            '5d_name' => '5 день заголовок',
-            '5d_content' => '5 день описание',
-            '6d_name' => '6 день заголовок',
-            '6d_content' => '6 день описание',
-            '7d_name' => '7 день заголовок',
-            '7d_content' => '7 день описание',
-            '8d_name' => '8 день заголовок',
-            '8d_content' => '8 день описание',
+            'd1_name' => '1 день заголовок',
+            'd1_content' => '1 день описание',
+            'd2_name' => '2 день заголовок',
+            'd2_content' => '2 день описание',
+            'd3_name' => '3 день заголовок',
+            'd3_content' => '3 день описание',
+            'd4_name' => '4 день заголовок',
+            'd4_content' => '4 день описание',
+            'd5_name' => '5 день заголовок',
+            'd5_content' => '5 день описание',
+            'd6_name' => '6 день заголовок',
+            'd6_content' => '6 день описание',
+            'd7_name' => '7 день заголовок',
+            'd7_content' => '7 день описание',
+            'd8_name' => '8 день заголовок',
+            'd8_content' => '8 день описание',
             's_title' => 'SEO title',
             's_description' => 'SEO description',
             's_keywords' => 'SEO keywords'

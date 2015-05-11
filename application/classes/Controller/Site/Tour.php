@@ -16,7 +16,7 @@ class Controller_Site_Tour extends Controller_Site
 //        $this->template->services = $services;
 //
 //        $this->template->category = $this->_model->category;
-//        $this->template->images = json_decode($this->_model->images, true);
+        $this->template->images = json_decode($this->_model->images, true);
 
     }
 
