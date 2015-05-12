@@ -32,8 +32,8 @@ class Model_City extends ORM
             'id' => 'Идентификатор',
             'name' => 'Название',
             'active' => 'Активность',
-            'latitude' => 'Широта',
-            'longitude' => 'Долгота',
+//            'latitude' => 'Широта',
+//            'longitude' => 'Долгота',
         );
     }
 
@@ -46,8 +46,8 @@ class Model_City extends ORM
 
         'name' => null,
         'active' => null,
-        'latitude' => null,
-        'longitude' => null,
+//        'latitude' => null,
+//        'longitude' => null,
 
         'edit' => array(
             'width' => '40',
