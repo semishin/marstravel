@@ -37,4 +37,9 @@ class Controller_Site_Page extends Controller_Site
         $this->set_metatags_and_content('weather', 'page');
     }
 
+    public function action_advertising()
+    {
+        $this->set_metatags_and_content('advertising', 'page');
+    }
+
 }

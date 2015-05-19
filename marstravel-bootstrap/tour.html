@@ -4,7 +4,7 @@
     <title>Tour</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width">
 
     <link href='http://fonts.googleapis.com/css?family=Cuprum:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700&subset=cyrillic,latin' rel='stylesheet' type='text/css'>
@@ -58,9 +58,29 @@
                     </div>
                     <div class="col-xs-5">
                         <ul class="list-inline pull-right">
-                            <li class="email"><a href="#">marstravel@info.com</a></li>
+                            <li class="email"><a href="#ask_consultant" class="fancy">marstravel@info.com</a></li>
                             <li><b>+7 495 510-55-55</b></li>
                         </ul>
+                        <div style="display: none">
+                            <div id="ask_consultant">
+                                <p class="lightbox_header">Задать вопрос консультанту</p>
+                                <form role="form" class="lightbox_form" data-id="0">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="Name_0" placeholder="Имя" name="name">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="email" class="form-control" id="Email_0" placeholder="E-mail" name="email">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="Phone_0" placeholder="Телефон" name="phone">
+                                    </div>
+                                    <div class="form-group">
+                                        <textarea placeholder="Вопрос" rows="3" class="form-control" name="question"></textarea>
+                                    </div>
+                                    <a href="#" class="red_btn" data-id="0">Отправить</a>
+                                </form>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -91,7 +111,7 @@
             </div>
             <div class="col-md-3 col-xs-4">
                 <div class="pull-right">
-                    <a href="#" class="black_btn">Задать вопрос консультанту</a>
+                    <a href="#ask_consultant" class="black_btn fancy">Задать вопрос консультанту</a>
                 </div>
             </div>
         </div>
@@ -122,7 +142,7 @@
                     ymaps.ready(function() {
                         map = new ymaps.Map('map', {
                             center: [39.52, 32.52],
-                            zoom: 5
+                            zoom: 6
                         });
                     });
 
@@ -171,7 +191,7 @@
                         );
                     }
 
-                    $( "a" ).click(function( event ) {
+                    $( ".cities a" ).click(function( event ) {
                         event.preventDefault();
                         var ballon_number = $(this).attr("data-number");
                         // Удаление старого маршрута
@@ -208,11 +228,6 @@
 
                                     var wayPoint = route.getWayPoints().get(ballon_number);
                                     ymaps.geoObject.addon.balloon.get(wayPoint).open();
-
-
-                                    //points.get(ballon_number).properties.set('balloonContent', 'clicked-city');
-                                    //map.geoObject.get(0).Balloon.open();
-                                    //points.get(ballon_number).Ballon.open();
 
                                     //document.getElementById('route-length').innerHTML = 'Длина маршрута = ' + route.getHumanLength();
                                     mapRoute = route;
@@ -469,44 +484,49 @@
     <div class="clearfix"></div>
 
     <div style="display: none">
-        <div id="pay">PAY
-            <form role="form">
+        <div id="pay">
+            <p class="lightbox_header">Купить тур</p>
+            <p class="lightbox_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. </p>
+            <form role="form" class="lightbox_form" data-id="1">
                 <div class="form-group">
-                    <label for="Email_1">Email</label>
-                    <input type="email" class="form-control" id="Email_1" placeholder="Enter email">
+                    <input type="text" class="form-control" id="Name_1" placeholder="Имя" name="name">
                 </div>
                 <div class="form-group">
-                    <label for="Name_1">Имя</label>
-                    <input type="text" class="form-control" id="Name_1" placeholder="Name">
+                    <input type="text" class="form-control" id="Phone_1" placeholder="Телефон" name="phone">
                 </div>
                 <div class="form-group">
-                    <label for="Password_1">Пароль</label>
-                    <input type="password" class="form-control" id="Password_1" placeholder="Password">
+                    <input type="email" class="form-control" id="Email_1" placeholder="E-mail" name="email">
                 </div>
-                <button type="submit" class="btn btn-success">Отправить</button>
+                <a href="#" class="red_btn" data-id="1">Задать вопрос</a>
             </form>
         </div>
     </div>
     <div style="display: none">
-        <div id="get_free">GET FREE
-            <form role="form">
+        <div id="get_free">
+            <p class="lightbox_header">Получить бесплатно</p>
+            <p class="lightbox_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. </p>
+            <form role="form" class="lightbox_form"  data-id="2">
                 <div class="form-group">
-                    <label for="Email_2">Email</label>
-                    <input type="email" class="form-control" id="Email_2" placeholder="Enter email">
+                    <input type="text" class="form-control" id="Name_2" placeholder="Имя" name="name">
                 </div>
                 <div class="form-group">
-                    <label for="Name_2">Имя</label>
-                    <input type="text" class="form-control" id="Name_2" placeholder="Name">
+                    <input type="text" class="form-control" id="Phone_2" placeholder="Телефон" name="phone">
                 </div>
                 <div class="form-group">
-                    <label for="Password_2">Пароль</label>
-                    <input type="password" class="form-control" id="Password_2" placeholder="Password">
+                    <input type="email" class="form-control" id="Email_2" placeholder="E-mail" name="email">
                 </div>
                 <div class="form-group">
-                    <label for="Code_2">Промокод</label>
-                    <input type="password" class="form-control" id="Code_2" placeholder="Code">
+                    <!--<input type="password" class="form-control" id="Code_2" placeholder="Код сертификата ">-->
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="Code_2" placeholder="Код сертификата " name="code">
+                          <span class="input-group-btn">
+                            <button class="btn btn-default" type="button">Применить</button>
+                          </span>
+                    </div><!-- /input-group -->
                 </div>
-                <button type="submit" class="btn btn-success">Отправить</button>
+                <a href="#" class="red_btn" data-id="2">Задать вопрос</a>
             </form>
         </div>
     </div>

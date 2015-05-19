@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Sights</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width">
+
+    <link href='http://fonts.googleapis.com/css?family=Cuprum:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700&subset=cyrillic,latin' rel='stylesheet' type='text/css'>
+    <!--font-family: 'PT Sans', sans-serif;-->
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="fancybox/jquery.fancybox.css">
+    <link rel="stylesheet" type="text/css" href="datepicker/daterangepicker-bs3.css" />
+    <link href="css/barousel.css" rel="stylesheet">
+    <link href="css/bootstrap-select.min.css" rel="stylesheet">
+    <link href="css/minimal/minimal.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+    <script src="http://api-maps.yandex.ru/2.0-stable/?load=package.full&lang=ru-RU"></script>
+
+    <script src="fancybox/jquery.fancybox.pack.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="datepicker/moment.min.js"></script>
+    <script type="text/javascript" src="datepicker/daterangepicker.js"></script>
+    <script type="text/javascript" src="datepicker/ru.js"></script>
+    <script src="js/barousel.js"></script>
+    <script src="js/bootstrap-select.min.js"></script>
+    <script src="js/icheck.js"></script>
+
+    <!-- Include  user-js -->
+    <script src="js/script.js"></script>
+
+</head>
+<body>
+<div class="container-fluid">
+<div class="page_block">
+<div class="header">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="advertising">
+                <img src=" img/top-banner.jpg" class="img-responsive">
+            </div>
+        </div>
+        <div class="col-xs-12">
+            <div class="navigation">
+                <div class="row">
+                    <div class="col-xs-7">
+                        <ul class="list-inline pull-left">
+                            <li><a href="#">О компании</a></li>
+                            <li><a href="#">Экскурсионные туры</a></li>
+                            <li><a href="#">Наши партнёры</a></li>
+                            <li><a href="#">Контакты</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-xs-5">
+                        <ul class="list-inline pull-right">
+                            <li class="email"><a href="#ask_consultant" class="fancy">marstravel@info.com</a></li>
+                            <li><b>+7 495 510-55-55</b></li>
+                        </ul>
+                        <div style="display: none">
+                            <div id="ask_consultant">
+                                <p class="lightbox_header">Задать вопрос консультанту</p>
+                                <form role="form" class="lightbox_form" data-id="0">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="Name_0" placeholder="Имя" name="name">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="email" class="form-control" id="Email_0" placeholder="E-mail" name="email">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="Phone_0" placeholder="Телефон" name="phone">
+                                    </div>
+                                    <div class="form-group">
+                                        <textarea placeholder="Вопрос" rows="3" class="form-control" name="question"></textarea>
+                                    </div>
+                                    <a href="#" class="red_btn" data-id="0">Отправить</a>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="content">
+<div class="flag flag_left"></div>
+<div class="flag flag_right"></div>
+<div class="row">
+<div class="col-xs-12">
+    <div class="search_line">
+        <div class="row">
+            <div class="col-xs-3">
+                <div class="logo">
+                    <a href="#"><img src="img/logo-red.png" class="img-responsive"></a>
+                </div>
+            </div>
+            <div class="col-lg-6 col-xs-5">
+                <div class="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Поиск по сайту">
+                                            <span class="input-group-btn">
+                                                <button class="btn btn-default" type="button"><i class="search_icon"></i></button>
+                                            </span>
+                    </div><!-- /input-group -->
+                </div>
+            </div>
+            <div class="col-lg-3 col-xs-4">
+                <div class="pull-right">
+                    <a href="#ask_consultant" class="black_btn fancy">Задать вопрос консультанту</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-xs-12">
+    <div class="slider_shadow"></div>
+    <div class="grey_top_block">
+        <a href="#" class="back_to_main">&larr; <span>Назад на главную</span></a>
+        <p class="text-center header">Достопримечательности Турции</p>
+        <p class="text-center duration">всего 1325 мест</p>
+        <div class="filter">
+            <div class="row">
+                <div class="col-xs-4">
+                    <select class="selectpicker form-control finder" data-live-search="true">
+                        <option disabled selected style="display: none">Введите слово для поиска по местам</option>
+                        <option>Ketchup</option>
+                        <option>Relish</option>
+                        <option>Gonash</option>
+                    </select>
+                </div>
+                <div class="col-xs-3">
+                    <select class="selectpicker form-control">
+                        <option disabled selected style="display: none">Город или курорт</option>
+                        <option>Mustard</option>
+                        <option>Ketchup</option>
+                        <option>Relish</option>
+                        <option>Tent</option>
+                        <option>Flashlight</option>
+                        <option>Toilet Paper</option>
+                    </select>
+                </div>
+                <div class="col-xs-3">
+                    <select class="selectpicker form-control">
+                        <option disabled selected style="display: none">Категории</option>
+                        <option>Ketchup</option>
+                        <option>Relish</option>
+                        <option>Gonash</option>
+                    </select>
+                </div>
+                <div class="col-xs-2">
+                    <label class="checkbox">
+                        <input type="checkbox" id="inlineCheckbox1" value="option1">С экскурсиями <sup><small>145</small></sup>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-xs-12">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="sights_block">
+                <div class="row">
+                    <div class="col-xs-4">
+                        <div class="sight">
+                            <div class="image">
+                                <a href="#"><img src="img/sight1.jpg" class="img-responsive"></a>
+                            </div>
+                            <div class="name">
+                                <a href="#">Аквариум Анталии</a>
+                                <p class="additional_text">Antalya, Dumlu Pınar Bulvarı Arapsuyu Mahallesi</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <div class="sight">
+                            <div class="image">
+                                <a href="#"><img src="img/sight2.jpg" class="img-responsive"></a>
+                            </div>
+                            <div class="name">
+                                <a href="#">Галатская башня</a>
+                                <p class="additional_text">Istanbul, Bereketzade Mh., Galata Kulesi</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <div class="sight">
+                            <div class="image">
+                                <a href="#"><img src="img/sight3.jpg" class="img-responsive"></a>
+                            </div>
+                            <div class="name">
+                                <a href="#">Голубая мечеть</a>
+                                <p class="additional_text">Istanbul, Sultan Ahmet Mh.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-4">
+                        <div class="sight">
+                            <div class="image">
+                                <a href="#"><img src="img/sight4.jpg" class="img-responsive"></a>
+                            </div>
+                            <div class="name">
+                                <a href="#">Дворец Топкапы</a>
+                                <p class="additional_text">Istanbul, Binbirdirek Mh., Terzihane Sk. 7</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <div class="sight">
+                            <div class="image">
+                                <a href="#"><img src="img/sight5.jpg" class="img-responsive"></a>
+                            </div>
+                            <div class="name">
+                                <a href="#">Крепость Аланьи</a>
+                                <p class="additional_text">Alanya, Mh. Hisarici</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <div class="sight">
+                            <div class="image">
+                                <a href="#"><img src="img/sight6.jpg" class="img-responsive"></a>
+                            </div>
+                            <div class="name">
+                                <a href="#">Собор Святой Софии</a>
+                                <p class="additional_text">Istanbul, Ayasofya Meydanı</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-xs-4">
+                        <div class="sight">
+                            <div class="image">
+                                <a href="#"><img src="img/sight7.jpg" class="img-responsive"></a>
+                            </div>
+                            <div class="name">
+                                <a href="#">Султанахмет</a>
+                                <p class="additional_text">Istanbul, Sultan Ahmet Mh.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <div class="sight">
+                            <div class="image">
+                                <a href="#"><img src="img/sight8.jpg" class="img-responsive"></a>
+                            </div>
+                            <div class="name">
+                                <a href="#">Фазелис</a>
+                                <p class="additional_text">Antalia coast</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <div class="sight">
+                            <div class="image">
+                                <a href="#"><img src="img/sight9.jpg" class="img-responsive"></a>
+                            </div>
+                            <div class="name">
+                                <a href="#">Храм Артемиды</a>
+                                <p class="additional_text">Efes, Selcuk, Artemis Tapınagı</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-4">
+                        <div class="sight">
+                            <div class="image">
+                                <a href="#"><img src="img/sight10.jpg" class="img-responsive"></a>
+                            </div>
+                            <div class="name">
+                                <a href="#">Агора и храм Тюхе</a>
+                                <p class="additional_text">Side, Agora</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <div class="sight">
+                            <div class="image">
+                                <a href="#"><img src="img/sight11.jpg" class="img-responsive"></a>
+                            </div>
+                            <div class="name">
+                                <a href="#">Агора Смирны</a>
+                                <p class="additional_text">Izmir, Mithat Pasa Cd Agora Alısveris</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <div class="sight">
+                            <div class="image">
+                                <a href="#"><img src="img/sight12.jpg" class="img-responsive"></a>
+                            </div>
+                            <div class="name">
+                                <a href="#">Аквапарк в Аланье</a>
+                                <p class="additional_text">Alanya, Okurcalar Mevkii</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12">
+                        <div class="block_pagination">
+                            <p class="text-center total_amount">Всего 1325 мест</p>
+                            <ul class="pagination">
+                                <li><a href="#">Предыдущая</a></li>
+                                <li><a href="#" class="active">1</a></li>
+                                <li><a href="#">...</a></li>
+                                <li><a href="#">4</a></li>
+                                <li><a href="#">5</a></li>
+                                <li><a href="#">6</a></li>
+                                <li><a href="#">7</a></li>
+                                <li><a href="#">8</a></li>
+                                <li><a href="#">9</a></li>
+                                <li><a href="#">10</a></li>
+                                <li><a href="#">...</a></li>
+                                <li><a href="#">98</a></li>
+                                <li><a href="#">Следующая</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+
+<div class="our_partners">
+    <div class="flag flag_left"></div>
+    <div class="flag flag_right"></div>
+    <div class="text">
+        <p class="text-center"><b>Наши партнёры</b></p>
+        <p class="text-center">Мы работаем только с лучшими</p>
+    </div>
+    <div class="partners_icons">
+        <div class="row">
+            <div class="col-xs-3"><a href="#"><img src="img/partner-1.png" class="img-responsive"></a></div>
+            <div class="col-xs-3"><a href="#"><img src="img/partner-2.png" class="img-responsive"></a></div>
+            <div class="col-xs-3"><a href="#"><img src="img/partner-3.png" class="img-responsive"></a></div>
+            <div class="col-xs-3"><a href="#"><img src="img/partner-4.png" class="img-responsive"></a></div>
+        </div>
+        <div class="row">
+            <div class="col-xs-3"><a href="#"><img src="img/partner-5.png" class="img-responsive"></a></div>
+            <div class="col-xs-3"><a href="#"><img src="img/partner-6.png" class="img-responsive"></a></div>
+            <div class="col-xs-3"><a href="#"><img src="img/partner-7.png" class="img-responsive"></a></div>
+            <div class="col-xs-3"><a href="#"><img src="img/partner-8.png" class="img-responsive"></a></div>
+        </div>
+    </div>
+
+</div>
+<div class="footer">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="footer_menu">
+                <ul class="list-unstyled">
+                    <li><a href="#">О компании</a></li>
+                    <li><a href="#">Экскурсионные туры</a></li>
+                </ul>
+
+                <ul class="list-unstyled">
+                    <li><a href="#">Наши партнёры</a></li>
+                    <li><a href="#">Контакты</a></li>
+                </ul>
+
+                <ul class="list-unstyled">
+                    <li><a href="#">Отели Турции</a></li>
+                    <li><a href="#">Погода в Турции</a></li>
+                </ul>
+
+                <ul class="list-unstyled">
+                    <li><a href="#">О Турции</a></li>
+                    <li><a href="#">Достопримечательности</a></li>
+                </ul>
+
+                <ul class="list-unstyled gold">
+                    <li><b>+7 495 510-55-55</b></li>
+                    <li><a href="#">marstravel@info.com</a></li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="text">
+                <p class="text-center">Использование текстов и фотографий с сайта допускается только с разрешения компании MarsTravel</p>
+                <p class="text-center">© 2003–2015 turistic.ru</p>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -8,6 +8,7 @@ class Controller_Site extends Controller
 	protected $_model;
 
     const LIMIT_ON_PAGE_PARTNERS = 8;
+    const LIMIT_ON_PAGE_BANNERS = 1;
 
 	public function before()
 	{
@@ -21,7 +22,16 @@ class Controller_Site extends Controller
             ->find_all()
             ->as_array();
 
+        $top_banner = ORM::factory('Banner')
+            ->where('active','=',1)
+            ->where('position','=',1)
+            ->order_by('id','desc')
+            ->limit(self::LIMIT_ON_PAGE_BANNERS)
+            ->find_all()
+            ->as_array();
+
         $this->template->partner = $partner;
+        $this->template->top_banner = $top_banner;
 		$this->template->set_layout('layout/site/global');
 	}
 	

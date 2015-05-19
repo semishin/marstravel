@@ -19,6 +19,21 @@ return array(
         'parent' => 'admin.slide.index'
     ),
 
+    'admin.banner.index' => array(
+        'title' => 'Список баннеров',
+        'route' => 'admin-banner'
+    ),
+    'admin.banner.edit' => array(
+        'title' => 'Редактирование баннеров',
+        'route' => 'admin-banner:edit',
+        'parent' => 'admin.banner.index'
+    ),
+    'admin.banner.create' => array(
+        'title' => 'Добавление баннеров',
+        'route' => 'admin-banner:create',
+        'parent' => 'admin.banner.index'
+    ),
+
     'admin.tour.index' => array(
         'title' => 'Список туров',
         'route' => 'admin-tour'

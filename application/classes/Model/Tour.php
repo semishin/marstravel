@@ -32,6 +32,7 @@ class Model_Tour extends ORM
             'name' => 'Наименование',
             'cities' => 'Города',
             'price' => 'Стоимость',
+            'slogan' => 'Слоган',
             'short_content' => 'Сокращенный контент',
             'content' => 'Контент',
             'main_image' => 'Главное изображение',

@@ -8,6 +8,7 @@ return array
 	Application::NAME => array
 	(
         '<i class="fa fa-picture-o"></i>|Слайды' => 'admin-slide',
+        '<i class="fa fa-picture-o"></i>|Баннеры' => 'admin-banner',
 //        '<i class="fa fa-bell-o"></i>|Коментарии' => 'admin-comment',
 //        '<i class="fa fa-bell-o"></i>|Заявки от клиентов' => 'admin-brief',
 //        '<i class="fa fa-bell"></i>|Обратная связь' => 'admin-feedb',

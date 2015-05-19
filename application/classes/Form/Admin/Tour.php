@@ -20,6 +20,7 @@ class Form_Admin_Tour extends CM_Form_Abstract
         $this->set_field('name', new CM_Field_String(), 0);
         $this->set_field('cities', new CM_Field_Manytomany($cities_list, $this->get_model()), 1);
         $this->set_field('price', new CM_Field_String(), 2);
+        $this->set_field('slogan', new CM_Field_String(), 3);
         $this->set_field('short_content', new CM_Field_HTML(), 4);
         $this->set_field('content', new CM_Field_HTML(), 6);
         $this->set_field('main_image', new CM_Field_File(),8);
@@ -55,6 +56,7 @@ class Form_Admin_Tour extends CM_Form_Abstract
             'Основные данные' => array( 'name',
                                         'cities',
                                         'price',
+                                        'slogan',
                                         'short_content',
                                         'content',
                                         'main_image',

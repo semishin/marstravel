@@ -62,6 +62,13 @@ Route::set('site-sight', 'sight')
         'action'     => 'sight',
     ));
 
+Route::set('site-advertising', 'advertising')
+    ->defaults(array(
+        'directory' => 'site',
+        'controller' => 'page',
+        'action'     => 'advertising',
+    ));
+
 Route::set('site-tour-item', 'tour/<url>')
     ->defaults(array(
         'directory' => 'site',

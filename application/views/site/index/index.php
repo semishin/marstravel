@@ -51,12 +51,9 @@
                 </div>
                 <div class="col-md-12 col-xs-4">
                     <div class="left_banner">
-                        <p class="text-center">Баннерная реклама</p>
-                        <p class="text-center"><i>Рекламный<br>
-                                баннер<br>
-                                270 х 283<br>
-                                пикселей</i></p>
-                        <div class="button text-center"><a href="#">Подробности</a></div>
+                        <?php foreach ($left_banner as $item) { ?>
+                            <a href="<?php echo $item->link ?>"><img src="<?php echo Lib_Image::crop($item->image, 'banner',$item->id, 270, 360); ?>" class="img-responsive"></a>
+                        <?php } ?>
                     </div>
                 </div>
             </div>
@@ -86,7 +83,7 @@
                         <div class="col-xs-8 left_part">
                             <div class="brief_info">
                                 <div class="top">
-                                    <p class="text-center header"><?php echo $item->name ?></p>
+                                    <a href="/tour/<?php echo $item->url ?>"><p class="text-center header"><?php echo $item->name ?></p></a>
                                     <p class="text-center duration">7 ночей 8 дней</p>
                                     <ul class="list-inline cities text-center">
                                         <li><a href="#">Стамбул</a></li>
@@ -103,7 +100,7 @@
                                 <div class="bottom">
                                     <div class="price">
                                         <p>Стоимость на человека</p>
-                                        <b><?php echo $item->price ?></b>
+                                        <b><?php echo $item->price ?> руб.</b>
                                     </div>
                                     <div class="button">
                                         <a href="/tour/<?php echo $item->url ?>" class="red_btn">Полная информация</a>
@@ -116,7 +113,7 @@
                             <div class="image">
 
                                 <div class="star_label_trans">
-                                    <div class="star"></div><div class="text"><b>Aкция</b></div><div class="border"></div>
+                                    <div class="star"></div><div class="text"><b><?php echo $item->slogan ?></b></div><div class="border"></div>
                                 </div>
 
                                 <div class="triangle"></div>

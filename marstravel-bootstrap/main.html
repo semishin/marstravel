@@ -12,12 +12,17 @@
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="fancybox/jquery.fancybox.css">
 
     <link href="css/style.css" rel="stylesheet">
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="http://api-maps.yandex.ru/2.0-stable/?load=package.full&lang=ru-RU"></script>
+
+    <script src="fancybox/jquery.fancybox.pack.js"></script>
+
     <script src="js/bootstrap.min.js"></script>
 
     <!-- Include  user-js -->
@@ -47,9 +52,29 @@
                                 </div>
                                 <div class="col-xs-5">
                                     <ul class="list-inline pull-right">
-                                        <li class="email"><a href="#">marstravel@info.com</a></li>
+                                        <li class="email"><a href="#ask_consultant" class="fancy">marstravel@info.com</a></li>
                                         <li><b>+7 495 510-55-55</b></li>
                                     </ul>
+                                    <div style="display: none">
+                                        <div id="ask_consultant">
+                                            <p class="lightbox_header">Задать вопрос консультанту</p>
+                                            <form role="form" class="lightbox_form" data-id="0">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" id="Name_0" placeholder="Имя" name="name">
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="email" class="form-control" id="Email_0" placeholder="E-mail" name="email">
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" id="Phone_0" placeholder="Телефон" name="phone">
+                                                </div>
+                                                <div class="form-group">
+                                                    <textarea placeholder="Вопрос" rows="3" class="form-control" name="question"></textarea>
+                                                </div>
+                                                <a href="#" class="red_btn" data-id="0">Отправить</a>
+                                            </form>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -80,7 +105,7 @@
                                 </div>
                                 <div class="col-md-3 col-xs-4">
                                     <div class="pull-right">
-                                        <a href="#" class="black_btn">Задать вопрос консультанту</a>
+                                        <a href="#ask_consultant" class="black_btn fancy">Задать вопрос консультанту</a>
                                     </div>
                                 </div>
                             </div>
@@ -189,13 +214,13 @@
                                                 <div class="top">
                                                     <p class="text-center header">Тур «Наследие великих цивилизаций»</p>
                                                     <p class="text-center duration">7 ночей 8 дней</p>
-                                                    <ul class="list-inline cities text-center">
-                                                        <li><a href="#">Стамбул</a></li>
-                                                        <li><a href="#">Троя</a></li>
-                                                        <li><a href="#">Пергам</a></li>
-                                                        <li><a href="#">Кушадасы</a></li>
-                                                        <li><a href="#">Памуккале</a></li>
-                                                        <li><a href="#">Aнталия</a></li>
+                                                    <ul class="list-inline cities text-center" data-id="1">
+                                                        <li><a href="#yandex_map_with_route" data-img="img/logo-red.png" data-number="0" class="fancy">Стамбул</a></li>
+                                                        <li><a href="#yandex_map_with_route" data-img="img/logo.png" data-number="1" class="fancy">Троя</a></li>
+                                                        <li><a href="#yandex_map_with_route" data-img="img/logo-red.png" data-number="2" class="fancy">Пергам</a></li>
+                                                        <li><a href="#yandex_map_with_route" data-img="img/logo.png" data-number="3" class="fancy">Кушадасы</a></li>
+                                                        <li><a href="#yandex_map_with_route" data-img="img/logo-red.png" data-number="4" class="fancy">Памуккале</a></li>
+                                                        <li><a href="#yandex_map_with_route" data-img="img/logo.png" data-number="5" class="fancy">Aнталия</a></li>
                                                     </ul>
                                                     <p class="text-center description">
                                                         8-дневный тур «Наследие великих цивилизаций». Вы проведете<br>
@@ -235,13 +260,13 @@
                                                 <div class="top">
                                                     <p class="text-center header">Тур «Наследие великих цивилизаций»</p>
                                                     <p class="text-center duration">7 ночей 8 дней</p>
-                                                    <ul class="list-inline cities text-center">
-                                                        <li><a href="#">Стамбул</a></li>
-                                                        <li><a href="#">Троя</a></li>
-                                                        <li><a href="#">Пергам</a></li>
-                                                        <li><a href="#">Кушадасы</a></li>
-                                                        <li><a href="#">Памуккале</a></li>
-                                                        <li><a href="#">Aнталия</a></li>
+                                                    <ul class="list-inline cities text-center" data-id="2">
+                                                        <li><a href="#yandex_map_with_route" data-img="img/logo-red.png" data-number="0" class="fancy">Стамбул</a></li>
+                                                        <li><a href="#yandex_map_with_route" data-img="img/logo.png" data-number="1" class="fancy">Троя</a></li>
+                                                        <li><a href="#yandex_map_with_route" data-img="img/logo-red.png" data-number="2" class="fancy">Пергам</a></li>
+                                                        <li><a href="#yandex_map_with_route" data-img="img/logo.png" data-number="3" class="fancy">Кушадасы</a></li>
+                                                        <li><a href="#yandex_map_with_route" data-img="img/logo-red.png" data-number="4" class="fancy">Памуккале</a></li>
+                                                        <li><a href="#yandex_map_with_route" data-img="img/logo.png" data-number="5" class="fancy">Aнталия</a></li>
                                                     </ul>
                                                     <p class="text-center description">
                                                         8-дневный тур «Наследие великих цивилизаций». Вы проведете<br>
@@ -279,13 +304,13 @@
                                                 <div class="top">
                                                     <p class="text-center header">Тур «Наследие великих цивилизаций»</p>
                                                     <p class="text-center duration">7 ночей 8 дней</p>
-                                                    <ul class="list-inline cities text-center">
-                                                        <li><a href="#">Стамбул</a></li>
-                                                        <li><a href="#">Троя</a></li>
-                                                        <li><a href="#">Пергам</a></li>
-                                                        <li><a href="#">Кушадасы</a></li>
-                                                        <li><a href="#">Памуккале</a></li>
-                                                        <li><a href="#">Aнталия</a></li>
+                                                    <ul class="list-inline cities text-center" data-id="3">
+                                                        <li><a href="#yandex_map_with_route" data-img="img/logo-red.png" data-number="0" class="fancy">Стамбул</a></li>
+                                                        <li><a href="#yandex_map_with_route" data-img="img/logo.png" data-number="1" class="fancy">Троя</a></li>
+                                                        <li><a href="#yandex_map_with_route" data-img="img/logo-red.png" data-number="2" class="fancy">Пергам</a></li>
+                                                        <li><a href="#yandex_map_with_route" data-img="img/logo.png" data-number="3" class="fancy">Кушадасы</a></li>
+                                                        <li><a href="#yandex_map_with_route" data-img="img/logo-red.png" data-number="4" class="fancy">Памуккале</a></li>
+                                                        <li><a href="#yandex_map_with_route" data-img="img/logo.png" data-number="5" class="fancy">Aнталия</a></li>
                                                     </ul>
                                                     <p class="text-center description">
                                                         8-дневный тур «Наследие великих цивилизаций». Вы проведете<br>
@@ -323,13 +348,13 @@
                                                 <div class="top">
                                                     <p class="text-center header">Тур «Наследие великих цивилизаций»</p>
                                                     <p class="text-center duration">7 ночей 8 дней</p>
-                                                    <ul class="list-inline cities text-center">
-                                                        <li><a href="#">Стамбул</a></li>
-                                                        <li><a href="#">Троя</a></li>
-                                                        <li><a href="#">Пергам</a></li>
-                                                        <li><a href="#">Кушадасы</a></li>
-                                                        <li><a href="#">Памуккале</a></li>
-                                                        <li><a href="#">Aнталия</a></li>
+                                                    <ul class="list-inline cities text-center" data-id="4">
+                                                        <li><a href="#yandex_map_with_route" data-img="img/logo-red.png" data-number="0" class="fancy">Стамбул</a></li>
+                                                        <li><a href="#yandex_map_with_route" data-img="img/logo.png" data-number="1" class="fancy">Троя</a></li>
+                                                        <li><a href="#yandex_map_with_route" data-img="img/logo-red.png" data-number="2" class="fancy">Пергам</a></li>
+                                                        <li><a href="#yandex_map_with_route" data-img="img/logo.png" data-number="3" class="fancy">Кушадасы</a></li>
+                                                        <li><a href="#yandex_map_with_route" data-img="img/logo-red.png" data-number="4" class="fancy">Памуккале</a></li>
+                                                        <li><a href="#yandex_map_with_route" data-img="img/logo.png" data-number="5" class="fancy">Aнталия</a></li>
                                                     </ul>
                                                     <p class="text-center description">
                                                         8-дневный тур «Наследие великих цивилизаций». Вы проведете<br>
@@ -367,13 +392,13 @@
                                                 <div class="top">
                                                     <p class="text-center header">Тур «Наследие великих цивилизаций»</p>
                                                     <p class="text-center duration">7 ночей 8 дней</p>
-                                                    <ul class="list-inline cities text-center">
-                                                        <li><a href="#">Стамбул</a></li>
-                                                        <li><a href="#">Троя</a></li>
-                                                        <li><a href="#">Пергам</a></li>
-                                                        <li><a href="#">Кушадасы</a></li>
-                                                        <li><a href="#">Памуккале</a></li>
-                                                        <li><a href="#">Aнталия</a></li>
+                                                    <ul class="list-inline cities text-center" data-id="5">
+                                                        <li><a href="#yandex_map_with_route" data-img="img/logo-red.png" data-number="0" class="fancy">Стамбул</a></li>
+                                                        <li><a href="#yandex_map_with_route" data-img="img/logo.png" data-number="1" class="fancy">Троя</a></li>
+                                                        <li><a href="#yandex_map_with_route" data-img="img/logo-red.png" data-number="2" class="fancy">Пергам</a></li>
+                                                        <li><a href="#yandex_map_with_route" data-img="img/logo.png" data-number="3" class="fancy">Кушадасы</a></li>
+                                                        <li><a href="#yandex_map_with_route" data-img="img/logo-red.png" data-number="4" class="fancy">Памуккале</a></li>
+                                                        <li><a href="#yandex_map_with_route" data-img="img/logo.png" data-number="5" class="fancy">Aнталия</a></li>
                                                     </ul>
                                                     <p class="text-center description">
                                                         8-дневный тур «Наследие великих цивилизаций». Вы проведете<br>
@@ -411,13 +436,13 @@
                                                 <div class="top">
                                                     <p class="text-center header">Тур «Наследие великих цивилизаций»</p>
                                                     <p class="text-center duration">7 ночей 8 дней</p>
-                                                    <ul class="list-inline cities text-center">
-                                                        <li><a href="#">Стамбул</a></li>
-                                                        <li><a href="#">Троя</a></li>
-                                                        <li><a href="#">Пергам</a></li>
-                                                        <li><a href="#">Кушадасы</a></li>
-                                                        <li><a href="#">Памуккале</a></li>
-                                                        <li><a href="#">Aнталия</a></li>
+                                                    <ul class="list-inline cities text-center" data-id="6">
+                                                        <li><a href="#yandex_map_with_route" data-img="img/logo-red.png" data-number="0" class="fancy">Стамбул</a></li>
+                                                        <li><a href="#yandex_map_with_route" data-img="img/logo.png" data-number="1" class="fancy">Троя</a></li>
+                                                        <li><a href="#yandex_map_with_route" data-img="img/logo-red.png" data-number="2" class="fancy">Пергам</a></li>
+                                                        <li><a href="#yandex_map_with_route" data-img="img/logo.png" data-number="3" class="fancy">Кушадасы</a></li>
+                                                        <li><a href="#yandex_map_with_route" data-img="img/logo-red.png" data-number="4" class="fancy">Памуккале</a></li>
+                                                        <li><a href="#yandex_map_with_route" data-img="img/logo.png" data-number="5" class="fancy">Aнталия</a></li>
                                                     </ul>
                                                     <p class="text-center description">
                                                         8-дневный тур «Наследие великих цивилизаций». Вы проведете<br>
@@ -455,13 +480,13 @@
                                                 <div class="top">
                                                     <p class="text-center header">Тур «Наследие великих цивилизаций»</p>
                                                     <p class="text-center duration">7 ночей 8 дней</p>
-                                                    <ul class="list-inline cities text-center">
-                                                        <li><a href="#">Стамбул</a></li>
-                                                        <li><a href="#">Троя</a></li>
-                                                        <li><a href="#">Пергам</a></li>
-                                                        <li><a href="#">Кушадасы</a></li>
-                                                        <li><a href="#">Памуккале</a></li>
-                                                        <li><a href="#">Aнталия</a></li>
+                                                    <ul class="list-inline cities text-center" data-id="7">
+                                                        <li><a href="#yandex_map_with_route" data-img="img/logo-red.png" data-number="0" class="fancy">Стамбул</a></li>
+                                                        <li><a href="#yandex_map_with_route" data-img="img/logo.png" data-number="1" class="fancy">Троя7</a></li>
+                                                        <li><a href="#yandex_map_with_route" data-img="img/logo-red.png" data-number="2" class="fancy">Пергам</a></li>
+                                                        <li><a href="#yandex_map_with_route" data-img="img/logo.png" data-number="3" class="fancy">Кушадасы</a></li>
+                                                        <li><a href="#yandex_map_with_route" data-img="img/logo-red.png" data-number="4" class="fancy">Памуккале</a></li>
+                                                        <li><a href="#yandex_map_with_route" data-img="img/logo.png" data-number="5" class="fancy">Aнталия</a></li>
                                                     </ul>
                                                     <p class="text-center description">
                                                         8-дневный тур «Наследие великих цивилизаций». Вы проведете<br>
@@ -492,6 +517,74 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                <div style="display: none">
+                                    <div id="yandex_map_with_route">
+                                        <script>
+                                            var map, mapRoute;
+
+                                            ymaps.ready(function() {
+                                                map = new ymaps.Map('map', {
+                                                    center: [39.52, 32.52],
+                                                    zoom: 6
+                                                });
+                                            });
+
+
+                                            $( ".cities a" ).click(function( event ) {
+                                                event.preventDefault();
+                                                var tour_number = $(this).parent().parent().attr("data-id");
+                                                var ballon_number = $(this).attr("data-number");
+                                                // Удаление старого маршрута
+                                                if (mapRoute) {
+                                                    map.geoObjects.remove(mapRoute);
+                                                }
+
+                                                var cities_amount =  $("ul.cities[data-id="+tour_number+"] > li").length;
+
+                                                var cities  = [];
+                                                var cities_images = [];
+                                                var i = 0;
+                                                var city_name = "none";
+                                                for(i=0; i<cities_amount; i++){
+                                                    city_name =  $("ul.cities[data-id="+tour_number+"] > li:nth-child(" + (i+1) + ") > a").text();
+                                                    cities_images[i] = $("ul.cities[data-id="+tour_number+"] > li:nth-child(" + (i+1) + ") > a").attr("data-img");
+                                                    cities[i] = "Турция, "+ city_name +"";
+                                                }
+
+                                                // Создание маршрута
+                                                ymaps.route(cities, {mapStateAutoApply:true}).then(
+                                                        function(route) {
+                                                            map.geoObjects.add(route);
+
+                                                            var points = route.getWayPoints();
+                                                            // Задаем стиль метки - иконки будут красного цвета, и
+                                                            // их изображения будут растягиваться под контент.
+                                                            points.options.set('preset', 'twirl#redStretchyIcon');
+
+                                                            for(i=0; i<cities_amount;i++){
+                                                                // Задаем контент меток.
+                                                                points.get(i).properties.set('iconContent', cities[i].substring(8));
+                                                                points.get(i).properties.set('balloonContent', "<p><img src="+cities_images[i]+" /></p><p>" + cities[i].substring(8)+"</p>");
+                                                            }
+
+                                                            var wayPoint = route.getWayPoints().get(ballon_number);
+                                                            ymaps.geoObject.addon.balloon.get(wayPoint).open();
+
+                                                            //document.getElementById('route-length').innerHTML = 'Длина маршрута = ' + route.getHumanLength();
+                                                            mapRoute = route;
+                                                        },
+                                                        function(error) {
+                                                            alert('Невозможно построить маршрут');
+                                                        }
+                                                );
+                                            });
+                                        </script>
+                                        <div id="map"></div>
+                                        <!--< div id="route-length"></div>-->
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </div>

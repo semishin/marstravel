@@ -17,8 +17,9 @@ class Model_Partner extends ORM
         return array(
             'id' => 'Идентификатор',
             'name' => 'Имя',
+            'link' => 'Ссылка на партнера',
             'active' => 'Активность',
-            'images' => 'Изображение'
+            'image' => 'Изображение'
         );
     }
 
@@ -30,6 +31,7 @@ class Model_Partner extends ORM
     protected $_grid_columns = array(
 
         'name' => null,
+        'link' => null,
         'active' => null,
 
         'edit' => array(

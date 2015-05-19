@@ -59,8 +59,6 @@ $( document ).ready(function() {
     );
 
 
-
-
     $('.carousel').carousel({
         interval: false
     })
@@ -100,18 +98,168 @@ $( document ).ready(function() {
         $("#children_number").val(counter2);
     });
 
-    $('input[name="daterange"]').daterangepicker();
 
-    $('#any_id').barousel({
-        navType: 2,
-        fadeIn: 1,
-        manualCarousel: 1
-    });
+    if($('input[name="daterange"]').length>0){
+        $('input[name="daterange"]').daterangepicker({
+            singleDatePicker: true,
+            showDropdowns: true
+        });
+    }
+
 
     if($('#any_id').length>0){
+
+        $('#any_id').barousel({
+            navType: 2,
+            fadeIn: 1,
+            manualCarousel: 1
+        });
+
         var image_width = $("#any_id").width();
         $("#any_id>.barousel_image>img").width(image_width);
     }
+
+
+    $.fn.equalizeHeights = function() {
+        var maxHeight = this.map(function(i,e) {
+            return $(e).height();
+        }).get();
+
+        return this.height( Math.max.apply(this, maxHeight) );
+    };
+
+    $('.hotels_block').each(function(i,elem) {
+        $(this).find('.hotel .name').equalizeHeights();
+    });
+
+    $('.sights_block').each(function(i,elem) {
+        $(this).find('.sight .name').equalizeHeights();
+    });
+
+
+    if($('.selectpicker').length>0){
+        $('.selectpicker').selectpicker();
+    }
+
+    if($('.filter').length>0){
+        $('.filter input').iCheck({
+            checkboxClass: 'icheckbox_minimal',
+            radioClass: 'iradio_minimal',
+            increaseArea: '20%' // optional
+        });
+    }
+
+    $('.lightbox_form .red_btn').click(function(e) {
+        e.preventDefault();
+        var errors = 0;
+        var f_id = $(this).data('id');
+        //alert("data-id="+f_id)
+        if($('.lightbox_form[data-id='+f_id+'] input[name="name"]').length>0){
+            var name = $('.lightbox_form[data-id='+f_id+'] input[name="name"]').val();
+            //alert("name="+name);
+            if (!name) {
+                $('.lightbox_form[data-id='+f_id+'] input[name=name]').addClass('error');
+                errors++;
+            } else {
+                $('.lightbox_form[data-id='+f_id+'] input[name=name]').removeClass('error');
+            }
+        }
+        if($('.lightbox_form[data-id='+f_id+'] input[name="email"]').length>0){
+            var email = $('.lightbox_form[data-id='+f_id+'] input[name="email"]').val();
+            //alert("email="+email);
+            if (!email) {
+                $('.lightbox_form[data-id='+f_id+'] input[name=email]').addClass('error');
+                errors++;
+            } else {
+                $('.lightbox_form[data-id='+f_id+'] input[name=email]').removeClass('error');
+            }
+        }
+        if($('.lightbox_form[data-id='+f_id+'] input[name="phone"]').length>0){
+            var phone = $('.lightbox_form[data-id='+f_id+'] input[name="phone"]').val();
+            //alert("phone="+phone);
+            if (!phone) {
+                $('.lightbox_form[data-id='+f_id+'] input[name=phone]').addClass('error');
+                errors++;
+            } else {
+                $('.lightbox_form[data-id='+f_id+'] input[name=phone]').removeClass('error');
+            }
+        }
+        if($('.lightbox_form[data-id='+f_id+'] input[name="code"]').length>0){
+            var code = $('.lightbox_form[data-id='+f_id+'] input[name="code"]').val();
+            //alert("code="+code);
+            if (!code) {
+                $('.lightbox_form[data-id='+f_id+'] input[name=code]').addClass('error');
+                errors++;
+            } else {
+                $('.lightbox_form[data-id='+f_id+'] input[name=code]').removeClass('error');
+            }
+        }
+        if($('.lightbox_form[data-id='+f_id+'] textarea[name="question"]').length>0){
+            var question = $('.lightbox_form[data-id='+f_id+'] textarea[name="question"]').val();
+            //alert("question="+question);
+            if (!question) {
+                $('.lightbox_form[data-id='+f_id+'] textarea[name=question]').addClass('error');
+                errors++;
+            } else {
+                $('.lightbox_form[data-id='+f_id+'] textarea[name=question]').removeClass('error');
+            }
+        }
+
+        if (errors) {
+            alert("error "+errors);
+            return false;
+        } else{
+            switch (f_id) {
+                case 0:
+                    //alert("ajax method - "+f_id);
+                    $.ajax({
+                        url : " ",
+                        dataType : "json",
+                        type : "post",
+                        data : {name : name, email : email, phone : phone, question : question},
+                        success : function(jsondata) {
+                            alert("Success");
+                        },
+                        error: function(xhr, status, error) {
+                            alert(status + '|\n' +error);
+                        }
+                    });
+                    break
+                case 1:
+                    //alert("ajax method - "+f_id);
+                    $.ajax({
+                        url : " ",
+                        dataType : "json",
+                        type : "post",
+                        data : {name : name, email : email, phone : phone},
+                        success : function(jsondata) {
+                            alert("Success");
+                        },
+                        error: function(xhr, status, error) {
+                            alert(status + '|\n' +error);
+                        }
+                    });
+                    break
+                case 2:
+                    //alert("ajax method - "+f_id);
+                    $.ajax({
+                        url : " ",
+                        dataType : "json",
+                        type : "post",
+                        data : {name : name, email : email, phone : phone, code : code},
+                        success : function(jsondata) {
+                            alert("Success");
+                        },
+                        error: function(xhr, status, error) {
+                            alert(status + '|\n' +error);
+                        }
+                    });
+                    break
+                default:
+                    alert('Я таких значений не знаю')
+            }
+        }
+    });
 
 
 });

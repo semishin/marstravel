@@ -44,7 +44,9 @@
             <div class="row">
                 <div class="col-xs-12">
                     <div class="advertising">
-                        <img src="/marstravel-bootstrap/img/top-banner.jpg" class="img-responsive">
+                        <?php foreach ($top_banner as $item) { ?>
+                            <a href="<?php echo $item->link ?>"><img src="<?php echo Lib_Image::crop($item->image, 'banner',$item->id, 1234, 90); ?>" class="img-responsive"></a>
+                        <?php } ?>
                     </div>
                 </div>
                 <div class="col-xs-12">
@@ -53,7 +55,7 @@
                             <div class="col-xs-7">
                                 <ul class="list-inline pull-left">
                                     <li><a href="/about-us">О компании</a></li>
-                                    <li><a href="/">Экскурсионные туры</a></li>
+                                    <li><a href="/advertising">Реклама на сайте</a></li>
                                     <li><a href="/our-partners">Наши партнёры</a></li>
                                     <li><a href="/contacts">Контакты</a></li>
                                 </ul>
@@ -63,6 +65,26 @@
                                     <li class="email"><a href="#"><?php echo Kohana::$config->load('properties.email'); ?></a></li>
                                     <li><b><?php echo Kohana::$config->load('properties.phone'); ?></b></li>
                                 </ul>
+                                <div style="display: none">
+                                    <div id="ask_consultant">
+                                        <p class="lightbox_header">Задать вопрос консультанту</p>
+                                        <form role="form" class="lightbox_form" data-id="0">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" id="Name_0" placeholder="Имя" name="name">
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="email" class="form-control" id="Email_0" placeholder="E-mail" name="email">
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" id="Phone_0" placeholder="Телефон" name="phone">
+                                            </div>
+                                            <div class="form-group">
+                                                <textarea placeholder="Вопрос" rows="3" class="form-control" name="question"></textarea>
+                                            </div>
+                                            <a href="#" class="red_btn" data-id="0">Отправить</a>
+                                        </form>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -93,7 +115,7 @@
                             </div>
                             <div class="col-md-3 col-xs-4">
                                 <div class="pull-right">
-                                    <a href="#" class="black_btn">Задать вопрос консультанту</a>
+                                    <a href="#ask_consultant" class="black_btn fancy">Задать вопрос консультанту</a>
                                 </div>
                             </div>
                         </div>
@@ -127,7 +149,7 @@
                     <div class="footer_menu">
                         <ul class="list-unstyled">
                             <li><a href="/about-us">О компании</a></li>
-                            <li><a href="/">Экскурсионные туры</a></li>
+                            <li><a href="/advertising">Реклама на сайте</a></li>
                         </ul>
 
                         <ul class="list-unstyled">
