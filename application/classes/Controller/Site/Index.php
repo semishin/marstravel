@@ -31,7 +31,7 @@ class Controller_Site_Index extends Controller_Site
             ->as_array();
         $left_banner = ORM::factory('Banner')
             ->where('active','=',1)
-            ->where('position','=',0)
+            ->where('type','=',2)
             ->order_by('id','desc')
             ->limit(self::LIMIT_ON_PAGE_BANNERS)
             ->find_all()

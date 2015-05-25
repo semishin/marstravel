@@ -24,7 +24,7 @@ class Controller_Site extends Controller
 
         $top_banner = ORM::factory('Banner')
             ->where('active','=',1)
-            ->where('position','=',1)
+            ->where('type','=',1)
             ->order_by('id','desc')
             ->limit(self::LIMIT_ON_PAGE_BANNERS)
             ->find_all()

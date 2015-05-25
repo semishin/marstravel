@@ -71,7 +71,7 @@
                         );
                     }
 
-                    $( "a" ).click(function( event ) {
+                    $( ".cities a" ).click(function( event ) {
                         event.preventDefault();
                         var ballon_number = $(this).attr("data-number");
                         // Удаление старого маршрута

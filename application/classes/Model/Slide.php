@@ -13,6 +13,7 @@ class Model_Slide extends ORM
         return array(
             'id' => 'Идентификатор',
             'name' => 'Наименование',
+            'link' => 'Ссылка',
             'image'=>'Изображение',
             'content' => 'Контент',
             'active' => 'Активность',

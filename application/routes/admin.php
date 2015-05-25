@@ -27,6 +27,27 @@ Route::set('admin-tour', $adminPrefix . 'tour(/<action>(/<id>))')
         'action' => 'index'
     ));
 
+Route::set('admin-hotel', $adminPrefix . 'hotel(/<action>(/<id>))')
+    ->defaults(array(
+        'directory' => 'admin',
+        'controller' => 'hotel',
+        'action' => 'index'
+    ));
+
+Route::set('admin-sight', $adminPrefix . 'sight(/<action>(/<id>))')
+    ->defaults(array(
+        'directory' => 'admin',
+        'controller' => 'sight',
+        'action' => 'index'
+    ));
+
+Route::set('admin-sight_category', $adminPrefix . 'sight_category(/<action>(/<id>))')
+    ->defaults(array(
+        'directory' => 'admin',
+        'controller' => 'sight_category',
+        'action' => 'index'
+    ));
+
 Route::set('admin-partner', $adminPrefix . 'partner(/<action>(/<id>))')
     ->defaults(array(
         'directory' => 'admin',

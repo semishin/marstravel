@@ -9,7 +9,9 @@
                     <div class="carousel-inner">
                         <?php foreach ($slide as $index => $item) { ?>
                             <div class="item <?php if (!$index) { ?>active<?php } ?>">
-                                <img src="<?php echo Lib_Image::crop($item->image, 'slide',$item->id, 870, 285); ?>" class="img-responsive">
+                                <a href="<?php echo $item->link ?>">
+                                    <img src="<?php echo Lib_Image::crop($item->image, 'slide',$item->id, 905, 489); ?>" class="img-responsive">
+                                </a>
                                 <div class="carousel-caption"></div>
                             </div>
                         <?php } ?>
@@ -50,11 +52,11 @@
                     </div>
                 </div>
                 <div class="col-md-12 col-xs-4">
-                    <div class="left_banner">
-                        <?php foreach ($left_banner as $item) { ?>
-                            <a href="<?php echo $item->link ?>"><img src="<?php echo Lib_Image::crop($item->image, 'banner',$item->id, 270, 360); ?>" class="img-responsive"></a>
-                        <?php } ?>
-                    </div>
+                    <?php foreach ($left_banner as $item) { ?>
+                        <a href="<?php echo $item->link ?>">
+                            <div class="left_banner" style="height: 343px;background:url(<?php echo Lib_Image::crop($item->image, 'banner',$item->id, 282, 360); ?>);"></div>
+                        </a>
+                    <?php } ?>
                 </div>
             </div>
 
@@ -113,7 +115,7 @@
                             <div class="image">
 
                                 <div class="star_label_trans">
-                                    <div class="star"></div><div class="text"><b><?php echo $item->slogan ?></b></div><div class="border"></div>
+                                    <div class="star"></div><div class="text"><p><b><?php echo $item->slogan ?></b></p></div><div class="border"></div>
                                 </div>
 
                                 <div class="triangle"></div>

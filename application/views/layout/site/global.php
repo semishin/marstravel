@@ -45,7 +45,7 @@
                 <div class="col-xs-12">
                     <div class="advertising">
                         <?php foreach ($top_banner as $item) { ?>
-                            <a href="<?php echo $item->link ?>"><img src="<?php echo Lib_Image::crop($item->image, 'banner',$item->id, 1234, 90); ?>" class="img-responsive"></a>
+                            <a href="<?php echo $item->link ?>"><img src="<?php echo Lib_Image::crop($item->image, 'banner', $item->id, 1234, 90); ?>" class="img-responsive"></a>
                         <?php } ?>
                     </div>
                 </div>
@@ -137,7 +137,11 @@
                 <?php foreach ((array_chunk($partner,4)) as $row) { ?>
                     <div class="row">
                         <?php foreach($row as $item) { ?>
-                            <div class="col-xs-3"><a href="#"><img src="<?php echo Lib_Image::resize_width($item->image, 'partner',$item->id, 165); ?>" class="img-responsive"></a></div>
+                            <div class="col-xs-3">
+                                <a href="<?php echo $item->link; ?>">
+                                    <img src="<?php echo $item->image; ?>" class="img-responsive">
+                                </a>
+                            </div>
                         <?php } ?>
                     </div>
                 <?php } ?>

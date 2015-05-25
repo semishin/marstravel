@@ -49,6 +49,51 @@ return array(
         'parent' => 'admin.tour.index'
     ),
 
+    'admin.hotel.index' => array(
+        'title' => 'Список отелей',
+        'route' => 'admin-hotel'
+    ),
+    'admin.hotel.edit' => array(
+        'title' => 'Редактирование отелей',
+        'route' => 'admin-hotel:edit',
+        'parent' => 'admin.hotel.index'
+    ),
+    'admin.hotel.create' => array(
+        'title' => 'Добавление отелей',
+        'route' => 'admin-hotel:create',
+        'parent' => 'admin.hotel.index'
+    ),
+
+    'admin.sight.index' => array(
+        'title' => 'Список достопримечательностей',
+        'route' => 'admin-sight'
+    ),
+    'admin.sight.edit' => array(
+        'title' => 'Редактирование достопримечательностей',
+        'route' => 'admin-sight:edit',
+        'parent' => 'admin.sight.index'
+    ),
+    'admin.sight.create' => array(
+        'title' => 'Добавление достопримечательностей',
+        'route' => 'admin-sight:create',
+        'parent' => 'admin.sight.index'
+    ),
+
+    'admin.sight_category.index' => array(
+        'title' => 'Список категорий достопримечательностей',
+        'route' => 'admin-sight_category'
+    ),
+    'admin.sight_category.edit' => array(
+        'title' => 'Редактирование категории достопримечательностей',
+        'route' => 'admin-sight_category:edit',
+        'parent' => 'admin.sight_category.index'
+    ),
+    'admin.sight_category.create' => array(
+        'title' => 'Добавление категории достопримечательностей',
+        'route' => 'admin-sight_category:create',
+        'parent' => 'admin.sight_category.index'
+    ),
+
     'admin.partner.index' => array(
         'title' => 'Список партнеров',
         'route' => 'admin-partner'

@@ -18,7 +18,7 @@ class Model_Banner extends ORM
             'id' => 'Идентификатор',
             'name' => 'Имя',
             'link' => 'Ссылка',
-            'position' => 'Позиция, включите если баннер вверхний, выключите если боковой',
+            'type' => 'Расположение баннера',
             'active' => 'Активность',
             'image' => 'Изображение'
         );
@@ -26,14 +26,14 @@ class Model_Banner extends ORM
 
     public function form()
     {
-        return new Form_Admin_Partner($this);
+        return new Form_Admin_Banner($this);
     }
 
     protected $_grid_columns = array(
 
         'name' => null,
         'link' => null,
-        'position' => null,
+//        'type' => null,
         'active' => null,
 
         'edit' => array(
@@ -59,8 +59,18 @@ class Model_Banner extends ORM
     {
         return array(
             'name',
-            'position',
+//            'type',
             'active'
         );
     }
+
+//    public function fetchLeft()
+//    {
+//        return $this->where('active', '=', 1)->where('type', '=', 2)->order_by('id', 'DESC')->find();
+//    }
+//
+//    public function fetchTop()
+//    {
+//        return $this->where('active', '=', 1)->where('type', '=', 1)->order_by('id', 'DESC')->find()->as_array();
+//    }
 }

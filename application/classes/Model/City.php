@@ -15,13 +15,20 @@ class Model_City extends ORM
             'far_key'      => 'tour_id',
         )
     );
-
     protected $_has_many = array(
         'tour'    => array(
             'model'=> 'Tour',
             'foreign_key' => 'city_id',
             'through'      => 'tour_cities',
             'far_key'      => 'tour_id',
+        ),
+        'hotel' => array(
+            'model' => 'Hotel',
+            'foreign_key' => 'city_id'
+        ),
+        'sight' => array(
+            'model' => 'Sight',
+            'foreign_key' => 'city_id'
         )
     );
 
