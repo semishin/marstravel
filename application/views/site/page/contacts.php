@@ -7,40 +7,30 @@
 
                     <!-- Wrapper for slides -->
                     <div class="carousel-inner">
-                        <div class="item active">
-                            <img src="/marstravel-bootstrap/img/akvapark.jpg" class="img-responsive">
-                            <div class="carousel-caption"></div>
-                        </div>
-                        <div class="item">
-                            <img src="/marstravel-bootstrap/img/akvapark.jpg" class="img-responsive">
-                            <div class="carousel-caption"></div>
-                        </div>
-                        <div class="item">
-                            <img src="/marstravel-bootstrap/img/akvapark.jpg" class="img-responsive">
-                            <div class="carousel-caption"></div>
-                        </div>
+                        <?php foreach ($slide as $index => $item) { ?>
+                            <div class="item <?php if (!$index) { ?>active<?php } ?>">
+                                <a href="<?php echo $item->link ?>">
+                                    <img src="<?php echo Lib_Image::crop($item->image, 'slide',$item->id, 905, 489); ?>" class="img-responsive">
+                                </a>
+                                <div class="carousel-caption"></div>
+                            </div>
+                        <?php } ?>
                     </div>
                 </div>
 
                 <div class="col-md-3 col-xs-4 right_part">
-                    <div class="slide_text active text0">
-                        <p class="text-center">Аквапарк в Измире</p>
-                        <p class="text-center"><i>Aqua<br>Fantasy<br>Land</i></p>
-                    </div>
-                    <div class="slide_text text1">
-                        <p class="text-center">2квапарк в Измире</p>
-                        <p class="text-center"><i>2qua<br>Fantasy<br>Land</i></p>
-                    </div>
-                    <div class="slide_text text2">
-                        <p class="text-center">3квапарк в Измире</p>
-                        <p class="text-center"><i>3qua<br>Fantasy<br>Land</i></p>
-                    </div>
+                    <?php foreach ($slide as $index => $item) { ?>
+                        <div class="slide_text <?php if (!$index) { ?>active<?php } ?> text<?php echo $index ?>">
+                            <p class="text-center"><?php echo $item->name ?></p>
+                            <p class="text-center"><i><?php echo $item->content ?></i></p>
+                        </div>
+                    <?php } ?>
 
                     <!-- Indicators -->
                     <ol class="carousel-indicators">
-                        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                        <?php for ($i = 0; $i < $count_slide; $i++) { ?>
+                            <li data-target="#carousel-example-generic" data-slide-to="<?php echo $i ?>" <?php if (!$i) { ?>class="active"<?php } ?>></li>
+                        <?php } ?>
                     </ol>
                 </div>
             </div>
@@ -54,22 +44,19 @@
                 <div class="col-md-12 col-xs-8">
                     <div class="left_menu">
                         <ul class="list-unstyled">
-                            <li><a href="#"><i class="icon icon_turkey"></i><span>О Турции</span></a></li>
-                            <li><a href="#"><i class="icon icon_attractions"></i><span>Достопримечательности</span></a></li>
-                            <li><a href="#"><i class="icon icon_hotel"></i><span>Отели Турции</span></a></li>
-                            <li><a href="#"><i class="icon icon_weather"></i><span>Погода в Турции</span></a></li>
+                            <li><a href="/about-turkey"><i class="icon icon_turkey"></i><span>О Турции</span></a></li>
+                            <li><a href="/sights"><i class="icon icon_attractions"></i><span>Достопримечательности</span></a></li>
+                            <li><a href="/hotels"><i class="icon icon_hotel"></i><span>Отели Турции</span></a></li>
+                            <li><a href="/weather"><i class="icon icon_weather"></i><span>Погода в Турции</span></a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-md-12 col-xs-4">
-                    <div class="left_banner">
-                        <p class="text-center">Баннерная реклама</p>
-                        <p class="text-center"><i>Рекламный<br>
-                                баннер<br>
-                                270 х 283<br>
-                                пикселей</i></p>
-                        <div class="button text-center"><a href="#">Подробности</a></div>
-                    </div>
+                    <?php foreach ($left_banner as $item) { ?>
+                        <a href="<?php echo $item->link ?>">
+                            <div class="left_banner" style="height: 343px;background:url(<?php echo Lib_Image::crop($item->image, 'banner',$item->id, 282, 360); ?>);"></div>
+                        </a>
+                    <?php } ?>
                 </div>
             </div>
 
@@ -93,7 +80,7 @@
 
         </div>
         <div class="col-md-9 col-xs-12 right_block">
-            <h1 style="margin-top: 0px;">Static Page</h1>
+            <h1 style="margin-top: 0px;"><?php echo $name ?></h1>
         </div>
     </div>
 </div>

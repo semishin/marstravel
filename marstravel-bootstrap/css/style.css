@@ -279,7 +279,7 @@ body{
 .search_line .search{
     width: 570px;
 }
-.search_line .search>.input-group{
+.search_line .search>form>.input-group{
     padding: 8px 0px;
     background-color: #eeeeee;
     border-radius: 25px;

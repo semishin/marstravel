@@ -2,70 +2,150 @@
 
 class Controller_Site_Page extends Controller_Site
 {
+    const LIMIT_ON_PAGE_BANNERS = 1;
+
     public function action_contacts()
     {
         $this->set_metatags_and_content('contacts', 'page');
+
+        $slide = ORM::factory('Slide')
+            ->where('active','=',1)
+            ->order_by('position','asc')
+            ->find_all();
+        $count_slide = ORM::factory('Slide')
+            ->where('active','=',1)
+            ->count_all();
+        $left_banner = ORM::factory('Banner')
+            ->where('active','=',1)
+            ->where('type','=',2)
+            ->order_by('id','desc')
+            ->limit(self::LIMIT_ON_PAGE_BANNERS)
+            ->find_all()
+            ->as_array();
+
+        $this->template->slide = $slide;
+        $this->template->count_slide = $count_slide;
+        $this->template->left_banner = $left_banner;
     }
 
     public function action_about_us()
     {
         $this->set_metatags_and_content('about-us', 'page');
+
+        $slide = ORM::factory('Slide')
+            ->where('active','=',1)
+            ->order_by('position','asc')
+            ->find_all();
+        $count_slide = ORM::factory('Slide')
+            ->where('active','=',1)
+            ->count_all();
+        $left_banner = ORM::factory('Banner')
+            ->where('active','=',1)
+            ->where('type','=',2)
+            ->order_by('id','desc')
+            ->limit(self::LIMIT_ON_PAGE_BANNERS)
+            ->find_all()
+            ->as_array();
+
+        $this->template->slide = $slide;
+        $this->template->count_slide = $count_slide;
+        $this->template->left_banner = $left_banner;
     }
 
     public function action_our_partners()
     {
         $this->set_metatags_and_content('our-partners', 'page');
-    }
 
-    public function action_hotels()
-    {
-        $this->set_metatags_and_content('hotels', 'page');
-
-        $hotel = ORM::factory('Hotel')
+        $slide = ORM::factory('Slide')
             ->where('active','=',1)
-            ->order_by('id','desc')
-//            ->limit(self::LIMIT_ON_PAGE_BANNERS)
-            ->find_all()
-            ->as_array();
-        $count_hotel = ORM::factory('Hotel')
+            ->order_by('position','asc')
+            ->find_all();
+        $count_slide = ORM::factory('Slide')
             ->where('active','=',1)
             ->count_all();
+        $left_banner = ORM::factory('Banner')
+            ->where('active','=',1)
+            ->where('type','=',2)
+            ->order_by('id','desc')
+            ->limit(self::LIMIT_ON_PAGE_BANNERS)
+            ->find_all()
+            ->as_array();
 
-        $this->template->count_hotel = $count_hotel;
-        $this->template->hotel = $hotel;
+        $this->template->slide = $slide;
+        $this->template->count_slide = $count_slide;
+        $this->template->left_banner = $left_banner;
     }
 
     public function action_about_turkey()
     {
         $this->set_metatags_and_content('about-turkey', 'page');
-    }
 
-    public function action_sight()
-    {
-        $this->set_metatags_and_content('sight', 'page');
-
-        $sight = ORM::factory('Sight')
+        $slide = ORM::factory('Slide')
             ->where('active','=',1)
-            ->order_by('id','desc')
-//            ->limit(self::LIMIT_ON_PAGE_BANNERS)
-            ->find_all()
-            ->as_array();
-        $count_sight = ORM::factory('Sight')
+            ->order_by('position','asc')
+            ->find_all();
+        $count_slide = ORM::factory('Slide')
             ->where('active','=',1)
             ->count_all();
+        $left_banner = ORM::factory('Banner')
+            ->where('active','=',1)
+            ->where('type','=',2)
+            ->order_by('id','desc')
+            ->limit(self::LIMIT_ON_PAGE_BANNERS)
+            ->find_all()
+            ->as_array();
 
-        $this->template->count_sight = $count_sight;
-        $this->template->sight = $sight;
+        $this->template->slide = $slide;
+        $this->template->count_slide = $count_slide;
+        $this->template->left_banner = $left_banner;
     }
 
     public function action_weather()
     {
         $this->set_metatags_and_content('weather', 'page');
+
+        $slide = ORM::factory('Slide')
+            ->where('active','=',1)
+            ->order_by('position','asc')
+            ->find_all();
+        $count_slide = ORM::factory('Slide')
+            ->where('active','=',1)
+            ->count_all();
+        $left_banner = ORM::factory('Banner')
+            ->where('active','=',1)
+            ->where('type','=',2)
+            ->order_by('id','desc')
+            ->limit(self::LIMIT_ON_PAGE_BANNERS)
+            ->find_all()
+            ->as_array();
+
+        $this->template->slide = $slide;
+        $this->template->count_slide = $count_slide;
+        $this->template->left_banner = $left_banner;
     }
 
     public function action_advertising()
     {
         $this->set_metatags_and_content('advertising', 'page');
+
+        $slide = ORM::factory('Slide')
+            ->where('active','=',1)
+            ->order_by('position','asc')
+            ->find_all();
+        $count_slide = ORM::factory('Slide')
+            ->where('active','=',1)
+            ->count_all();
+        $left_banner = ORM::factory('Banner')
+            ->where('active','=',1)
+            ->where('type','=',2)
+            ->order_by('id','desc')
+            ->limit(self::LIMIT_ON_PAGE_BANNERS)
+            ->find_all()
+            ->as_array();
+
+        $this->template->slide = $slide;
+        $this->template->count_slide = $count_slide;
+        $this->template->left_banner = $left_banner;
     }
 
 }

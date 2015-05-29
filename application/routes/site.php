@@ -33,13 +33,13 @@ Route::set('site-our_partners', 'our-partners')
         'controller' => 'page',
         'action'     => 'our_partners',
     ));
-
-Route::set('site-hotels', 'hotels')
-    ->defaults(array(
-        'directory' => 'site',
-        'controller' => 'page',
-        'action'     => 'hotels',
-    ));
+//
+//Route::set('site-hotels', 'hotels')
+//    ->defaults(array(
+//        'directory' => 'site',
+//        'controller' => 'page',
+//        'action'     => 'hotels',
+//    ));
 
 Route::set('site-weather', 'weather')
     ->defaults(array(
@@ -54,19 +54,47 @@ Route::set('site-about_turkey', 'about-turkey')
         'controller' => 'page',
         'action'     => 'about_turkey',
     ));
-
-Route::set('site-sight', 'sight')
-    ->defaults(array(
-        'directory' => 'site',
-        'controller' => 'page',
-        'action'     => 'sight',
-    ));
+//
+//Route::set('site-sight', 'sight')
+//    ->defaults(array(
+//        'directory' => 'site',
+//        'controller' => 'page',
+//        'action'     => 'sight',
+//    ));
 
 Route::set('site-advertising', 'advertising')
     ->defaults(array(
         'directory' => 'site',
         'controller' => 'page',
         'action'     => 'advertising',
+    ));
+
+Route::set('site-hotels', 'hotels(/<page>)', array ('page' => '\d+'))
+    ->defaults(array(
+        'directory' => 'site',
+        'controller' => 'hotel',
+        'action'     => 'index',
+    ));
+
+Route::set('site-hotel', 'hotel/<url>')
+    ->defaults(array(
+        'directory' => 'site',
+        'controller' => 'hotel',
+        'action'     => 'item',
+    ));
+
+Route::set('site-sights', 'sights(/<page>)', array ('page' => '\d+'))
+    ->defaults(array(
+        'directory' => 'site',
+        'controller' => 'sight',
+        'action'     => 'index',
+    ));
+
+Route::set('site-sight', 'sight/<url>')
+    ->defaults(array(
+        'directory' => 'site',
+        'controller' => 'sight',
+        'action'     => 'item',
     ));
 
 Route::set('site-tour-item', 'tour/<url>')

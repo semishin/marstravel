@@ -15,8 +15,8 @@ class Controller_Site_Search extends Controller_Site {
 
         $offset = $limit * $page - $limit;
 
-        $search_result = ORM::factory('Article')->search(
-            array('name', 'content'),
+        $search_result = ORM::factory('Tour')->search(
+            array('name', 'content', 'short_content'),
             Arr::get($_GET, 'q'),
             $limit,
             $offset,
@@ -37,6 +37,6 @@ class Controller_Site_Search extends Controller_Site {
 
         $this->template->countall = $search_result['count_all'];
         $this->template->items = $search_result['result'];
-        $this->template->set_layout('layout/site/global_inner');
+        $this->template->set_layout('layout/site/global');
     }
 }

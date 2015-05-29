@@ -105,12 +105,14 @@
                             </div>
                             <div class="col-md-6 col-xs-5">
                                 <div class="search">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" placeholder="Поиск по сайту">
+                                    <form action="/search">
+                                        <div class="input-group">
+                                            <input type="text" name="q" class="form-control" placeholder="Поиск по сайту">
                                             <span class="input-group-btn">
                                                 <button class="btn btn-default" type="button"><i class="search_icon"></i></button>
                                             </span>
-                                    </div><!-- /input-group -->
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                             <div class="col-md-3 col-xs-4">
@@ -168,7 +170,7 @@
 
                         <ul class="list-unstyled">
                             <li><a href="/about-turkey">О Турции</a></li>
-                            <li><a href="/sight">Достопримечательности</a></li>
+                            <li><a href="/sights">Достопримечательности</a></li>
                         </ul>
 
                         <ul class="list-unstyled gold">
