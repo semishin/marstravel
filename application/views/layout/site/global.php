@@ -17,7 +17,8 @@
     <link rel="stylesheet" href="/marstravel-bootstrap/fancybox/jquery.fancybox.css">
     <link rel="stylesheet" type="text/css" href="/marstravel-bootstrap/datepicker/daterangepicker-bs3.css" />
     <link href="/marstravel-bootstrap/css/barousel.css" rel="stylesheet">
-
+    <link href="/marstravel-bootstrap/css/bootstrap-select.min.css" rel="stylesheet">
+    <link href="/marstravel-bootstrap/css/minimal/minimal.css" rel="stylesheet">
     <link href="/marstravel-bootstrap/css/style.css" rel="stylesheet">
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -32,7 +33,8 @@
     <script type="text/javascript" src="/marstravel-bootstrap/datepicker/daterangepicker.js"></script>
     <script type="text/javascript" src="/marstravel-bootstrap/datepicker/ru.js"></script>
     <script src="/marstravel-bootstrap/js/barousel.js"></script>
-
+    <script src="/marstravel-bootstrap/js/bootstrap-select.min.js"></script>
+    <script src="/marstravel-bootstrap/js/icheck.js"></script>
     <!-- Include  user-js -->
     <script src="/marstravel-bootstrap/js/script.js"></script>
 
@@ -62,7 +64,7 @@
                             </div>
                             <div class="col-xs-5">
                                 <ul class="list-inline pull-right">
-                                    <li class="email"><a href="#"><?php echo Kohana::$config->load('properties.email'); ?></a></li>
+                                    <li class="email"><a href="#ask_consultant" class="fancy"><?php echo Kohana::$config->load('properties.email'); ?></a></li>
                                     <li><b><?php echo Kohana::$config->load('properties.phone'); ?></b></li>
                                 </ul>
                                 <div style="display: none">
@@ -140,7 +142,7 @@
                     <div class="row">
                         <?php foreach($row as $item) { ?>
                             <div class="col-xs-3">
-                                <a href="<?php echo $item->link; ?>">
+                                <a href="http://<?php echo $item->link; ?>">
                                     <img src="<?php echo $item->image; ?>" class="img-responsive">
                                 </a>
                             </div>
@@ -175,7 +177,7 @@
 
                         <ul class="list-unstyled gold">
                             <li><b><?php echo Kohana::$config->load('properties.phone'); ?></b></li>
-                            <li><a href="#"><?php echo Kohana::$config->load('properties.email'); ?></a></li>
+                            <li><a href="#ask_consultant" class="fancy"><?php echo Kohana::$config->load('properties.email'); ?></a></li>
                         </ul>
                         <div class="clearfix"></div>
                     </div>

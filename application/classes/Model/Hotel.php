@@ -50,7 +50,7 @@ class Model_Hotel extends ORM
             'type' => 'template',
             'template' => '${city_name}'
         ),
-        'active' => null,
+        'active' => 'bool',
         'edit' => array(
             'width' => '40',
             'type' => 'link',

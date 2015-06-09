@@ -4,12 +4,14 @@
         <p class="text-center header">Тур «Наследие великих цивилизаций»</p>
         <p class="text-center duration">7 ночей 8 дней</p>
         <ul class="list-inline cities text-center">
-            <li><a href="#yandex_map_with_route" data-img="img/logo-red.png" data-number="0" class="fancy">Стамбул</a></li>
-            <li><a href="#yandex_map_with_route" data-img="img/logo.png" data-number="1" class="fancy">Троя</a></li>
-            <li><a href="#yandex_map_with_route" data-img="img/logo-red.png" data-number="2" class="fancy">Пергам</a></li>
-            <li><a href="#yandex_map_with_route" data-img="img/logo.png" data-number="3" class="fancy">Кушадасы</a></li>
-            <li><a href="#yandex_map_with_route" data-img="img/logo-red.png" data-number="4" class="fancy">Памуккале</a></li>
-            <li><a href="#yandex_map_with_route" data-img="img/logo.png" data-number="5" class="fancy">Aнталия</a></li>
+            <?php foreach ($route as $index => $item) { ?>
+                <li><a href="#yandex_map_with_route" data-img="img/logo-red.png" data-number="<?php echo $index; ?>" class="fancy"><?php echo $cities[$item]->name; ?></a></li>
+            <?php } ?>
+<!--            <li><a href="#yandex_map_with_route" data-img="img/logo.png" data-number="1" class="fancy">Троя</a></li>-->
+<!--            <li><a href="#yandex_map_with_route" data-img="img/logo-red.png" data-number="2" class="fancy">Пергам</a></li>-->
+<!--            <li><a href="#yandex_map_with_route" data-img="img/logo.png" data-number="3" class="fancy">Кушадасы</a></li>-->
+<!--            <li><a href="#yandex_map_with_route" data-img="img/logo-red.png" data-number="4" class="fancy">Памуккале</a></li>-->
+<!--            <li><a href="#yandex_map_with_route" data-img="img/logo.png" data-number="5" class="fancy">Aнталия</a></li>-->
         </ul>
         <script>
 

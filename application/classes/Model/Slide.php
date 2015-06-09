@@ -30,7 +30,7 @@ class Model_Slide extends ORM
 
         'name' => null,
         'position' => null,
-        'active' => null,
+        'active' => 'bool',
 
         'edit' => array(
             'width' => '40',

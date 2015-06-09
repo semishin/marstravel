@@ -43,6 +43,8 @@ class Controller_Site_Sight extends Controller_Site
             ->find_all()
             ->as_array();
 
+        $this->template->s_title = 'Достопримечательности Турции';
+
         $this->template->sight = $sight;
         $this->template->count_sight = $count_sight;
         $this->template->count_excursion = $count_excursion;
@@ -65,6 +67,71 @@ class Controller_Site_Sight extends Controller_Site
 //        $this->template->category = $this->_model->category;
         $this->template->images = json_decode($this->_model->images, true);
 
+    }
+
+    public function action_ajax()
+    {   $query = $this->request->post('query');
+        $city_id = $this->request->post('city_id');
+        $category_id = $this->request->post('category_id');
+        $excursions = $this->request->post('excursions');
+
+        $sight = ORM::factory('Sight')
+            ->where('active','=',1);
+
+        if ($query) {
+            $sight = $sight->and_where_open()->where('name', 'like', '%' . $query . '%')
+                        ->or_where('content', 'like', '%' . $query . '%')->and_where_close();
+        }
+        if ($city_id) {
+            $sight = $sight
+                ->where('city_id','=',$city_id);
+        }
+        if ($category_id) {
+            $sight = $sight
+                ->where('category_id','=',$category_id);
+        }
+        if ($excursions) {
+            $sight = $sight
+                ->where('excursion','=',1);
+        }
+        $sight = $sight
+            ->order_by('id','desc')
+//            ->limit(self::LIMIT_ON_PAGE_BANNERS)
+            ->find_all()
+            ->as_array();
+
+        $count_sight = ORM::factory('Sight')
+            ->where('active','=',1);
+        if ($query) {
+            $count_sight = $count_sight->and_where_open()->where('name', 'like', '%' . $query . '%')
+                ->or_where('content', 'like', '%' . $query . '%')->and_where_close();
+        }
+        if ($city_id) {
+            $count_sight = $count_sight
+               ->where('city_id','=',$city_id);
+        }
+        if ($category_id) {
+            $count_sight = $count_sight
+                ->where('category_id','=',$category_id);
+        }
+        if ($excursions) {
+            $count_sight = $count_sight
+                ->where('excursion','=',1);
+        }
+        $count_sight = $count_sight
+            ->count_all();
+
+        exit(
+            json_encode(
+                array(
+                    'html' => View::factory('site/sight/ajax', array(
+                        'sight' => $sight,
+                        'count_sight' => $count_sight,
+                    ))->render(),
+                    //                'more' => $count_product > self::LIMIT_ON_PAGE
+                )
+            )
+        );
     }
 
 }

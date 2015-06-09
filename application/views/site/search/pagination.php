@@ -1,4 +1,5 @@
-<?php 
+<?php
+
 	$max_page = $page + 1;
 	
 	if ($max_page > $count_pages) {
@@ -21,15 +22,17 @@
 	$query = parse_url($_SERVER['REQUEST_URI'], PHP_URL_QUERY);
 	$query = str_replace('&p=' . $page, '', $query);
 ?>
-<div class="paginate">
-	<strong>Страницы:</strong>
-	<a href="/search?<?php echo $query; ?>">Начало</a>
-	<?php for ($i = $min_page; $i <= $max_page; $i++) { ?>
-		<?php if ($i == $page) { ?>
-			<a class="current" href="/search?<?php echo $query; ?>&p=<?php echo $page; ?>"><span><?php echo $i; ?></span></a> 
-		<?php } else { ?>
-			<a href="/search?<?php echo $query; ?>&p=<?php echo $i; ?>"><?php echo $i; ?></a> 
-		<?php } ?>
-	<?php } ?>
-	<a href="/search?<?php echo $query; ?>&p=<?php echo $count_pages; ?>">Конец</a>
+<div class="block_pagination">
+<!--	<strong>Страницы:</strong>-->
+    <ul class="pagination">
+        <li><a href="/search?<?php echo $query; ?>">Начало</a></li>
+        <?php for ($i = $min_page; $i <= $max_page; $i++) { ?>
+            <?php if ($i == $page) { ?>
+                <li><a class="active" href="/search?<?php echo $query; ?>&p=<?php echo $page; ?>"><span><?php echo $i; ?></span></a></li>
+            <?php } else { ?>
+                <li><a href="/search?<?php echo $query; ?>&p=<?php echo $i; ?>"><?php echo $i; ?></a></li>
+            <?php } ?>
+        <?php } ?>
+        <li><a href="/search?<?php echo $query; ?>&p=<?php echo $count_pages; ?>">Конец</a></li>
+    </ul>
 </div>

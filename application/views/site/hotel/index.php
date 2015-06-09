@@ -16,29 +16,29 @@
                         <option>Gonash</option>
                     </select>
                 </div>
-                <div class="col-xs-3">
+                <div class="col-xs-3" id="cityhotel">
                     <select class="selectpicker form-control">
                         <option disabled selected style="display: none">Город или курорт</option>
                         <?php foreach ($cities as $item) { ?>
-                            <option><?php echo $item->name ?></option>
+                            <option data-id="<?php echo $item->id; ?>"><?php echo $item->name ?></option>
                         <?php } ?>
                     </select>
                 </div>
-                <div class="col-xs-3">
+                <div class="col-xs-3" id="citystar">
                     <select class="selectpicker form-control">
                         <option disabled selected style="display: none">Количество звезд</option>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
                     </select>
                 </div>
-                <!--                <div class="col-xs-2">-->
-                <!--                    <label class="checkbox">-->
-                <!--                        <input type="checkbox" id="inlineCheckbox1" value="option1">С экскурсиями <sup><small>145</small></sup>-->
-                <!--                    </label>-->
-                <!--                </div>-->
+                                <div class="col-xs-2">
+                                    <label class="checkbox">
+                                        <input type="checkbox" id="inlineCheckbox1" value="option1">С экскурсиями <sup><small>145</small></sup>
+                                    </label>
+                                </div>
             </div>
         </div>
     </div>

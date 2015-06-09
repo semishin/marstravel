@@ -52,7 +52,7 @@ class Model_City extends ORM
     protected $_grid_columns = array(
 
         'name' => null,
-        'active' => null,
+        'active' => 'bool',
 //        'latitude' => null,
 //        'longitude' => null,
 

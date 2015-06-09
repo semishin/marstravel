@@ -7,21 +7,11 @@ class Model_Tour extends ORM
     protected $_belongs_to = array(
 
     );
-    protected $_has_many_to_save = array(
-        'cities'    => array(
-            'model'=> 'City',
-            'foreign_key' => 'tour_id',
-            'through'      => 'tour_cities',
-            'far_key'      => 'city_id',
-        )
-    );
 
     protected $_has_many = array(
-        'cities'    => array(
-            'model'=> 'City',
-            'foreign_key' => 'tour_id',
-            'through'      => 'tour_cities',
-            'far_key'      => 'city_id',
+        'coupon' => array(
+            'model' => 'Coupon',
+            'foreign_key' => 'tour_id'
         )
     );
 
@@ -30,9 +20,10 @@ class Model_Tour extends ORM
         return array(
             'id' => 'Идентификатор',
             'name' => 'Наименование',
-            'cities' => 'Города',
+//            'cities' => 'Города',
             'price' => 'Стоимость',
             'slogan' => 'Слоган',
+            'route' => 'Маршрут',
             'short_content' => 'Сокращенный контент',
             'content' => 'Контент',
             'main_image' => 'Главное изображение',
@@ -59,7 +50,7 @@ class Model_Tour extends ORM
             'd8_name' => '8 день заголовок',
             'd8_content' => '8 день описание',
             's_title' => 'SEO title',
-            's_description' => 'SEO description',
+            's_description' => 'SEO categorydescription',
             's_keywords' => 'SEO keywords'
         );
     }
@@ -80,7 +71,7 @@ class Model_Tour extends ORM
     protected $_grid_columns = array(
         'name' => null,
         'position' => null,
-        'active' => null,
+        'active' => 'bool',
         'edit' => array(
             'width' => '40',
             'type' => 'link',

@@ -59,28 +59,11 @@
                     <?php } ?>
                 </div>
             </div>
-
-            <!-- <div class="left_menu">
-                 <ul class="list-unstyled">
-                     <li><a href="#"><i class="icon icon_turkey"></i><span>О Турции</span></a></li>
-                     <li><a href="#"><i class="icon icon_attractions"></i><span>Достопримечательности</span></a></li>
-                     <li><a href="#"><i class="icon icon_hotel"></i><span>Отели Турции</span></a></li>
-                     <li><a href="#"><i class="icon icon_weather"></i><span>Погода в Турции</span></a></li>
-                 </ul>
-             </div>
-             <div class="left_banner">
-                 <p class="text-center">Баннерная реклама</p>
-                 <p class="text-center"><i>Рекламный<br>
-                     баннер<br>
-                     270 х 283<br>
-                     пикселей</i></p>
-                 <div class="button text-center"><a href="#">Подробности</a></div>
-             </div>-->
-
-
         </div>
         <div class="col-md-9 col-xs-12 right_block">
             <h1 style="margin-top: 0px;"><?php echo $name ?></h1>
+            <?php echo $content ?>
+            <iframe scrolling="no" frameBorder="0" src="http://pogoda.turtella.ru/i/p2j8s/map/#weather,,33.59450187499998,38.76391027071685,6" style="width:100%; height: 480px; border: none;"></iframe>
         </div>
     </div>
 </div>

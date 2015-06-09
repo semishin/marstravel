@@ -49,6 +49,36 @@ return array(
         'parent' => 'admin.tour.index'
     ),
 
+    'admin.coupon.index' => array(
+        'title' => 'Список купонов',
+        'route' => 'admin-coupon'
+    ),
+    'admin.coupon.edit' => array(
+        'title' => 'Редактирование купонов',
+        'route' => 'admin-coupon:edit',
+        'parent' => 'admin.coupon.index'
+    ),
+    'admin.coupon.create' => array(
+        'title' => 'Добавление купонов',
+        'route' => 'admin-coupon:create',
+        'parent' => 'admin.coupon.index'
+    ),
+
+    'admin.coupon_firm.index' => array(
+        'title' => 'Список фирм',
+        'route' => 'admin-coupon_firm'
+    ),
+    'admin.coupon_firm.edit' => array(
+        'title' => 'Редактирование фирм',
+        'route' => 'admin-coupon_firm:edit',
+        'parent' => 'admin.coupon_firm.index'
+    ),
+    'admin.coupon_firm.create' => array(
+        'title' => 'Добавление фирм',
+        'route' => 'admin-coupon_firm:create',
+        'parent' => 'admin.coupon_firm.index'
+    ),
+
     'admin.hotel.index' => array(
         'title' => 'Список отелей',
         'route' => 'admin-hotel'

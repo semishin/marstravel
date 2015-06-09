@@ -57,7 +57,8 @@ class Model_Sight extends ORM
             'type' => 'template',
             'template' => '${category_name}'
         ),
-        'active' => null,
+        'excursion' => 'bool',
+        'active' => 'bool',
         'edit' => array(
             'width' => '40',
             'type' => 'link',
@@ -93,6 +94,7 @@ class Model_Sight extends ORM
             'name',
             'city_id',
             'category_id',
+            'excursion',
             'active'
         );
     }

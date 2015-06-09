@@ -7,26 +7,26 @@
         <div class="filter">
             <div class="row">
                 <div class="col-xs-4">
-                    <select class="selectpicker form-control finder" data-live-search="true">
-                        <option disabled selected style="display: none">Введите слово для поиска по местам</option>
-                        <option>Ketchup</option>
-                        <option>Relish</option>
-                        <option>Gonash</option>
-                    </select>
+                    <input type="text" class="form-control" id="findsight">
+<!--                    <select class="selectpicker form-control finder" data-live-search="true">-->
+<!--                        <option disabled selected style="display: none">Введите слово для поиска по местам</option>-->
+<!--                    </select>-->
                 </div>
-                <div class="col-xs-3">
+                <div class="col-xs-3" id="citysight">
                     <select class="selectpicker form-control">
                         <option disabled selected style="display: none">Город или курорт</option>
+                        <option data-id="0">Все</option>
                         <?php foreach ($cities as $item) { ?>
-                            <option><?php echo $item->name ?></option>
+                            <option data-id="<?php echo $item->id; ?>"><?php echo $item->name ?></option>
                         <?php } ?>
                     </select>
                 </div>
-                <div class="col-xs-3">
+                <div class="col-xs-3" id="categorysight">
                     <select class="selectpicker form-control">
                         <option disabled selected style="display: none">Категории</option>
+                        <option data-id="0">Все</option>
                         <?php foreach ($categories as $item) { ?>
-                            <option><?php echo $item->name ?></option>
+                            <option data-id="<?php echo $item->id; ?>"><?php echo $item->name ?></option>
                         <?php } ?>
                     </select>
                 </div>
@@ -57,27 +57,26 @@
                             </div>
                         </div>
                     <?php } ?>
-
-                    <!--                    <div class="col-xs-12">-->
-                    <!--                        <div class="block_pagination">-->
-                    <!--                            <p class="text-center total_amount">Всего --><?php //echo $count_sight; ?><!-- мест</p>-->
-                    <!--                            <ul class="pagination">-->
-                    <!--                                <li><a href="#">Предыдущая</a></li>-->
-                    <!--                                <li><a href="#" class="active">1</a></li>-->
-                    <!--                                <li><a href="#">...</a></li>-->
-                    <!--                                <li><a href="#">4</a></li>-->
-                    <!--                                <li><a href="#">5</a></li>-->
-                    <!--                                <li><a href="#">6</a></li>-->
-                    <!--                                <li><a href="#">7</a></li>-->
-                    <!--                                <li><a href="#">8</a></li>-->
-                    <!--                                <li><a href="#">9</a></li>-->
-                    <!--                                <li><a href="#">10</a></li>-->
-                    <!--                                <li><a href="#">...</a></li>-->
-                    <!--                                <li><a href="#">98</a></li>-->
-                    <!--                                <li><a href="#">Следующая</a></li>-->
-                    <!--                            </ul>-->
-                    <!--                        </div>-->
-                    <!--                    </div>-->
+                    <div class="col-xs-12">
+                        <div class="block_pagination">
+                            <p class="text-center total_amount">Всего <?php echo $count_sight; ?> мест</p>
+                            <ul class="pagination">
+                                <li><a href="#">Предыдущая</a></li>
+                                <li><a href="#" class="active">1</a></li>
+                                <li><a href="#">...</a></li>
+                                <li><a href="#">4</a></li>
+                                <li><a href="#">5</a></li>
+                                <li><a href="#">6</a></li>
+                                <li><a href="#">7</a></li>
+                                <li><a href="#">8</a></li>
+                                <li><a href="#">9</a></li>
+                                <li><a href="#">10</a></li>
+                                <li><a href="#">...</a></li>
+                                <li><a href="#">98</a></li>
+                                <li><a href="#">Следующая</a></li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

@@ -37,7 +37,7 @@ class Model_Sight_Category extends ORM
     protected $_grid_columns = array(
 
         'name' => null,
-        'active' => null,
+        'active' => 'bool',
         'edit' => array(
             'width' => '40',
             'type' => 'link',

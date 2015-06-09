@@ -33,6 +33,8 @@ class Controller_Site_Hotel extends Controller_Site
             ->find_all()
             ->as_array();
 
+        $this->template->s_title = 'Отели Турции';
+
         $this->template->count_hotel = $count_hotel;
         $this->template->hotel = $hotel;
         $this->template->cities = $cities;
@@ -53,6 +55,60 @@ class Controller_Site_Hotel extends Controller_Site
 //        $this->template->category = $this->_model->category;
         $this->template->images = json_decode($this->_model->images, true);
 
+    }
+
+    public function action_city()
+    {
+        $city_id = $this->request->post('city_id');
+        $hotel = ORM::factory('Hotel')
+            ->where('active','=',1)
+            ->where('city_id','=',$city_id)
+            ->order_by('id','desc')
+//            ->limit(self::LIMIT_ON_PAGE_BANNERS)
+            ->find_all()
+            ->as_array();
+        $count_hotel = ORM::factory('Hotel')
+            ->where('active','=',1)
+            ->where('city_id','=',$city_id)
+            ->count_all();
+
+        exit(
+            json_encode(
+                array(
+                    'html' => View::factory('site/hotel/city', array(
+                        'hotel' => $hotel,
+                    ))->render(),
+    //                'more' => $count_product > self::LIMIT_ON_PAGE
+                )
+            )
+        );
+    }
+
+    public function action_star()
+    {
+        $star = $this->request->post('star');
+        $hotel = ORM::factory('Hotel')
+            ->where('active','=',1)
+            ->where('stars','=',$star)
+            ->order_by('id','desc')
+//            ->limit(self::LIMIT_ON_PAGE_BANNERS)
+            ->find_all()
+            ->as_array();
+        $count_hotel = ORM::factory('Hotel')
+            ->where('active','=',1)
+            ->where('stars','=',$star)
+            ->count_all();
+
+        exit(
+        json_encode(
+            array(
+                'html' => View::factory('site/hotel/star', array(
+                    'hotel' => $hotel,
+                ))->render(),
+                //                'more' => $count_product > self::LIMIT_ON_PAGE
+            )
+        )
+        );
     }
 
 

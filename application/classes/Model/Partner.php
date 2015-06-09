@@ -32,7 +32,7 @@ class Model_Partner extends ORM
 
         'name' => null,
         'link' => null,
-        'active' => null,
+        'active' => 'bool',
 
         'edit' => array(
             'width' => '40',

@@ -27,6 +27,20 @@ Route::set('admin-tour', $adminPrefix . 'tour(/<action>(/<id>))')
         'action' => 'index'
     ));
 
+Route::set('admin-coupon', $adminPrefix . 'coupon(/<action>(/<id>))')
+    ->defaults(array(
+        'directory' => 'admin',
+        'controller' => 'coupon',
+        'action' => 'index'
+    ));
+
+Route::set('admin-coupon_firm', $adminPrefix . 'coupon_firm(/<action>(/<id>))')
+    ->defaults(array(
+        'directory' => 'admin',
+        'controller' => 'coupon_firm',
+        'action' => 'index'
+    ));
+
 Route::set('admin-hotel', $adminPrefix . 'hotel(/<action>(/<id>))')
     ->defaults(array(
         'directory' => 'admin',

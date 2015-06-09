@@ -34,7 +34,7 @@ class Model_Banner extends ORM
         'name' => null,
         'link' => null,
 //        'type' => null,
-        'active' => null,
+        'active' => 'bool',
 
         'edit' => array(
             'width' => '40',

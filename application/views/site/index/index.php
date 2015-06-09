@@ -59,27 +59,20 @@
                     <?php } ?>
                 </div>
             </div>
-
-            <!-- <div class="left_menu">
-                 <ul class="list-unstyled">
-                     <li><a href="#"><i class="icon icon_turkey"></i><span>О Турции</span></a></li>
-                     <li><a href="#"><i class="icon icon_attractions"></i><span>Достопримечательности</span></a></li>
-                     <li><a href="#"><i class="icon icon_hotel"></i><span>Отели Турции</span></a></li>
-                     <li><a href="#"><i class="icon icon_weather"></i><span>Погода в Турции</span></a></li>
-                 </ul>
-             </div>
-             <div class="left_banner">
-                 <p class="text-center">Баннерная реклама</p>
-                 <p class="text-center"><i>Рекламный<br>
-                     баннер<br>
-                     270 х 283<br>
-                     пикселей</i></p>
-                 <div class="button text-center"><a href="#">Подробности</a></div>
-             </div>-->
-
         </div>
         <div class="col-md-9 col-xs-12 right_block">
             <?php foreach ($tour as $index => $item) { ?>
+                <?php
+                    $ids = @unserialize($item->route);
+
+                    $citiesHash = array();
+                    if ($ids) {
+                        $cities = ORM::factory('City')->where('id', 'IN', $ids)->find_all()->as_array();
+                        foreach ($cities as $city) {
+                            $citiesHash[$city->id] = $city;
+                        }
+                    }
+                ?>
                 <div class="tour">
                     <div class="row">
                         <div class="col-xs-8 left_part">
@@ -88,12 +81,9 @@
                                     <a href="/tour/<?php echo $item->url ?>"><p class="text-center header"><?php echo $item->name ?></p></a>
                                     <p class="text-center duration">7 ночей 8 дней</p>
                                     <ul class="list-inline cities text-center">
-                                        <li><a href="#">Стамбул</a></li>
-                                        <li><a href="#">Троя</a></li>
-                                        <li><a href="#">Пергам</a></li>
-                                        <li><a href="#">Кушадасы</a></li>
-                                        <li><a href="#">Памуккале</a></li>
-                                        <li><a href="#">Aнталия</a></li>
+                                        <?php foreach ($ids as $item2) { ?>
+                                            <li><a href="#"><?php echo $citiesHash[$item2]->name; ?></a></li>
+                                        <?php } ?>
                                     </ul>
                                     <p class="text-center description">
                                         <?php echo $item->content ?>

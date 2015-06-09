@@ -1,3 +1,10 @@
+var sightsOptions = {
+    query: '',
+    city_id: '0',
+    category_id: '0',
+    excursions: 0
+};
+
 
 // A $( document ).ready() block.
 $( document ).ready(function() {
@@ -146,6 +153,26 @@ $( document ).ready(function() {
             checkboxClass: 'icheckbox_minimal',
             radioClass: 'iradio_minimal',
             increaseArea: '20%' // optional
+       });
+        $('.filter input').on('ifChanged', function(event){
+            sightsOptions.excursions = sightsOptions.excursions ? 0 : 1;
+            $.ajax({
+                type: "POST",
+                url: "/sight/ajax",
+                data: sightsOptions,
+                dataType: 'json',
+                success: function(result) {
+                    offset = 8;
+                    //$('.portfolio_buttons li button').removeClass('active');
+                    //$(this).addClass('active');
+                    $('.sights_block .row').html(result.html);
+                    //if (!result.more) {
+                    //    $('#more_items').hide();
+                    //} else {
+                    //    $('#more_items').show();
+                    //}
+                }
+            });
         });
     }
 
@@ -261,5 +288,134 @@ $( document ).ready(function() {
         }
     });
 
+
+    $('.star_label_trans').hover(
+        function(){
+            var text_width = $(this).find(".text b").width();
+            if(text_width > 175){
+                $(this).find(".text").width(205);
+            } else{
+                $(this).find(".text").width(text_width+30);
+            }
+        },
+        function(){
+            $(this).find(".text").width(0);
+        });
+
+    $('#cityhotel .selectpicker.form-control').change(function(e) {
+        e.preventDefault();
+        var city_id = $(this).find('option:selected').attr('data-id');
+        $.ajax({
+            type: "POST",
+            url: "/hotel/city",
+            data: {
+                //offset: offset,
+                city_id: city_id
+            },
+            dataType: 'json',
+            success: function(result) {
+                offset = 8;
+                //$('.portfolio_buttons li button').removeClass('active');
+                //$(this).addClass('active');
+                $('.hotels_block .row').html(result.html);
+                //if (!result.more) {
+                //    $('#more_items').hide();
+                //} else {
+                //    $('#more_items').show();
+                //}
+            }
+        });
+    });
+
+    $('#citystar .selectpicker.form-control').change(function(e) {
+        e.preventDefault();
+        var star = $(this).find('option:selected').val();
+        $.ajax({
+            type: "POST",
+            url: "/hotel/star",
+            data: {
+                //offset: offset,
+                star: star
+            },
+            dataType: 'json',
+            success: function(result) {
+                offset = 8;
+                //$('.portfolio_buttons li button').removeClass('active');
+                //$(this).addClass('active');
+                $('.hotels_block .row').html(result.html);
+                //if (!result.more) {
+                //    $('#more_items').hide();
+                //} else {
+                //    $('#more_items').show();
+                //}
+            }
+        });
+    });
+
+    $('#findsight.form-control').keyup(function(e) {
+        e.preventDefault();
+        sightsOptions.query = $(this).val();
+        $.ajax({
+            type: "POST",
+            url: "/sight/ajax",
+            data: sightsOptions,
+            dataType: 'json',
+            success: function (result) {
+                offset = 8;
+                //$('.portfolio_buttons li button').removeClass('active');
+                //$(this).addClass('active');
+                $('.sights_block .row').html(result.html);
+                //if (!result.more) {
+                //    $('#more_items').hide();
+                //} else {
+                //    $('#more_items').show();
+                //}
+            }
+        });
+    });
+
+    $('#citysight .selectpicker.form-control').change(function(e) {
+        e.preventDefault();
+        sightsOptions.city_id = $(this).find('option:selected').attr('data-id');
+        $.ajax({
+            type: "POST",
+            url: "/sight/ajax",
+            data: sightsOptions,
+            dataType: 'json',
+            success: function(result) {
+                offset = 8;
+                //$('.portfolio_buttons li button').removeClass('active');
+                //$(this).addClass('active');
+                $('.sights_block .row').html(result.html);
+                //if (!result.more) {
+                //    $('#more_items').hide();
+                //} else {
+                //    $('#more_items').show();
+                //}
+            }
+        });
+    });
+
+    $('#categorysight .selectpicker.form-control').change(function(e) {
+        e.preventDefault();
+        sightsOptions.category_id = $(this).find('option:selected').attr('data-id');
+        $.ajax({
+            type: "POST",
+            url: "/sight/ajax",
+            data: sightsOptions,
+            dataType: 'json',
+            success: function(result) {
+                offset = 8;
+                //$('.portfolio_buttons li button').removeClass('active');
+                //$(this).addClass('active');
+                $('.sights_block .row').html(result.html);
+                //if (!result.more) {
+                //    $('#more_items').hide();
+                //} else {
+                //    $('#more_items').show();
+                //}
+            }
+        });
+    });
 
 });

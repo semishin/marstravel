@@ -37,6 +37,7 @@ class Controller_Site_Index extends Controller_Site
             ->find_all()
             ->as_array();
 
+
         $this->template->slide = $slide;
         $this->template->count_slide = $count_slide;
         $this->template->tour = $tour;

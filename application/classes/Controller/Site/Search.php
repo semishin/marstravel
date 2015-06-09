@@ -5,7 +5,9 @@ class Controller_Site_Search extends Controller_Site {
 
     public function action_index()    {
 
-        $limit = 6;
+        $this->set_metatags_and_content('', 'page');
+
+        $limit = 9;
 
         $page = Arr::get($_GET, 'p');
 
@@ -35,8 +37,12 @@ class Controller_Site_Search extends Controller_Site {
             'count_pages' => $count_pages
         ));
 
+        $this->template->s_title = 'Результаты поиска по запросу - '.Arr::get($_GET, 'q');
+
         $this->template->countall = $search_result['count_all'];
-        $this->template->items = $search_result['result'];
+        $this->template->search_result = $search_result['result'];
+        $this->template->count_pages = $count_pages;
         $this->template->set_layout('layout/site/global');
+
     }
 }

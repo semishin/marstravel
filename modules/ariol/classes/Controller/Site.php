@@ -14,7 +14,6 @@ class Controller_Site extends Controller
 	{
 		parent::before();
 
-
         $partner = ORM::factory('Partner')
             ->where('active','=',1)
             ->order_by('id','desc')

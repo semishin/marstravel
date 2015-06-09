@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Hotel Page</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width">
+
+    <link href='http://fonts.googleapis.com/css?family=Cuprum:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700&subset=cyrillic,latin' rel='stylesheet' type='text/css'>
+    <!--font-family: 'PT Sans', sans-serif;-->
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="fancybox/jquery.fancybox.css">
+    <link rel="stylesheet" type="text/css" href="datepicker/daterangepicker-bs3.css" />
+    <link href="css/barousel.css" rel="stylesheet">
+    <link href="css/bootstrap-select.min.css" rel="stylesheet">
+    <link href="css/minimal/minimal.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+    <script src="http://api-maps.yandex.ru/2.0-stable/?load=package.full&lang=ru-RU"></script>
+
+    <script src="fancybox/jquery.fancybox.pack.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="datepicker/moment.min.js"></script>
+    <script type="text/javascript" src="datepicker/daterangepicker.js"></script>
+    <script type="text/javascript" src="datepicker/ru.js"></script>
+    <script src="js/barousel.js"></script>
+    <script src="js/bootstrap-select.min.js"></script>
+    <script src="js/icheck.js"></script>
+
+    <!-- Include  user-js -->
+    <script src="js/script.js"></script>
+
+</head>
+<body>
+<div class="container-fluid">
+<div class="page_block">
+<div class="header">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="advertising">
+                <img src=" img/top-banner.jpg" class="img-responsive">
+            </div>
+        </div>
+        <div class="col-xs-12">
+            <div class="navigation">
+                <div class="row">
+                    <div class="col-xs-7">
+                        <ul class="list-inline pull-left">
+                            <li><a href="#">О компании</a></li>
+                            <li><a href="#">Экскурсионные туры</a></li>
+                            <li><a href="#">Наши партнёры</a></li>
+                            <li><a href="#">Контакты</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-xs-5">
+                        <ul class="list-inline pull-right">
+                            <li class="email"><a href="#ask_consultant" class="fancy">marstravel@info.com</a></li>
+                            <li><b>+7 495 510-55-55</b></li>
+                        </ul>
+                        <div style="display: none">
+                            <div id="ask_consultant">
+                                <p class="lightbox_header">Задать вопрос консультанту</p>
+                                <form role="form" class="lightbox_form" data-id="0">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="Name_0" placeholder="Имя" name="name">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="email" class="form-control" id="Email_0" placeholder="E-mail" name="email">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="Phone_0" placeholder="Телефон" name="phone">
+                                    </div>
+                                    <div class="form-group">
+                                        <textarea placeholder="Вопрос" rows="3" class="form-control" name="question"></textarea>
+                                    </div>
+                                    <a href="#" class="red_btn" data-id="0">Отправить</a>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="content">
+<div class="flag flag_left"></div>
+<div class="flag flag_right"></div>
+<div class="row">
+<div class="col-xs-12">
+    <div class="search_line">
+        <div class="row">
+            <div class="col-xs-3">
+                <div class="logo">
+                    <a href="#"><img src="img/logo-red.png" class="img-responsive"></a>
+                </div>
+            </div>
+            <div class="col-lg-6 col-xs-5">
+                <div class="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Поиск по сайту">
+                                            <span class="input-group-btn">
+                                                <button class="btn btn-default" type="button"><i class="search_icon"></i></button>
+                                            </span>
+                    </div><!-- /input-group -->
+                </div>
+            </div>
+            <div class="col-lg-3 col-xs-4">
+                <div class="pull-right">
+                    <a href="#ask_consultant" class="black_btn fancy">Задать вопрос консультанту</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-xs-12">
+    <div class="slider_shadow"></div>
+    <div class="grey_top_block">
+        <div class="hotel_stars"><span>5</span></div>
+        <a href="#" class="back_to_main">&larr; <span>Назад на главную</span></a>
+        <p class="text-center header">Port Nature Luxury Resort Hotel & Spa</p>
+        <p class="text-center duration">Турция,  Белек,  Богазкент</p>
+    </div>
+</div>
+
+    <div class="col-xs-12">
+        <div class="full_width">
+            <script type="text/javascript" charset="utf-8" src="//api-maps.yandex.ru/services/constructor/1.0/js/?sid=29uD3jKC-8XFdTlfCwkxSmnSQkYPbrYH&id=map"></script>
+            <div id="map" style="width: 100%; height: 275px"></div>
+        </div>
+    </div>
+    <div class="col-xs-12">
+        <div class="page_info">
+            <div class="hotel_contacts">
+                <p class="header">Контактная информация</p>
+                <p><b>Адрес:</b>   Boğazkent Mehallesi 38.Sokak No:4 Boğazkent / ANTALYA / TURKEY</p>
+                <p><b>Тел. / Факс:</b>   +90 (242) 731 07 07   |   +90 (242) 731 11 77</p>
+                <p><b>Электронный адрес:</b>   info@portnature.com.tr   |   crm@portnature.com.tr   |   gr@portnaturecom.tr</p>
+                <p><b>Сайт отеля:</b>   https://www.portnature.com.tr</p>
+                <p><b>Социальные сети:</b>   https://www.facebook.com/portnature  |  https://twitter.com/portnature   |   http://instagram.com/portnatureluxury</p>
+            </div>
+
+            <hr>
+
+            <p class="header">Об отеле</p>
+            <p class="add_margin">Port Nature Luxury Resort and SPA - открыт 13 июля 2014 года.<br>
+                Отель Port Nature Luxury Resort and SPA располагается на берегу моря в местечке Богазкент, что находится на расстоянии 5 км от туристического центра Белек. Это
+                место представляет собой остров, окружённый морем, озером, рекой и лесами. " Райская степь" - так по-другому называют эту уникальную местность, обладающую
+                естественной прохладой благодаря своему микроклимату. Площадь отеля состовляет 50.000 м2.</p>
+
+            <p class="add_margin"><b>Тип отеля:</b>  Гостиница</p>
+            <p><b>Количество номеров:</b></p>
+            <p class="add_margin">612номеров / 2050 мест</p>
+
+            <p><b>Типы номеров:</b></p>
+            <p>Стандартный номер ( 359 ) - одна комната площадью 34 м2, максимальное размещение 3 человека ( номера имеют разные варианты вида из окна ).</p>
+            <p>Семейный номер ( 187 ) - две комнаты площадью 50 м2, максимальное размещение 5 человек ( номера имеют разные варианты вида из окна ).</p>
+            <p class="add_margin">Номер с Террасой ( 36 ) - одна комната площадью 34 м2, максимальное размещение 3 человека ( номера имеют разные варианты вида из окна ).</p>
+
+            <p><b>Описание номеров:</b></p>
+            <p>Во всех номерах имеется ламинированное напольное покрытие, балкон или терраса, туалет и душевая комната, беспроводной интернет, фен, телефон, мини-бар,
+                сейф, кабильное телевиденье TV Led ( 261 канал ), кондиционер, электрический чайник, набор чай и кофе.</p>
+            <p class="add_margin">Для входа в номер используются карты - ключи.</p>
+
+            <hr>
+
+            <p class="header">Рестораны и бары</p>
+            <p>Напитки предлагаются 24 часа.</p>
+
+            <div class="full_width_p grey_bg">
+                <p class="header red_c">БЕСПЛАТНО!</p>
+                <p class="add_margin">Марки импортных алкогольных напитков подающихсяв барах и ресторанах бесплатно: Chivas,  Jameson,  J&B, Havana, Chacha,  Jack Daniels, Martini, Bacardi, Smirnoff,
+                    Gordon, Napoleon VSOP, Bailys,  Absolut Blue, Malibu, Olmeca, Martell, Mariachi, Garrone, Baker's, Glenlivet. </p>
+
+                <p>Все безалкогольные напитки в бутылках - <b>бесплатно.</b></p>
+                <p>B ресторане на завтрак свежевыжатый апельсиновый сок - <b>бесплатно.</b></p>
+                <p class="add_margin">Энергетический напиток REDBULL ( в полном ассортименте ) - <b>бесплатно.</b></p>
+
+                <p class="red_c">Виски 18 Y.O. и некоторые напитки Премиум класса предлагаются за отдельную плату.</p>
+            </div>
+
+            <p><b>Кондитерская:</b></p>
+            <p class="add_margin">16 часов открыта кондитерская, где предлагается пакетированное мороженое таких турецких марок как: Algida, Magnum, Cornetto, Max, а так же, мороженое Carte
+                D’or. В кондитерской имеется органический шоколад, торты, печенья, кекс и различные сладости.</p>
+
+            <p><b>Главный ресторан:</b></p>
+            <p class="add_margin">Рассчитан на 1100 мест, предлагает завтрак, поздний завтрак, мороженое ( у бассейна ), обед, ужин, диетический и вегетарианский буфет, ночные
+                закуски, сэндвичи.</p>
+
+            <p class="add_margin"><b>А так же:</b> Тропикано Снэк ресторан - закуски. Port Nature Village - гёзлеме, дюрюм, хот - дог, тост, пиде. Закусочная - fast food.</p>
+
+            <p><b>А-ля карт рестораны:</b></p>
+            <p class="add_margin">В отеле Port Nature Luxury Resort Hotel & Spa в наличии имеется пять а-ля карт ресторанов ( ужин ), резервация которых производится не позднее, чем за один день
+                до посещения. Стоимость ужина с человека составляет 5 евро. В некоторые дни а-ля карт рестораны закрыты. Время работы - 19.00 до 21.30</p>
+
+
+            <ul class="list-unstyled modified add_margin">
+                <li>Дальневосточный ресторан</li>
+                <li>Османский ресторан</li>
+                <li>Итальянский ресторан</li>
+                <li>Барбекю ресторан</li>
+                <li>Рыбный ресторан</li>
+            </ul>
+
+            <p><b>Бары:</b></p>
+            <p class="add_margin">Мини - бар - в номерах пополняется раз в день бесплатно безалкогольными напитками и водой до 17.00 ( пиво единократно в день заезда ).
+                Все бары предлагают все местные алкогольные напитки, безалкогольные и горячие напитки.</p>
+
+            <ul class="list-unstyled modified add_margin">
+                <li>Лобби - бар</li>
+                <li>Тропикано снэк - бар</li>
+                <li>Фламинго бар у бассейна</li>
+                <li>Сервис бар</li>
+                <li>Космос Диско бар</li>
+                <li>Ирландский паб</li>
+                <li>Бар на пляже</li>
+            </ul>
+
+            <p class="header">Анимация и развлечения</p>
+            <p><b>Развлекательные мероприятия:</b></p>
+            <ul class="list-unstyled modified add_margin">
+                <li>Профессиональные шоу вечером ( Амфитеатр )</li>
+                <li>Живая музыка</li>
+                <li>Диско</li>
+                <li>Кинозал</li>
+                <li>Кинозал для детей</li>
+                <li>Мини Клуб ( 09:00-22:00 ): 4 - 8 лет, 9 - 12 лет, 13 - 16 лет ( подростковая группа )</li>
+                <li>Мини Диско</li>
+            </ul>
+
+            <p><b>Бассейны, аквапарк, пляж:</b></p>
+            <p>2 открытых бассейна для взрослых ( один со плавным спускомдля гостей с огранченными возможностями), 1 бассейн для детей.</p>
+            <p>18 водных горок, 12 из которых для детей и 6 - для взрослых.</p>
+            <p>1 крытый бассейн полу - олимпийского типа.</p>
+            <p class="add_margin">Пляж песчано - галечный, предоставляются шезлонги, матрасы, зонтики, полотенца ( раз в день)</p>
+
+            <p><b>Здоровье и красота:</b></p>
+            <ul class="list-unstyled modified add_margin">
+                <li>Фитнес центр - <b>бесплатно</b></li>
+                <li>Турецкий хамам - <b>бесплатно</b></li>
+                <li>Парная, сауна - <b>бесплатно</b></li>
+            </ul>
+
+            <p>Остальные процедуры за отдельную плату.</p>
+            <p class="add_margin">Пляжные полотенца меняются раз в день на ресепции СПА центра. Вся дополнительная информация об услугах и процедурах доступна на ресепции СПА.</p>
+
+            <p class="header">Конференц - залы</p>
+            <ul class="list-unstyled modified add_margin">
+                <li>Thermessos - 900 м2</li>
+                <li>Sillion - 70 м2</li>
+                <li>Aspendos - 100 м2</li>
+                <li>Кинотеатр - 70 посадочных мест</li>
+            </ul>
+
+            <p class="add_margin">Оборудование - звук, свет, кондиционер, телефон, компьютер, интернет, музыкальное вещание, флип - чарт.</p>
+
+            <div class="gallery">
+                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <div class="col-xs-12 col-sm-4">
+                                <img src="img/img1.jpg">
+                            </div>
+                            <div class="col-xs-12 col-sm-4">
+                                <img src="img/img1.jpg">
+                            </div>
+                            <div class="col-xs-12 col-sm-4">
+                                <img src="img/img1.jpg">
+                            </div>
+                            <div class="col-xs-12 col-sm-4">
+                                <img src="img/img1.jpg">
+                            </div>
+                            <div class="col-xs-12 col-sm-4">
+                                <img src="img/img1.jpg">
+                            </div>
+                            <div class="col-xs-12 col-sm-4">
+                                <img src="img/img1.jpg">
+                            </div>
+                        </div>
+
+                        <div class="item">
+                            <div class="col-xs-12 col-sm-4">
+                                <img src="img/img1.jpg">
+                            </div>
+                            <div class="col-xs-12 col-sm-4">
+                                <img src="img/img1.jpg">
+                            </div>
+                            <div class="col-xs-12 col-sm-4">
+                                <img src="img/img1.jpg">
+                            </div>
+                            <div class="col-xs-12 col-sm-4">
+                                <img src="img/img1.jpg">
+                            </div>
+                            <div class="col-xs-12 col-sm-4">
+                                <img src="img/img1.jpg">
+                            </div>
+                            <div class="col-xs-12 col-sm-4">
+                                <img src="img/img1.jpg">
+                            </div>
+                        </div>
+
+                        <div class="item">
+                            <div class="col-xs-12 col-sm-4">
+                                <img src="img/img1.jpg">
+                            </div>
+                            <div class="col-xs-12 col-sm-4">
+                                <img src="img/img1.jpg">
+                            </div>
+                            <div class="col-xs-12 col-sm-4">
+                                <img src="img/img1.jpg">
+                            </div>
+                            <div class="col-xs-12 col-sm-4">
+                                <img src="img/img1.jpg">
+                            </div>
+                            <div class="col-xs-12 col-sm-4">
+                                <img src="img/img1.jpg">
+                            </div>
+                            <div class="col-xs-12 col-sm-4">
+                                <img src="img/img1.jpg">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Controls -->
+                    <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                    </a>
+                    <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+</div>
+
+<div class="our_partners">
+    <div class="flag flag_left"></div>
+    <div class="flag flag_right"></div>
+    <div class="text">
+        <p class="text-center"><b>Наши партнёры</b></p>
+        <p class="text-center">Мы работаем только с лучшими</p>
+    </div>
+    <div class="partners_icons">
+        <div class="row">
+            <div class="col-xs-3"><a href="#"><img src="img/partner-1.png" class="img-responsive"></a></div>
+            <div class="col-xs-3"><a href="#"><img src="img/partner-2.png" class="img-responsive"></a></div>
+            <div class="col-xs-3"><a href="#"><img src="img/partner-3.png" class="img-responsive"></a></div>
+            <div class="col-xs-3"><a href="#"><img src="img/partner-4.png" class="img-responsive"></a></div>
+        </div>
+        <div class="row">
+            <div class="col-xs-3"><a href="#"><img src="img/partner-5.png" class="img-responsive"></a></div>
+            <div class="col-xs-3"><a href="#"><img src="img/partner-6.png" class="img-responsive"></a></div>
+            <div class="col-xs-3"><a href="#"><img src="img/partner-7.png" class="img-responsive"></a></div>
+            <div class="col-xs-3"><a href="#"><img src="img/partner-8.png" class="img-responsive"></a></div>
+        </div>
+    </div>
+
+</div>
+<div class="footer">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="footer_menu">
+                <ul class="list-unstyled">
+                    <li><a href="#">О компании</a></li>
+                    <li><a href="#">Экскурсионные туры</a></li>
+                </ul>
+
+                <ul class="list-unstyled">
+                    <li><a href="#">Наши партнёры</a></li>
+                    <li><a href="#">Контакты</a></li>
+                </ul>
+
+                <ul class="list-unstyled">
+                    <li><a href="#">Отели Турции</a></li>
+                    <li><a href="#">Погода в Турции</a></li>
+                </ul>
+
+                <ul class="list-unstyled">
+                    <li><a href="#">О Турции</a></li>
+                    <li><a href="#">Достопримечательности</a></li>
+                </ul>
+
+                <ul class="list-unstyled gold">
+                    <li><b>+7 495 510-55-55</b></li>
+                    <li><a href="#">marstravel@info.com</a></li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="text">
+                <p class="text-center">Использование текстов и фотографий с сайта допускается только с разрешения компании MarsTravel</p>
+                <p class="text-center">© 2003–2015 turistic.ru</p>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</body>
+</html>

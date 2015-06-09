@@ -15,7 +15,7 @@ class Form_Admin_Slide extends CM_Form_Abstract
         $this->set_field('position', new CM_Field_Int(), 2);
         $this->set_field('active', new CM_Field_Boolean(), 4);
         $this->set_field('image', new CM_Field_File(), 6);
-        $this->set_field('content', new CM_Field_HTML(), 10);
+        $this->set_field('content', new CM_Field_Text(), 10);
 
     }
 }

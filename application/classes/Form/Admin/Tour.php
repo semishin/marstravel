@@ -10,18 +10,19 @@ class Form_Admin_Tour extends CM_Form_Abstract
     {
         $this->add_plugin(new CM_Form_Plugin_ORM());
 
-        $cities = ORM::factory('City')->order_by('name', 'ASC')->find_all();
-
-        $cities_list = array();
-        foreach ($cities as $item) {
-            $cities_list[$item->id] = $item->name;
-        }
+//        $cities = ORM::factory('City')->order_by('name', 'ASC')->find_all();
+//
+//        $cities_list = array();
+//        foreach ($cities as $item) {
+//            $cities_list[$item->id] = $item->name;
+//        }
 
         $this->set_field('name', new CM_Field_String(), 0);
-        $this->set_field('cities', new CM_Field_Manytomany($cities_list, $this->get_model()), 1);
+//        $this->set_field('cities', new CM_Field_Manytomany($cities_list, $this->get_model()), 1);
         $this->set_field('price', new CM_Field_String(), 2);
         $this->set_field('slogan', new CM_Field_String(), 3);
-        $this->set_field('short_content', new CM_Field_HTML(), 4);
+        $this->set_field('route', new CM_Field_Array(new CM_Field_Select_ORM(ORM::factory('City'))), 4);
+        $this->set_field('short_content', new CM_Field_HTML(), 5);
         $this->set_field('content', new CM_Field_HTML(), 6);
         $this->set_field('main_image', new CM_Field_File(),8);
         $this->set_field('images', new CM_Field_Multifile(),10);
@@ -30,7 +31,6 @@ class Form_Admin_Tour extends CM_Form_Abstract
         $this->set_field('excluded', new CM_Field_HTML(), 16);
         $this->set_field('position', new CM_Field_Int(), 18);
         $this->set_field('url', new CM_Field_String(), 20);
-
         $this->set_field('d1_name', new CM_Field_String(), 22);
         $this->set_field('d1_content', new CM_Field_HTML(), 24);
         $this->set_field('d2_name', new CM_Field_String(), 26);
@@ -54,9 +54,10 @@ class Form_Admin_Tour extends CM_Form_Abstract
 
         $fieldgroups = array(
             'Основные данные' => array( 'name',
-                                        'cities',
+//                                        'cities',
                                         'price',
                                         'slogan',
+                                        'route',
                                         'short_content',
                                         'content',
                                         'main_image',
