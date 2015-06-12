@@ -57,59 +57,61 @@ class Controller_Site_Hotel extends Controller_Site
 
     }
 
-    public function action_city()
+    public function action_ajax()
     {
+        $query = $this->request->post('query');
         $city_id = $this->request->post('city_id');
+        $stars = $this->request->post('stars');
+
         $hotel = ORM::factory('Hotel')
-            ->where('active','=',1)
-            ->where('city_id','=',$city_id)
-            ->order_by('id','desc')
+            ->where('active', '=', 1);
+
+        if ($query) {
+            $hotel = $hotel->and_where_open()->where('name', 'like', '%' . $query . '%')
+                ->or_where('content', 'like', '%' . $query . '%')->and_where_close();
+        }
+        if ($city_id) {
+            $hotel = $hotel
+                ->where('city_id', '=', $city_id);
+        }
+        if ($stars) {
+            $hotel = $hotel
+                ->where('stars', '=', $stars);
+        }
+        $hotel = $hotel
+            ->order_by('id', 'desc')
 //            ->limit(self::LIMIT_ON_PAGE_BANNERS)
             ->find_all()
             ->as_array();
+
         $count_hotel = ORM::factory('Hotel')
-            ->where('active','=',1)
-            ->where('city_id','=',$city_id)
+            ->where('active', '=', 1);
+        if ($query) {
+            $count_hotel = $count_hotel->and_where_open()->where('name', 'like', '%' . $query . '%')
+                ->or_where('content', 'like', '%' . $query . '%')->and_where_close();
+        }
+        if ($city_id) {
+            $count_hotel = $count_hotel
+                ->where('city_id', '=', $city_id);
+        }
+        if ($stars) {
+            $count_hotel = $count_hotel
+                ->where('stars', '=', $stars);
+        }
+        $count_hotel = $count_hotel
             ->count_all();
 
         exit(
             json_encode(
                 array(
-                    'html' => View::factory('site/hotel/city', array(
+                    'html' => View::factory('site/hotel/ajax', array(
                         'hotel' => $hotel,
+                        'count_hotel' => $count_hotel,
                     ))->render(),
-    //                'more' => $count_product > self::LIMIT_ON_PAGE
+                    //                'more' => $count_product > self::LIMIT_ON_PAGE
                 )
             )
         );
     }
-
-    public function action_star()
-    {
-        $star = $this->request->post('star');
-        $hotel = ORM::factory('Hotel')
-            ->where('active','=',1)
-            ->where('stars','=',$star)
-            ->order_by('id','desc')
-//            ->limit(self::LIMIT_ON_PAGE_BANNERS)
-            ->find_all()
-            ->as_array();
-        $count_hotel = ORM::factory('Hotel')
-            ->where('active','=',1)
-            ->where('stars','=',$star)
-            ->count_all();
-
-        exit(
-        json_encode(
-            array(
-                'html' => View::factory('site/hotel/star', array(
-                    'hotel' => $hotel,
-                ))->render(),
-                //                'more' => $count_product > self::LIMIT_ON_PAGE
-            )
-        )
-        );
-    }
-
 
 }

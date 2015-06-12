@@ -4,6 +4,11 @@ var sightsOptions = {
     category_id: '0',
     excursions: 0
 };
+var hotelOptions = {
+    query: '',
+    city_id: '0',
+    stars: '0'
+};
 
 
 // A $( document ).ready() block.
@@ -302,16 +307,35 @@ $( document ).ready(function() {
             $(this).find(".text").width(0);
         });
 
-    $('#cityhotel .selectpicker.form-control').change(function(e) {
+    $('#findhotel.form-control').keyup(function(e) {
         e.preventDefault();
-        var city_id = $(this).find('option:selected').attr('data-id');
+        hotelOptions.query = $(this).val();
         $.ajax({
             type: "POST",
-            url: "/hotel/city",
-            data: {
-                //offset: offset,
-                city_id: city_id
-            },
+            url: "/hotel/ajax",
+            data: hotelOptions,
+            dataType: 'json',
+            success: function (result) {
+                offset = 8;
+                //$('.portfolio_buttons li button').removeClass('active');
+                //$(this).addClass('active');
+                $('.hotels_block .row').html(result.html);
+                //if (!result.more) {
+                //    $('#more_items').hide();
+                //} else {
+                //    $('#more_items').show();
+                //}
+            }
+        });
+    });
+
+    $('#cityhotel .selectpicker.form-control').change(function(e) {
+        e.preventDefault();
+        hotelOptions.city_id = $(this).find('option:selected').attr('data-id');
+        $.ajax({
+            type: "POST",
+            url: "/hotel/ajax",
+            data: hotelOptions,
             dataType: 'json',
             success: function(result) {
                 offset = 8;
@@ -327,16 +351,13 @@ $( document ).ready(function() {
         });
     });
 
-    $('#citystar .selectpicker.form-control').change(function(e) {
+    $('#hotelstar .selectpicker.form-control').change(function(e) {
         e.preventDefault();
-        var star = $(this).find('option:selected').val();
+        hotelOptions.stars = $(this).find('option:selected').val();
         $.ajax({
             type: "POST",
-            url: "/hotel/star",
-            data: {
-                //offset: offset,
-                star: star
-            },
+            url: "/hotel/ajax",
+            data: hotelOptions,
             dataType: 'json',
             success: function(result) {
                 offset = 8;

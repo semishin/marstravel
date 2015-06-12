@@ -9,24 +9,24 @@
         <div class="filter">
             <div class="row">
                 <div class="col-xs-4">
-                    <select class="selectpicker form-control finder" data-live-search="true">
-                        <option disabled selected style="display: none">Введите слово для поиска по местам</option>
-                        <option>Ketchup</option>
-                        <option>Relish</option>
-                        <option>Gonash</option>
-                    </select>
+                    <input type="text" class="form-control" id="findhotel">
+                    <!--                    <select class="selectpicker form-control finder" data-live-search="true">-->
+                    <!--                        <option disabled selected style="display: none">Введите слово для поиска по местам</option>-->
+                    <!--                    </select>-->
                 </div>
                 <div class="col-xs-3" id="cityhotel">
                     <select class="selectpicker form-control">
                         <option disabled selected style="display: none">Город или курорт</option>
+                        <option data-id="0">Все</option>
                         <?php foreach ($cities as $item) { ?>
                             <option data-id="<?php echo $item->id; ?>"><?php echo $item->name ?></option>
                         <?php } ?>
                     </select>
                 </div>
-                <div class="col-xs-3" id="citystar">
+                <div class="col-xs-3" id="hotelstar">
                     <select class="selectpicker form-control">
                         <option disabled selected style="display: none">Количество звезд</option>
+                        <option value="0">Все</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -34,11 +34,11 @@
                         <option value="5">5</option>
                     </select>
                 </div>
-                                <div class="col-xs-2">
-                                    <label class="checkbox">
-                                        <input type="checkbox" id="inlineCheckbox1" value="option1">С экскурсиями <sup><small>145</small></sup>
-                                    </label>
-                                </div>
+<!--                <div class="col-xs-2">-->
+<!--                    <label class="checkbox">-->
+<!--                        <input type="checkbox" id="inlineCheckbox1" value="option1">С экскурсиями <sup><small>145</small></sup>-->
+<!--                    </label>-->
+<!--                </div>-->
             </div>
         </div>
     </div>

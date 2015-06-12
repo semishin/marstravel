@@ -76,18 +76,11 @@ Route::set('site-hotels', 'hotels(/<page>)', array ('page' => '\d+'))
         'action'     => 'index',
     ));
 
-Route::set('site-hotel-city', 'hotel/city')
+Route::set('site-hotel-ajax', 'hotel/ajax')
     ->defaults(array(
         'directory' => 'site',
         'controller' => 'hotel',
-        'action'     => 'city',
-    ));
-
-Route::set('site-hotel-star', 'hotel/star')
-    ->defaults(array(
-        'directory' => 'site',
-        'controller' => 'hotel',
-        'action'     => 'star',
+        'action'     => 'ajax',
     ));
 
 Route::set('site-hotel', 'hotel/<url>')
