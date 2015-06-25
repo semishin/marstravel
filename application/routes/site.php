@@ -83,6 +83,13 @@ Route::set('site-hotel-ajax', 'hotel/ajax')
         'action'     => 'ajax',
     ));
 
+Route::set('site-hotel-more', 'hotel/more')
+    ->defaults(array(
+        'directory' => 'site',
+        'controller' => 'hotel',
+        'action'     => 'more',
+    ));
+
 Route::set('site-hotel', 'hotel/<url>')
     ->defaults(array(
         'directory' => 'site',
@@ -102,6 +109,13 @@ Route::set('site-sight-ajax', 'sight/ajax')
         'directory' => 'site',
         'controller' => 'sight',
         'action'     => 'ajax',
+    ));
+
+Route::set('site-sight-more', 'sight/more')
+    ->defaults(array(
+        'directory' => 'site',
+        'controller' => 'sight',
+        'action'     => 'more',
     ));
 
 Route::set('site-sight', 'sight/<url>')

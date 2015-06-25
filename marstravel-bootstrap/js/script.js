@@ -9,6 +9,7 @@ var hotelOptions = {
     city_id: '0',
     stars: '0'
 };
+var offset = 6;
 
 
 // A $( document ).ready() block.
@@ -167,15 +168,15 @@ $( document ).ready(function() {
                 data: sightsOptions,
                 dataType: 'json',
                 success: function(result) {
-                    offset = 8;
+                    offset = 6;
                     //$('.portfolio_buttons li button').removeClass('active');
                     //$(this).addClass('active');
                     $('.sights_block .row').html(result.html);
-                    //if (!result.more) {
-                    //    $('#more_items').hide();
-                    //} else {
-                    //    $('#more_items').show();
-                    //}
+                    if (!result.more) {
+                        $('#more_sight').hide();
+                    } else {
+                        $('#more_sight').show();
+                    }
                 }
             });
         });
@@ -316,15 +317,15 @@ $( document ).ready(function() {
             data: hotelOptions,
             dataType: 'json',
             success: function (result) {
-                offset = 8;
+                offset = 6;
                 //$('.portfolio_buttons li button').removeClass('active');
                 //$(this).addClass('active');
                 $('.hotels_block .row').html(result.html);
-                //if (!result.more) {
-                //    $('#more_items').hide();
-                //} else {
-                //    $('#more_items').show();
-                //}
+                if (!result.more) {
+                    $('#more_hotel').hide();
+                } else {
+                    $('#more_hotel').show();
+                }
             }
         });
     });
@@ -338,15 +339,15 @@ $( document ).ready(function() {
             data: hotelOptions,
             dataType: 'json',
             success: function(result) {
-                offset = 8;
+                offset = 6;
                 //$('.portfolio_buttons li button').removeClass('active');
                 //$(this).addClass('active');
                 $('.hotels_block .row').html(result.html);
-                //if (!result.more) {
-                //    $('#more_items').hide();
-                //} else {
-                //    $('#more_items').show();
-                //}
+                if (!result.more) {
+                    $('#more_hotel').hide();
+                } else {
+                    $('#more_hotel').show();
+                }
             }
         });
     });
@@ -360,15 +361,35 @@ $( document ).ready(function() {
             data: hotelOptions,
             dataType: 'json',
             success: function(result) {
-                offset = 8;
+                offset = 6;
                 //$('.portfolio_buttons li button').removeClass('active');
                 //$(this).addClass('active');
                 $('.hotels_block .row').html(result.html);
-                //if (!result.more) {
-                //    $('#more_items').hide();
-                //} else {
-                //    $('#more_items').show();
-                //}
+                if (!result.more) {
+                    $('#more_hotel').hide();
+                } else {
+                    $('#more_hotel').show();
+                }
+            }
+        });
+    });
+
+    $('#more_hotel').click(function(e) {
+        e.preventDefault();
+       hotelOptions.offset = offset;
+        $.ajax({
+            type: "POST",
+            url: "/hotel/more",
+            data: hotelOptions,
+            dataType: 'json',
+            success: function(result) {
+                offset += 6;
+                var html = $('.hotels_block .row').html();
+                html += result.html;
+                $('.hotels_block .row').html(html);
+                if (!result.more) {
+                    $('#more_hotel').hide();
+                }
             }
         });
     });
@@ -382,15 +403,15 @@ $( document ).ready(function() {
             data: sightsOptions,
             dataType: 'json',
             success: function (result) {
-                offset = 8;
+                offset = 6;
                 //$('.portfolio_buttons li button').removeClass('active');
                 //$(this).addClass('active');
                 $('.sights_block .row').html(result.html);
-                //if (!result.more) {
-                //    $('#more_items').hide();
-                //} else {
-                //    $('#more_items').show();
-                //}
+                if (!result.more) {
+                    $('#more_sight').hide();
+                } else {
+                    $('#more_sight').show();
+                }
             }
         });
     });
@@ -404,15 +425,15 @@ $( document ).ready(function() {
             data: sightsOptions,
             dataType: 'json',
             success: function(result) {
-                offset = 8;
+                offset = 6;
                 //$('.portfolio_buttons li button').removeClass('active');
                 //$(this).addClass('active');
                 $('.sights_block .row').html(result.html);
-                //if (!result.more) {
-                //    $('#more_items').hide();
-                //} else {
-                //    $('#more_items').show();
-                //}
+                if (!result.more) {
+                    $('#more_sight').hide();
+                } else {
+                    $('#more_sight').show();
+                }
             }
         });
     });
@@ -426,15 +447,35 @@ $( document ).ready(function() {
             data: sightsOptions,
             dataType: 'json',
             success: function(result) {
-                offset = 8;
+                offset = 6;
                 //$('.portfolio_buttons li button').removeClass('active');
                 //$(this).addClass('active');
                 $('.sights_block .row').html(result.html);
-                //if (!result.more) {
-                //    $('#more_items').hide();
-                //} else {
-                //    $('#more_items').show();
-                //}
+                if (!result.more) {
+                    $('#more_sight').hide();
+                } else {
+                    $('#more_sight').show();
+                }
+            }
+        });
+    });
+
+    $('#more_sight').click(function(e) {
+        e.preventDefault();
+        sightsOptions.offset = offset;
+        $.ajax({
+            type: "POST",
+            url: "/sight/more",
+            data: sightsOptions,
+            dataType: 'json',
+            success: function(result) {
+                offset += 6;
+                var html = $('.sights_block .row').html();
+                html += result.html;
+                $('.sights_block .row').html(html);
+                if (!result.more) {
+                    $('#more_sight').hide();
+                }
             }
         });
     });

@@ -50,6 +50,7 @@ class Model_Hotel extends ORM
             'type' => 'template',
             'template' => '${city_name}'
         ),
+        'stars' => null,
         'active' => 'bool',
         'edit' => array(
             'width' => '40',
@@ -80,6 +81,7 @@ class Model_Hotel extends ORM
         return array(
             'name',
             'city_id',
+            'stars',
             'active'
         );
     }
