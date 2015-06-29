@@ -279,7 +279,7 @@ body{
 .search_line .search{
     width: 570px;
 }
-.search_line .search>.input-group{
+.search_line .search .input-group{
     padding: 8px 0px;
     background-color: #eeeeee;
     border-radius: 25px;
@@ -894,7 +894,8 @@ body{
     margin-bottom: 40px;
     color: #ee1c25;
 }
-.intro .text{
+.intro .text,
+.intro  p{
     font-family: 'PT Sans', sans-serif;
     color: #111111;
     font-weight: bold;
@@ -1347,6 +1348,39 @@ body{
 .filter label.checkbox sup{
     color: #ee1c25;
     font-weight: bold;
+}
+
+.filter .bootstrap-select.findsight{
+	width: 100% !important;
+	position: relative;
+}
+.filter .bootstrap-select.findsight #find_btn{ 
+  position: absolute;
+  font-family: 'PT Sans', sans-serif;
+  background-image: none;
+  width: 63px;
+  height: 30px;
+  top: 8px;
+  right: 8px;
+  background-color: #dddddd;
+  line-height: 30px;
+  text-align: center;
+  color: #888888;
+  font-size: 16px;
+  cursor: pointer;
+}
+.filter .bootstrap-select.findsight>input{
+  border: 0px;
+  border-radius: 2px;
+  padding: 8px 12px;
+  padding-right: 35px;
+  color: #888888;
+  font-size: 16px;
+  font-family: 'PT Sans', sans-serif;
+  outline: none !important;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  height: 38px;
 }
 
 .grey_top_block .back_to_main{

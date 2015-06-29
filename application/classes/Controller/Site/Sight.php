@@ -122,13 +122,36 @@ class Controller_Site_Sight extends Controller_Site
         $count_sight = $count_sight
             ->count_all();
 
+        $count_excursion = ORM::factory('Sight')
+                ->where('active','=',1)
+                ->where('excursion','=',1);
+        if ($query) {
+            $count_excursion = $count_excursion->and_where_open()->where('name', 'like', '%' . $query . '%')
+                ->or_where('content', 'like', '%' . $query . '%')->and_where_close();
+        }
+        if ($city_id) {
+            $count_excursion = $count_excursion
+                ->where('city_id','=',$city_id);
+        }
+        if ($category_id) {
+            $count_excursion = $count_excursion
+                ->where('category_id','=',$category_id);
+        }
+        if ($excursions) {
+            $count_excursion = $count_excursion
+                ->where('excursion','=',1);
+        }
+        $count_excursion = $count_excursion
+            ->count_all();
+
         exit(
             json_encode(
                 array(
                     'html' => View::factory('site/sight/ajax', array(
-                        'sight' => $sight,
-                        'count_sight' => $count_sight,
+                        'sight' => $sight
                     ))->render(),
+                    'count_sight' => $count_sight,
+                    'count_excursion' => $count_excursion,
                     'more' => $count_sight > self::LIMIT_ON_PAGE
                 )
             )
@@ -194,13 +217,36 @@ class Controller_Site_Sight extends Controller_Site
         $count_sight = $count_sight
             ->count_all();
 
+        $count_excursion = ORM::factory('Sight')
+            ->where('active','=',1)
+            ->where('excursion','=',1);
+        if ($query) {
+            $count_excursion = $count_excursion->and_where_open()->where('name', 'like', '%' . $query . '%')
+                ->or_where('content', 'like', '%' . $query . '%')->and_where_close();
+        }
+        if ($city_id) {
+            $count_excursion = $count_excursion
+                ->where('city_id','=',$city_id);
+        }
+        if ($category_id) {
+            $count_excursion = $count_excursion
+                ->where('category_id','=',$category_id);
+        }
+        if ($excursions) {
+            $count_excursion = $count_excursion
+                ->where('excursion','=',1);
+        }
+        $count_excursion = $count_excursion
+            ->count_all();
+
         exit(
             json_encode(
                 array(
                     'html' => View::factory('site/sight/more', array(
-                        'sight' => $sight,
-                        'count_sight' => $count_sight,
+                        'sight' => $sight
                     ))->render(),
+                    'count_sight' => $count_sight,
+                    'count_excursion' => $count_excursion,
                     'more' => $count_sight > $offset + self::LIMIT_ON_PAGE,
                 )
             )

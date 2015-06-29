@@ -3,13 +3,17 @@
     <div class="grey_top_block">
         <a href="/" class="back_to_main">&larr; <span>Назад на главную</span></a>
         <p class="text-center header">Отели Турции</p>
-        <p class="text-center duration">всего <?php echo $count_hotel; ?> отелей</p>
+        <p class="text-center duration" id="count_hotel">всего <?php echo $count_hotel; ?> отелей</p>
         <p class="text-center additional_text">Чрезвычайно широкий и разнообразный выбор отелей, от шикарных сетевых гигантов на побережье Анталии
             до маленьких пансионов в горах турецкого Курдистана</p>
         <div class="filter">
             <div class="row">
                 <div class="col-xs-4">
-                    <input type="text" class="form-control" id="findhotel">
+                    <div class="bootstrap-select findsight">
+                        <input type="text" class="form-control" id="findhotel" placeholder="Введите слово для поиска по местам">
+                        <span id="find_btn">Найти</span>
+                    </div>
+<!--                    <input type="text" class="form-control" id="findhotel">-->
                     <!--                    <select class="selectpicker form-control finder" data-live-search="true">-->
                     <!--                        <option disabled selected style="display: none">Введите слово для поиска по местам</option>-->
                     <!--                    </select>-->

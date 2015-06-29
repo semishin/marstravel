@@ -107,9 +107,9 @@ class Controller_Site_Hotel extends Controller_Site
             json_encode(
                 array(
                     'html' => View::factory('site/hotel/ajax', array(
-                        'hotel' => $hotel,
-                        'count_hotel' => $count_hotel,
+                        'hotel' => $hotel
                     ))->render(),
+                    'count_hotel' => $count_hotel,
                     'more' => $count_hotel > self::LIMIT_ON_PAGE
                 )
             )
@@ -170,9 +170,9 @@ class Controller_Site_Hotel extends Controller_Site
         json_encode(
             array(
                 'html' => View::factory('site/hotel/more', array(
-                    'hotel' => $hotel,
-                    'count_hotel' => $count_hotel,
+                    'hotel' => $hotel
                 ))->render(),
+                'count_hotel' => $count_hotel,
                 'more' => $count_hotel > $offset + self::LIMIT_ON_PAGE,
             )
         )

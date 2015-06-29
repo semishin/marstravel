@@ -56,9 +56,14 @@
                         <div class="row">
                             <div class="col-xs-7">
                                 <ul class="list-inline pull-left">
-                                    <li><a href="/about-us">О компании</a></li>
-                                    <li><a href="/advertising">Реклама на сайте</a></li>
+                                    <li>О компании
+                                        <ul>
+                                            <li><a href="/about-us">О нас</a></li>
+                                            <li><a href="#">Туроператорская деятельность</a></li>
+                                        </ul>
+                                    </li>
                                     <li><a href="/our-partners">Наши партнёры</a></li>
+                                    <li><a href="/advertising">Для корпоративных клиентов</a></li>
                                     <li><a href="/contacts">Контакты</a></li>
                                 </ul>
                             </div>

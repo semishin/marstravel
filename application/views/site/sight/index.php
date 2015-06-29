@@ -3,11 +3,15 @@
     <div class="grey_top_block">
         <a href="/" class="back_to_main">&larr; <span>Назад на главную</span></a>
         <p class="text-center header">Достопримечательности Турции</p>
-        <p class="text-center duration">всего <?php echo $count_sight; ?> мест</p>
+        <p class="text-center duration" id="count_sight">всего <?php echo $count_sight; ?> мест</p>
         <div class="filter">
             <div class="row">
                 <div class="col-xs-4">
-                    <input type="text" class="form-control" id="findsight">
+                    <div class="bootstrap-select findsight">
+                        <input type="text" class="form-control" id="findsight" placeholder="Введите слово для поиска по местам">
+                        <span id="find_btn">Найти</span>
+                    </div>
+<!--                    <input type="text" class="form-control" id="findsight">-->
 <!--                    <select class="selectpicker form-control finder" data-live-search="true">-->
 <!--                        <option disabled selected style="display: none">Введите слово для поиска по местам</option>-->
 <!--                    </select>-->
@@ -32,7 +36,7 @@
                 </div>
                 <div class="col-xs-2">
                     <label class="checkbox">
-                        <input type="checkbox" id="inlineCheckbox1" value="option1">С экскурсиями <sup><small><?php echo $count_excursion; ?></small></sup>
+                        <input type="checkbox" id="inlineCheckbox1" value="option1">С экскурсиями <sup><small id="count_excursion"><?php echo $count_excursion; ?></small></sup>
                     </label>
                 </div>
             </div>

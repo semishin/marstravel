@@ -172,6 +172,8 @@ $( document ).ready(function() {
                     //$('.portfolio_buttons li button').removeClass('active');
                     //$(this).addClass('active');
                     $('.sights_block .row').html(result.html);
+                    $('#count_sight').text("всего " + result.count_sight + " мест");
+                    $('#count_excursion').text(result.count_excursion);
                     if (!result.more) {
                         $('#more_sight').hide();
                     } else {
@@ -321,6 +323,7 @@ $( document ).ready(function() {
                 //$('.portfolio_buttons li button').removeClass('active');
                 //$(this).addClass('active');
                 $('.hotels_block .row').html(result.html);
+                $('#count_hotel').text("всего " + result.count_hotel + " отелей");
                 if (!result.more) {
                     $('#more_hotel').hide();
                 } else {
@@ -343,6 +346,7 @@ $( document ).ready(function() {
                 //$('.portfolio_buttons li button').removeClass('active');
                 //$(this).addClass('active');
                 $('.hotels_block .row').html(result.html);
+                $('#count_hotel').text("всего " + result.count_hotel + " отелей");
                 if (!result.more) {
                     $('#more_hotel').hide();
                 } else {
@@ -365,6 +369,7 @@ $( document ).ready(function() {
                 //$('.portfolio_buttons li button').removeClass('active');
                 //$(this).addClass('active');
                 $('.hotels_block .row').html(result.html);
+                $('#count_hotel').text("всего " + result.count_hotel + " отелей");
                 if (!result.more) {
                     $('#more_hotel').hide();
                 } else {
@@ -387,6 +392,7 @@ $( document ).ready(function() {
                 var html = $('.hotels_block .row').html();
                 html += result.html;
                 $('.hotels_block .row').html(html);
+                $('#count_hotel').text("всего " + result.count_hotel + " отелей");
                 if (!result.more) {
                     $('#more_hotel').hide();
                 }
@@ -407,6 +413,8 @@ $( document ).ready(function() {
                 //$('.portfolio_buttons li button').removeClass('active');
                 //$(this).addClass('active');
                 $('.sights_block .row').html(result.html);
+                $('#count_sight').text("всего " + result.count_sight + " мест");
+                $('#count_excursion').text(result.count_excursion);
                 if (!result.more) {
                     $('#more_sight').hide();
                 } else {
@@ -429,6 +437,8 @@ $( document ).ready(function() {
                 //$('.portfolio_buttons li button').removeClass('active');
                 //$(this).addClass('active');
                 $('.sights_block .row').html(result.html);
+                $('#count_sight').text("всего " + result.count_sight + " мест");
+                $('#count_excursion').text(result.count_excursion);
                 if (!result.more) {
                     $('#more_sight').hide();
                 } else {
@@ -451,6 +461,8 @@ $( document ).ready(function() {
                 //$('.portfolio_buttons li button').removeClass('active');
                 //$(this).addClass('active');
                 $('.sights_block .row').html(result.html);
+                $('#count_sight').text("всего " + result.count_sight + " мест");
+                $('#count_excursion').text(result.count_excursion);
                 if (!result.more) {
                     $('#more_sight').hide();
                 } else {
@@ -473,6 +485,7 @@ $( document ).ready(function() {
                 var html = $('.sights_block .row').html();
                 html += result.html;
                 $('.sights_block .row').html(html);
+                $('#count_sight').text("всего " + result.count_sight + " мест");
                 if (!result.more) {
                     $('#more_sight').hide();
                 }
