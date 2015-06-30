@@ -8,8 +8,8 @@
             <div class="row">
                 <div class="col-xs-4">
                     <div class="bootstrap-select findsight">
-                        <input type="text" class="form-control" id="findexcursion" placeholder="Введите слово для поиска по экскурсиям">
-                        <span id="find_btn">Найти</span>
+                        <input type="text" class="form-control" placeholder="Введите слово для поиска по экскурсиям">
+                        <span id="find_btn" class="findexcursion">Найти</span>
                     </div>
                 </div>
                 <div class="col-xs-3" id="cityexcursion">

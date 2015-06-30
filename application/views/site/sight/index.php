@@ -8,8 +8,8 @@
             <div class="row">
                 <div class="col-xs-4">
                     <div class="bootstrap-select findsight">
-                        <input type="text" class="form-control" id="findsight" placeholder="Введите слово для поиска по местам">
-                        <span id="find_btn">Найти</span>
+                        <input type="text" class="form-control" placeholder="Введите слово для поиска по местам">
+                        <span id="find_btn" class="findsight">Найти</span>
                     </div>
 <!--                    <input type="text" class="form-control" id="findsight">-->
 <!--                    <select class="selectpicker form-control finder" data-live-search="true">-->

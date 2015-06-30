@@ -315,9 +315,9 @@ $( document ).ready(function() {
             $(this).find(".text").width(0);
         });
 
-    $('#findhotel.form-control').keyup(function(e) {
+    $('#find_btn.findhotel').on('click', function(e) {
         e.preventDefault();
-        hotelOptions.query = $(this).val();
+        hotelOptions.query = $(this).parent().find('input').val();
         $.ajax({
             type: "POST",
             url: "/hotel/ajax",
@@ -405,9 +405,9 @@ $( document ).ready(function() {
         });
     });
 
-    $('#findsight.form-control').keyup(function(e) {
+    $('#find_btn.findsight').on('click', function(e) {
         e.preventDefault();
-        sightsOptions.query = $(this).val();
+        sightsOptions.query = $(this).parent().find('input').val();
         $.ajax({
             type: "POST",
             url: "/sight/ajax",
@@ -498,7 +498,7 @@ $( document ).ready(function() {
         });
     });
 
-    $('#find_btn.hotel').on('click', function(e) {
+    $('#find_btn.findexcursion').on('click', function(e) {
         e.preventDefault();
         excursionsOptions.query = $(this).parent().find('input').val();
         $.ajax({
