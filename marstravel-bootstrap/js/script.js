@@ -9,6 +9,11 @@ var hotelOptions = {
     city_id: '0',
     stars: '0'
 };
+var excursionsOptions = {
+    query: '',
+    city_id: '0',
+    category_id: '0'
+};
 var offset = 6;
 
 
@@ -488,6 +493,96 @@ $( document ).ready(function() {
                 $('#count_sight').text("всего " + result.count_sight + " мест");
                 if (!result.more) {
                     $('#more_sight').hide();
+                }
+            }
+        });
+    });
+
+    $('#find_btn.hotel').on('click', function(e) {
+        e.preventDefault();
+        excursionsOptions.query = $(this).parent().find('input').val();
+        $.ajax({
+            type: "POST",
+            url: "/excursion/ajax",
+            data: excursionsOptions,
+            dataType: 'json',
+            success: function (result) {
+                offset = 6;
+                //$('.portfolio_buttons li button').removeClass('active');
+                //$(this).addClass('active');
+                $('.sights_block .row').html(result.html);
+                $('#count_excursion').text("всего " + result.count_excursion + " экскурсий");
+                if (!result.more) {
+                    $('#more_excursion').hide();
+                } else {
+                    $('#more_excursion').show();
+                }
+            }
+        });
+    });
+
+    $('#cityexcursion .selectpicker.form-control').change(function(e) {
+        e.preventDefault();
+        excursionsOptions.city_id = $(this).find('option:selected').attr('data-id');
+        $.ajax({
+            type: "POST",
+            url: "/excursion/ajax",
+            data: excursionsOptions,
+            dataType: 'json',
+            success: function(result) {
+                offset = 6;
+                //$('.portfolio_buttons li button').removeClass('active');
+                //$(this).addClass('active');
+                $('.sights_block .row').html(result.html);
+                $('#count_excursion').text("всего " + result.count_excursion + " экскурсий");
+                if (!result.more) {
+                    $('#more_excursion').hide();
+                } else {
+                    $('#more_excursion').show();
+                }
+            }
+        });
+    });
+
+    $('#categoryexcursion .selectpicker.form-control').change(function(e) {
+        e.preventDefault();
+        excursionsOptions.category_id = $(this).find('option:selected').attr('data-id');
+        $.ajax({
+            type: "POST",
+            url: "/excursion/ajax",
+            data: excursionsOptions,
+            dataType: 'json',
+            success: function(result) {
+                offset = 6;
+                //$('.portfolio_buttons li button').removeClass('active');
+                //$(this).addClass('active');
+                $('.sights_block .row').html(result.html);
+                $('#count_excursion').text("всего " + result.count_excursion + " экскурсий");
+                if (!result.more) {
+                    $('#more_excursion').hide();
+                } else {
+                    $('#more_excursion').show();
+                }
+            }
+        });
+    });
+
+    $('#more_excursion').click(function(e) {
+        e.preventDefault();
+        excursionsOptions.offset = offset;
+        $.ajax({
+            type: "POST",
+            url: "/excursion/more",
+            data: excursionsOptions,
+            dataType: 'json',
+            success: function(result) {
+                offset += 6;
+                var html = $('.sights_block .row').html();
+                html += result.html;
+                $('.sights_block .row').html(html);
+                $('#count_excursion').text("всего " + result.count_excursion + " экскурсий");
+                if (!result.more) {
+                    $('#more_excursion').hide();
                 }
             }
         });

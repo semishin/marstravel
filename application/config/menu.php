@@ -18,6 +18,10 @@ return array
             '<i class="fa fa-camera"></i>|Категории дост.' => 'admin-sight_category',
             '<i class="fa fa-camera"></i>|Достопримеч.' => 'admin-sight',
         ),
+        '<i class="fa fa-flag-o"></i>|Экскурсии' => array(
+            '<i class="fa fa-flag"></i>|Категории экск.' => 'admin-excursion_category',
+            '<i class="fa fa-flag-o"></i>|Экскурсии' => 'admin-excursion',
+        ),
         '<i class="fa fa-location-arrow"></i>|Города' => 'admin-city',
         '<i class="fa fa-map-marker"></i>|Туры' => 'admin-tour',
         '<i class="fa fa-barcode"></i>|Купоны' => array(

@@ -124,6 +124,36 @@ return array(
         'parent' => 'admin.sight_category.index'
     ),
 
+    'admin.excursion.index' => array(
+        'title' => 'Список экскурсий',
+        'route' => 'admin-excursion'
+    ),
+    'admin.excursion.edit' => array(
+        'title' => 'Редактирование экскурсий',
+        'route' => 'admin-excursion:edit',
+        'parent' => 'admin.excursion.index'
+    ),
+    'admin.excursion.create' => array(
+        'title' => 'Добавление экскурсий',
+        'route' => 'admin-excursion:create',
+        'parent' => 'admin.excursion.index'
+    ),
+
+    'admin.excursion_category.index' => array(
+        'title' => 'Список категорий экскурсий',
+        'route' => 'admin-excursion_category'
+    ),
+    'admin.excursion_category.edit' => array(
+        'title' => 'Редактирование категории экскурсии',
+        'route' => 'admin-excursion_category:edit',
+        'parent' => 'admin.excursion_category.index'
+    ),
+    'admin.excursion_category.create' => array(
+        'title' => 'Добавление категории экскурсии',
+        'route' => 'admin-excursion_category:create',
+        'parent' => 'admin.excursion_category.index'
+    ),
+
     'admin.partner.index' => array(
         'title' => 'Список партнеров',
         'route' => 'admin-partner'

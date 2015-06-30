@@ -62,6 +62,20 @@ Route::set('admin-sight_category', $adminPrefix . 'sight_category(/<action>(/<id
         'action' => 'index'
     ));
 
+Route::set('admin-excursion', $adminPrefix . 'excursion(/<action>(/<id>))')
+    ->defaults(array(
+        'directory' => 'admin',
+        'controller' => 'excursion',
+        'action' => 'index'
+    ));
+
+Route::set('admin-excursion_category', $adminPrefix . 'excursion_category(/<action>(/<id>))')
+    ->defaults(array(
+        'directory' => 'admin',
+        'controller' => 'excursion_category',
+        'action' => 'index'
+    ));
+
 Route::set('admin-partner', $adminPrefix . 'partner(/<action>(/<id>))')
     ->defaults(array(
         'directory' => 'admin',

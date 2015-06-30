@@ -8,10 +8,25 @@ class Model_Tour extends ORM
 
     );
 
+    protected $_has_many_to_save = array(
+        'excursion'    => array(
+            'model'=> 'Excursion',
+            'foreign_key' => 'tour_id',
+            'through'      => 'tour_excursion',
+            'far_key'      => 'excursion_id',
+        )
+    );
+
     protected $_has_many = array(
         'coupon' => array(
             'model' => 'Coupon',
             'foreign_key' => 'tour_id'
+        ),
+        'excursion'    => array(
+            'model'=> 'Excursion',
+            'foreign_key' => 'tour_id',
+            'through'      => 'tour_excursion',
+            'far_key'      => 'excursion_id',
         )
     );
 

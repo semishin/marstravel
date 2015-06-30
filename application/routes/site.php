@@ -54,13 +54,13 @@ Route::set('site-about_turkey', 'about-turkey')
         'controller' => 'page',
         'action'     => 'about_turkey',
     ));
-//
-//Route::set('site-sight', 'sight')
-//    ->defaults(array(
-//        'directory' => 'site',
-//        'controller' => 'page',
-//        'action'     => 'sight',
-//    ));
+
+Route::set('site-touroperator', 'touroperator')
+    ->defaults(array(
+        'directory' => 'site',
+        'controller' => 'page',
+        'action'     => 'touroperator',
+    ));
 
 Route::set('site-advertising', 'advertising')
     ->defaults(array(
@@ -69,7 +69,7 @@ Route::set('site-advertising', 'advertising')
         'action'     => 'advertising',
     ));
 
-Route::set('site-hotels', 'hotels(/<page>)', array ('page' => '\d+'))
+Route::set('site-hotels', 'hotels')
     ->defaults(array(
         'directory' => 'site',
         'controller' => 'hotel',
@@ -97,7 +97,7 @@ Route::set('site-hotel', 'hotel/<url>')
         'action'     => 'item',
     ));
 
-Route::set('site-sights', 'sights(/<page>)', array ('page' => '\d+'))
+Route::set('site-sights', 'sights')
     ->defaults(array(
         'directory' => 'site',
         'controller' => 'sight',
@@ -122,6 +122,34 @@ Route::set('site-sight', 'sight/<url>')
     ->defaults(array(
         'directory' => 'site',
         'controller' => 'sight',
+        'action'     => 'item',
+    ));
+
+Route::set('site-excursions', 'excursions')
+    ->defaults(array(
+        'directory' => 'site',
+        'controller' => 'excursion',
+        'action'     => 'index',
+    ));
+
+Route::set('site-excursion-ajax', 'excursion/ajax')
+    ->defaults(array(
+        'directory' => 'site',
+        'controller' => 'excursion',
+        'action'     => 'ajax',
+    ));
+
+Route::set('site-excursion-more', 'excursion/more')
+    ->defaults(array(
+        'directory' => 'site',
+        'controller' => 'excursion',
+        'action'     => 'more',
+    ));
+
+Route::set('site-excursion', 'excursion/<url>')
+    ->defaults(array(
+        'directory' => 'site',
+        'controller' => 'excursion',
         'action'     => 'item',
     ));
 

@@ -59,7 +59,7 @@
                                     <li>О компании
                                         <ul>
                                             <li><a href="/about-us">О нас</a></li>
-                                            <li><a href="#">Туроператорская деятельность</a></li>
+                                            <li><a href="/touroperator">Туроператорская деятельность</a></li>
                                         </ul>
                                     </li>
                                     <li><a href="/our-partners">Наши партнёры</a></li>
@@ -161,8 +161,8 @@
                 <div class="col-xs-12">
                     <div class="footer_menu">
                         <ul class="list-unstyled">
-                            <li><a href="/about-us">О компании</a></li>
-                            <li><a href="/advertising">Реклама на сайте</a></li>
+                            <li><a href="/about-us">О нас</a></li>
+                            <li><a href="/advertising">Для корпоративных клиентов</a></li>
                         </ul>
 
                         <ul class="list-unstyled">
