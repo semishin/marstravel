@@ -12,7 +12,7 @@
                         <span id="find_btn" class="findexcursion">Найти</span>
                     </div>
                 </div>
-                <div class="col-xs-3" id="cityexcursion">
+                <div class="col-xs-4" id="cityexcursion">
                     <select class="selectpicker form-control">
                         <option disabled selected style="display: none">Город или курорт</option>
                         <option data-id="0">Все</option>
@@ -21,7 +21,7 @@
                         <?php } ?>
                     </select>
                 </div>
-                <div class="col-xs-3" id="categoryexcursion">
+                <div class="col-xs-4" id="categoryexcursion">
                     <select class="selectpicker form-control">
                         <option disabled selected style="display: none">Категории</option>
                         <option data-id="0">Все</option>

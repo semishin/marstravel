@@ -84,7 +84,7 @@
                 </div>
             </div>
             <?php if ($count_sight > 6) { ?>
-                <p class="text-center"><button type="button" id="more_sight" class="btn btn-default load_button">Ещё достопримечательсности</button></p>
+                <p class="text-center"><button type="button" id="more_sight" class="btn load_button black_btn">Загрузить ещё</button></p>
             <?php } ?>
         </div>
     </div>

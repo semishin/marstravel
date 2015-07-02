@@ -81,9 +81,9 @@
                                 <div class="top">
                                     <a href="/tour/<?php echo $item->url ?>"><p class="text-center header"><?php echo $item->name ?></p></a>
                                     <p class="text-center duration">7 ночей 8 дней</p>
-                                    <ul class="list-inline cities text-center">
+                                    <ul class="list-inline cities text-center" data-id="<?php echo $index+1 ?>">
                                         <?php foreach ($ids as $item2) { ?>
-                                            <li><a href="#"><?php echo $citiesHash[$item2]->name; ?></a></li>
+                                            <li><a href="#yandex_map_with_route" class="fancy" data-img="" data-number="<?php echo $item2 ?>"><?php echo $citiesHash[$item2]->name; ?></a></li>
                                         <?php } ?>
                                     </ul>
                                     <p class="text-center description">
@@ -116,6 +116,72 @@
                     </div>
                 </div>
             <?php } ?>
+            <div style="display: none">
+                <div id="yandex_map_with_route">
+                    <script>
+                        var map, mapRoute;
+
+                        ymaps.ready(function() {
+                            map = new ymaps.Map('map', {
+                                center: [39.52, 32.52],
+                                zoom: 6
+                            });
+                        });
+
+
+                        $( ".cities a" ).click(function( event ) {
+                            event.preventDefault();
+                            var tour_number = $(this).parent().parent().attr("data-id");
+                            var ballon_number = $(this).attr("data-number");
+                            // Удаление старого маршрута
+                            if (mapRoute) {
+                                map.geoObjects.remove(mapRoute);
+                            }
+
+                            var cities_amount =  $("ul.cities[data-id="+tour_number+"] > li").length;
+
+                            var cities  = [];
+                            var cities_images = [];
+                            var i = 0;
+                            var city_name = "none";
+                            for(i=0; i<cities_amount; i++){
+                                city_name =  $("ul.cities[data-id="+tour_number+"] > li:nth-child(" + (i+1) + ") > a").text();
+                                cities_images[i] = $("ul.cities[data-id="+tour_number+"] > li:nth-child(" + (i+1) + ") > a").attr("data-img");
+                                cities[i] = "Турция, "+ city_name +"";
+                            }
+
+                            // Создание маршрута
+                            ymaps.route(cities, {mapStateAutoApply:true}).then(
+                                function(route) {
+                                    map.geoObjects.add(route);
+
+                                    var points = route.getWayPoints();
+                                    // Задаем стиль метки - иконки будут красного цвета, и
+                                    // их изображения будут растягиваться под контент.
+                                    points.options.set('preset', 'twirl#redStretchyIcon');
+
+                                    for(i=0; i<cities_amount;i++){
+                                        // Задаем контент меток.
+                                        points.get(i).properties.set('iconContent', cities[i].substring(8));
+                                        points.get(i).properties.set('balloonContent', "<p><img src="+cities_images[i]+" /></p><p>" + cities[i].substring(8)+"</p>");
+                                    }
+
+                                    var wayPoint = route.getWayPoints().get(ballon_number);
+                                    ymaps.geoObject.addon.balloon.get(wayPoint).open();
+
+                                    //document.getElementById('route-length').innerHTML = 'Длина маршрута = ' + route.getHumanLength();
+                                    mapRoute = route;
+                                },
+                                function(error) {
+                                    alert('Невозможно построить маршрут');
+                                }
+                            );
+                        });
+                    </script>
+                    <div id="map"></div>
+                    <!--<div id="route-length"></div>-->
+                </div>
+            </div>
         </div>
     </div>
 </div>

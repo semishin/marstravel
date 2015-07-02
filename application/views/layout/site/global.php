@@ -3,7 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width">
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1">-->
     <title><?php echo $s_title;?></title>
     <meta name="description" content="<?php echo $s_description;?>">
     <meta name="keywords" content="<?php echo $s_keywords;?>">
@@ -20,6 +21,7 @@
     <link href="/marstravel-bootstrap/css/bootstrap-select.min.css" rel="stylesheet">
     <link href="/marstravel-bootstrap/css/minimal/minimal.css" rel="stylesheet">
     <link href="/marstravel-bootstrap/css/style.css" rel="stylesheet">
+    <link rel="shortcut icon" href="/marstravel-bootstrap/img/favicon.ico" type="image/x-icon">
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
@@ -56,8 +58,8 @@
                         <div class="row">
                             <div class="col-xs-7">
                                 <ul class="list-inline pull-left">
-                                    <li>О компании
-                                        <ul>
+                                    <li class="dropdown_hover"><span class="a">О компании</span>
+                                        <ul class="dropdown_menu list-unstyled">
                                             <li><a href="/about-us">О нас</a></li>
                                             <li><a href="/touroperator">Туроператорская деятельность</a></li>
                                         </ul>
@@ -70,7 +72,7 @@
                             <div class="col-xs-5">
                                 <ul class="list-inline pull-right">
                                     <li class="email"><a href="#ask_consultant" class="fancy"><?php echo Kohana::$config->load('properties.email'); ?></a></li>
-                                    <li><b><?php echo Kohana::$config->load('properties.phone'); ?></b></li>
+                                    <li class="phone"><a href="tel:<?php echo Kohana::$config->load('properties.phone'); ?>"><b><?php echo Kohana::$config->load('properties.phone'); ?></b></a></li>
                                 </ul>
                                 <div style="display: none">
                                     <div id="ask_consultant">
