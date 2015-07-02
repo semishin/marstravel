@@ -304,6 +304,7 @@ $( document ).ready(function() {
 
     $('.star_label_trans').hover(
         function(){
+            var max_width = $('.tour .image').width();
             var text_width = $(this).find(".text b").width();
             if(text_width > 175){
                 $(this).find(".text").width(205);

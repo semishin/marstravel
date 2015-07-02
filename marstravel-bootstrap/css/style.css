@@ -483,6 +483,12 @@ body{
     width: 40px;
     height: 40px;
 }
+.icon_excursions{
+    display: inline-block;
+    background: url('../img/icon-excursions.png') no-repeat left top;
+    width: 35px;
+    height: 35px;
+}
 .left_menu{
     margin-bottom: 30px;
 }
@@ -508,7 +514,12 @@ body{
     position: relative;
     top: 16px;
 }
-
+.left_menu .icon_excursions{
+    margin-left: 8px;
+    margin-right: 25px;
+    position: relative;
+    top: 16px;
+}
 .left_menu ul{
     margin-bottom: 0px;
 }
@@ -525,6 +536,9 @@ body{
 .left_menu ul>li>a{
     font-weight: normal;
     color: #111111;
+}
+.left_menu ul>li>a:hover>span{
+    color: #ee1c25;
 }
 
 .left_banner{
@@ -579,6 +593,10 @@ body{
     color: #111111;
     font-weight: bold;
     font-size: 28px;
+}
+.tour .left_part .brief_info .header:hover,
+.tour .left_part .brief_info .cities li>a:hover{
+    color: #ee1c25;
 }
 .tour .left_part .brief_info .duration{
     font-size: 16px;
@@ -1255,6 +1273,11 @@ body{
     color: #ee1c25;
     border-bottom: 1px solid #ee1c25;
 }
+/*.hotels_block .hotel2 .name:hover>a,*/
+.hotels_block .hotel2 .name>a:hover{
+    color: #ee1c25 !important;
+    border-bottom: 1px solid #ee1c25 !important;
+}
 .hotels_block .hotel2{
     background-color: #eeeeee;
 }
@@ -1291,6 +1314,10 @@ body{
 }
 .hotels_block .hotel2 .name>a{
     font-size: 28px;
+}
+.hotels_block .hotel2:hover .name>a{
+    color: #111111;
+    border-bottom: 1px solid #afb2b4;
 }
 .hotels_block .hotel2 .contacts{
     margin-bottom: 20px;
@@ -1683,6 +1710,28 @@ ul.modified>li:before{
     height: 32px;
 }
 
+@media (min-width: 992px) and (max-width: 1240px){
+    .left_menu .icon{
+        display: none;
+    }
+    .left_menu ul>li{
+        padding-top: 25px;
+    }
+    .tour .left_part .brief_info .bottom .price {
+        padding-left: 15px;
+        padding-right: 15px;
+        text-align: center;
+    }
+    .tour .left_part .brief_info .bottom .button{
+        padding-left: 15px;
+        padding-right: 0px;
+        font-size: 16px;
+        text-align: center;
+    }
+    .tour .left_part .brief_info .bottom .red_btn {
+        padding: 17px 15px !important;
+    }
+}
 @media (min-width: 320px) and (max-width: 1190px){
     .hotels_block .hotel2 .name>a {
         font-size: 24px;

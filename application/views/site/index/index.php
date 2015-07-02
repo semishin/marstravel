@@ -47,7 +47,7 @@
                             <li><a href="/about-turkey"><i class="icon icon_turkey"></i><span>О Турции</span></a></li>
                             <li><a href="/sights"><i class="icon icon_attractions"></i><span>Достопримечательности</span></a></li>
                             <li><a href="/hotels"><i class="icon icon_hotel"></i><span>Отели Турции</span></a></li>
-                            <li><a href="/excursions"><i class="icon icon_hotel"></i><span>Экскурсии</span></a></li>
+                            <li><a href="/excursions"><i class="icon icon_excursions"></i><span>Экскурсии</span></a></li>
                             <li><a href="/weather"><i class="icon icon_weather"></i><span>Погода в Турции</span></a></li>
                         </ul>
                     </div>
@@ -55,7 +55,7 @@
                 <div class="col-md-12 col-xs-4">
                     <?php foreach ($left_banner as $item) { ?>
                         <a href="<?php echo $item->link ?>">
-                            <div class="left_banner" style="height: 343px;background:url(<?php echo Lib_Image::crop($item->image, 'banner',$item->id, 282, 360); ?>);"></div>
+                            <img src="<?php echo Lib_Image::crop($item->image, 'banner',$item->id, 282, 360); ?>" class="left_banner img-responsive" />
                         </a>
                     <?php } ?>
                 </div>
