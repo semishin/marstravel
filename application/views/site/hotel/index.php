@@ -61,26 +61,33 @@
                                         <div class="image">
                                             <div class="hotel_stars"><span><?php echo $item->stars ?></span></div>
                                             <!--<a href="#"><img src="img/hotel.jpg" class="img-responsive"></a>-->
-                                            <div id="hotel-<?php echo $item ?>" class="carousel slide" data-ride="carousel">
+                                            <div id="hotel-<?php echo $item->id ?>" class="carousel slide" data-ride="carousel">
 
                                                 <!-- Wrapper for slides -->
                                                 <div class="carousel-inner">
                                                     <div class="item active">
                                                         <a href="/hotel/<?php echo $item->url ?>"><img src="<?php echo Lib_Image::resize_bg($item->main_image, 'hotel',$item->id, 370, 258); ?>" class="img-responsive"></a>
                                                     </div>
-                                                    <div class="item">
-                                                        <a href="/hotel/<?php echo $item->url ?>"><img src="<?php echo Lib_Image::resize_bg($item->main_image, 'hotel',$item->id, 370, 258); ?>" class="img-responsive"></a>
-                                                    </div>
-                                                    <div class="item">
-                                                        <a href="/hotel/<?php echo $item->url ?>"><img src="<?php echo Lib_Image::resize_bg($item->main_image, 'hotel',$item->id, 370, 258); ?>" class="img-responsive"></a>
-                                                    </div>
+                                                    <?php $item->images = json_decode($item->images, true);?>
+                                                    <?php if ($item->images) {
+                                                        foreach ($item->images as $image) { ?>
+                                                            <div class="item">
+                                                                <a href="/hotel/<?php echo $item->url ?>">
+                                                                    <img src="<?php echo Lib_Image::resize_bg($image, 'hotel', $item->id, 370, 258); ?>" class="img-responsive">
+                                                                </a>
+                                                            </div>
+                                                        <?php }
+                                                    } ?>
                                                 </div>
                                                 <div class="indicators_panel">
                                                     <!-- Indicators -->
                                                     <ol class="carousel-indicators">
-                                                        <li data-target="#hotel-<?php echo $item ?>" data-slide-to="0" class="active"></li>
-                                                        <li data-target="#hotel-<?php echo $item ?>" data-slide-to="1"></li>
-                                                        <li data-target="#hotel-<?php echo $item ?>" data-slide-to="2"></li>
+                                                        <li data-target="#hotel-<?php echo $item->id ?>" data-slide-to="0" class="active"></li>
+                                                        <?php if ($item->images) {
+                                                            foreach ($item->images as $index=>$image) { ?>
+                                                                <li data-target="#hotel-<?php echo $item->id ?>" data-slide-to="<?php echo ($index+1) ?>"></li>
+                                                            <?php }
+                                                        } ?>
                                                     </ol>
                                                 </div>
                                             </div>
@@ -93,15 +100,12 @@
                                                 <a href="/hotel/<?php echo $item->url ?>"><?php echo $item->name ?></a>
                                             </div>
                                             <div class="contacts">
-                                                <p><b>Адрес: </b>   Boğazkent Mehallesi 38.Sokak No:4 Boğazkent / ANTALYA / TURKEY</p>
-                                                <p><b>Телефон: </b>   +90 252 363 8001</p>
-                                                <p><b>Сайт отеля: </b>   www.3sbeachclub.com</p>
+                                                <p><b>Адрес: </b><?php echo $item->address ?></p>
+                                                <p><b>Телефон: </b><?php echo $item->phone ?></p>
+                                                <p><b>Сайт отеля: </b><?php echo $item->link_site ?></p>
                                             </div>
                                             <div class="text">
-                                                <p>Отель 3S BEACH CLUB находится непосредственно у моря, имеет собственный песчаный пляж.<br>
-                                                    Основан в 2000 г, отреставрирован в 2004 г. Общая площадь 5200 кв. м.<br>
-                                                    Состоит из двух 2-этажных блоков.<br>
-                                                    В отеле 2 ресторана, 3 бара. В ресторане имеются открытая и закрытая зоны, сервируется шведский стол.</p>
+                                                <p><?php echo $item->short_content ?></p>
                                             </div>
                                         </div>
                                     </div>
@@ -110,7 +114,6 @@
                         </div>
 
                     <?php } ?>
-
                 </div>
             </div>
             <?php if ($count_hotel > 6) { ?>

@@ -184,19 +184,19 @@ return array(
         'parent' => 'admin.city.index'
     ),
 
-    'admin.feedb.index' => array(
-        'title' => 'Список обратной связи',
-        'route' => 'admin-feedb'
+    'admin.question.index' => array(
+        'title' => 'Список вопросов',
+        'route' => 'admin-question'
     ),
-    'admin.feedb.edit' => array(
-        'title' => 'Редактирование сообщений',
-        'route' => 'admin-feedb:edit',
-        'parent' => 'admin.feedb.index'
+    'admin.question.edit' => array(
+        'title' => 'Редактирование вопросов',
+        'route' => 'admin-question:edit',
+        'parent' => 'admin.question.index'
     ),
-    'admin.feedb.create' => array(
-        'title' => 'Добавление сообщений',
-        'route' => 'admin-feedb:create',
-        'parent' => 'admin.feedb.index'
+    'admin.question.create' => array(
+        'title' => 'Добавление вопросов',
+        'route' => 'admin-question:create',
+        'parent' => 'admin.question.index'
     ),
 
 

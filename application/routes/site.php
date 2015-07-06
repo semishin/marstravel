@@ -160,10 +160,10 @@ Route::set('site-tour-item', 'tour/<url>')
         'action'     => 'item',
     ));
 
-Route::set('site-feedb', 'feedb/add')
+Route::set('site-question', 'question/add')
     ->defaults(array(
         'directory' => 'site',
-        'controller' => 'feedb',
+        'controller' => 'question',
         'action'     => 'add',
     ));
 

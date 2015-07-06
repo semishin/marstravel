@@ -253,12 +253,14 @@ $( document ).ready(function() {
                 case 0:
                     //alert("ajax method - "+f_id);
                     $.ajax({
-                        url : " ",
+                        url : "/question/add",
                         dataType : "json",
                         type : "post",
                         data : {name : name, email : email, phone : phone, question : question},
                         success : function(jsondata) {
-                            alert("Success");
+                            //alert("Спасибо за вопрос");
+
+                            $('#ask_consultant').html('<p class="lightbox_header">Спасибо за вопрос!</p><p class="text-center">С Вами свяжутся в ближайшее время.</p>');
                         },
                         error: function(xhr, status, error) {
                             alert(status + '|\n' +error);

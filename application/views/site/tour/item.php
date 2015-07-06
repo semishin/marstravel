@@ -139,7 +139,7 @@
                     <div class="barousel_image">
                         <!-- image 1 -->
                         <?php foreach ($images as $item) { ?>
-                            <img src="<?php echo Lib_Image::crop($item, 'tour',$id, 664, 382); ?>" class="current" style="display: inline">
+                            <img src="<?php echo Lib_Image::resize_bg($item, 'tour',$id, 664, 382); ?>" class="current" style="display: inline">
                         <?php } ?>
                         <!-- image 2 -->
 <!--                        <img src="img/img1.jpg" class="img-responsive">-->
@@ -150,21 +150,26 @@
                     </div>
                     <div class="barousel_content" style="display: none">
                         <!-- content 1 -->
-                        <div class="default">
-                            <p>1 slide</p>
-                        </div>
-                        <!-- content 2 -->
-                        <div>
-                            <p>2 slide</p>
-                        </div>
-                        <!-- content 3 -->
-                        <div>
-                            <p>3 slide</p>
-                        </div>
-                        <!-- content xx -->
-                        <div>
-                            <p>4 slide</p>
-                        </div>
+                        <?php foreach ($images as $index=>$item) { ?>
+                            <div <?php if (!$index) {?>class="default"<?php } ?>>
+                                <p>1 slide</p>
+                            </div>
+                        <?php } ?>
+<!--                        <div class="default">-->
+<!--                            <p>1 slide</p>-->
+<!--                        </div>-->
+<!--                        <!-- content 2 -->
+<!--                        <div>-->
+<!--                            <p>2 slide</p>-->
+<!--                        </div>-->
+<!--                        <!-- content 3 -->
+<!--                        <div>-->
+<!--                            <p>3 slide</p>-->
+<!--                        </div>-->
+<!--                        <!-- content xx -->
+<!--                        <div>-->
+<!--                            <p>4 slide</p>-->
+<!--                        </div>-->
                     </div>
                     <div class="barousel_nav">
                     </div>

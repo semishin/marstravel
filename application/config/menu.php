@@ -11,7 +11,7 @@ return array
         '<i class="fa fa-paint-brush"></i>|Баннеры' => 'admin-banner',
 //        '<i class="fa fa-bell-o"></i>|Коментарии' => 'admin-comment',
 //        '<i class="fa fa-bell-o"></i>|Заявки от клиентов' => 'admin-brief',
-//        '<i class="fa fa-bell"></i>|Обратная связь' => 'admin-feedb',
+        '<i class="fa fa-bell"></i>|Вопросы с сайта' => 'admin-question',
         '<i class="fa fa-money"></i>|Партнеры' => 'admin-partner',
         '<i class="fa fa-hotel"></i>|Отели' => 'admin-hotel',
         '<i class="fa fa-camera"></i>|Достопримеч.' => array(

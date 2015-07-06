@@ -90,10 +90,10 @@ Route::set('admin-city', $adminPrefix . 'city(/<action>(/<id>))')
         'action' => 'index'
     ));
 
-Route::set('admin-feedb', $adminPrefix . 'feedb(/<action>(/<id>))')
+Route::set('admin-question', $adminPrefix . '$question(/<action>(/<id>))')
     ->defaults(array(
         'directory' => 'admin',
-        'controller' => 'feedb',
+        'controller' => 'question',
         'action' => 'index'
     ));
 

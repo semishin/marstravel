@@ -18,6 +18,7 @@ class Model_Hotel extends ORM
             'name' => 'Наименование',
             'city_id' => 'Город или курорт',
             'content' => 'Описание',
+            'short_content' => 'Короткое описание',
             'active' => 'Активность',
             'main_image' => 'Главное изображение',
             'images' => 'Изображения',
@@ -25,6 +26,9 @@ class Model_Hotel extends ORM
             'url' => 'URL',
             'link_site' => 'Ссылка на сайт',
             'link_booking' => 'Ссылка на букинг',
+            'email' => 'Эл. почта',
+            'phone' => 'Номер телефона',
+            'address' => 'Адрес',
             's_title' => 'SEO title',
             's_description' => 'SEO description',
             's_keywords' => 'SEO keywords'
