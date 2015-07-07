@@ -237,6 +237,8 @@ body{
 }
 .header .navigation ul>li{
     font-family: 'PT Sans', sans-serif;
+    padding-bottom: 20px;
+    margin-bottom: -20px;
 }
 .header .navigation ul.pull-left>li+li{
     margin-left: 40px;

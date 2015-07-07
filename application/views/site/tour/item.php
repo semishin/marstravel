@@ -7,11 +7,6 @@
             <?php foreach ($route as $index => $item) { ?>
                 <li><a href="#yandex_map_with_route" data-img="img/logo-red.png" data-number="<?php echo $index; ?>" class="fancy"><?php echo $cities[$item]->name; ?></a></li>
             <?php } ?>
-<!--            <li><a href="#yandex_map_with_route" data-img="img/logo.png" data-number="1" class="fancy">Троя</a></li>-->
-<!--            <li><a href="#yandex_map_with_route" data-img="img/logo-red.png" data-number="2" class="fancy">Пергам</a></li>-->
-<!--            <li><a href="#yandex_map_with_route" data-img="img/logo.png" data-number="3" class="fancy">Кушадасы</a></li>-->
-<!--            <li><a href="#yandex_map_with_route" data-img="img/logo-red.png" data-number="4" class="fancy">Памуккале</a></li>-->
-<!--            <li><a href="#yandex_map_with_route" data-img="img/logo.png" data-number="5" class="fancy">Aнталия</a></li>-->
         </ul>
         <script>
 
@@ -126,7 +121,6 @@
                     });
                 </script>
                 <div id="map"></div>
-                <!--< div id="route-length"></div>-->
             </div>
         </div>
     </div>
@@ -137,16 +131,10 @@
             <div class="counter_slider">
                 <div id="any_id" class="barousel">
                     <div class="barousel_image">
-                        <!-- image 1 -->
-                        <?php foreach ($images as $item) { ?>
-                            <img src="<?php echo Lib_Image::resize_bg($item, 'tour',$id, 664, 382); ?>" class="current" style="display: inline">
+                        <?php foreach ($images as $index => $item) { ?>
+                            <img src="<?php echo Lib_Image::resize_bg($item, 'tour',$id, 664, 382); ?>" class="<?php if ($index == 0) echo "current"  ?>" style="<?php if ($index == 0) echo "display: block;" ?>">
+                            <!--<img src="<?php echo Lib_Image::resize_bg($item, 'tour',$id, 664, 382); ?>" class="current" style="display: inline">-->
                         <?php } ?>
-                        <!-- image 2 -->
-<!--                        <img src="img/img1.jpg" class="img-responsive">-->
-                        <!-- image 3 -->
-<!--                        <img src="img/img1.jpg" class="img-responsive">-->
-                        <!-- image xx -->
-<!--                        <img src="img/img1.jpg" class="img-responsive">-->
                     </div>
                     <div class="barousel_content" style="display: none">
                         <!-- content 1 -->
@@ -155,21 +143,6 @@
                                 <p>1 slide</p>
                             </div>
                         <?php } ?>
-<!--                        <div class="default">-->
-<!--                            <p>1 slide</p>-->
-<!--                        </div>-->
-<!--                        <!-- content 2 -->
-<!--                        <div>-->
-<!--                            <p>2 slide</p>-->
-<!--                        </div>-->
-<!--                        <!-- content 3 -->
-<!--                        <div>-->
-<!--                            <p>3 slide</p>-->
-<!--                        </div>-->
-<!--                        <!-- content xx -->
-<!--                        <div>-->
-<!--                            <p>4 slide</p>-->
-<!--                        </div>-->
                     </div>
                     <div class="barousel_nav">
                     </div>
