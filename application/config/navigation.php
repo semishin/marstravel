@@ -199,6 +199,36 @@ return array(
         'parent' => 'admin.question.index'
     ),
 
+    'admin.order.index' => array(
+        'title' => 'Список заказов',
+        'route' => 'admin-order'
+    ),
+    'admin.order.edit' => array(
+        'title' => 'Редактирование заказов',
+        'route' => 'admin-order:edit',
+        'parent' => 'admin.order.index'
+    ),
+    'admin.order.create' => array(
+        'title' => 'Добавление заказов',
+        'route' => 'admin-order:create',
+        'parent' => 'admin.order.index'
+    ),
+
+    'admin.ordercoupon.index' => array(
+        'title' => 'Список заказов по купонам',
+        'route' => 'admin-ordercoupon'
+    ),
+    'admin.ordercoupon.edit' => array(
+        'title' => 'Редактирование заказов по купонам',
+        'route' => 'admin-ordercoupon:edit',
+        'parent' => 'admin.ordercoupon.index'
+    ),
+    'admin.ordercoupon.create' => array(
+        'title' => 'Добавление заказов по купонам',
+        'route' => 'admin-ordercoupon:create',
+        'parent' => 'admin.ordercoupon.index'
+    ),
+
 
 
 

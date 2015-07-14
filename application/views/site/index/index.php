@@ -87,7 +87,7 @@
                                         <?php } ?>
                                     </ul>
                                     <p class="text-center description">
-                                        <?php echo $item->content ?>
+                                        <?php echo $item->short_content ?>
                                     </p>
                                 </div>
                                 <div class="bottom">

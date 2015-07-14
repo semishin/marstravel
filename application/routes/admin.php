@@ -97,6 +97,20 @@ Route::set('admin-question', $adminPrefix . '$question(/<action>(/<id>))')
         'action' => 'index'
     ));
 
+Route::set('admin-order', $adminPrefix . 'order(/<action>(/<id>))')
+    ->defaults(array(
+        'directory' => 'admin',
+        'controller' => 'order',
+        'action' => 'index'
+    ));
+
+Route::set('admin-ordercoupon', $adminPrefix . 'ordercoupon(/<action>(/<id>))')
+    ->defaults(array(
+        'directory' => 'admin',
+        'controller' => 'ordercoupon',
+        'action' => 'index'
+    ));
+
 
 
 Route::set('admin-brief', $adminPrefix . 'brief(/<action>(/<id>))')

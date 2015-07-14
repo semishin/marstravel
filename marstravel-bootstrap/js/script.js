@@ -189,7 +189,121 @@ $( document ).ready(function() {
         });
     }
 
-    $('.lightbox_form .red_btn').click(function(e) {
+    //$('.lightbox_form .red_btn').click(function(e) {
+    //    e.preventDefault();
+    //    var errors = 0;
+    //    var f_id = $(this).data('id');
+    //    //alert("data-id="+f_id)
+    //    if($('.lightbox_form[data-id='+f_id+'] input[name="name"]').length>0){
+    //        var name = $('.lightbox_form[data-id='+f_id+'] input[name="name"]').val();
+    //        //alert("name="+name);
+    //        if (!name) {
+    //            $('.lightbox_form[data-id='+f_id+'] input[name=name]').addClass('error');
+    //            errors++;
+    //        } else {
+    //            $('.lightbox_form[data-id='+f_id+'] input[name=name]').removeClass('error');
+    //        }
+    //    }
+    //    if($('.lightbox_form[data-id='+f_id+'] input[name="email"]').length>0){
+    //        var email = $('.lightbox_form[data-id='+f_id+'] input[name="email"]').val();
+    //        //alert("email="+email);
+    //        if (!email) {
+    //            $('.lightbox_form[data-id='+f_id+'] input[name=email]').addClass('error');
+    //            errors++;
+    //        } else {
+    //            $('.lightbox_form[data-id='+f_id+'] input[name=email]').removeClass('error');
+    //        }
+    //    }
+    //    if($('.lightbox_form[data-id='+f_id+'] input[name="phone"]').length>0){
+    //        var phone = $('.lightbox_form[data-id='+f_id+'] input[name="phone"]').val();
+    //        //alert("phone="+phone);
+    //        if (!phone) {
+    //            $('.lightbox_form[data-id='+f_id+'] input[name=phone]').addClass('error');
+    //            errors++;
+    //        } else {
+    //            $('.lightbox_form[data-id='+f_id+'] input[name=phone]').removeClass('error');
+    //        }
+    //    }
+    //    if($('.lightbox_form[data-id='+f_id+'] input[name="code"]').length>0){
+    //        var code = $('.lightbox_form[data-id='+f_id+'] input[name="code"]').val();
+    //        //alert("code="+code);
+    //        if (!code) {
+    //            $('.lightbox_form[data-id='+f_id+'] input[name=code]').addClass('error');
+    //            errors++;
+    //        } else {
+    //            $('.lightbox_form[data-id='+f_id+'] input[name=code]').removeClass('error');
+    //        }
+    //    }
+    //    if($('.lightbox_form[data-id='+f_id+'] textarea[name="question"]').length>0){
+    //        var question = $('.lightbox_form[data-id='+f_id+'] textarea[name="question"]').val();
+    //        //alert("question="+question);
+    //        if (!question) {
+    //            $('.lightbox_form[data-id='+f_id+'] textarea[name=question]').addClass('error');
+    //            errors++;
+    //        } else {
+    //            $('.lightbox_form[data-id='+f_id+'] textarea[name=question]').removeClass('error');
+    //        }
+    //    }
+    //
+    //    if (errors) {
+    //        alert("error "+errors);
+    //        return false;
+    //    } else{
+    //        switch (f_id) {
+    //            case 0:
+    //                //alert("ajax method - "+f_id);
+    //                $.ajax({
+    //                    url : "/question/add",
+    //                    dataType : "json",
+    //                    type : "post",
+    //                    data : {name : name, email : email, phone : phone, question : question},
+    //                    success : function(jsondata) {
+    //                        //alert("Спасибо за вопрос");
+    //
+    //                        $('#ask_consultant').html('<p class="lightbox_header">Спасибо за вопрос!</p><p class="text-center">С Вами свяжутся в ближайшее время.</p>');
+    //                    },
+    //                    error: function(xhr, status, error) {
+    //                        alert(status + '|\n' +error);
+    //                    }
+    //                });
+    //                break
+    //            case 1:
+    //                //alert("ajax method - "+f_id);
+    //                $.ajax({
+    //                    url : " ",
+    //                    dataType : "json",
+    //                    type : "post",
+    //                    data : {name : name, email : email, phone : phone},
+    //                    success : function(jsondata) {
+    //                        alert("Success");
+    //                    },
+    //                    error: function(xhr, status, error) {
+    //                        alert(status + '|\n' +error);
+    //                    }
+    //                });
+    //                break
+    //            case 2:
+    //                //alert("ajax method - "+f_id);
+    //                $.ajax({
+    //                    url : " ",
+    //                    dataType : "json",
+    //                    type : "post",
+    //                    data : {name : name, email : email, phone : phone, code : code},
+    //                    success : function(jsondata) {
+    //                        alert("Success");
+    //                    },
+    //                    error: function(xhr, status, error) {
+    //                        alert(status + '|\n' +error);
+    //                    }
+    //                });
+    //                break
+    //            default:
+    //                alert('Я таких значений не знаю')
+    //        }
+    //    }
+    //});
+
+    $('#ask_consultant_btn').click(function(e) {
         e.preventDefault();
         var errors = 0;
         var f_id = $(this).data('id');
@@ -224,16 +338,6 @@ $( document ).ready(function() {
                 $('.lightbox_form[data-id='+f_id+'] input[name=phone]').removeClass('error');
             }
         }
-        if($('.lightbox_form[data-id='+f_id+'] input[name="code"]').length>0){
-            var code = $('.lightbox_form[data-id='+f_id+'] input[name="code"]').val();
-            //alert("code="+code);
-            if (!code) {
-                $('.lightbox_form[data-id='+f_id+'] input[name=code]').addClass('error');
-                errors++;
-            } else {
-                $('.lightbox_form[data-id='+f_id+'] input[name=code]').removeClass('error');
-            }
-        }
         if($('.lightbox_form[data-id='+f_id+'] textarea[name="question"]').length>0){
             var question = $('.lightbox_form[data-id='+f_id+'] textarea[name="question"]').val();
             //alert("question="+question);
@@ -249,57 +353,147 @@ $( document ).ready(function() {
             alert("error "+errors);
             return false;
         } else{
-            switch (f_id) {
-                case 0:
-                    //alert("ajax method - "+f_id);
-                    $.ajax({
-                        url : "/question/add",
-                        dataType : "json",
-                        type : "post",
-                        data : {name : name, email : email, phone : phone, question : question},
-                        success : function(jsondata) {
-                            //alert("Спасибо за вопрос");
+            $.ajax({
+                url : "/question/add",
+                dataType : "json",
+                type : "post",
+                data : {name : name, email : email, phone : phone, question : question},
+                success : function(jsondata) {
+                    //alert("Спасибо за вопрос");
 
-                            $('#ask_consultant').html('<p class="lightbox_header">Спасибо за вопрос!</p><p class="text-center">С Вами свяжутся в ближайшее время.</p>');
-                        },
-                        error: function(xhr, status, error) {
-                            alert(status + '|\n' +error);
-                        }
-                    });
-                    break
-                case 1:
-                    //alert("ajax method - "+f_id);
-                    $.ajax({
-                        url : " ",
-                        dataType : "json",
-                        type : "post",
-                        data : {name : name, email : email, phone : phone},
-                        success : function(jsondata) {
-                            alert("Success");
-                        },
-                        error: function(xhr, status, error) {
-                            alert(status + '|\n' +error);
-                        }
-                    });
-                    break
-                case 2:
-                    //alert("ajax method - "+f_id);
-                    $.ajax({
-                        url : " ",
-                        dataType : "json",
-                        type : "post",
-                        data : {name : name, email : email, phone : phone, code : code},
-                        success : function(jsondata) {
-                            alert("Success");
-                        },
-                        error: function(xhr, status, error) {
-                            alert(status + '|\n' +error);
-                        }
-                    });
-                    break
-                default:
-                    alert('Я таких значений не знаю')
+                    $('#ask_consultant').html('<p class="lightbox_header">Спасибо за вопрос!</p><p class="text-center">С Вами свяжутся в ближайшее время.</p>');
+                },
+                error: function(xhr, status, error) {
+                    alert(status + '|\n' +error);
+                }
+            });
+        }
+    });
+
+    $('#pay_btn').click(function(e) {
+        e.preventDefault();
+        var errors = 0;
+        var f_id = $(this).data('id');
+        //alert("data-id="+f_id)
+        if($('.lightbox_form[data-id='+f_id+'] input[name="fio"]').length>0){
+            var fio = $('.lightbox_form[data-id='+f_id+'] input[name="fio"]').val();
+            //alert("name="+name);
+            if (!fio) {
+                $('.lightbox_form[data-id='+f_id+'] input[name=fio]').addClass('error');
+                errors++;
+            } else {
+                $('.lightbox_form[data-id='+f_id+'] input[name=fio]').removeClass('error');
             }
+        }
+        if($('.lightbox_form[data-id='+f_id+'] input[name="dob"]').length>0){
+            var dob = $('.lightbox_form[data-id='+f_id+'] input[name="dob"]').val();
+            //alert("email="+email);
+            if (!dob) {
+                $('.lightbox_form[data-id='+f_id+'] input[name=dob]').addClass('error');
+                errors++;
+            } else {
+                $('.lightbox_form[data-id='+f_id+'] input[name=dob]').removeClass('error');
+            }
+        }
+        if($('.lightbox_form[data-id='+f_id+'] input[name="passport"]').length>0){
+            var passport = $('.lightbox_form[data-id='+f_id+'] input[name="passport"]').val();
+            //alert("phone="+phone);
+            if (!passport) {
+                $('.lightbox_form[data-id='+f_id+'] input[name=passport]').addClass('error');
+                errors++;
+            } else {
+                $('.lightbox_form[data-id='+f_id+'] input[name=passport]').removeClass('error');
+            }
+        }
+        if($('.lightbox_form[data-id='+f_id+'] input[name="validity"]').length>0){
+            var validity = $('.lightbox_form[data-id='+f_id+'] input[name="validity"]').val();
+            //alert("name="+name);
+            if (!validity) {
+                $('.lightbox_form[data-id='+f_id+'] input[name=validity]').addClass('error');
+                errors++;
+            } else {
+                $('.lightbox_form[data-id='+f_id+'] input[name=validity]').removeClass('error');
+            }
+        }
+        if($('.lightbox_form[data-id='+f_id+'] input[name="issuedby"]').length>0){
+            var issuedby = $('.lightbox_form[data-id='+f_id+'] input[name="issuedby"]').val();
+            //alert("email="+email);
+            if (!issuedby) {
+                $('.lightbox_form[data-id='+f_id+'] input[name=issuedby]').addClass('error');
+                errors++;
+            } else {
+                $('.lightbox_form[data-id='+f_id+'] input[name=issuedby]').removeClass('error');
+            }
+        }
+        if($('.lightbox_form[data-id='+f_id+'] input[name="email"]').length>0){
+            var email = $('.lightbox_form[data-id='+f_id+'] input[name="email"]').val();
+            //alert("phone="+phone);
+            if (!email) {
+                $('.lightbox_form[data-id='+f_id+'] input[name=email]').addClass('error');
+                errors++;
+            } else {
+                $('.lightbox_form[data-id='+f_id+'] input[name=email]').removeClass('error');
+            }
+        }
+        if($('.lightbox_form[data-id='+f_id+'] input[name="phone"]').length>0){
+            var phone = $('.lightbox_form[data-id='+f_id+'] input[name="phone"]').val();
+            //alert("name="+name);
+            if (!phone) {
+                $('.lightbox_form[data-id='+f_id+'] input[name=phone]').addClass('error');
+                errors++;
+            } else {
+                $('.lightbox_form[data-id='+f_id+'] input[name=phone]').removeClass('error');
+            }
+        }
+        if($('.lightbox_form[data-id='+f_id+'] select[name="payment"]').length>0){
+            var payment = $('.lightbox_form[data-id='+f_id+'] select[name="payment"]').val();
+            //alert("question="+question);
+            if (!payment) {
+                $('.lightbox_form[data-id='+f_id+'] select[name=payment]').addClass('error');
+                errors++;
+            } else {
+                $('.lightbox_form[data-id='+f_id+'] select[name=payment]').removeClass('error');
+            }
+        }
+        if($('.lightbox_form[data-id='+f_id+'] input[name="agreement"]').length>0){
+            var agreement = $('.lightbox_form[data-id='+f_id+'] input[name="agreement"]').val();
+            //alert("name="+name);
+            if (!agreement) {
+                $('.lightbox_form[data-id='+f_id+'] input[name=agreement]').addClass('error');
+                errors++;
+            } else {
+                $('.lightbox_form[data-id='+f_id+'] input[name=agreement]').removeClass('error');
+            }
+        }
+        if($('.lightbox_form[data-id='+f_id+'] input[name="surcharge"]').length>0){
+            var surcharge = $('.lightbox_form[data-id='+f_id+'] input[name="surcharge"]').val();
+            //alert("name="+name);
+            if (!surcharge) {
+                $('.lightbox_form[data-id='+f_id+'] input[name=surcharge]').addClass('error');
+                errors++;
+            } else {
+                $('.lightbox_form[data-id='+f_id+'] input[name=surcharge]').removeClass('error');
+            }
+        }
+
+        if (errors) {
+            alert("error "+errors);
+            return false;
+        } else{
+            $.ajax({
+                url : "/order/add",
+                dataType : "json",
+                type : "post",
+                data : {fio : fio, dob : dob, passport : passport, validity : validity, issuedby : issuedby, email : email, phone : phone, payment : payment, agreement : agreement, surcharge : surcharge},
+                success : function(jsondata) {
+                    alert("Спасибо за заказаз");
+
+                    //$('#ask_consultant').html('<p class="lightbox_header">Спасибо за вопрос!</p><p class="text-center">С Вами свяжутся в ближайшее время.</p>');
+                },
+                error: function(xhr, status, error) {
+                    alert(status + '|\n' +error);
+                }
+            });
         }
     });
 

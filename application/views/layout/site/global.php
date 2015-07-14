@@ -90,7 +90,7 @@
                                             <div class="form-group">
                                                 <textarea placeholder="Вопрос" rows="3" class="form-control" name="question"></textarea>
                                             </div>
-                                            <a href="#" class="red_btn" data-id="0">Отправить</a>
+                                            <a href="#" class="red_btn" id="ask_consultant_btn" data-id="0">Отправить</a>
                                         </form>
                                     </div>
                                 </div>

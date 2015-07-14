@@ -167,6 +167,13 @@ Route::set('site-question', 'question/add')
         'action'     => 'add',
     ));
 
+Route::set('site-order', 'order/add')
+    ->defaults(array(
+        'directory' => 'site',
+        'controller' => 'order',
+        'action'     => 'add',
+    ));
+
 Route::set('site-search', 'search(/<page>)', array('page' => '\d+'))
     ->defaults(array(
         'directory' => 'site',
