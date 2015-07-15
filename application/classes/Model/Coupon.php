@@ -15,6 +15,13 @@ class Model_Coupon extends ORM
         )
     );
 
+    protected $_has_many = array(
+        'ordercoupon' => array(
+            'model' => 'Ordercoupon',
+            'foreign_key' => 'coupon_id'
+        )
+    );
+
     public function labels()
     {
         return array(

@@ -191,30 +191,6 @@ Route::set('site-page', '<url>', array('url' => '.*'))
 
 
 
-Route::set('site-brif', 'brif')
-    ->defaults(array(
-        'directory' => 'site',
-        'controller' => 'index',
-        'action' => 'brif'
-    ));
-
-Route::set('site-email_index', 'email_index')
-    ->defaults(array(
-        'directory' => 'site',
-        'controller' => 'index',
-        'action' => 'email_index'
-    ));
-
-Route::set('site-brief', 'brief/add')
-    ->defaults(array(
-        'directory' => 'site',
-        'controller' => 'brief',
-        'action'     => 'add',
-    ));
-
-
-
-
 Route::set('site-comment', 'comment')
     ->defaults(array(
         'directory' => 'site',

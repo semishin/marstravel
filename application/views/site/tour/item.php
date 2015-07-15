@@ -296,31 +296,11 @@
                     </div>
                 </div>
 
-                <p class="total_price">Итоговая стоимость: <span></span><b>100 000 руб.</b></p>
+                <p class="total_price" data-price="<?php echo $price?>">Итоговая стоимость: <span></span><b>0 руб.</b></p>
 
-                <a href="#pay" class="black_btn fancy">Купить тур</a>
+                <a href="#pay" class="black_btn fancy" id="pay_btn_gen_1">Купить тур</a>
                 <a href="#get_free" class="red_btn fancy">Получить бесплатно</a>
                 <div class="clearfix"></div>
-
-<!--                <div style="display: none">-->
-<!--                    <div id="pay">-->
-<!--                        <p class="lightbox_header">Купить тур</p>-->
-<!--                        <p class="lightbox_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod-->
-<!--                            tempor incididunt ut labore et dolore magna aliqua. </p>-->
-<!--                        <form role="form" class="lightbox_form" data-id="1">-->
-<!--                            <div class="form-group">-->
-<!--                                <input type="text" class="form-control" id="Name_1" placeholder="Имя" name="name">-->
-<!--                            </div>-->
-<!--                            <div class="form-group">-->
-<!--                                <input type="text" class="form-control" id="Phone_1" placeholder="Телефон" name="phone">-->
-<!--                            </div>-->
-<!--                            <div class="form-group">-->
-<!--                                <input type="email" class="form-control" id="Email_1" placeholder="E-mail" name="email">-->
-<!--                            </div>-->
-<!--                            <a href="#" class="red_btn" data-id="1">Задать вопрос</a>-->
-<!--                        </form>-->
-<!--                    </div>-->
-<!--                </div>-->
 
                 <div style="display: none">
                     <div id="pay">
@@ -328,37 +308,26 @@
                         <p class="lightbox_text"><?php echo $name?></p>
                         <form role="form" class="lightbox_form" data-id="1">
                             <div class="form-group">
-<!--                                <label for="fio_1">ФИО</label>-->
                                 <input type="text" class="form-control" id="fio_1" placeholder="ФИО" name="fio">
                             </div>
                             <div class="form-group">
-<!--                                <label for="dob_1">Дата рождения</label>-->
                                 <input type="text" class="form-control" id="dob_1" placeholder="Дата рождения" name="dob">
                             </div>
                             <div class="form-group">
-<!--                                <label for="passport_1">Номер паспорта</label>-->
                                 <input type="text" class="form-control" id="passport_1" placeholder="Номер паспорта" name="passport">
                             </div>
                             <div class="form-group">
-<!--                                <label for="validity_1">Срок действия</label>-->
                                 <input type="text" class="form-control" id="validity_1" placeholder="Срок действия" name="validity">
                             </div>
                             <div class="form-group">
-<!--                                <label for="issuedby_1">Кем выдан</label>-->
                                 <input type="text" class="form-control" id="issuedby_1" placeholder="Кем выдан" name="issuedby">
                             </div>
                             <div class="form-group">
-<!--                                <label for="email_1">Email</label>-->
                                 <input type="email" class="form-control" id="email_1" placeholder="Введите email" name="email">
                             </div>
                             <div class="form-group">
-<!--                                <label for="phone_1">Номер телефона</label>-->
                                 <input type="text" class="form-control" id="phone_1" placeholder="Номер телефона" name="phone">
                             </div>
-<!--                            <div class="form-group">-->
-<!--                                <label for="payment">Способ оплаты</label>-->
-<!--                                <input type="text" class="form-control" id="payment" placeholder="Name">-->
-<!--                            </div>-->
                             <select required size = "1" id = "payment_1" name="payment">
                                 <option disabled value = "0">Способ оплаты</option>
                                 <option value = "1">Оплатить в офисе</option>
@@ -374,13 +343,12 @@
                                 <label for="surcharge_1">Доплата за одноместное размещение 120 долларов</label>
                                 <input type="checkbox" class="form-control" id="surcharge_1" name="surcharge">
                             </div>
-<!--                            <button type="submit" class="btn btn-success" id="pay_btn">Отправить</button>-->
-                            <a href="#" class="red_btn" id="pay_btn" data-id="1">Отправить</a>
+                            <a href="#" class="red_btn" id="pay_btn" data-id="<?php echo $id?>">Отправить</a>
                         </form>
                     </div>
                 </div>
                 <div style="display: none">
-                    <div id="get_free">GET FREE
+                    <div id="get_free">
                         <form role="form">
                             <div class="form-group">
                                 <label for="Email_2">Email</label>

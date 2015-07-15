@@ -45,14 +45,4 @@ class Controller_Site_Index extends Controller_Site
 
         $this->template->set_layout('layout/site/global');
     }
-
-    public function action_brif()
-    {
-        $this->template->set_layout('site/index/brif');
-    }
-
-    public function action_email_index()
-    {
-        $this->template->set_layout('site/index/email_index');
-    }
 }

@@ -4,7 +4,7 @@
  * @author o.zgolich
  */
 
-class Form_Admin_OrderCoupon extends CM_Form_Abstract
+class Form_Admin_Ordercoupon extends CM_Form_Abstract
 {
     protected function init()
     {
@@ -18,7 +18,7 @@ class Form_Admin_OrderCoupon extends CM_Form_Abstract
         $this->set_field('email', new CM_Field_String(), 11);
         $this->set_field('phone', new CM_Field_String(), 13);
         $this->set_field('agreement', new CM_Field_Boolean(), 15); //согласие
-        $this->set_field('coupon_id', new CM_Field_String(), 17);
+        $this->set_field('coupon_id', new CM_Field_Select_ORM(ORM::factory('Coupon')), 17);
         $this->set_field('surcharge', new CM_Field_Boolean(), 19); //доплата
         $this->set_field('number_order', new CM_Field_String(), 21);
     }

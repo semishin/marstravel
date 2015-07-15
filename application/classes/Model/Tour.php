@@ -22,6 +22,10 @@ class Model_Tour extends ORM
             'model' => 'Coupon',
             'foreign_key' => 'tour_id'
         ),
+        'order' => array(
+            'model' => 'Order',
+            'foreign_key' => 'tour_id'
+        ),
         'excursion'    => array(
             'model'=> 'Excursion',
             'foreign_key' => 'tour_id',

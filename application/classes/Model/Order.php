@@ -5,13 +5,21 @@ class Model_Order extends ORM
     protected $_table_name = 'orders';
 
     protected $_belongs_to = array(
-
+        'tour' => array(
+            'model'       => 'Tour',
+            'foreign_key' => 'tour_id',
+        ),
     );
 
     public function labels()
     {
         return array(
             'id' => 'Идентификатор',
+            'tour_id' => 'Тур',
+            'date' => 'Дата тура',
+            'quantity_adults' => 'Количество взрослых',
+            'quantity_children' => 'Количество детей',
+            'cost' => 'Стоимость',
             'fio' => 'ФИО',
             'dob' => 'Дата рождения',
             'passport' => 'Номер паспорта',
@@ -22,7 +30,8 @@ class Model_Order extends ORM
             'agreement' => 'Согласие с условиями',
             'payment' => 'Способ оплаты',
             'surcharge' => 'Доплата',
-            'number_order' => 'Номер заказа'
+            'number_order' => 'Номер заказа',
+            'active' => 'Активность'
         );
     }
 
@@ -33,17 +42,23 @@ class Model_Order extends ORM
 
     public function save($validation)
     {
-        if (!$this->number_order) {
-            $this->number_order = mb_substr(md5(time()), 0, 8);
-        }
+//        if (!$this->number_order) {
+//            $this->number_order = mb_substr(md5(time()), 0, 8);
+//        }
 
         parent::save($validation);
 
     }
 
     protected $_grid_columns = array(
-        'id' => null,
+//        'id' => null,
+        'tour_id' => array(
+            'type' => 'template',
+            'template' => '${tour_name}'
+        ),
+        'date' => null,
         'fio' => null,
+        'number_order' => null,
         'edit' => array(
             'width' => '40',
             'type' => 'link',
@@ -63,12 +78,18 @@ class Model_Order extends ORM
         )
     );
 
+    public function get_tour_name()
+    {
+        return $this->tour->name;
+    }
 
     public function sortable_fields()
     {
         return array(
-            'id',
-            'fio'
+            'tour_id',
+            'date',
+            'fio',
+            'number_order'
         );
     }
 }

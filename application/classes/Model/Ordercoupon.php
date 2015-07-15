@@ -1,6 +1,6 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 
-class Model_OrderCoupon extends ORM
+class Model_Ordercoupon extends ORM
 {
     protected $_table_name = 'orders_coupon';
 
@@ -31,7 +31,7 @@ class Model_OrderCoupon extends ORM
 
     public function form()
     {
-        return new Form_Admin_Order($this);
+        return new Form_Admin_Ordercoupon($this);
     }
 
     public function save($validation)
@@ -48,7 +48,7 @@ class Model_OrderCoupon extends ORM
         'edit' => array(
             'width' => '40',
             'type' => 'link',
-            'route_str' => 'admin-order:edit?id=${id}',
+            'route_str' => 'admin-ordercoupon:edit?id=${id}',
             'title' => '<i class="fa fa-edit"></i>',
             'color' => 'green',
             'alternative' => 'Редактировать'
@@ -56,7 +56,7 @@ class Model_OrderCoupon extends ORM
         'delete' => array(
             'width' => '40',
             'type' => 'link',
-            'route_str' => 'admin-order:delete?id=${id}',
+            'route_str' => 'admin-ordercoupon:delete?id=${id}',
             'title' => '<i class="fa fa-trash-o"></i>',
             'alternative' => 'Удалить',
             'color' => 'red',

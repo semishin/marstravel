@@ -189,120 +189,6 @@ $( document ).ready(function() {
         });
     }
 
-    //$('.lightbox_form .red_btn').click(function(e) {
-    //    e.preventDefault();
-    //    var errors = 0;
-    //    var f_id = $(this).data('id');
-    //    //alert("data-id="+f_id)
-    //    if($('.lightbox_form[data-id='+f_id+'] input[name="name"]').length>0){
-    //        var name = $('.lightbox_form[data-id='+f_id+'] input[name="name"]').val();
-    //        //alert("name="+name);
-    //        if (!name) {
-    //            $('.lightbox_form[data-id='+f_id+'] input[name=name]').addClass('error');
-    //            errors++;
-    //        } else {
-    //            $('.lightbox_form[data-id='+f_id+'] input[name=name]').removeClass('error');
-    //        }
-    //    }
-    //    if($('.lightbox_form[data-id='+f_id+'] input[name="email"]').length>0){
-    //        var email = $('.lightbox_form[data-id='+f_id+'] input[name="email"]').val();
-    //        //alert("email="+email);
-    //        if (!email) {
-    //            $('.lightbox_form[data-id='+f_id+'] input[name=email]').addClass('error');
-    //            errors++;
-    //        } else {
-    //            $('.lightbox_form[data-id='+f_id+'] input[name=email]').removeClass('error');
-    //        }
-    //    }
-    //    if($('.lightbox_form[data-id='+f_id+'] input[name="phone"]').length>0){
-    //        var phone = $('.lightbox_form[data-id='+f_id+'] input[name="phone"]').val();
-    //        //alert("phone="+phone);
-    //        if (!phone) {
-    //            $('.lightbox_form[data-id='+f_id+'] input[name=phone]').addClass('error');
-    //            errors++;
-    //        } else {
-    //            $('.lightbox_form[data-id='+f_id+'] input[name=phone]').removeClass('error');
-    //        }
-    //    }
-    //    if($('.lightbox_form[data-id='+f_id+'] input[name="code"]').length>0){
-    //        var code = $('.lightbox_form[data-id='+f_id+'] input[name="code"]').val();
-    //        //alert("code="+code);
-    //        if (!code) {
-    //            $('.lightbox_form[data-id='+f_id+'] input[name=code]').addClass('error');
-    //            errors++;
-    //        } else {
-    //            $('.lightbox_form[data-id='+f_id+'] input[name=code]').removeClass('error');
-    //        }
-    //    }
-    //    if($('.lightbox_form[data-id='+f_id+'] textarea[name="question"]').length>0){
-    //        var question = $('.lightbox_form[data-id='+f_id+'] textarea[name="question"]').val();
-    //        //alert("question="+question);
-    //        if (!question) {
-    //            $('.lightbox_form[data-id='+f_id+'] textarea[name=question]').addClass('error');
-    //            errors++;
-    //        } else {
-    //            $('.lightbox_form[data-id='+f_id+'] textarea[name=question]').removeClass('error');
-    //        }
-    //    }
-    //
-    //    if (errors) {
-    //        alert("error "+errors);
-    //        return false;
-    //    } else{
-    //        switch (f_id) {
-    //            case 0:
-    //                //alert("ajax method - "+f_id);
-    //                $.ajax({
-    //                    url : "/question/add",
-    //                    dataType : "json",
-    //                    type : "post",
-    //                    data : {name : name, email : email, phone : phone, question : question},
-    //                    success : function(jsondata) {
-    //                        //alert("Спасибо за вопрос");
-    //
-    //                        $('#ask_consultant').html('<p class="lightbox_header">Спасибо за вопрос!</p><p class="text-center">С Вами свяжутся в ближайшее время.</p>');
-    //                    },
-    //                    error: function(xhr, status, error) {
-    //                        alert(status + '|\n' +error);
-    //                    }
-    //                });
-    //                break
-    //            case 1:
-    //                //alert("ajax method - "+f_id);
-    //                $.ajax({
-    //                    url : " ",
-    //                    dataType : "json",
-    //                    type : "post",
-    //                    data : {name : name, email : email, phone : phone},
-    //                    success : function(jsondata) {
-    //                        alert("Success");
-    //                    },
-    //                    error: function(xhr, status, error) {
-    //                        alert(status + '|\n' +error);
-    //                    }
-    //                });
-    //                break
-    //            case 2:
-    //                //alert("ajax method - "+f_id);
-    //                $.ajax({
-    //                    url : " ",
-    //                    dataType : "json",
-    //                    type : "post",
-    //                    data : {name : name, email : email, phone : phone, code : code},
-    //                    success : function(jsondata) {
-    //                        alert("Success");
-    //                    },
-    //                    error: function(xhr, status, error) {
-    //                        alert(status + '|\n' +error);
-    //                    }
-    //                });
-    //                break
-    //            default:
-    //                alert('Я таких значений не знаю')
-    //        }
-    //    }
-    //});
-
     $('#ask_consultant_btn').click(function(e) {
         e.preventDefault();
         var errors = 0;
@@ -359,9 +245,7 @@ $( document ).ready(function() {
                 type : "post",
                 data : {name : name, email : email, phone : phone, question : question},
                 success : function(jsondata) {
-                    //alert("Спасибо за вопрос");
-
-                    $('#ask_consultant').html('<p class="lightbox_header">Спасибо за вопрос!</p><p class="text-center">С Вами свяжутся в ближайшее время.</p>');
+                    $('#ask_consultant').html('<p class="lightbox_header">Спасибо за вопрос!</p><p class="lightbox_text">С Вами свяжутся в ближайшее время.</p>');
                 },
                 error: function(xhr, status, error) {
                     alert(status + '|\n' +error);
@@ -370,125 +254,153 @@ $( document ).ready(function() {
         }
     });
 
+    $('#pay_btn_gen_1').click(function(e) {
+        e.preventDefault();
+        var date = $('#date').val();
+        var quantity_adults = $('#adult_number').val();
+        if (!date) {
+            alert("Вы не заполнили поле дата");
+            return false;
+        };
+        if (!quantity_adults) {
+            alert("Вы не ввели количество взрослых");
+            return false;
+        };
+
+    });
+
+    $('.form-group.counter button').click(function(e) {
+        e.preventDefault();
+        var quantity_adults = $('#adult_number').val();
+        var quantity_children = $('#children_number').val();
+        var price = $('.total_price').data('price');
+        var cost = ((quantity_adults * price) + (quantity_children * price));
+        $('.total_price b').html(''+cost+' руб.');
+    });
+
     $('#pay_btn').click(function(e) {
         e.preventDefault();
         var errors = 0;
-        var f_id = $(this).data('id');
+        var tour_id = $(this).data('id');
+        var date = $('#date').val();
+        var quantity_adults = $('#adult_number').val();
+        var quantity_children = $('#children_number').val();
+        var price = $('.total_price').data('price');
+        var cost = ((quantity_adults * price) + (quantity_children * price));
         //alert("data-id="+f_id)
-        if($('.lightbox_form[data-id='+f_id+'] input[name="fio"]').length>0){
-            var fio = $('.lightbox_form[data-id='+f_id+'] input[name="fio"]').val();
+        if($('#fio_1').length>0){
+            var fio = $('#fio_1').val();
             //alert("name="+name);
             if (!fio) {
-                $('.lightbox_form[data-id='+f_id+'] input[name=fio]').addClass('error');
+                $('#fio_1').addClass('error');
                 errors++;
             } else {
-                $('.lightbox_form[data-id='+f_id+'] input[name=fio]').removeClass('error');
+                $('#fio_1').removeClass('error');
             }
         }
-        if($('.lightbox_form[data-id='+f_id+'] input[name="dob"]').length>0){
-            var dob = $('.lightbox_form[data-id='+f_id+'] input[name="dob"]').val();
+        if($('#dob_1').length>0){
+            var dob = $('#dob_1').val();
             //alert("email="+email);
             if (!dob) {
-                $('.lightbox_form[data-id='+f_id+'] input[name=dob]').addClass('error');
+                $('#dob_1').addClass('error');
                 errors++;
             } else {
-                $('.lightbox_form[data-id='+f_id+'] input[name=dob]').removeClass('error');
+                $('#dob_1').removeClass('error');
             }
         }
-        if($('.lightbox_form[data-id='+f_id+'] input[name="passport"]').length>0){
-            var passport = $('.lightbox_form[data-id='+f_id+'] input[name="passport"]').val();
+        if($('#passport_1').length>0){
+            var passport = $('#passport_1').val();
             //alert("phone="+phone);
             if (!passport) {
-                $('.lightbox_form[data-id='+f_id+'] input[name=passport]').addClass('error');
+                $('#passport_1').addClass('error');
                 errors++;
             } else {
-                $('.lightbox_form[data-id='+f_id+'] input[name=passport]').removeClass('error');
+                $('#passport_1').removeClass('error');
             }
         }
-        if($('.lightbox_form[data-id='+f_id+'] input[name="validity"]').length>0){
-            var validity = $('.lightbox_form[data-id='+f_id+'] input[name="validity"]').val();
+        if($('#validity_1').length>0){
+            var validity = $('#validity_1').val();
             //alert("name="+name);
             if (!validity) {
-                $('.lightbox_form[data-id='+f_id+'] input[name=validity]').addClass('error');
+                $('#validity_1').addClass('error');
                 errors++;
             } else {
-                $('.lightbox_form[data-id='+f_id+'] input[name=validity]').removeClass('error');
+                $('#validity_1').removeClass('error');
             }
         }
-        if($('.lightbox_form[data-id='+f_id+'] input[name="issuedby"]').length>0){
-            var issuedby = $('.lightbox_form[data-id='+f_id+'] input[name="issuedby"]').val();
+        if($('#issuedby_1').length>0){
+            var issuedby = $('#issuedby_1').val();
             //alert("email="+email);
             if (!issuedby) {
-                $('.lightbox_form[data-id='+f_id+'] input[name=issuedby]').addClass('error');
+                $('#issuedby_1').addClass('error');
                 errors++;
             } else {
-                $('.lightbox_form[data-id='+f_id+'] input[name=issuedby]').removeClass('error');
+                $('#issuedby_1').removeClass('error');
             }
         }
-        if($('.lightbox_form[data-id='+f_id+'] input[name="email"]').length>0){
-            var email = $('.lightbox_form[data-id='+f_id+'] input[name="email"]').val();
+        if($('#email_1').length>0){
+            var email = $('#email_1').val();
             //alert("phone="+phone);
             if (!email) {
-                $('.lightbox_form[data-id='+f_id+'] input[name=email]').addClass('error');
+                $('#email_1').addClass('error');
                 errors++;
             } else {
-                $('.lightbox_form[data-id='+f_id+'] input[name=email]').removeClass('error');
+                $('#email_1').removeClass('error');
             }
         }
-        if($('.lightbox_form[data-id='+f_id+'] input[name="phone"]').length>0){
-            var phone = $('.lightbox_form[data-id='+f_id+'] input[name="phone"]').val();
+        if($('#phone_1').length>0){
+            var phone = $('#phone_1').val();
             //alert("name="+name);
             if (!phone) {
-                $('.lightbox_form[data-id='+f_id+'] input[name=phone]').addClass('error');
+                $('#phone_1').addClass('error');
                 errors++;
             } else {
-                $('.lightbox_form[data-id='+f_id+'] input[name=phone]').removeClass('error');
-            }
-        }
-        if($('.lightbox_form[data-id='+f_id+'] select[name="payment"]').length>0){
-            var payment = $('.lightbox_form[data-id='+f_id+'] select[name="payment"]').val();
-            //alert("question="+question);
-            if (!payment) {
-                $('.lightbox_form[data-id='+f_id+'] select[name=payment]').addClass('error');
-                errors++;
-            } else {
-                $('.lightbox_form[data-id='+f_id+'] select[name=payment]').removeClass('error');
-            }
-        }
-        if($('.lightbox_form[data-id='+f_id+'] input[name="agreement"]').length>0){
-            var agreement = $('.lightbox_form[data-id='+f_id+'] input[name="agreement"]').val();
-            //alert("name="+name);
-            if (!agreement) {
-                $('.lightbox_form[data-id='+f_id+'] input[name=agreement]').addClass('error');
-                errors++;
-            } else {
-                $('.lightbox_form[data-id='+f_id+'] input[name=agreement]').removeClass('error');
-            }
-        }
-        if($('.lightbox_form[data-id='+f_id+'] input[name="surcharge"]').length>0){
-            var surcharge = $('.lightbox_form[data-id='+f_id+'] input[name="surcharge"]').val();
-            //alert("name="+name);
-            if (!surcharge) {
-                $('.lightbox_form[data-id='+f_id+'] input[name=surcharge]').addClass('error');
-                errors++;
-            } else {
-                $('.lightbox_form[data-id='+f_id+'] input[name=surcharge]').removeClass('error');
+                $('#phone_1').removeClass('error');
             }
         }
 
+        var payment = $('#payment_1').val();
+
+        if ($('#agreement_1').is(':checked')) {
+            var agreement = 1;
+        } else {
+            $('#agreement_1').addClass('error');
+            alert("Вы не согласились с условиями");
+            return false;
+        };
+        if ($('#surcharge_1').is(':checked')) {
+            var surcharge = 1;
+        } else {
+            var surcharge = 0;
+        };
+
         if (errors) {
-            alert("error "+errors);
+            alert("Вы не заполнили все поля");
             return false;
         } else{
             $.ajax({
                 url : "/order/add",
                 dataType : "json",
                 type : "post",
-                data : {fio : fio, dob : dob, passport : passport, validity : validity, issuedby : issuedby, email : email, phone : phone, payment : payment, agreement : agreement, surcharge : surcharge},
+                data : {
+                    tour_id : tour_id,
+                    date : date,
+                    quantity_adults : quantity_adults,
+                    quantity_children : quantity_children,
+                    cost : cost,
+                    fio : fio,
+                    dob : dob,
+                    passport : passport,
+                    validity : validity,
+                    issuedby : issuedby,
+                    email : email,
+                    phone : phone,
+                    payment : payment,
+                    agreement : agreement,
+                    surcharge : surcharge
+                },
                 success : function(jsondata) {
-                    alert("Спасибо за заказаз");
-
-                    //$('#ask_consultant').html('<p class="lightbox_header">Спасибо за вопрос!</p><p class="text-center">С Вами свяжутся в ближайшее время.</p>');
+                    $('#pay').html('<p class="lightbox_header">Спасибо за заказ!</p><p class="lightbox_text">Номер вашего заказа '+jsondata.number_order+'</p>');
                 },
                 error: function(xhr, status, error) {
                     alert(status + '|\n' +error);
@@ -525,7 +437,7 @@ $( document ).ready(function() {
                 //$('.portfolio_buttons li button').removeClass('active');
                 //$(this).addClass('active');
                 $('.hotels_block .row').html(result.html);
-                $('#count_hotel').text("всего " + result.count_hotel + " отелей");
+                $('#count_hotel').text("всего " + rescostult.count_hotel + " отелей");
                 if (!result.more) {
                     $('#more_hotel').hide();
                 } else {
