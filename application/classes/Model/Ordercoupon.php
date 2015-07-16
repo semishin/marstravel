@@ -8,6 +8,10 @@ class Model_Ordercoupon extends ORM
         'coupon' => array(
             'model'       => 'Coupon',
             'foreign_key' => 'coupon_id',
+        ),
+        'tour' => array(
+            'model'       => 'Tour',
+            'foreign_key' => 'tour_id',
         )
     );
 
@@ -15,6 +19,11 @@ class Model_Ordercoupon extends ORM
     {
         return array(
             'id' => 'Идентификатор',
+            'tour_id' => 'Тур',
+            'date' => 'Дата тура',
+            'quantity_adults' => 'Количество взрослых',
+            'quantity_children' => 'Количество детей',
+            'cost' => 'Стоимость',
             'fio' => 'ФИО',
             'dob' => 'Дата рождения',
             'passport' => 'Номер паспорта',
@@ -36,15 +45,19 @@ class Model_Ordercoupon extends ORM
 
     public function save($validation)
     {
-        $this->number_order = md5(time());
 
         parent::save($validation);
 
     }
 
     protected $_grid_columns = array(
-        'id' => null,
+        'tour_id' => array(
+            'type' => 'template',
+            'template' => '${tour_name}'
+        ),
+        'date' => null,
         'fio' => null,
+        'number_order' => null,
         'edit' => array(
             'width' => '40',
             'type' => 'link',
@@ -64,12 +77,18 @@ class Model_Ordercoupon extends ORM
         )
     );
 
+    public function get_tour_name()
+    {
+        return $this->tour->name;
+    }
 
     public function sortable_fields()
     {
         return array(
-            'id',
-            'fio'
+            'tour_id',
+            'date',
+            'fio',
+            'number_order'
         );
     }
 }

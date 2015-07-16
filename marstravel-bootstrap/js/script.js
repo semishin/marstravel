@@ -15,6 +15,7 @@ var excursionsOptions = {
     category_id: '0'
 };
 var offset = 6;
+var coupon_id = 0;
 
 
 // A $( document ).ready() block.
@@ -254,6 +255,15 @@ $( document ).ready(function() {
         }
     });
 
+    $('.form-group.counter button').click(function(e) {
+        e.preventDefault();
+        var quantity_adults = $('#adult_number').val();
+        var quantity_children = $('#children_number').val();
+        var price = $('.total_price').data('price');
+        var cost = ((quantity_adults * price) + (quantity_children * price));
+        $('.total_price b').html(''+cost+' руб.');
+    });
+
     $('#pay_btn_gen_1').click(function(e) {
         e.preventDefault();
         var date = $('#date').val();
@@ -269,13 +279,56 @@ $( document ).ready(function() {
 
     });
 
-    $('.form-group.counter button').click(function(e) {
+    $('#free_btn_gen_1').click(function(e) {
         e.preventDefault();
+        var date = $('#date').val();
         var quantity_adults = $('#adult_number').val();
-        var quantity_children = $('#children_number').val();
-        var price = $('.total_price').data('price');
-        var cost = ((quantity_adults * price) + (quantity_children * price));
-        $('.total_price b').html(''+cost+' руб.');
+        if (!date) {
+            alert("Вы не заполнили поле дата");
+            return false;
+        };
+        if (!quantity_adults) {
+            alert("Вы не ввели количество взрослых");
+            return false;
+        };
+
+    });
+
+    $('#code_btn').click(function(e) {
+        e.preventDefault();
+        var tour_id = $(this).data('id');
+        if($('#code_2').length>0){
+            var code = $('#code_2').val();
+            if (!code) {
+                $('#code_2').addClass('error');
+                alert("Вы не ввели промокод");
+                return false;
+            } else {
+                $('#code_2').removeClass('error');
+            }
+
+        }
+
+        $.ajax({
+            url : "/ordercoupon/code",
+            dataType : "json",
+            type : "post",
+            data : {
+                code : code,
+                tour_id : tour_id
+            },
+            success : function(jsondata) {
+                if (!jsondata.coupon_id) {
+                    $('#get_free').html('<p class="lightbox_header">Промомкод не верный</p><p class="lightbox_text"></p>');
+                    //return false;
+                } else {
+                    coupon_id = jsondata.coupon_id;
+                }
+            },
+            error: function(xhr, status, error) {
+                alert(status + '|\n' +error);
+            }
+        });
     });
 
     $('#pay_btn').click(function(e) {
@@ -367,12 +420,12 @@ $( document ).ready(function() {
             $('#agreement_1').addClass('error');
             alert("Вы не согласились с условиями");
             return false;
-        };
+        }
         if ($('#surcharge_1').is(':checked')) {
             var surcharge = 1;
         } else {
             var surcharge = 0;
-        };
+        }
 
         if (errors) {
             alert("Вы не заполнили все поля");
@@ -401,6 +454,135 @@ $( document ).ready(function() {
                 },
                 success : function(jsondata) {
                     $('#pay').html('<p class="lightbox_header">Спасибо за заказ!</p><p class="lightbox_text">Номер вашего заказа '+jsondata.number_order+'</p>');
+                },
+                error: function(xhr, status, error) {
+                    alert(status + '|\n' +error);
+                }
+            });
+        }
+    });
+
+    $('#free_btn').click(function(e) {
+        e.preventDefault();
+        var errors = 0;
+        var tour_id = $(this).data('id');
+        var date = $('#date').val();
+        var quantity_adults = $('#adult_number').val();
+        var quantity_children = $('#children_number').val();
+        var price = $('.total_price').data('price');
+        var cost = ((quantity_adults * price) + (quantity_children * price));
+        //alert("data-id="+f_id)
+        if($('#fio_2').length>0){
+            var fio = $('#fio_2').val();
+            //alert("name="+name);
+            if (!fio) {
+                $('#fio_2').addClass('error');
+                errors++;
+            } else {
+                $('#fio_2').removeClass('error');
+            }
+        }
+        if($('#dob_2').length>0){
+            var dob = $('#dob_2').val();
+            //alert("email="+email);
+            if (!dob) {
+                $('#dob_2').addClass('error');
+                errors++;
+            } else {
+                $('#dob_2').removeClass('error');
+            }
+        }
+        if($('#passport_2').length>0){
+            var passport = $('#passport_2').val();
+            //alert("phone="+phone);
+            if (!passport) {
+                $('#passport_2').addClass('error');
+                errors++;
+            } else {
+                $('#passport_2').removeClass('error');
+            }
+        }
+        if($('#validity_2').length>0){
+            var validity = $('#validity_2').val();
+            //alert("name="+name);
+            if (!validity) {
+                $('#validity_2').addClass('error');
+                errors++;
+            } else {
+                $('#validity_2').removeClass('error');
+            }
+        }
+        if($('#issuedby_2').length>0){
+            var issuedby = $('#issuedby_2').val();
+            //alert("email="+email);
+            if (!issuedby) {
+                $('#issuedby_2').addClass('error');
+                errors++;
+            } else {
+                $('#issuedby_2').removeClass('error');
+            }
+        }
+        if($('#email_2').length>0){
+            var email = $('#email_2').val();
+            //alert("phone="+phone);
+            if (!email) {
+                $('#email_2').addClass('error');
+                errors++;
+            } else {
+                $('#email_2').removeClass('error');
+            }
+        }
+        if($('#phone_2').length>0){
+            var phone = $('#phone_2').val();
+            //alert("name="+name);
+            if (!phone) {
+                $('#phone_2').addClass('error');
+                errors++;
+            } else {
+                $('#phone_2').removeClass('error');
+            }
+        }
+
+        if ($('#agreement_2').is(':checked')) {
+            var agreement = 1;
+        } else {
+            $('#agreement_2').addClass('error');
+            alert("Вы не согласились с условиями");
+            return false;
+        }
+        if ($('#surcharge_2').is(':checked')) {
+            var surcharge = 1;
+        } else {
+            var surcharge = 0;
+        }
+
+        if (errors) {
+            alert("Вы не заполнили все поля");
+            return false;
+        } else{
+            $.ajax({
+                url : "/ordercoupon/add",
+                dataType : "json",
+                type : "post",
+                data : {
+                    tour_id : tour_id,
+                    date : date,
+                    quantity_adults : quantity_adults,
+                    quantity_children : quantity_children,
+                    cost : cost,
+                    fio : fio,
+                    dob : dob,
+                    passport : passport,
+                    validity : validity,
+                    issuedby : issuedby,
+                    email : email,
+                    phone : phone,
+                    coupon_id : coupon_id,
+                    agreement : agreement,
+                    surcharge : surcharge
+                },
+                success : function(jsondata) {
+                    $('#get_free').html('<p class="lightbox_header">Спасибо за заказ!</p><p class="lightbox_text">Номер вашего заказа '+jsondata.number_order+'</p>');
                 },
                 error: function(xhr, status, error) {
                     alert(status + '|\n' +error);

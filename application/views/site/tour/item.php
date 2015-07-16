@@ -299,7 +299,7 @@
                 <p class="total_price" data-price="<?php echo $price?>">Итоговая стоимость: <span></span><b>0 руб.</b></p>
 
                 <a href="#pay" class="black_btn fancy" id="pay_btn_gen_1">Купить тур</a>
-                <a href="#get_free" class="red_btn fancy">Получить бесплатно</a>
+                <a href="#push_code" class="red_btn fancy" id="free_btn_gen_1">Получить бесплатно</a>
                 <div class="clearfix"></div>
 
                 <div style="display: none">
@@ -347,29 +347,89 @@
                         </form>
                     </div>
                 </div>
+
                 <div style="display: none">
-                    <div id="get_free">
-                        <form role="form">
+                    <div id="push_code">
+                        <p class="lightbox_header">Введите промокод</p>
+                        <p class="lightbox_text"><?php echo $name?></p>
+                        <form role="form" class="lightbox_form">
                             <div class="form-group">
-                                <label for="Email_2">Email</label>
-                                <input type="email" class="form-control" id="Email_2" placeholder="Enter email">
+                                <input type="text" class="form-control" id="code_2" placeholder="Промокод" name="code">
                             </div>
-                            <div class="form-group">
-                                <label for="Name_2">Имя</label>
-                                <input type="text" class="form-control" id="Name_2" placeholder="Name">
-                            </div>
-                            <div class="form-group">
-                                <label for="Password_2">Пароль</label>
-                                <input type="password" class="form-control" id="Password_2" placeholder="Password">
-                            </div>
-                            <div class="form-group">
-                                <label for="Code_2">Промокод</label>
-                                <input type="password" class="form-control" id="Code_2" placeholder="Code">
-                            </div>
-                            <button type="submit" class="btn btn-success" id="get_free_btn">Отправить</button>
+
+                            <a href="#get_free" class="red_btn fancy" id="code_btn" data-id="<?php echo $id?>">Отправить</a>
                         </form>
                     </div>
                 </div>
+
+                <div style="display: none">
+                    <div id="get_free">
+                        <p class="lightbox_header">Получить тур</p>
+                        <p class="lightbox_text"><?php echo $name?></p>
+                        <form role="form" class="lightbox_form">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="fio_2" placeholder="ФИО" name="fio">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="dob_2" placeholder="Дата рождения" name="dob">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="passport_2" placeholder="Номер паспорта" name="passport">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="validity_2" placeholder="Срок действия" name="validity">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="issuedby_2" placeholder="Кем выдан" name="issuedby">
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-control" id="email_2" placeholder="Введите email" name="email">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="phone_2" placeholder="Номер телефона" name="phone">
+                            </div>
+<!--                            <select required size = "1" id = "payment_1" name="payment">-->
+<!--                                <option disabled value = "0">Способ оплаты</option>-->
+<!--                                <option value = "1">Оплатить в офисе</option>-->
+<!--                                <option value = "2">Картой онлайн</option>-->
+<!--                                <option value = "3">Терминалы</option>-->
+<!--                                <option value = "4">Отделения сотовой связи</option>-->
+<!--                            </select>-->
+                            <div class="form-group">
+                                <label for="agreement_1">Согласие с условиями</label>
+                                <input type="checkbox" class="form-control" id="agreement_2" name="agreement">
+                            </div>
+                            <div class="form-group">
+                                <label for="surcharge_1">Доплата за одноместное размещение 120 долларов</label>
+                                <input type="checkbox" class="form-control" id="surcharge_2" name="surcharge">
+                            </div>
+                            <a href="#" class="red_btn" id="free_btn" data-id="<?php echo $id?>">Отправить</a>
+                        </form>
+                    </div>
+                </div>
+<!--                <div style="display: none">-->
+<!--                    <div id="get_free">-->
+<!--                        <form role="form">-->
+<!--                            <div class="form-group">-->
+<!--                                <label for="Email_2">Email</label>-->
+<!--                                <input type="email" class="form-control" id="Email_2" placeholder="Enter email">-->
+<!--                            </div>-->
+<!--                            <div class="form-group">-->
+<!--                                <label for="Name_2">Имя</label>-->
+<!--                                <input type="text" class="form-control" id="Name_2" placeholder="Name">-->
+<!--                            </div>-->
+<!--                            <div class="form-group">-->
+<!--                                <label for="Password_2">Пароль</label>-->
+<!--                                <input type="password" class="form-control" id="Password_2" placeholder="Password">-->
+<!--                            </div>-->
+<!--                            <div class="form-group">-->
+<!--                                <label for="Code_2">Промокод</label>-->
+<!--                                <input type="password" class="form-control" id="Code_2" placeholder="Code">-->
+<!--                            </div>-->
+<!--                            <button type="submit" class="btn btn-success" id="get_free_btn">Отправить</button>-->
+<!--                        </form>-->
+<!--                    </div>-->
+<!--                </div>-->
             </div>
         </div>
     </div>

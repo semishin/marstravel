@@ -174,6 +174,22 @@ Route::set('site-order', 'order/add')
         'action'     => 'add',
     ));
 
+Route::set('site-ordercoupon-add', 'ordercoupon/add')
+    ->defaults(array(
+        'directory' => 'site',
+        'controller' => 'ordercoupon',
+        'action'     => 'add',
+    ));
+
+Route::set('site-ordercoupon-code', 'ordercoupon/code')
+    ->defaults(array(
+        'directory' => 'site',
+        'controller' => 'ordercoupon',
+        'action'     => 'code',
+    ));
+
+
+
 Route::set('site-search', 'search(/<page>)', array('page' => '\d+'))
     ->defaults(array(
         'directory' => 'site',
