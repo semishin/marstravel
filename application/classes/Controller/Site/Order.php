@@ -44,18 +44,18 @@ class Controller_Site_Order extends Controller_Site
             $order->number_order = $number_order;
             $order->save();
 
-//            try {
-//                Email::send(Kohana::$config->load('properties.email'), array(Kohana::$config->load('properties.email'), 'Marstravel'),
-//                    'Новая вопрос от клиентов',
-//                    'Имя - ' . $name . '<br/>' .
-//                    'Email - ' . $email . '<br/>' .
-//                    'Телефон - ' . $phone . '<br/>' .
-//                    'Текст вопроса - ' . $question . '<br/>',
-//                    /*html*/
-//                    true
-//                );
-//            } catch (Exception $e) {}
-//
+            try {
+                Email::send(Kohana::$config->load('properties.email'), array(Kohana::$config->load('properties.email'), 'Marstravel'),
+                    'Новый заказ',
+                    'ФИО - ' . $fio . '<br/>' .
+                    'Email - ' . $email . '<br/>' .
+                    'Телефон - ' . $phone . '<br/>' .
+                    'Номер заказа - ' . $number_order . '<br/>',
+                    /*html*/
+                    true
+                );
+            } catch (Exception $e) {}
+
             exit(json_encode(array('number_order' => $number_order)));
         }
         $this->forward_404();

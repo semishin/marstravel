@@ -193,46 +193,40 @@ $( document ).ready(function() {
     $('#ask_consultant_btn').click(function(e) {
         e.preventDefault();
         var errors = 0;
-        var f_id = $(this).data('id');
-        //alert("data-id="+f_id)
-        if($('.lightbox_form[data-id='+f_id+'] input[name="name"]').length>0){
-            var name = $('.lightbox_form[data-id='+f_id+'] input[name="name"]').val();
-            //alert("name="+name);
+        if($('#Name_0').length>0){
+            var name = $('#Name_0').val();
             if (!name) {
-                $('.lightbox_form[data-id='+f_id+'] input[name=name]').addClass('error');
+                $('#Name_0').addClass('error');
                 errors++;
             } else {
-                $('.lightbox_form[data-id='+f_id+'] input[name=name]').removeClass('error');
+                $('#Name_0').removeClass('error');
             }
         }
-        if($('.lightbox_form[data-id='+f_id+'] input[name="email"]').length>0){
-            var email = $('.lightbox_form[data-id='+f_id+'] input[name="email"]').val();
-            //alert("email="+email);
+        if($('#Email_0').length>0){
+            var email = $('#Email_0').val();
             if (!email) {
-                $('.lightbox_form[data-id='+f_id+'] input[name=email]').addClass('error');
+                $('#Email_0').addClass('error');
                 errors++;
             } else {
-                $('.lightbox_form[data-id='+f_id+'] input[name=email]').removeClass('error');
+                $('#Email_0').removeClass('error');
             }
         }
-        if($('.lightbox_form[data-id='+f_id+'] input[name="phone"]').length>0){
-            var phone = $('.lightbox_form[data-id='+f_id+'] input[name="phone"]').val();
-            //alert("phone="+phone);
+        if($('#Phone_0').length>0){
+            var phone = $('#Phone_0').val();
             if (!phone) {
-                $('.lightbox_form[data-id='+f_id+'] input[name=phone]').addClass('error');
+                $('#Phone_0').addClass('error');
                 errors++;
             } else {
-                $('.lightbox_form[data-id='+f_id+'] input[name=phone]').removeClass('error');
+                $('#Phone_0').removeClass('error');
             }
         }
-        if($('.lightbox_form[data-id='+f_id+'] textarea[name="question"]').length>0){
-            var question = $('.lightbox_form[data-id='+f_id+'] textarea[name="question"]').val();
-            //alert("question="+question);
+        if($('#Question_0').length>0){
+            var question = $('#Question_0').val();
             if (!question) {
-                $('.lightbox_form[data-id='+f_id+'] textarea[name=question]').addClass('error');
+                $('#Question_0').addClass('error');
                 errors++;
             } else {
-                $('.lightbox_form[data-id='+f_id+'] textarea[name=question]').removeClass('error');
+                $('#Question_0').removeClass('error');
             }
         }
 
@@ -616,8 +610,6 @@ $( document ).ready(function() {
             dataType: 'json',
             success: function (result) {
                 offset = 6;
-                //$('.portfolio_buttons li button').removeClass('active');
-                //$(this).addClass('active');
                 $('.hotels_block .row').html(result.html);
                 $('#count_hotel').text("всего " + rescostult.count_hotel + " отелей");
                 if (!result.more) {
@@ -639,8 +631,6 @@ $( document ).ready(function() {
             dataType: 'json',
             success: function(result) {
                 offset = 6;
-                //$('.portfolio_buttons li button').removeClass('active');
-                //$(this).addClass('active');
                 $('.hotels_block .row').html(result.html);
                 $('#count_hotel').text("всего " + result.count_hotel + " отелей");
                 if (!result.more) {
@@ -662,8 +652,6 @@ $( document ).ready(function() {
             dataType: 'json',
             success: function(result) {
                 offset = 6;
-                //$('.portfolio_buttons li button').removeClass('active');
-                //$(this).addClass('active');
                 $('.hotels_block .row').html(result.html);
                 $('#count_hotel').text("всего " + result.count_hotel + " отелей");
                 if (!result.more) {
@@ -706,8 +694,6 @@ $( document ).ready(function() {
             dataType: 'json',
             success: function (result) {
                 offset = 6;
-                //$('.portfolio_buttons li button').removeClass('active');
-                //$(this).addClass('active');
                 $('.sights_block .row').html(result.html);
                 $('#count_sight').text("всего " + result.count_sight + " мест");
                 $('#count_excursion').text(result.count_excursion);
@@ -730,8 +716,6 @@ $( document ).ready(function() {
             dataType: 'json',
             success: function(result) {
                 offset = 6;
-                //$('.portfolio_buttons li button').removeClass('active');
-                //$(this).addClass('active');
                 $('.sights_block .row').html(result.html);
                 $('#count_sight').text("всего " + result.count_sight + " мест");
                 $('#count_excursion').text(result.count_excursion);
@@ -754,8 +738,6 @@ $( document ).ready(function() {
             dataType: 'json',
             success: function(result) {
                 offset = 6;
-                //$('.portfolio_buttons li button').removeClass('active');
-                //$(this).addClass('active');
                 $('.sights_block .row').html(result.html);
                 $('#count_sight').text("всего " + result.count_sight + " мест");
                 $('#count_excursion').text(result.count_excursion);
@@ -799,8 +781,6 @@ $( document ).ready(function() {
             dataType: 'json',
             success: function (result) {
                 offset = 6;
-                //$('.portfolio_buttons li button').removeClass('active');
-                //$(this).addClass('active');
                 $('.sights_block .row').html(result.html);
                 $('#count_excursion').text("всего " + result.count_excursion + " экскурсий");
                 if (!result.more) {
@@ -822,8 +802,6 @@ $( document ).ready(function() {
             dataType: 'json',
             success: function(result) {
                 offset = 6;
-                //$('.portfolio_buttons li button').removeClass('active');
-                //$(this).addClass('active');
                 $('.sights_block .row').html(result.html);
                 $('#count_excursion').text("всего " + result.count_excursion + " экскурсий");
                 if (!result.more) {
@@ -845,8 +823,6 @@ $( document ).ready(function() {
             dataType: 'json',
             success: function(result) {
                 offset = 6;
-                //$('.portfolio_buttons li button').removeClass('active');
-                //$(this).addClass('active');
                 $('.sights_block .row').html(result.html);
                 $('#count_excursion').text("всего " + result.count_excursion + " экскурсий");
                 if (!result.more) {

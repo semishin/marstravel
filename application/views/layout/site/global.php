@@ -77,7 +77,7 @@
                                 <div style="display: none">
                                     <div id="ask_consultant">
                                         <p class="lightbox_header">Задать вопрос консультанту</p>
-                                        <form role="form" class="lightbox_form" data-id="0">
+                                        <form role="form" class="lightbox_form">
                                             <div class="form-group">
                                                 <input type="text" class="form-control" id="Name_0" placeholder="Имя" name="name">
                                             </div>
@@ -88,9 +88,9 @@
                                                 <input type="text" class="form-control" id="Phone_0" placeholder="Телефон" name="phone">
                                             </div>
                                             <div class="form-group">
-                                                <textarea placeholder="Вопрос" rows="3" class="form-control" name="question"></textarea>
+                                                <textarea placeholder="Вопрос" rows="3" class="form-control" id="Question_0" name="question"></textarea>
                                             </div>
-                                            <a href="#" class="red_btn" id="ask_consultant_btn" data-id="0">Отправить</a>
+                                            <a href="#" class="red_btn" id="ask_consultant_btn">Отправить</a>
                                         </form>
                                     </div>
                                 </div>
