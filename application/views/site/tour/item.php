@@ -144,8 +144,10 @@
                             </div>
                         <?php } ?>
                     </div>
-                    <div class="barousel_nav">
-                    </div>
+                    <?php if($images) { ?>
+                        <div class="barousel_nav">
+                        </div>
+                    <?php } ?>
                 </div>
             </div>
         </div>
@@ -167,93 +169,18 @@
                     <p class="text"><?php echo $content?></p>
                 </div>
                 <div class="schedule">
+                    <?php for($day_tour = 1; ${'d'.$day_tour.'_name'}; $day_tour++) { ?>
                     <div class="day_description">
                         <div class="left">
-                            <p class="number">1-й день</p>
+                            <p class="number"><?php echo $day_tour;?>-й день</p>
                         </div>
                         <div class="right">
-                            <p><?php echo $d1_name?></p>
-                            <p><?php echo $d1_content?></p>
+                            <p><?php echo ${'d'.$day_tour.'_name'};?></p>
+                            <p><?php echo ${'d'.$day_tour.'_content'}?></p>
                         </div>
                         <div class="clearfix"></div>
                     </div>
-
-                    <div class="day_description">
-                        <div class="left">
-                            <p class="number">2-й день</p>
-                        </div>
-                        <div class="right">
-                            <p><?php echo $d2_name?></p>
-                            <p><?php echo $d2_content?></p>
-                        </div>
-                        <div class="clearfix"></div>
-                    </div>
-
-                    <div class="day_description">
-                        <div class="left">
-                            <p class="number">3-й день</p>
-                        </div>
-                        <div class="right">
-                            <p><?php echo $d3_name?></p>
-                            <p><?php echo $d3_content?></p>
-                        </div>
-                        <div class="clearfix"></div>
-                    </div>
-
-                    <div class="day_description">
-                        <div class="left">
-                            <p class="number">4-й день</p>
-                        </div>
-                        <div class="right">
-                            <p><?php echo $d4_name?></p>
-                            <p><?php echo $d4_content?></p>
-                        </div>
-                        <div class="clearfix"></div>
-                    </div>
-
-                    <div class="day_description">
-                        <div class="left">
-                            <p class="number">5-й день</p>
-                        </div>
-                        <div class="right">
-                            <p><?php echo $d5_name?></p>
-                            <p><?php echo $d5_content?></p>
-                        </div>
-                        <div class="clearfix"></div>
-                    </div>
-
-                    <div class="day_description">
-                        <div class="left">
-                            <p class="number">6-й день</p>
-                        </div>
-                        <div class="right">
-                            <p><?php echo $d6_name?></p>
-                            <p><?php echo $d6_content?></p>
-                        </div>
-                        <div class="clearfix"></div>
-                    </div>
-
-                    <div class="day_description">
-                        <div class="left">
-                            <p class="number">7-й день</p>
-                        </div>
-                        <div class="right">
-                            <p><?php echo $d7_name?></p>
-                            <p><?php echo $d7_content?></p>
-                        </div>
-                        <div class="clearfix"></div>
-                    </div>
-
-                    <div class="day_description">
-                        <div class="left">
-                            <p class="number">8-й день</p>
-                        </div>
-                        <div class="right">
-                            <p><?php echo $d8_name?></p>
-                            <p><?php echo $d8_content?></p>
-                        </div>
-                        <div class="clearfix"></div>
-                    </div>
+                    <?php } ?>
                 </div>
             </div>
             <div class="two_half_block">
