@@ -1,0 +1,26 @@
+<?php defined('SYSPATH') OR die('No direct script access.'); ?>
+
+2015-08-07 13:14:06 --- EMERGENCY: Database_Exception [ 1064 ]: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-6' at line 1 [ SELECT `hotel`.`id` AS `id`, `hotel`.`name` AS `name`, `hotel`.`main_image` AS `main_image`, `hotel`.`stars` AS `stars`, `hotel`.`content` AS `content`, `hotel`.`images` AS `images`, `hotel`.`link_site` AS `link_site`, `hotel`.`link_booking` AS `link_booking`, `hotel`.`url` AS `url`, `hotel`.`md5_url` AS `md5_url`, `hotel`.`s_description` AS `s_description`, `hotel`.`s_keywords` AS `s_keywords`, `hotel`.`s_title` AS `s_title`, `hotel`.`city_id` AS `city_id`, `hotel`.`active` AS `active`, `hotel`.`address` AS `address`, `hotel`.`short_content` AS `short_content`, `hotel`.`email` AS `email`, `hotel`.`phone` AS `phone` FROM `hotels` AS `hotel` WHERE `active` = 1 ORDER BY `id` DESC LIMIT 6 OFFSET -6 ] ~ MODPATH/ariol/classes/Kohana/Database/MySQLi.php [ 172 ] in /home/vitaliy/www/marstravel.local/marstravel/modules/database/classes/Kohana/Database/Query.php:251
+2015-08-07 13:14:06 --- DEBUG: #0 /home/vitaliy/www/marstravel.local/marstravel/modules/database/classes/Kohana/Database/Query.php(251): Kohana_Database_MySQLi->query(1, 'SELECT `hotel`....', 'Model_Hotel', Array)
+#1 /home/vitaliy/www/marstravel.local/marstravel/modules/orm/classes/Kohana/ORM.php(1063): Kohana_Database_Query->execute(Object(Database_MySQLi))
+#2 /home/vitaliy/www/marstravel.local/marstravel/modules/orm/classes/Kohana/ORM.php(1004): Kohana_ORM->_load_result(true)
+#3 /home/vitaliy/www/marstravel.local/marstravel/application/classes/Controller/Site/Hotel.php(178): Kohana_ORM->find_all()
+#4 /home/vitaliy/www/marstravel.local/marstravel/system/classes/Kohana/Controller.php(84): Controller_Site_Hotel->action_more()
+#5 [internal function]: Kohana_Controller->execute()
+#6 /home/vitaliy/www/marstravel.local/marstravel/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_Site_Hotel))
+#7 /home/vitaliy/www/marstravel.local/marstravel/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#8 /home/vitaliy/www/marstravel.local/marstravel/system/classes/Kohana/Request.php(986): Kohana_Request_Client->execute(Object(Request))
+#9 /home/vitaliy/www/marstravel.local/marstravel/index.php(137): Kohana_Request->execute()
+#10 {main} in /home/vitaliy/www/marstravel.local/marstravel/modules/database/classes/Kohana/Database/Query.php:251
+2015-08-07 13:14:14 --- EMERGENCY: Database_Exception [ 1064 ]: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-6' at line 1 [ SELECT `hotel`.`id` AS `id`, `hotel`.`name` AS `name`, `hotel`.`main_image` AS `main_image`, `hotel`.`stars` AS `stars`, `hotel`.`content` AS `content`, `hotel`.`images` AS `images`, `hotel`.`link_site` AS `link_site`, `hotel`.`link_booking` AS `link_booking`, `hotel`.`url` AS `url`, `hotel`.`md5_url` AS `md5_url`, `hotel`.`s_description` AS `s_description`, `hotel`.`s_keywords` AS `s_keywords`, `hotel`.`s_title` AS `s_title`, `hotel`.`city_id` AS `city_id`, `hotel`.`active` AS `active`, `hotel`.`address` AS `address`, `hotel`.`short_content` AS `short_content`, `hotel`.`email` AS `email`, `hotel`.`phone` AS `phone` FROM `hotels` AS `hotel` WHERE `active` = 1 ORDER BY `id` DESC LIMIT 6 OFFSET -6 ] ~ MODPATH/ariol/classes/Kohana/Database/MySQLi.php [ 172 ] in /home/vitaliy/www/marstravel.local/marstravel/modules/database/classes/Kohana/Database/Query.php:251
+2015-08-07 13:14:14 --- DEBUG: #0 /home/vitaliy/www/marstravel.local/marstravel/modules/database/classes/Kohana/Database/Query.php(251): Kohana_Database_MySQLi->query(1, 'SELECT `hotel`....', 'Model_Hotel', Array)
+#1 /home/vitaliy/www/marstravel.local/marstravel/modules/orm/classes/Kohana/ORM.php(1063): Kohana_Database_Query->execute(Object(Database_MySQLi))
+#2 /home/vitaliy/www/marstravel.local/marstravel/modules/orm/classes/Kohana/ORM.php(1004): Kohana_ORM->_load_result(true)
+#3 /home/vitaliy/www/marstravel.local/marstravel/application/classes/Controller/Site/Hotel.php(178): Kohana_ORM->find_all()
+#4 /home/vitaliy/www/marstravel.local/marstravel/system/classes/Kohana/Controller.php(84): Controller_Site_Hotel->action_more()
+#5 [internal function]: Kohana_Controller->execute()
+#6 /home/vitaliy/www/marstravel.local/marstravel/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_Site_Hotel))
+#7 /home/vitaliy/www/marstravel.local/marstravel/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#8 /home/vitaliy/www/marstravel.local/marstravel/system/classes/Kohana/Request.php(986): Kohana_Request_Client->execute(Object(Request))
+#9 /home/vitaliy/www/marstravel.local/marstravel/index.php(137): Kohana_Request->execute()
+#10 {main} in /home/vitaliy/www/marstravel.local/marstravel/modules/database/classes/Kohana/Database/Query.php:251

@@ -88,7 +88,11 @@ class Model_Tour extends ORM
     }
 
     protected $_grid_columns = array(
-        'name' => null,
+        'name' => array(
+            'type' => 'link',
+            'route_str' => 'admin-tour:edit?id=${id}',
+            'title' => '${name}'
+        ),
         'position' => null,
         'active' => 'bool',
         'edit' => array(

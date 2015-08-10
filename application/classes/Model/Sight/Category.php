@@ -36,7 +36,11 @@ class Model_Sight_Category extends ORM
 
     protected $_grid_columns = array(
 
-        'name' => null,
+        'name' => array(
+            'type' => 'link',
+            'route_str' =>  'admin-sight_category:edit?id=${id}',
+            'title' => '${name}'
+        ),
         'active' => 'bool',
         'edit' => array(
             'width' => '40',

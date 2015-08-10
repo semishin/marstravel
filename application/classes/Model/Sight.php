@@ -48,7 +48,11 @@ class Model_Sight extends ORM
     }
 
     protected $_grid_columns = array(
-        'name' => null,
+        'name' => array(
+            'type' => 'link',
+            'route_str' => 'admin-sight:edit?id=${id}',
+            'title' => '${name}'
+        ),
         'city_id' => array(
             'type' => 'template',
             'template' => '${city_name}'

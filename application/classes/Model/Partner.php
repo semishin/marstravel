@@ -30,7 +30,11 @@ class Model_Partner extends ORM
 
     protected $_grid_columns = array(
 
-        'name' => null,
+        'name' => array(
+            'type' => 'link',
+            'route_str' => 'admin-partner:edit?id=${id}',
+            'title' => '${name}'
+        ),
         'link' => null,
         'active' => 'bool',
 

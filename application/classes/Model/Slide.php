@@ -28,7 +28,11 @@ class Model_Slide extends ORM
 
     protected $_grid_columns = array(
 
-        'name' => null,
+        'name' => array(
+            'type' => 'link',
+            'route_str' => 'admin-slide:edit?id=${id}',
+            'title' => '${name}'
+        ),
         'position' => null,
         'active' => 'bool',
 

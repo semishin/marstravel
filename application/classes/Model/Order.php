@@ -51,10 +51,10 @@ class Model_Order extends ORM
     }
 
     protected $_grid_columns = array(
-//        'id' => null,
         'tour_id' => array(
-            'type' => 'template',
-            'template' => '${tour_name}'
+            'type' => 'link',
+            'route_str' => 'admin-order:edit?id=${id}',
+            'title' => '${tour_name}'
         ),
         'date' => null,
         'fio' => null,

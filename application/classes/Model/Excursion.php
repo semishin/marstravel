@@ -66,7 +66,11 @@ class Model_Excursion extends ORM
     }
 
     protected $_grid_columns = array(
-        'name' => null,
+        'name' => array(
+            'type' => 'link',
+            'route_str' => 'admin-excursion:edit?id=${id}',
+            'title' => '${name}'
+        ),
         'city_id' => array(
             'type' => 'template',
             'template' => '${city_name}'

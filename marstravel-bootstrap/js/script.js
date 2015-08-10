@@ -231,7 +231,6 @@ $( document ).ready(function() {
         }
 
         if (errors) {
-            alert("error "+errors);
             return false;
         } else{
             $.ajax({

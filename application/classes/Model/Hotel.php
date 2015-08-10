@@ -49,7 +49,11 @@ class Model_Hotel extends ORM
     }
 
     protected $_grid_columns = array(
-        'name' => null,
+        'name' => array(
+            'type' => 'link',
+            'route_str' => 'admin-hotel:edit?id=${id}',
+            'title' => '${name}'
+        ),
         'city_id' => array(
             'type' => 'template',
             'template' => '${city_name}'

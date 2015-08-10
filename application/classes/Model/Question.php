@@ -26,8 +26,11 @@ class Model_Question extends ORM
 
 
     protected $_grid_columns = array(
-        //'id' => null,
-        'name' => null,
+        'name' => array(
+            'type' => 'link',
+            'route_str' =>  'admin-question:edit?id=${id}',
+            'title' => '${name}'
+        ),
         'email' => null,
         'edit' => array(
             'width' => '40',

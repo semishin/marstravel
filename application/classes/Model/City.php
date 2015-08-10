@@ -51,10 +51,12 @@ class Model_City extends ORM
 
     protected $_grid_columns = array(
 
-        'name' => null,
+        'name' => array(
+            'type' => 'link',
+            'route_str' => 'admin-city:edit?id=${id}',
+            'title' => '${name}'
+        ),
         'active' => 'bool',
-//        'latitude' => null,
-//        'longitude' => null,
 
         'edit' => array(
             'width' => '40',

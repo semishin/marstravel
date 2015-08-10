@@ -31,9 +31,12 @@ class Model_Banner extends ORM
 
     protected $_grid_columns = array(
 
-        'name' => null,
+        'name' => array(
+            'type' => 'link',
+            'route_str' => 'admin-banner:edit?id=${id}',
+            'title' => '${name}'
+        ),
         'link' => null,
-//        'type' => null,
         'active' => 'bool',
 
         'edit' => array(

@@ -28,7 +28,11 @@ class Model_Coupon_Firm extends ORM
 
     protected $_grid_columns = array(
 
-        'name' => null,
+        'name' => array(
+            'type' => 'link',
+            'route_str' =>  'admin-coupon_firm:edit?id=${id}',
+            'title' => '${name}'
+        ),
         'active' => 'bool',
         'edit' => array(
             'width' => '40',
