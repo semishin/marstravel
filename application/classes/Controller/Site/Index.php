@@ -8,15 +8,6 @@ class Controller_Site_Index extends Controller_Site
     public function action_index()
     {
         $this->set_metatags_and_content('', 'page');
-
-//        $masters = ORM::factory('Master')
-//            ->where('active','=',1)
-//            ->order_by('position','asc')
-//            ->limit(self::LIMIT_ON_PAGE_MASTERS)
-//            ->find_all()
-//            ->as_array();
-//
-//        $this->template->masters = $masters;
         $slide = ORM::factory('Slide')
             ->where('active','=',1)
             ->order_by('position','asc')

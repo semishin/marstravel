@@ -52,3 +52,26 @@
 #9 /home/vitaliy/www/marstravel.local/marstravel/system/classes/Kohana/Request.php(986): Kohana_Request_Client->execute(Object(Request))
 #10 /home/vitaliy/www/marstravel.local/marstravel/index.php(137): Kohana_Request->execute()
 #11 {main} in /home/vitaliy/www/marstravel.local/marstravel/modules/ariol/classes/Extasy/ACL.php:39
+2015-08-10 16:59:46 --- EMERGENCY: View_Exception [ 0 ]: The requested view logout could not be found ~ SYSPATH/classes/Kohana/View.php [ 257 ] in /home/vitaliy/www/marstravel.local/marstravel/modules/ariol/classes/Extasy/View.php:97
+2015-08-10 16:59:46 --- DEBUG: #0 /home/vitaliy/www/marstravel.local/marstravel/modules/ariol/classes/Extasy/View.php(97): Kohana_View->set_filename('logout')
+#1 /home/vitaliy/www/marstravel.local/marstravel/modules/ariol/classes/Extasy/Controller.php(64): Extasy_View->set_filename('logout')
+#2 /home/vitaliy/www/marstravel.local/marstravel/system/classes/Kohana/Controller.php(87): Extasy_Controller->after()
+#3 [internal function]: Kohana_Controller->execute()
+#4 /home/vitaliy/www/marstravel.local/marstravel/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_Site_Auth))
+#5 /home/vitaliy/www/marstravel.local/marstravel/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#6 /home/vitaliy/www/marstravel.local/marstravel/system/classes/Kohana/Request.php(986): Kohana_Request_Client->execute(Object(Request))
+#7 /home/vitaliy/www/marstravel.local/marstravel/index.php(137): Kohana_Request->execute()
+#8 {main} in /home/vitaliy/www/marstravel.local/marstravel/modules/ariol/classes/Extasy/View.php:97
+2015-08-10 17:15:39 --- EMERGENCY: View_Exception [ 0 ]: The requested view layout/site/global_user could not be found ~ SYSPATH/classes/Kohana/View.php [ 257 ] in /home/vitaliy/www/marstravel.local/marstravel/modules/ariol/classes/Extasy/View.php:97
+2015-08-10 17:15:39 --- DEBUG: #0 /home/vitaliy/www/marstravel.local/marstravel/modules/ariol/classes/Extasy/View.php(97): Kohana_View->set_filename('layout/site/glo...')
+#1 /home/vitaliy/www/marstravel.local/marstravel/system/classes/Kohana/View.php(339): Extasy_View->set_filename('layout/site/glo...')
+#2 /home/vitaliy/www/marstravel.local/marstravel/modules/ariol/classes/Extasy/View.php(28): Kohana_View->render('layout/site/glo...')
+#3 /home/vitaliy/www/marstravel.local/marstravel/system/classes/Kohana/View.php(228): Extasy_View->render()
+#4 /home/vitaliy/www/marstravel.local/marstravel/modules/ariol/classes/Extasy/Controller.php(66): Kohana_View->__toString()
+#5 /home/vitaliy/www/marstravel.local/marstravel/system/classes/Kohana/Controller.php(87): Extasy_Controller->after()
+#6 [internal function]: Kohana_Controller->execute()
+#7 /home/vitaliy/www/marstravel.local/marstravel/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_Site_User))
+#8 /home/vitaliy/www/marstravel.local/marstravel/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#9 /home/vitaliy/www/marstravel.local/marstravel/system/classes/Kohana/Request.php(986): Kohana_Request_Client->execute(Object(Request))
+#10 /home/vitaliy/www/marstravel.local/marstravel/index.php(137): Kohana_Request->execute()
+#11 {main} in /home/vitaliy/www/marstravel.local/marstravel/modules/ariol/classes/Extasy/View.php:97

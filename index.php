@@ -12,6 +12,8 @@ if(!function_exists('mb_ucfirst')) {
     }
 }
 
+
+
 set_error_handler("ariolExceptionErrorHandler");
 
 ini_set('display_errors', 1);
@@ -118,6 +120,7 @@ if ( ! defined('KOHANA_START_MEMORY'))
 define('IN_PRODUCTION', false);
 
 // Bootstrap the application
+require_once DOCROOT.'mpdf/mpdf.php';
 require APPPATH.'bootstrap'.EXT;
 
 if (PHP_SAPI == 'cli') // Try and load minion

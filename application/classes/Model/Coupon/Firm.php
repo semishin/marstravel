@@ -17,7 +17,12 @@ class Model_Coupon_Firm extends ORM
         return array(
             'id' => 'Идентификатор',
             'name' => 'Наименование',
-            'active' => 'Активность'
+            'active' => 'Активность',
+            'address' => 'Адрес',
+            'description' => 'Описание',
+            'contact' => 'Контакты',
+            'requisites' => 'Реквизиты',
+            'phone' => 'Телефон'
         );
     }
 
@@ -34,6 +39,9 @@ class Model_Coupon_Firm extends ORM
             'title' => '${name}'
         ),
         'active' => 'bool',
+        'address' => null,
+        'contact' => null,
+        'phone' => null,
         'edit' => array(
             'width' => '40',
             'type' => 'link',

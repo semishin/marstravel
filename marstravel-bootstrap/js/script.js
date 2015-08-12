@@ -17,6 +17,10 @@ var excursionsOptions = {
 var offset = 6;
 var coupon_id = 0;
 
+function isValidEmailAddress(emailAddress) {
+    var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
+    return pattern.test(emailAddress);
+}
 
 // A $( document ).ready() block.
 $( document ).ready(function() {
@@ -849,6 +853,87 @@ $( document ).ready(function() {
                 $('#count_excursion').text("всего " + result.count_excursion + " экскурсий");
                 if (!result.more) {
                     $('#more_excursion').hide();
+                }
+            }
+        });
+    });
+
+    $('button[name="sign_in"]').click(function(e) {
+        e.preventDefault();
+            var email = $('input[name="email_login"]').val();
+            var password = $('input[name="password"]').val();
+            var remember = $("#remember_check input").prop("checked");
+            if(!email || !password) {
+                    alert("Заполните все поля");
+                    return false;
+                }
+            if(!isValidEmailAddress(email)){
+                alert('Проверте праильность email');
+                return false;
+            }
+            else {
+                    $.ajax({
+                        type: "POST",
+                        url: "/auth/login",
+                        dataType: "json",
+                        data: {email: email, password: password, remember: remember},
+                        success: function (data) {
+                            if (data.message != 'success') {
+                                alert('Неверный email или пароль');
+                            } else {
+                                window.location.href = '/user';
+                            }
+                        }
+                    });
+                }
+    });
+
+    $('button[name="add_coupon"]').click(function(e) {
+        e.preventDefault();
+            var tour_id = $(this).attr('data-tour_id');
+            if(!tour_id) {
+                return false;
+            }
+            $.ajax({
+                type: "POST",
+                url: "/user/create_coupon",
+                dataType: "json",
+                data: {tour_id: tour_id},
+                success: function (data) {
+                    if (data.message != 'success') {
+                        alert('Не удалось сгенерировать купон');
+                    } else {
+                        alert('Купон сгенерирован');
+                    }
+                }
+            });
+    });
+
+    $('button[name="print_page"]').click(function(e){
+        e.preventDefault();
+        var id = $(this).attr('data-tour_id');
+        var code = $(this).attr('data-code_coupon');
+        window.location.href = '/coupons/'+code+'-'+id+'.pdf';
+    });
+
+    $('button[name="save_data_profile"]').click(function(e){
+        e.preventDefault();
+        var phone = $('input[name="phone_profile"]').val();
+        var name = $('input[name="name_profile"]').val();
+        var contact = $('input[name="contact"]').val();
+        var address = $('input[name="address"]').val();
+        var requisites = $('#requisites').code();
+        var description = $('#description').code();
+        $.ajax({
+            type: "POST",
+            url: "/user/save",
+            dataType: "json",
+            data: {phone: phone, contact: contact, address: address, requisites: requisites, description: description, name: name},
+            success: function (data) {
+                if (data.message != 'success') {
+                    alert('Не сохранит изменения');
+                } else {
+                    //window.location.href = '/user';
                 }
             }
         });

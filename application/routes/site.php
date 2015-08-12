@@ -4,6 +4,56 @@
  * @author o.zgolich
  */
 
+Route::set('site-auth', 'auth')
+    ->defaults(array(
+        'directory' => 'site',
+        'controller' => 'auth',
+        'action'     => 'index',
+    ));
+
+Route::set('site-auth-logout', 'auth/logout')
+    ->defaults(array(
+        'directory' => 'site',
+        'controller' => 'auth',
+        'action'     => 'logout',
+    ));
+
+
+Route::set('site-user', 'user')
+    ->defaults(array(
+        'directory' => 'site',
+        'controller' => 'user',
+        'action'     => 'index',
+    ));
+
+Route::set('site-user-create-coupon', 'user/create_coupon/<id>')
+    ->defaults(array(
+        'directory' => 'site',
+        'controller' => 'user',
+        'action'     => 'createCoupon',
+    ));
+
+Route::set('site-auth-save-profile', 'user/save')
+    ->defaults(array(
+        'directory' => 'site',
+        'controller' => 'user',
+        'action'     => 'save',
+    ));
+
+Route::set('site-user-profile', 'user/profile')
+    ->defaults(array(
+        'directory' => 'site',
+        'controller' => 'user',
+        'action'     => 'profile',
+    ));
+
+Route::set('site-user-all_coupons_tour', 'user/all_coupons/(<url>(/<page>))', array('url' => '.*', 'page' => '\d+'))
+    ->defaults(array(
+        'directory' => 'site',
+        'controller' => 'user',
+        'action'     => 'all_coupons',
+    ));
+
 Route::set('site-index', '')
 	->defaults(array(
 		'directory' => 'site',
@@ -33,13 +83,6 @@ Route::set('site-our_partners', 'our-partners')
         'controller' => 'page',
         'action'     => 'our_partners',
     ));
-//
-//Route::set('site-hotels', 'hotels')
-//    ->defaults(array(
-//        'directory' => 'site',
-//        'controller' => 'page',
-//        'action'     => 'hotels',
-//    ));
 
 Route::set('site-weather', 'weather')
     ->defaults(array(
@@ -131,6 +174,12 @@ Route::set('site-excursions', 'excursions')
         'controller' => 'excursion',
         'action'     => 'index',
     ));
+Route::set('site-auth-login', 'auth/login')
+    ->defaults(array(
+        'directory' => 'site',
+        'controller' => 'auth',
+        'action'     => 'login',
+    ));
 
 Route::set('site-excursion-ajax', 'excursion/ajax')
     ->defaults(array(
@@ -204,9 +253,6 @@ Route::set('site-page', '<url>', array('url' => '.*'))
         'action'     => 'index',
     ));
 
-
-
-
 Route::set('site-comment', 'comment')
     ->defaults(array(
         'directory' => 'site',
@@ -220,43 +266,4 @@ Route::set('site-comments', 'comments/add')
         'controller' => 'comment',
         'action'     => 'add',
     ));
-/*
 
-
-Route::set('site-callback', 'request/callback')
-	->defaults(array(
-		'directory' => 'site',
-		'controller' => 'contact',
-		'action'     => 'callback',
-	));
-	
-Route::set('site-contacts', 'about-us/contacts')
-	->defaults(array(
-		'directory' => 'site',
-		'controller' => 'contact',
-		'action'     => 'index',
-	));
-	
-Route::set('site-thanks', 'thanks')
-	->defaults(array(
-		'directory' => 'site',
-		'controller' => 'index',
-		'action'     => 'thanks',
-	));
-	
-Route::set('site-contacts-callback-ajax', 'feedback/callback/ajax')
-	->defaults(array(
-		'directory' => 'site',
-		'controller' => 'contact',
-		'action'     => 'callbackajax',
-	));
-	
-Route::set('site-contacts-ajax', 'feedback/ajax')
-	->defaults(array(
-		'directory' => 'site',
-		'controller' => 'contact',
-		'action'     => 'ajax',
-	));
-
-
-*/

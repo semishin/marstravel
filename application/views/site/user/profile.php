@@ -1,0 +1,62 @@
+<div class="col-xs-12">
+    <div class="row">
+        <div class="col-md-3 col-xs-12 left_block">
+            <div class="row">
+                <div class="col-md-12 col-xs-8">
+                    <div class="left_menu">
+                        <ul class="list-unstyled">
+                            <li><a href="/user"><i class="icon icon_turkey"></i><span>Купоны</span></a></li>
+                            <li><a href="/user/profile"><i class="icon icon_attractions"></i><span>Профиль</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9 col-xs-12 right_block">
+            <h2>Профиль</h2>
+            <h3><?php echo $profile->name?></h3>
+            <div>
+                <form role="form">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Email</label>
+                        <input type="text" disabled class="form-control" name="email" id="exampleInputEmail1" placeholder="mail" value="<?php echo $email?>">
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Имя</label>
+                        <input type="text" class="form-control" name="name_profile" id="name" placeholder="имя" value="<?php echo $profile->name?>">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Телефон</label>
+                        <input type="text" class="form-control" id="phone" name="phone_profile" placeholder="телефон" value="<?php echo $profile->phone?>">
+                    </div>
+                    <div class="form-group">
+                        <label for="contact">Контактное лицо</label>
+                        <input type="text" class="form-control" id="contact" name="contact" placeholder="контактное лицо" value="<?php echo $profile->contact?>">
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Адрес</label>
+                        <input type="text" class="form-control" id="address" name="address" placeholder="адрес" value="<?php echo $profile->address?>">
+                    </div>
+                    <div id="requisites"><?php echo $profile->requisites?></div>
+                    <div id="description"><?php echo $profile->description?></div>
+                    <button type="submit" name="save_data_profile" class="btn btn-default save_data_profile">Сохранить</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function() {
+        $('#description').summernote({
+            height: 150,                 // set editor height
+            minHeight: null,             // set minimum height of editor
+            maxHeight: null            // set maximum height of editor
+    });
+
+        $('#requisites').summernote({
+            height: 150,                 // set editor height
+            minHeight: null,             // set minimum height of editor
+            maxHeight: null            // set maximum height of editor
+        });
+    });
+</script>

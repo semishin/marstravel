@@ -40,6 +40,7 @@
     <!-- Include  user-js -->
     <script src="/marstravel-bootstrap/js/script.js"></script>
 
+
 </head>
 <body>
 <div class="container-fluid">
@@ -127,6 +128,14 @@
                             <div class="col-md-3 col-xs-4">
                                 <div class="pull-right">
                                     <a href="#ask_consultant" class="black_btn fancy">Задать вопрос консультанту</a>
+                                    <p style="text-align: right">
+                                        <?php
+                                            if (!Auth::instance()->logged_in()) { ?>
+                                                <span class="label label-info"><a href="/auth">Вход для партнёров</a></span>
+                                            <?php } else {?>
+                                                <span class="label label-info"><a href="/auth/logout">Выйти</a></span>
+                                            <?php } ?>
+                                    </p>
                                 </div>
                             </div>
                         </div>

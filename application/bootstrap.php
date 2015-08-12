@@ -123,7 +123,7 @@ Kohana::modules(array(
     'menu'	    => MODPATH.'menu',
     'page'      => MODPATH.'page',
     'feedback'      => MODPATH.'feedback',
-    'register'      => MODPATH.'register',
+    #'register'      => MODPATH.'register',
     'minion'     => MODPATH.'minion',
 	'phpMorphy'     => MODPATH.'phpMorphy',
 	'captcha'		=> MODPATH.'captcha'
