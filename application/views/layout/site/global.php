@@ -133,7 +133,7 @@
                                             if (!Auth::instance()->logged_in()) { ?>
                                                 <span class="label label-info"><a href="/auth">Вход для партнёров</a></span>
                                             <?php } else {?>
-                                                <span class="label label-info"><a href="/auth/logout">Выйти</a></span>
+                                                <span class="label label-info"><a href="/auth">На страницу партнера</a></span>
                                             <?php } ?>
                                     </p>
                                 </div>
