@@ -987,7 +987,7 @@ $( document ).ready(function() {
                 if (data.message != 'success') {
                     alert('Не сохранит изменения');
                 } else {
-                    //window.location.href = '/user';
+                    window.location.href = '/user';
                 }
             }
         });

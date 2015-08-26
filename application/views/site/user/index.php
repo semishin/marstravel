@@ -25,6 +25,7 @@
                 <?php foreach($tour as $item) {
                     $coupon = ORM::factory('Coupon')
                         ->where('tour_id','=',$item->id)
+                        ->where('user_id','=', Auth::instance()->get_user()->id)
                         ->count_all();
                     ?>
                     <tr>
