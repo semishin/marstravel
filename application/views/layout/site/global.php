@@ -26,7 +26,7 @@
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 
-    <script src="http://api-maps.yandex.ru/2.0-stable/?load=package.full&lang=ru-RU"></script>
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
 
     <script src="/marstravel-bootstrap/fancybox/jquery.fancybox.pack.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -37,12 +37,17 @@
     <script src="/marstravel-bootstrap/js/barousel.js"></script>
     <script src="/marstravel-bootstrap/js/bootstrap-select.min.js"></script>
     <script src="/marstravel-bootstrap/js/icheck.js"></script>
+
+    <script type="text/javascript" src="/marstravel-bootstrap/js/jquery.scrollTo.min.js"></script>
+    <script type="text/javascript" src="/marstravel-bootstrap/js/jquery.localScroll.min.js"></script>
+
     <!-- Include  user-js -->
     <script src="/marstravel-bootstrap/js/script.js"></script>
 
 
 </head>
 <body>
+<h1 class="text-center" style="color: gold">В футере сделай кликабельным телефон</h1>
 <div class="container-fluid">
     <div class="page_block">
         <div class="header">
@@ -128,14 +133,6 @@
                             <div class="col-md-3 col-xs-4">
                                 <div class="pull-right">
                                     <a href="#ask_consultant" class="black_btn fancy">Задать вопрос консультанту</a>
-                                    <p style="text-align: right">
-                                        <?php
-                                            if (!Auth::instance()->logged_in()) { ?>
-                                                <span class="label label-info"><a href="/auth">Вход для партнёров</a></span>
-                                            <?php } else {?>
-                                                <span class="label label-info"><a href="/auth/logout">Выйти</a></span>
-                                            <?php } ?>
-                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -174,25 +171,34 @@
                         <ul class="list-unstyled">
                             <li><a href="/about-us">О нас</a></li>
                             <li><a href="/advertising">Для корпоративных клиентов</a></li>
-                        </ul>
-
-                        <ul class="list-unstyled">
-                            <li><a href="/our-partners">Наши партнёры</a></li>
                             <li><a href="/contacts">Контакты</a></li>
                         </ul>
 
                         <ul class="list-unstyled">
+                            <li>
+                                <?php
+                                if (!Auth::instance()->logged_in()) { ?>
+                                    <a href="/auth">Вход для партнёров</a>
+                                <?php } else {?>
+                                    <a href="/auth/logout">Выйти</a>
+                                <?php } ?>
+                            </li>
+                            <li><a href="/our-partners">Наши партнёры</a></li>
+                        </ul>
+
+                        <ul class="list-unstyled">
                             <li><a href="/hotels">Отели Турции</a></li>
-                            <li><a href="/weather">Погода в Турции</a></li>
+                            <li><a href="/sights">Достопримечательности</a></li>
+                            <li><a href="/excursions">Экскурсии</a></li>
                         </ul>
 
                         <ul class="list-unstyled">
                             <li><a href="/about-turkey">О Турции</a></li>
-                            <li><a href="/sights">Достопримечательности</a></li>
+                            <li><a href="/weather">Погода в Турции</a></li>
                         </ul>
 
                         <ul class="list-unstyled gold">
-                            <li><b><?php echo Kohana::$config->load('properties.phone'); ?></b></li>
+                            <li><b><a href="tel:<?php echo Kohana::$config->load('properties.phone'); ?>"><?php echo Kohana::$config->load('properties.phone'); ?></a></b></li>
                             <li><a href="#ask_consultant" class="fancy"><?php echo Kohana::$config->load('properties.email'); ?></a></li>
                         </ul>
                         <div class="clearfix"></div>

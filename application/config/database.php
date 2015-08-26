@@ -6,7 +6,7 @@ return array(
 		'connection' => array(
 			'username'   => 'root',
 			'password'   => '',
-			'database'   => 'marstravel',
+			'database'   => 'marstravel_bd',
 			'hostname'   => 'localhost',
 		),
 		'table_prefix' => '',

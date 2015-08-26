@@ -19,7 +19,8 @@
                     ymaps.ready(function() {
                         map = new ymaps.Map('map', {
                             center: [39.52, 32.52],
-                            zoom: 5
+                            zoom: 5,
+                            behaviors: ['default', 'scrollZoom']
                         });
                     });
 
@@ -153,13 +154,15 @@
         </div>
         <div class="col-xs-5">
             <div class="description_on_left">
-                <p>Стоимость на человека <i class="tooltip_icon" data-toggle="tooltip" data-placement="top" title="Tooltip on top"></i></p>
+                <p>Стоимость на человека <i class="tooltip_icon" data-toggle="tooltip" data-placement="top" title="При покупке тура"></i></p>
                 <p class="price"><?php echo $price?> руб.</p>
                 <a href="#yandex_map_with_route" class="yellow_btn fancy" onclick="createRoute();">Посмотреть программу тура на карте</a>
                 <p class="text">
                     <?php echo $short_content?>
                 </p>
+                <a href="#from_top_get_free_button" class="red_btn">Получить бесплатно</a>
             </div>
+
         </div>
         <div class="col-xs-12">
             <div class="adventure_program">
@@ -194,7 +197,7 @@
                 </div>
                 <div class="clearfix"></div>
             </div>
-            <div class="order_tour">
+            <div class="order_tour" id="from_top_get_free_button">
                 <p class="text-center">Заказ тура</p>
 
                 <div class="form-group date">
@@ -223,7 +226,7 @@
                     </div>
                 </div>
 
-                <p class="total_price" data-price="<?php echo $price?>">Итоговая стоимость: <span></span><b>0 руб.</b></p>
+                <p class="total_price" data-price="<?php echo $price?>"><span>Итоговая стоимость без сертификата:</span> <b>0 руб.</b></p>
 
                 <a href="#pay" class="black_btn fancy" id="pay_btn_gen_1">Купить тур</a>
                 <a href="#push_code" class="red_btn fancy" id="free_btn_gen_1">Получить бесплатно</a>
@@ -255,20 +258,26 @@
                             <div class="form-group">
                                 <input type="text" class="form-control" id="phone_1" placeholder="Номер телефона" name="phone">
                             </div>
-                            <select required size = "1" id = "payment_1" name="payment">
-                                <option disabled value = "0">Способ оплаты</option>
-                                <option value = "1">Оплатить в офисе</option>
-                                <option value = "2">Картой онлайн</option>
-                                <option value = "3">Терминалы</option>
-                                <option value = "4">Отделения сотовой связи</option>
-                            </select>
                             <div class="form-group">
-                                <label for="agreement_1">Согласие с условиями</label>
-                                <input type="checkbox" class="form-control" id="agreement_1" name="agreement">
+                                <select required size = "1" id = "payment_1" name="payment" class="selectpicker form-control">
+                                    <option disabled value = "0">Способ оплаты</option>
+                                    <option value = "1">Оплатить в офисе</option>
+                                    <option value = "2">Картой онлайн</option>
+                                    <option value = "3">Терминалы</option>
+                                    <option value = "4">Отделения сотовой связи</option>
+                                </select>
                             </div>
-                            <div class="form-group">
-                                <label for="surcharge_1">Доплата за одноместное размещение 120 долларов</label>
-                                <input type="checkbox" class="form-control" id="surcharge_1" name="surcharge">
+                            <div class="form-group text-left">
+                                <label for="agreement_1" class="checkbox">
+                                    <input type="checkbox" class="form-control" id="agreement_1" name="agreement">
+                                    Согласие с условиями
+                                </label>
+                            </div>
+                            <div class="form-group text-left">
+                                <label for="surcharge_1" class="checkbox">
+                                    <input type="checkbox" class="form-control" id="surcharge_1" name="surcharge">
+                                    Доплата за одноместное размещение 120 долларов
+                                </label>
                             </div>
                             <a href="#" class="red_btn" id="pay_btn" data-id="<?php echo $id?>">Отправить</a>
                         </form>
@@ -322,13 +331,17 @@
 <!--                                <option value = "3">Терминалы</option>-->
 <!--                                <option value = "4">Отделения сотовой связи</option>-->
 <!--                            </select>-->
-                            <div class="form-group">
-                                <label for="agreement_1">Согласие с условиями</label>
-                                <input type="checkbox" class="form-control" id="agreement_2" name="agreement">
+                            <div class="form-group text-left">
+                                <label for="agreement_1" class="checkbox">
+                                    <input type="checkbox" class="form-control" id="agreement_2" name="agreement">
+                                    Согласие с условиями
+                                </label>
                             </div>
-                            <div class="form-group">
-                                <label for="surcharge_1">Доплата за одноместное размещение 120 долларов</label>
-                                <input type="checkbox" class="form-control" id="surcharge_2" name="surcharge">
+                            <div class="form-group text-left">
+                                <label for="surcharge_1" class="checkbox">
+                                    <input type="checkbox" class="form-control" id="surcharge_2" name="surcharge">
+                                    Доплата за одноместное размещение 120 долларов
+                                </label>
                             </div>
                             <a href="#" class="red_btn" id="free_btn" data-id="<?php echo $id?>">Отправить</a>
                         </form>

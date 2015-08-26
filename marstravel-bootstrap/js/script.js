@@ -183,6 +183,12 @@ $( document ).ready(function() {
                     //$(this).addClass('active');
                     $('.sights_block .row').html(result.html);
                     $('#count_sight').text("всего " + result.count_sight + " мест");
+
+                    $('.empty_result').remove();
+                    if( result.count_sight == 0 ){
+                        $('.sights_block').append('<div class="empty_result text-center"><span class="label label-info">Не найдено</span></div>');
+                    }
+
                     $('#count_excursion').text(result.count_excursion);
                     if (!result.more) {
                         $('#more_sight').hide();
@@ -615,6 +621,12 @@ $( document ).ready(function() {
                 offset = 6;
                 $('.hotels_block .row').html(result.html);
                 $('#count_hotel').text("всего " + rescostult.count_hotel + " отелей");
+
+                $('.empty_result').remove();
+                if( result.count_hotel == 0 ){
+                    $('.hotels_block').append('<div class="empty_result text-center"><span class="label label-info">Не найдено</span></div>');
+                }
+
                 if (!result.more) {
                     $('#more_hotel').hide();
                 } else {
@@ -636,6 +648,12 @@ $( document ).ready(function() {
                 offset = 6;
                 $('.hotels_block .row').html(result.html);
                 $('#count_hotel').text("всего " + result.count_hotel + " отелей");
+
+                $('.empty_result').remove();
+                if( result.count_hotel == 0 ){
+                    $('.hotels_block').append('<div class="empty_result text-center"><span class="label label-info">Не найдено</span></div>');
+                }
+
                 if (!result.more) {
                     $('#more_hotel').hide();
                 } else {
@@ -657,6 +675,12 @@ $( document ).ready(function() {
                 offset = 6;
                 $('.hotels_block .row').html(result.html);
                 $('#count_hotel').text("всего " + result.count_hotel + " отелей");
+
+                $('.empty_result').remove();
+                if( result.count_hotel == 0 ){
+                    $('.hotels_block').append('<div class="empty_result text-center"><span class="label label-info">Не найдено</span></div>');
+                }
+
                 if (!result.more) {
                     $('#more_hotel').hide();
                 } else {
@@ -680,6 +704,12 @@ $( document ).ready(function() {
                 html += result.html;
                 $('.hotels_block .row').html(html);
                 $('#count_hotel').text("всего " + result.count_hotel + " отелей");
+
+                $('.empty_result').remove();
+                if( result.count_hotel == 0 ){
+                    $('.hotels_block').append('<div class="empty_result text-center"><span class="label label-info">Не найдено</span></div>');
+                }
+
                 if (!result.more) {
                     $('#more_hotel').hide();
                 }
@@ -699,6 +729,12 @@ $( document ).ready(function() {
                 offset = 6;
                 $('.sights_block .row').html(result.html);
                 $('#count_sight').text("всего " + result.count_sight + " мест");
+
+                $('.empty_result').remove();
+                if( result.count_sight == 0 ){
+                    $('.sights_block').append('<div class="empty_result text-center"><span class="label label-info">Не найдено</span></div>');
+                }
+
                 $('#count_excursion').text(result.count_excursion);
                 if (!result.more) {
                     $('#more_sight').hide();
@@ -721,6 +757,12 @@ $( document ).ready(function() {
                 offset = 6;
                 $('.sights_block .row').html(result.html);
                 $('#count_sight').text("всего " + result.count_sight + " мест");
+
+                $('.empty_result').remove();
+                if( result.count_sight == 0 ){
+                    $('.sights_block').append('<div class="empty_result text-center"><span class="label label-info">Не найдено</span></div>');
+                }
+
                 $('#count_excursion').text(result.count_excursion);
                 if (!result.more) {
                     $('#more_sight').hide();
@@ -743,6 +785,12 @@ $( document ).ready(function() {
                 offset = 6;
                 $('.sights_block .row').html(result.html);
                 $('#count_sight').text("всего " + result.count_sight + " мест");
+
+                $('.empty_result').remove();
+                if( result.count_sight == 0 ){
+                    $('.sights_block').append('<div class="empty_result text-center"><span class="label label-info">Не найдено</span></div>');
+                }
+
                 $('#count_excursion').text(result.count_excursion);
                 if (!result.more) {
                     $('#more_sight').hide();
@@ -767,6 +815,12 @@ $( document ).ready(function() {
                 html += result.html;
                 $('.sights_block .row').html(html);
                 $('#count_sight').text("всего " + result.count_sight + " мест");
+
+                $('.empty_result').remove();
+                if( result.count_sight == 0 ){
+                    $('.sights_block').append('<div class="empty_result text-center"><span class="label label-info">Не найдено</span></div>');
+                }
+
                 if (!result.more) {
                     $('#more_sight').hide();
                 }
@@ -937,6 +991,26 @@ $( document ).ready(function() {
                 }
             }
         });
+    });
+
+
+    $('.search_line .search input').focusin(function(){
+        $('.search_line .search').addClass('focus-state');
+    });
+    $('.search_line .search input').focusout(function(){
+        $('.search_line .search').removeClass('focus-state');
+    });
+
+    $(function($) {
+        $.localScroll({
+            duration: 1000,
+            hash: false });
+    });
+
+    $('.lightbox_form input[type="checkbox"] ').iCheck({
+        checkboxClass: 'icheckbox_minimal',
+        radioClass: 'iradio_minimal',
+        increaseArea: '20%' // optional
     });
 
 });

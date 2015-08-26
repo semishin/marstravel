@@ -278,9 +278,10 @@ body{
     position: absolute;
     display: none;
     top: 25px;
+    left: 0px;
     z-index: 1000;
     min-width: 160px;
-    padding: 5px 10px;
+    padding: 5px 0px 10px;
     margin: 2px 0 0;
     /*font-size: 14px;*/
     text-align: left;
@@ -290,9 +291,15 @@ body{
     background-clip: padding-box;
     border: 1px solid #ccc;
     border: 1px solid rgba(0,0,0,.15);
-    border-radius: 4px;
     -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
     box-shadow: 0 6px 12px rgba(0,0,0,.175);
+}
+.header .navigation .dropdown_hover .dropdown_menu li{
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+.header .navigation .dropdown_hover .dropdown_menu li a{
+    margin: 3px 20px
 }
 .header .navigation .dropdown_hover .dropdown_menu li+li{
     margin-top: 5px;
@@ -531,6 +538,11 @@ body{
     padding-left: 15px;
     height: 20%;
     min-height: 65px;
+
+    padding-left: 0px;
+    display: table;
+    width: 100%;
+
 }
 .left_menu ul>li+li{
     border-top: 1px solid #aaaaaa;
@@ -538,8 +550,18 @@ body{
 .left_menu ul>li>a{
     font-weight: normal;
     color: #111111;
+
+    display: table-cell;
+    padding-left: 15px;
 }
-.left_menu ul>li>a:hover>span{
+.left_menu ul>li>a:hover,
+.left_menu ul>li>a:focus,
+.left_menu ul>li>a:active,
+.left_menu ul>li>a.active{
+    background-color: #bbb;
+    color: #ee1c25;
+}
+.left_menu ul>li:hover>span{
     color: #ee1c25;
 }
 
@@ -789,7 +811,8 @@ body{
     position: relative;
     right: -30px;
 }
-.footer ul.gold>li>b{
+.footer ul.gold>li>b,
+.footer ul.gold>li>b>a{
     color: #ffde4c;
     font-size: 26px;
 }
@@ -1170,21 +1193,40 @@ body{
 }
 .order_tour .total_price{
     margin-bottom: 35px;
-    padding-left: 25px;
+    position: relative;
+    margin-right: 25px;
+    margin-left: 25px;
     font-weight: bold;
     font-size: 16px;
     color: #111111;
 }
-.order_tour .total_price>span{
+.order_tour .total_price:before{
     border-bottom: 1px solid #cccccc;
     display: inline-block;
+    position: absolute;
+    content: " ";
+    width: 100%;
+    bottom: 5px;
+    left: 0px;
+}
+.order_tour .total_price:after{
+    display: block;
+    content: " ";
+    clear: both;
+}
+.order_tour .total_price>span{
+    background-color: #ffffff;
+    padding-bottom: 5px;
     position: relative;
-    width: 224px;
-    top: 5px;
+    padding-top: 12px;
+    float: left;
 }
 .order_tour .total_price>b{
+    background-color: #ffffff;
+    position: relative;
     font-size: 28px;
     color: #ee1c25;
+    float: right;
 }
 .order_tour .black_btn{
     font-size: 18px;
@@ -1712,12 +1754,71 @@ ul.modified>li:before{
     height: 32px;
 }
 
+
+.form-signin .form-group{
+    margin-left: initial;
+}
+.form-signin .checkbox>input{
+    height: auto;
+}
+.search_line .search.focus-state .input-group,
+.search_line .search.focus-state input,
+.search_line .search.focus-state button{
+    background-color: #bbb;
+}
+.search_line .search.focus-state .search_icon{
+    -webkit-filter: brightness(50%);
+    filter: brightness(50%);
+    -ms-filter: brightness(50%);
+    -moz-filter:brightness(50%);
+    -khtml-filter: brightness(50%);
+    -o-filter: brightness(50%);
+}
+.empty_result .label{
+    font-size: 24px;
+}
+.lightbox_form label{
+    cursor: pointer;
+}
+.lightbox_form .form-group .bootstrap-select{
+    margin-bottom: 10px;
+}
+.lightbox_form .form-group .bootstrap-select:focus,
+.lightbox_form .bootstrap-select>.btn:focus{
+    outline-color: transparent !important;
+}
+.lightbox_form .bootstrap-select>.btn{
+    background-color: #eeeeee;
+    color: #888888;
+    border: 0px;
+    border-radius: 0px;
+    height: 44px;
+}
+.lightbox_form .bootstrap-select .dropdown-menu.open{
+    margin-top: 10px;
+}
+.lightbox_form .checkbox{
+    padding-left: 20px;
+    margin-bottom: 0px;
+    text-align: left;
+}
+
+
+
+
+
+
+
+
 @media (min-width: 992px) and (max-width: 1240px){
     .left_menu .icon{
         display: none;
     }
     .left_menu ul>li{
-        padding-top: 25px;
+        padding-top: 0px;
+    }
+    .left_menu ul>li>a{
+        vertical-align: middle;
     }
     .tour .left_part .brief_info .bottom .price {
         padding-left: 15px;
@@ -1764,7 +1865,8 @@ ul.modified>li:before{
 	.tour .left_part .brief_info .bottom .red_btn{
 		padding: 15px 20px;
 	}
-    .search_line .search {
+    .search_line .search,
+    .form-signin .form-group{
         width: auto;
     }
     .header .navigation ul.pull-left {
@@ -1787,7 +1889,8 @@ ul.modified>li:before{
         right: -15px;
         margin-top: -8px;
     }
-    .footer ul.gold>li>b {
+    .footer ul.gold>li>b,
+    .footer ul.gold>li>b>a{
         font-size: 21px;
     }
     .slider_shadow{
@@ -1840,7 +1943,8 @@ ul.modified>li:before{
     .header .navigation ul .phone b{
         font-size: 21px;
     }
-    .search_line .search {
+    .search_line .search,
+    .form-signin .form-group {
         width: 408px;
         width: 345px;
     }
@@ -1884,7 +1988,8 @@ ul.modified>li:before{
         right: -15px;
         margin-top: -8px;
     }
-    .footer ul.gold>li>b {
+    .footer ul.gold>li>b,
+    .footer ul.gold>li>b>a{
         font-size: 21px;
     }
 	.footer>.row,
@@ -1906,6 +2011,4 @@ ul.modified>li:before{
         padding-right: 10%;
     }
 }
-.form-signin label{
-    padding-left: 20px;
-}
+
