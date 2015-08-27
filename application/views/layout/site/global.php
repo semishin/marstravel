@@ -47,7 +47,6 @@
 
 </head>
 <body>
-<h1 class="text-center" style="color: gold">В футере сделай кликабельным телефон</h1>
 <div class="container-fluid">
     <div class="page_block">
         <div class="header">
