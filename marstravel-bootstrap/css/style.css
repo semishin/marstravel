@@ -250,6 +250,7 @@ body{
 .header .navigation ul .phone a,
 .header .navigation ul .phone a:hover,
 .header .navigation ul .phone a:active,
+.header .navigation ul .phone a.active,
 .header .navigation ul .phone a:focus{
     text-decoration: none;
     border-bottom: none !important;
@@ -263,8 +264,11 @@ body{
     color: #111111;
 }
 .header .navigation ul.pull-left>li>a:hover,
+.header .navigation ul.pull-left>li>a.active,
 .header .navigation ul>li>a:hover,
-.footer ul>li>a:hover{
+.header .navigation ul>li>a.active,
+.footer ul>li>a:hover,
+.footer ul>li>a.active{
     color: #ee1c25;
     border-color: #ee1c25;
 }
@@ -353,7 +357,8 @@ body{
     font-size: 18px;
     font-weight: bold;
 }
-.search_line .black_btn:hover{
+.search_line .black_btn:hover,
+.search_line .black_btn.active{
     color: white;
     background-color: #ee1c25;
 }
@@ -535,12 +540,11 @@ body{
 .left_menu ul>li{
     background-color: #dddddd;
     font-size: 16px;
-    padding-left: 15px;
     height: 20%;
     min-height: 65px;
 
     padding-left: 0px;
-    display: table;
+    /*display: table;*/
     width: 100%;
 
 }
@@ -551,7 +555,8 @@ body{
     font-weight: normal;
     color: #111111;
 
-    display: table-cell;
+    display: block;
+    min-height: 65px;
     padding-left: 15px;
 }
 .left_menu ul>li>a:hover,
@@ -619,7 +624,8 @@ body{
     font-size: 28px;
 }
 .tour .left_part .brief_info .header:hover,
-.tour .left_part .brief_info .cities li>a:hover{
+.tour .left_part .brief_info .cities li>a:hover,
+.tour .left_part .brief_info .cities li>a.active{
     color: #ee1c25;
 }
 .tour .left_part .brief_info .duration{
@@ -643,7 +649,8 @@ body{
 .tour .left_part .brief_info .cities li>a{
     color: #111111;
 }
-.tour .left_part .brief_info .cities li>a:hover{}
+.tour .left_part .brief_info .cities li>a:hover,
+.tour .left_part .brief_info .cities li>a.active{}
 .tour .left_part .brief_info .cities li+li{
     margin-left: 15px;
 }
@@ -805,7 +812,8 @@ body{
     color: #ffffff;
     border-bottom: 1px solid #4c4c4c;
 }
-.footer ul>li>a:hover{}
+.footer ul>li>a:hover,
+.footer ul>li>a.active{}
 .footer ul.gold{
     margin-top: -15px;
     position: relative;
@@ -820,7 +828,8 @@ body{
     color: #ffde4c;
     border-bottom: 1px solid #4b4b30;
 }
-.footer ul.gold>li>a:hover{
+.footer ul.gold>li>a:hover,
+.footer ul.gold>li>a.active{
     color: #ee1c25;
     border-color: #ee1c25;
 }
@@ -880,7 +889,8 @@ body{
     color: #111111;
     font-weight: normal;
 }
-.tour_header_block .cities li>a:hover{
+.tour_header_block .cities li>a:hover,
+.tour_header_block .cities li>a.active{
     color: #ee1c25;
 }
 .tour_header_block .cities li+li{
@@ -915,7 +925,8 @@ body{
     position: relative;
     top: 4px;
 }
-.tooltip_icon:hover{
+.tooltip_icon:hover,
+.tooltip_icon.active{
     color: #ee1c25;
     background-position: left bottom;
 }
@@ -944,7 +955,8 @@ body{
     font-weight: bold;
     margin-bottom: 30px;
 }
-.description_on_left .yellow_btn:hover{
+.description_on_left .yellow_btn:hover,
+.description_on_left .yellow_btn.active{
     color: #ee1c25;
 }
 .description_on_left .text{
@@ -1234,7 +1246,8 @@ body{
     padding: 13px 66px;
     font-weight: bold;
 }
-.order_tour .black_btn:hover{
+.order_tour .black_btn:hover,
+.order_tour .black_btn.active{
     background-color: #ee1c25;
     color: white;
 }
@@ -1244,7 +1257,8 @@ body{
     padding: 13px 81px;
     font-weight: bold;
 }
-.order_tour .red_btn:hover{
+.order_tour .red_btn:hover,
+.order_tour .red_btn.active{
     background-color: #111111;
     color: white;
 }
@@ -1318,7 +1332,8 @@ body{
     border-bottom: 1px solid #ee1c25;
 }
 /*.hotels_block .hotel2 .name:hover>a,*/
-.hotels_block .hotel2 .name>a:hover{
+.hotels_block .hotel2 .name>a:hover,
+.hotels_block .hotel2 .name>a.active{
     color: #ee1c25 !important;
     border-bottom: 1px solid #ee1c25 !important;
 }
@@ -1819,6 +1834,7 @@ ul.modified>li:before{
     }
     .left_menu ul>li>a{
         vertical-align: middle;
+        padding-top: 20px;
     }
     .tour .left_part .brief_info .bottom .price {
         padding-left: 15px;

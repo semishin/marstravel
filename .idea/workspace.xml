@@ -35,20 +35,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/marstravel-bootstrap/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="33450" max-vertical-offset="34340">
-              <caret line="1203" column="37" selection-start-line="1203" selection-start-column="37" selection-end-line="1203" selection-end-column="37" />
+            <state vertical-scroll-proportion="0.33258426" vertical-offset="9241" max-vertical-offset="34612">
+              <caret line="561" column="24" selection-start-line="561" selection-start-column="18" selection-end-line="561" selection-end-column="24" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="global.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="global.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/layout/site/global.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5022727" vertical-offset="340" max-vertical-offset="3808">
+            <state vertical-scroll-proportion="-17.0" vertical-offset="340" max-vertical-offset="3808">
               <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
               <folding />
             </state>
@@ -77,8 +77,8 @@
         <option value="$PROJECT_DIR$/application/views/site/index/index.php" />
         <option value="$PROJECT_DIR$/application/views/layout/site/global_user.php" />
         <option value="$PROJECT_DIR$/application/views/site/tour/item.php" />
-        <option value="$PROJECT_DIR$/marstravel-bootstrap/css/style.css" />
         <option value="$PROJECT_DIR$/application/views/layout/site/global.php" />
+        <option value="$PROJECT_DIR$/marstravel-bootstrap/css/style.css" />
       </list>
     </option>
   </component>
@@ -118,6 +118,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -284,13 +285,12 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="FullScreen" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../rbk-bel.local" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
   </component>
   <component name="RecentsManager">
@@ -313,9 +313,6 @@
       <BehatRunner />
       <method />
     </configuration>
-    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
-      <method />
-    </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
       <node-options />
       <gulpfile />
@@ -323,6 +320,9 @@
       <arguments />
       <pass-parent-envs>true</pass-parent-envs>
       <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
       <method />
     </configuration>
     <list size="0" />
@@ -732,18 +732,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/marstravel-bootstrap/css/style.css">
+    <entry file="file://$PROJECT_DIR$/application/views/layout/site/global.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="33450" max-vertical-offset="34340">
-          <caret line="1203" column="37" selection-start-line="1203" selection-start-column="37" selection-end-line="1203" selection-end-column="37" />
+        <state vertical-scroll-proportion="-17.0" vertical-offset="340" max-vertical-offset="3808">
+          <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/layout/site/global.php">
+    <entry file="file://$PROJECT_DIR$/marstravel-bootstrap/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5022727" vertical-offset="340" max-vertical-offset="3808">
-          <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.33258426" vertical-offset="9241" max-vertical-offset="34612">
+          <caret line="561" column="24" selection-start-line="561" selection-start-column="18" selection-end-line="561" selection-end-column="24" />
           <folding />
         </state>
       </provider>
