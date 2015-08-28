@@ -5,12 +5,9 @@
         <p class="text-center duration">7 ночей 8 дней</p>
         <ul class="list-inline cities text-center">
             <?php foreach ($route as $index => $item) { ?>
-                <li><a href="#yandex_map_with_route" data-img="img/logo-red.png" data-number="<?php echo $index; ?>" class="fancy"><?php echo $cities[$item]->name; ?></a></li>
+                <li><a href="#yandex_map_with_route" data-img="<?php echo Lib_Image::crop($cities[$item]->images, 'city', $cities[$item]->id, 250, 200)?>" data-number="<?php echo $index; ?>" class="fancy"><?php echo $cities[$item]->name; ?></a></li>
             <?php } ?>
         </ul>
-        <script>
-
-        </script>
         <div style="display: none">
             <div id="yandex_map_with_route">
                 <script>
@@ -137,6 +134,13 @@
                             <!--<img src="<?php echo Lib_Image::resize_bg($item, 'tour',$id, 664, 382); ?>" class="current" style="display: inline">-->
                         <?php } ?>
                     </div>
+
+
+                    <?php if(!$images) { ?>
+                        <img src="/files/image.png" class="<?php if ($index == 0) echo "current"  ?>" style="<?php if ($index == 0) echo "display: block;" ?>">
+                    <? } ?>
+
+
                     <div class="barousel_content" style="display: none">
                         <!-- content 1 -->
                         <?php foreach ($images as $index=>$item) { ?>

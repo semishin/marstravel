@@ -12,8 +12,7 @@ class Form_Admin_City extends CM_Form_Abstract
 
         $this->set_field('name', new CM_Field_String(), 0);
         $this->set_field('active', new CM_Field_Boolean(), 5);
-//        $this->set_field('latitude', new CM_Field_String(), 7);
-//        $this->set_field('longitude', new CM_Field_String(), 8);
+        $this->set_field('images', new CM_Field_File(), 10);
 
     }
 }

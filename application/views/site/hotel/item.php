@@ -29,15 +29,18 @@
         <p class="header">Об отеле</p>
         <p class="add_margin"><?php echo $content ?></p>
 
-        <hr>
 
-        <div class="gallery">
-            <div class="item">
-                <?php foreach ($images as $image) { ?>
-                    <div class="col-xs-12 col-sm-4">
-                        <a href="<?php echo $image ?>" class="fancygallery"><img src="<?php echo Lib_Image::resize_bg($image, 'hotel', $id, 375, 214); ?>"></a>
-                    </div>
-                <?php } ?>
+        <div class="col-xs-12">
+            <div class="adventure_program">
+                <div class="intro">
+                    <p class="text">
+                        <?php foreach($images as $item) { ?>
+                            <a class="images_sight" rel="gallery1" href="<?php echo $item;?>" title="<?php echo $name?>">
+                                <img src="<?php echo $item;?>">
+                            </a>
+                        <?php } ?>
+                    </p>
+                </div>
             </div>
         </div>
     </div>
