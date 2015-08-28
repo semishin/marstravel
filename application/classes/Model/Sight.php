@@ -15,6 +15,24 @@ class Model_Sight extends ORM
         )
     );
 
+    protected $_has_many_to_save = array(
+        'excursion'    => array(
+            'model'=> 'Excursion',
+            'foreign_key' => 'excursion_id',
+            'through'      => 'sight_excursion',
+            'far_key'      => 'sight_id',
+        )
+    );
+
+    protected $_has_many = array(
+        'excursion'    => array(
+            'model'=> 'Excursion',
+            'foreign_key' => 'excursion_id',
+            'through'      => 'sight_excursion',
+            'far_key'      => 'sight_id',
+        )
+    );
+
     public function labels()
     {
         return array(
@@ -61,7 +79,6 @@ class Model_Sight extends ORM
             'type' => 'template',
             'template' => '${category_name}'
         ),
-        'excursion' => 'bool',
         'active' => 'bool',
         'edit' => array(
             'width' => '40',

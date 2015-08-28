@@ -155,7 +155,7 @@
         <div class="col-xs-5">
             <div class="description_on_left">
                 <p>Стоимость на человека <i class="tooltip_icon" data-toggle="tooltip" data-placement="top" title="При покупке тура"></i></p>
-                <p class="price"><?php echo $price?> руб.</p>
+                <p class="price"><?php echo number_format($price, 0, ' ', ' '); ?> руб.</p>
                 <a href="#yandex_map_with_route" class="yellow_btn fancy" onclick="createRoute();">Посмотреть программу тура на карте</a>
                 <p class="text">
                     <?php echo $short_content?>
@@ -199,35 +199,48 @@
             </div>
             <div class="order_tour" id="from_top_get_free_button">
                 <p class="text-center">Заказ тура</p>
-
                 <div class="form-group date">
                     <p style="margin-bottom: 12px;padding-left: 25px;font-size: 16px;color: #111111;font-weight: bold">Выберите дату поездки</p>
-                    <div class="input-group">
-                        <input type="text" name="daterange" class="form-control" placeholder="Выберите дату" id="date">
-                        <label class="input-group-addon" for="date">date</label>
-                    </div>
+                        <div class='input-group date add_error' id='datetimepicker'>
+                            <input placeholder="Выберите дату" name="daterange" type='text' id="date" class="form-control" />
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                        </div>
                 </div>
-
+              <script>
+                  $(function () {
+                      $.ajax({
+                          type: "POST",
+                          url: "/tour/get/info",
+                          dataType: 'json',
+                          success: function(result) {
+                              var days = result.days;
+                              $('#datetimepicker').datetimepicker({
+                                  format: 'YYYY-MM-D',
+                                  enabledDates: $.makeArray(days)
+                              });
+                          }
+                      });
+                  });
+              </script>
                 <div class="form-group counter counter1">
                     <label for="adult_number">Количество взрослых</label>
                     <div class="btn-group">
-                        <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-minus"></span></button>
-                        <input type="text" class="form-control" id="adult_number" placeholder="Выберите кол-во взрослых">
-                        <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span></button>
+                        <button name="send_data_people" type="button" class="btn btn-default"><span class="glyphicon glyphicon-minus"></span></button>
+                            <input type="text" value="2"  class="form-control" id="adult_number" placeholder="Выберите кол-во взрослых">
+                        <button name="send_data_people" type="button" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span></button>
                     </div>
                 </div>
 
                 <div class="form-group counter counter2">
                     <label for="children_number">Количество детей</label>
                     <div class="btn-group">
-                        <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-minus"></span></button>
-                        <input type="text" class="form-control" id="children_number" placeholder="Выберите кол-во детей">
-                        <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span></button>
+                        <button name="send_data_people" type="button" class="btn btn-default"><span class="glyphicon glyphicon-minus"></span></button>
+                        <input  type="text" class="form-control" id="children_number" placeholder="Выберите кол-во детей">
+                        <button name="send_data_people" type="button" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span></button>
                     </div>
                 </div>
-
-                <p class="total_price" data-price="<?php echo $price?>"><span>Итоговая стоимость без сертификата:</span> <b>0 руб.</b></p>
-
+                <div class="add_content_flight"></div>
+                <p class="total_price"  data-price_adult="<?php echo $price?>" data-price_child="<?php echo $price_child?>"><span>Итоговая стоимость без сертификата:</span> <b><?php echo number_format($price * 2, 0, ' ', ' ');?> руб.</b></p>
                 <a href="#pay" class="black_btn fancy" id="pay_btn_gen_1">Купить тур</a>
                 <a href="#push_code" class="red_btn fancy" id="free_btn_gen_1">Получить бесплатно</a>
                 <div class="clearfix"></div>

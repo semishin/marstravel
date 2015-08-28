@@ -36,5 +36,7 @@ return array
 			'<i class="fa fa-gear"></i>|Настройки' => 'admin-config',
 			'<i class="fa fa-user"></i>|Пользователи' => 'admin-user',
 		),
+        '<i class="fa fa-picture-o"></i>|Цены на рейсы' => 'admin-priceflight',
+
 	)
 );

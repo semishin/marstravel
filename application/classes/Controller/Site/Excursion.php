@@ -51,16 +51,14 @@ class Controller_Site_Excursion extends Controller_Site
     public function action_item()
     {
         $this->set_metatags_and_content($this->param('url'), 'excursion');
-
-
-//        $services = ORM::factory('Service')
-//            ->where('category_id','=',$this->_model->category_id)
-//            ->where('active','=',1)
-//            ->order_by('position','asc')
-//            ->find_all();
-//        $this->template->services = $services;
-//
-//        $this->template->category = $this->_model->category;
+        $PDO = ORM::factory('Excursion')->PDO();
+        $query = "SELECT tours.url, tours.name
+                        FROM tour_excursion
+                        LEFT JOIN tours ON tours.id = tour_excursion.tour_id
+                        LEFT JOIN excursions ON excursions.id = tour_excursion.excursion_id
+                        WHERE tour_excursion.excursion_id = {$this->_model->id}";
+        $tours = $PDO->query($query)->fetchAll();
+        $this->template->tours = $tours;
         $this->template->images = json_decode($this->_model->images, true);
 
     }

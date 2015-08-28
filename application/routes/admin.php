@@ -13,6 +13,13 @@ Route::set('admin-slide', $adminPrefix . 'slide(/<action>(/<id>))')
         'action' => 'index'
     ));
 
+Route::set('admin-priceflight', $adminPrefix . 'priceflight(/<action>(/<id>))')
+    ->defaults(array(
+        'directory' => 'admin',
+        'controller' => 'PriceFlight',
+        'action' => 'index'
+    ));
+
 Route::set('admin-banner', $adminPrefix . 'banner(/<action>(/<id>))')
     ->defaults(array(
         'directory' => 'admin',
