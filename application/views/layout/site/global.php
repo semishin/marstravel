@@ -16,7 +16,8 @@
     <!-- Bootstrap -->
     <link href="/marstravel-bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/marstravel-bootstrap/fancybox/jquery.fancybox.css">
-    <link rel="stylesheet" type="text/css" href="/marstravel-bootstrap/datepicker/daterangepicker-bs3.css" />
+    <link href="/marstravel-bootstrap/css/bootstrap-datetimepicker.css" rel="stylesheet">
+<!--    <link rel="stylesheet" type="text/css" href="/marstravel-bootstrap/datepicker/daterangepicker-bs3.css" />-->
     <link href="/marstravel-bootstrap/css/barousel.css" rel="stylesheet">
     <link href="/marstravel-bootstrap/css/bootstrap-select.min.css" rel="stylesheet">
     <link href="/marstravel-bootstrap/css/minimal/minimal.css" rel="stylesheet">
@@ -32,8 +33,9 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="/marstravel-bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/marstravel-bootstrap/datepicker/moment.min.js"></script>
-    <script type="text/javascript" src="/marstravel-bootstrap/datepicker/daterangepicker.js"></script>
-    <script type="text/javascript" src="/marstravel-bootstrap/datepicker/ru.js"></script>
+    <script type="text/javascript" src="/marstravel-bootstrap/js/bootstrap-datetimepicker.js"></script>
+<!--    <script type="text/javascript" src="/marstravel-bootstrap/datepicker/daterangepicker.js"></script>-->
+<!--    <script type="text/javascript" src="/marstravel-bootstrap/datepicker/ru.js"></script>-->
     <script src="/marstravel-bootstrap/js/barousel.js"></script>
     <script src="/marstravel-bootstrap/js/bootstrap-select.min.js"></script>
     <script src="/marstravel-bootstrap/js/icheck.js"></script>
@@ -63,15 +65,15 @@
                         <div class="row">
                             <div class="col-xs-7">
                                 <ul class="list-inline pull-left">
-                                    <li class="dropdown_hover"><span class="a">О компании</span>
+                                    <li class="dropdown_hover"><span class="a <?php if( $_SERVER['REQUEST_URI'] == '/about-us' ||  $_SERVER['REQUEST_URI'] == '/touroperator') { ?> active <?php } ?>">О компании</span>
                                         <ul class="dropdown_menu list-unstyled">
-                                            <li><a href="/about-us">О нас</a></li>
-                                            <li><a href="/touroperator">Туроператорская деятельность</a></li>
+                                            <li><a href="/about-us" <?php if( $_SERVER['REQUEST_URI'] == '/about-us') { ?> class="active" <?php } ?>>О нас</a></li>
+                                            <li><a href="/touroperator" <?php if( $_SERVER['REQUEST_URI'] == '/touroperator') { ?> class="active" <?php } ?>>Туроператорская деятельность</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="/our-partners">Наши партнёры</a></li>
-                                    <li><a href="/advertising">Для корпоративных клиентов</a></li>
-                                    <li><a href="/contacts">Контакты</a></li>
+                                    <li><a href="/our-partners" <?php if( $_SERVER['REQUEST_URI'] == '/our-partners') { ?> class="active" <?php } ?> >Наши партнёры</a></li>
+                                    <li><a href="/advertising"  <?php if( $_SERVER['REQUEST_URI'] == '/advertising') { ?> class="active" <?php } ?>>Для корпоративных клиентов</a></li>
+                                    <li><a href="/contacts"  <?php if( $_SERVER['REQUEST_URI'] == '/contacts') { ?> class="active" <?php } ?>>Контакты</a></li>
                                 </ul>
                             </div>
                             <div class="col-xs-5">

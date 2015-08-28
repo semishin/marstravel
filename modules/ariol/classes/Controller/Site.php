@@ -81,7 +81,9 @@ class Controller_Site extends Controller
 				}
 			}
 			else {
-				$this->template->$column = $this->_model->$column->fetchActive();
+                if ($column != 'excursion') {
+				    $this->template->$column = $this->_model->$column->fetchActive();
+                }
 			}
 		}
 

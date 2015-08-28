@@ -84,7 +84,7 @@ $( document ).ready(function() {
 
     $('.carousel').carousel({
         interval: false
-    })
+    });
 
     if( $('.slider .right_part').length>0 ){
         $(".carousel-indicators>li").click(function () {
@@ -122,12 +122,13 @@ $( document ).ready(function() {
     });
 
 
-    if($('input[name="daterange"]').length>0){
-        $('input[name="daterange"]').daterangepicker({
-            singleDatePicker: true,
-            showDropdowns: true
-        });
-    }
+
+    //if($('input[name="daterange"]').length>0){
+    //    $('input[name="daterange"]').daterangepicker({
+    //        singleDatePicker: true,
+    //        showDropdowns: true
+    //    });
+    //}
 
 
     if($('#any_id').length>0){
@@ -262,8 +263,9 @@ $( document ).ready(function() {
         e.preventDefault();
         var quantity_adults = $('#adult_number').val();
         var quantity_children = $('#children_number').val();
-        var price = $('.total_price').data('price');
-        var cost = ((quantity_adults * price) + (quantity_children * price));
+        var price = $('.total_price').data('price_adult');
+        var price_child = $('.total_price').data('price_child');
+        var cost = ((quantity_adults * price) + (quantity_children * price_child));
         $('.total_price b').html(''+cost+' руб.');
     });
 
@@ -271,29 +273,44 @@ $( document ).ready(function() {
         e.preventDefault();
         var date = $('#date').val();
         var quantity_adults = $('#adult_number').val();
+        var error = 0;
         if (!date) {
-            alert("Вы не заполнили поле дата");
+            error++;
+            $('input[name="daterange"]').parent().addClass('error');
+        }else{
+            $('input[name="daterange"]').parent().removeClass('error');
+        }
+        if (!quantity_adults ) {
+            error++;
+            $('#adult_number').addClass('error');
+        }else{
+            $('#adult_number').removeClass('error');
+        }
+        if(error > 0){
             return false;
-        };
-        if (!quantity_adults) {
-            alert("Вы не ввели количество взрослых");
-            return false;
-        };
-
+        }
     });
 
     $('#free_btn_gen_1').click(function(e) {
         e.preventDefault();
         var date = $('#date').val();
         var quantity_adults = $('#adult_number').val();
+        var error = 0;
         if (!date) {
-            alert("Вы не заполнили поле дата");
+            error++;
+            $('input[name="daterange"]').parent().addClass('error');
+        }else{
+            $('input[name="daterange"]').parent().removeClass('error');
+        }
+        if (!quantity_adults ) {
+            error++;
+            $('#adult_number').addClass('error');
+        }else{
+            $('#adult_number').removeClass('error');
+        }
+        if(error > 0){
             return false;
-        };
-        if (!quantity_adults) {
-            alert("Вы не ввели количество взрослых");
-            return false;
-        };
+        }
 
     });
 
@@ -304,7 +321,6 @@ $( document ).ready(function() {
             var code = $('#code_2').val();
             if (!code) {
                 $('#code_2').addClass('error');
-                alert("Вы не ввели промокод");
                 return false;
             } else {
                 $('#code_2').removeClass('error');
@@ -343,10 +359,8 @@ $( document ).ready(function() {
         var quantity_children = $('#children_number').val();
         var price = $('.total_price').data('price');
         var cost = ((quantity_adults * price) + (quantity_children * price));
-        //alert("data-id="+f_id)
         if($('#fio_1').length>0){
             var fio = $('#fio_1').val();
-            //alert("name="+name);
             if (!fio) {
                 $('#fio_1').addClass('error');
                 errors++;
@@ -356,7 +370,6 @@ $( document ).ready(function() {
         }
         if($('#dob_1').length>0){
             var dob = $('#dob_1').val();
-            //alert("email="+email);
             if (!dob) {
                 $('#dob_1').addClass('error');
                 errors++;
@@ -366,7 +379,6 @@ $( document ).ready(function() {
         }
         if($('#passport_1').length>0){
             var passport = $('#passport_1').val();
-            //alert("phone="+phone);
             if (!passport) {
                 $('#passport_1').addClass('error');
                 errors++;
@@ -376,7 +388,6 @@ $( document ).ready(function() {
         }
         if($('#validity_1').length>0){
             var validity = $('#validity_1').val();
-            //alert("name="+name);
             if (!validity) {
                 $('#validity_1').addClass('error');
                 errors++;
@@ -386,7 +397,6 @@ $( document ).ready(function() {
         }
         if($('#issuedby_1').length>0){
             var issuedby = $('#issuedby_1').val();
-            //alert("email="+email);
             if (!issuedby) {
                 $('#issuedby_1').addClass('error');
                 errors++;
@@ -396,7 +406,6 @@ $( document ).ready(function() {
         }
         if($('#email_1').length>0){
             var email = $('#email_1').val();
-            //alert("phone="+phone);
             if (!email) {
                 $('#email_1').addClass('error');
                 errors++;
@@ -406,7 +415,6 @@ $( document ).ready(function() {
         }
         if($('#phone_1').length>0){
             var phone = $('#phone_1').val();
-            //alert("name="+name);
             if (!phone) {
                 $('#phone_1').addClass('error');
                 errors++;
@@ -419,9 +427,9 @@ $( document ).ready(function() {
 
         if ($('#agreement_1').is(':checked')) {
             var agreement = 1;
+            $('#agreement_1').parent().parent().removeClass('error');
         } else {
-            $('#agreement_1').addClass('error');
-            alert("Вы не согласились с условиями");
+            $('#agreement_1').parent().parent().addClass('error');
             return false;
         }
         if ($('#surcharge_1').is(':checked')) {
@@ -430,8 +438,7 @@ $( document ).ready(function() {
             var surcharge = 0;
         }
 
-        if (errors) {
-            alert("Вы не заполнили все поля");
+        if(errors){
             return false;
         } else{
             $.ajax({
@@ -474,10 +481,8 @@ $( document ).ready(function() {
         var quantity_children = $('#children_number').val();
         var price = $('.total_price').data('price');
         var cost = ((quantity_adults * price) + (quantity_children * price));
-        //alert("data-id="+f_id)
         if($('#fio_2').length>0){
             var fio = $('#fio_2').val();
-            //alert("name="+name);
             if (!fio) {
                 $('#fio_2').addClass('error');
                 errors++;
@@ -487,7 +492,6 @@ $( document ).ready(function() {
         }
         if($('#dob_2').length>0){
             var dob = $('#dob_2').val();
-            //alert("email="+email);
             if (!dob) {
                 $('#dob_2').addClass('error');
                 errors++;
@@ -497,7 +501,6 @@ $( document ).ready(function() {
         }
         if($('#passport_2').length>0){
             var passport = $('#passport_2').val();
-            //alert("phone="+phone);
             if (!passport) {
                 $('#passport_2').addClass('error');
                 errors++;
@@ -507,7 +510,6 @@ $( document ).ready(function() {
         }
         if($('#validity_2').length>0){
             var validity = $('#validity_2').val();
-            //alert("name="+name);
             if (!validity) {
                 $('#validity_2').addClass('error');
                 errors++;
@@ -517,7 +519,6 @@ $( document ).ready(function() {
         }
         if($('#issuedby_2').length>0){
             var issuedby = $('#issuedby_2').val();
-            //alert("email="+email);
             if (!issuedby) {
                 $('#issuedby_2').addClass('error');
                 errors++;
@@ -527,7 +528,6 @@ $( document ).ready(function() {
         }
         if($('#email_2').length>0){
             var email = $('#email_2').val();
-            //alert("phone="+phone);
             if (!email) {
                 $('#email_2').addClass('error');
                 errors++;
@@ -537,7 +537,6 @@ $( document ).ready(function() {
         }
         if($('#phone_2').length>0){
             var phone = $('#phone_2').val();
-            //alert("name="+name);
             if (!phone) {
                 $('#phone_2').addClass('error');
                 errors++;
@@ -546,11 +545,11 @@ $( document ).ready(function() {
             }
         }
 
-        if ($('#agreement_2').is(':checked')) {
+        if ($('#a2').is(':checked')) {
             var agreement = 1;
+            $('#agreement_2').parent().parent().removeClass('error');
         } else {
-            $('#agreement_2').addClass('error');
-            alert("Вы не согласились с условиями");
+            $('#agreement_2').parent().parent().addClass('error');
             return false;
         }
         if ($('#surcharge_2').is(':checked')) {
@@ -559,8 +558,7 @@ $( document ).ready(function() {
             var surcharge = 0;
         }
 
-        if (errors) {
-            alert("Вы не заполнили все поля");
+        if(errors){
             return false;
         } else{
             $.ajax({
@@ -896,7 +894,7 @@ $( document ).ready(function() {
         excursionsOptions.offset = offset;
         $.ajax({
             type: "POST",
-            url: "/excursion/more",
+            url:  "/excursion/more",
             data: excursionsOptions,
             dataType: 'json',
             success: function(result) {
@@ -1013,4 +1011,62 @@ $( document ).ready(function() {
         increaseArea: '20%' // optional
     });
 
+    $(document).ready(function() {
+        $(".images_sight").fancybox({
+            openEffect	: 'none',
+            closeEffect	: 'none'
+        });
+    });
+
+
+    $('button[name="send_data_people"]').click(function(){
+        $('#datetimepicker').data("DateTimePicker").clear();
+        $('#datetimepicker').data("DateTimePicker").destroy();
+        $('.add_content_flight').html(' ');
+        var quantity_adults = $('#adult_number').val();
+        var quantity_children = $('#children_number').val();
+            $.ajax({
+                type: "POST",
+                url: "/tour/get/info",
+                data: {quantity_adults: quantity_adults, quantity_children: quantity_children},
+                dataType: 'json',
+                success: function(result) {
+                    var days = result.days;
+                    $('#datetimepicker').datetimepicker({
+                        format: 'YYYY-MM-D',
+                        enabledDates: $.makeArray(days)
+                    });
+                }
+            });
+        });
+
+    $("#datetimepicker").on("dp.change", function (e) {
+        var quantity_adults = $('#adult_number').val();
+        var quantity_children = $('#children_number').val();
+        if(!quantity_children){
+            quantity_children = 0;
+        }
+        var price = $('.total_price').data('price_adult');
+        var price_child = $('.total_price').data('price_child');
+        var date = $('.day.active').attr('data-day');
+            $.ajax({
+                type: "POST",
+                url: "/tour/get/info",
+                data: {date: date},
+                dataType: 'json',
+                success: function (data) {
+                    if (data.cost_flight) {
+                        console.log(quantity_adults , price, quantity_children, price_child, parseInt(data.cost_flight));
+                        var cost = ((quantity_adults * price) + (quantity_children * price_child) + parseInt(data.cost_flight));
+                        $('.total_price b').html('' + cost + ' руб.');
+                        $('.add_content_flight').html('<p class="content_flight"> <span>Стоимость перелета:</span> <b>' + data.cost_flight_view + ' руб.</b> </p>');
+                    }
+                   // alert('n')
+                }
+            })
+
+    });
+
+
 });
+

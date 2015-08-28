@@ -1178,6 +1178,7 @@ body{
 .order_tour .counter button:last-child{
     border-top-right-radius: 17px;
     border-bottom-right-radius: 17px;
+    position: static;
 }
 .order_tour .counter input{
     font-weight: bold;
@@ -1197,13 +1198,20 @@ body{
     box-shadow: none;
     -webkit-box-shadow: none;
 }
+.order_tour .counter input.error{
+    border: 2px solid red;
+}
+.add_error.error{
+    border: 2px solid red;
+    border-radius: 17px;
+}
 .order_tour .counter label{
     margin-bottom: 12px;
     padding-left: 25px;
     font-size: 16px;
     color: #111111;
 }
-.order_tour .total_price{
+.order_tour .total_price, .content_flight{
     margin-bottom: 35px;
     position: relative;
     margin-right: 25px;
@@ -1212,7 +1220,7 @@ body{
     font-size: 16px;
     color: #111111;
 }
-.order_tour .total_price:before{
+.order_tour .total_price:before, .content_flight:before{
     border-bottom: 1px solid #cccccc;
     display: inline-block;
     position: absolute;
@@ -1221,19 +1229,19 @@ body{
     bottom: 5px;
     left: 0px;
 }
-.order_tour .total_price:after{
+.order_tour .total_price:after, .content_flight:after{
     display: block;
     content: " ";
     clear: both;
 }
-.order_tour .total_price>span{
+.order_tour .total_price>span, .content_flight>span{
     background-color: #ffffff;
     padding-bottom: 5px;
     position: relative;
     padding-top: 12px;
     float: left;
 }
-.order_tour .total_price>b{
+.order_tour .total_price>b, .content_flight>b{
     background-color: #ffffff;
     position: relative;
     font-size: 28px;
@@ -1526,36 +1534,36 @@ body{
 }
 
 .filter .bootstrap-select.findsight{
-	width: 100% !important;
-	position: relative;
+    width: 100% !important;
+    position: relative;
 }
-.filter .bootstrap-select.findsight #find_btn{ 
-  position: absolute;
-  font-family: 'PT Sans', sans-serif;
-  background-image: none;
-  width: 63px;
-  height: 30px;
-  top: 8px;
-  right: 8px;
-  background-color: #dddddd;
-  line-height: 30px;
-  text-align: center;
-  color: #888888;
-  font-size: 16px;
-  cursor: pointer;
+.filter .bootstrap-select.findsight #find_btn{
+    position: absolute;
+    font-family: 'PT Sans', sans-serif;
+    background-image: none;
+    width: 63px;
+    height: 30px;
+    top: 8px;
+    right: 8px;
+    background-color: #dddddd;
+    line-height: 30px;
+    text-align: center;
+    color: #888888;
+    font-size: 16px;
+    cursor: pointer;
 }
 .filter .bootstrap-select.findsight>input{
-  border: 0px;
-  border-radius: 2px;
-  padding: 8px 12px;
-  padding-right: 35px;
-  color: #888888;
-  font-size: 16px;
-  font-family: 'PT Sans', sans-serif;
-  outline: none !important;
-  box-shadow: none;
-  -webkit-box-shadow: none;
-  height: 38px;
+    border: 0px;
+    border-radius: 2px;
+    padding: 8px 12px;
+    padding-right: 35px;
+    color: #888888;
+    font-size: 16px;
+    font-family: 'PT Sans', sans-serif;
+    outline: none !important;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    height: 38px;
 }
 
 .grey_top_block .back_to_main{
@@ -1817,8 +1825,9 @@ ul.modified>li:before{
     margin-bottom: 0px;
     text-align: left;
 }
-
-
+.lightbox_form .checkbox.error {
+    color: #ee1c25;
+}
 
 
 
@@ -1866,21 +1875,21 @@ ul.modified>li:before{
     }
 }
 @media (min-width: 1283px) and (max-width: 1344px){
-	.flag {
-	  display: none;
-	}
+    .flag {
+        display: none;
+    }
 }
 @media (min-width: 941px) and (max-width: 1282px){
-	.flag {
-	  display: none;
-	}
+    .flag {
+        display: none;
+    }
     .search_line .black_btn{
         font-size: 14px;
         padding: 15px 17px;
     }
-	.tour .left_part .brief_info .bottom .red_btn{
-		padding: 15px 20px;
-	}
+    .tour .left_part .brief_info .bottom .red_btn{
+        padding: 15px 20px;
+    }
     .search_line .search,
     .form-signin .form-group{
         width: auto;
@@ -1912,19 +1921,19 @@ ul.modified>li:before{
     .slider_shadow{
         background-size: contain;
     }
-	.container-fluid{
+    .container-fluid{
         padding-right: 0px;
         padding-left: 0px;
     }
-	.footer>.row,
-	.header>.row{
-		margin-left: 0px;
-		margin-right: 0px;
-	}
-	.header>.row>.col-xs-12{
-		padding-left: 0px;
-		padding-right: 0px;
-	}
+    .footer>.row,
+    .header>.row{
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+    .header>.row>.col-xs-12{
+        padding-left: 0px;
+        padding-right: 0px;
+    }
     .header .navigation ul>li>a,
     .header .navigation ul>li>.a{
         font-size: 14px;
@@ -2008,15 +2017,15 @@ ul.modified>li:before{
     .footer ul.gold>li>b>a{
         font-size: 21px;
     }
-	.footer>.row,
-	.header>.row{
-		margin-left: 0px;
-		margin-right: 0px;
-	}
-	.header>.row>.col-xs-12{
-		padding-left: 0px;
-		padding-right: 0px;
-	}
+    .footer>.row,
+    .header>.row{
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+    .header>.row>.col-xs-12{
+        padding-left: 0px;
+        padding-right: 0px;
+    }
 
 
     .description_on_left .yellow_btn{

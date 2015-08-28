@@ -59,7 +59,7 @@
                                 <div class="bottom">
                                     <div class="price">
                                         <p>Стоимость на человека</p>
-                                        <b><?php echo $item->price ?> руб.</b>
+                                        <b><?php echo number_format($item->price, 0, ' ', ' '); ?> руб.</b>
                                     </div>
                                     <div class="button">
                                         <a href="/tour/<?php echo $item->url ?>" class="red_btn">Полная информация</a>
