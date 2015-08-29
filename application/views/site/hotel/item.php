@@ -16,18 +16,18 @@
 </div>
 <div class="col-xs-12">
     <div class="page_info">
-        <div class="hotel_contacts">
+        <div class="hotel_contacts col-xs-12">
             <p class="header">Контактная информация</p>
-            <p><b>Адрес:</b><?php echo $address ?></p>
-            <p><b>Тел. / Факс:</b><?php echo $phone ?></p>
-            <p><b>Электронный адрес:</b><?php echo $email ?></p>
-            <p><b>Сайт отеля:</b><?php echo $link_site ?></p>
+            <p><b>Адрес:</b> <?php echo $address ?></p>
+            <p><b>Тел. / Факс:</b> <?php echo $phone ?></p>
+            <p><b>Электронный адрес:</b> <?php echo $email ?></p>
+            <p><b>Сайт отеля:</b> <a href="http://<?php echo $link_site ?>"><?php echo $link_site ?></a></p>
         </div>
 
         <hr>
 
-        <p class="header">Об отеле</p>
-        <p class="add_margin"><?php echo $content ?></p>
+        <p class="header col-xs-12">Об отеле</p>
+        <div class="add_margin col-xs-12"><?php echo $content ?></div>
 
 
         <div class="col-xs-12">
@@ -35,8 +35,8 @@
                 <div class="intro">
                     <p class="text">
                         <?php foreach($images as $item) { ?>
-                            <a class="images_sight" rel="gallery1" href="<?php echo $item;?>" title="<?php echo $name?>">
-                                <img src="<?php echo $item;?>">
+                            <a class="images_sight " rel="gallery1" href="<?php echo $item;?>" title="<?php echo $name?>">
+                                <img src="<?php echo $item;?>" class="img-rounded col-xs-4 mb30" />
                             </a>
                         <?php } ?>
                     </p>

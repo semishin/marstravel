@@ -12,6 +12,7 @@ class Form_Admin_Coupon_Firm extends CM_Form_Abstract
 
         $this->set_field('name', new CM_Field_String(), 0);
         $this->set_field('active', new CM_Field_Boolean(), 2);
+		$this->set_field('user_id', new CM_Field_Select_ORM(ORM::factory('User')), 3);
         $this->set_field('phone', new CM_Field_String(), 4);
         $this->set_field('address', new CM_Field_String(), 6);
         $this->set_field('contact', new CM_Field_String(), 8);

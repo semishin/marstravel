@@ -37,7 +37,7 @@ body {
     font-family: 'Cuprum', sans-serif;
     color: #000000;
 }
-
+.mb30{margin-bottom:30px;}
 /* ↓index page↓ */
 .index_page{}
 .index_page .background_image{

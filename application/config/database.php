@@ -6,7 +6,7 @@ return array(
 		'connection' => array(
 			'username'   => 'root',
 			'password'   => 'woo4aDoo',
-			'database'   => 'marstravel',
+			'database'   => 'mars.ariol.by',
 			'hostname'   => 'localhost',
 		),
 		'table_prefix' => '',
