@@ -39,6 +39,7 @@ class Model_City extends ORM
             'id' => 'Идентификатор',
             'name' => 'Название',
             'active' => 'Активность',
+            'images' => 'Картинка',
 //            'latitude' => 'Широта',
 //            'longitude' => 'Долгота',
         );

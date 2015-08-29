@@ -337,6 +337,7 @@ class Extasy_Orm extends Kohana_ORM implements ArrayAccess
 
 		$old_ids = array();
 		// delete old objects
+
 		foreach($this->get_old_many_value($key)->find_all() as $obj)
 		{
 			if(in_array($obj->id, $ids))

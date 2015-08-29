@@ -16,8 +16,9 @@
     <!-- Bootstrap -->
     <link href="/marstravel-bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="/marstravel-bootstrap/css/summernote.css" rel="stylesheet">
+    <link href="/marstravel-bootstrap/css/bootstrap-datetimepicker.css" rel="stylesheet">
     <link rel="stylesheet" href="/marstravel-bootstrap/fancybox/jquery.fancybox.css">
-    <link rel="stylesheet" type="text/css" href="/marstravel-bootstrap/datepicker/daterangepicker-bs3.css" />
+<!--    <link rel="stylesheet" type="text/css" href="/marstravel-bootstrap/datepicker/daterangepicker-bs3.css" />-->
     <link href="/marstravel-bootstrap/css/barousel.css" rel="stylesheet">
     <link href="/marstravel-bootstrap/css/bootstrap-select.min.css" rel="stylesheet">
     <link href="/marstravel-bootstrap/css/minimal/minimal.css" rel="stylesheet">
@@ -27,17 +28,20 @@
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 
-    <script src="http://api-maps.yandex.ru/2.0-stable/?load=package.full&lang=ru-RU"></script>
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
 
     <script src="/marstravel-bootstrap/fancybox/jquery.fancybox.pack.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="/marstravel-bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/marstravel-bootstrap/datepicker/moment.min.js"></script>
-    <script type="text/javascript" src="/marstravel-bootstrap/datepicker/daterangepicker.js"></script>
-    <script type="text/javascript" src="/marstravel-bootstrap/datepicker/ru.js"></script>
+    <script type="text/javascript" src="/marstravel-bootstrap/js/bootstrap-datetimepicker.js"></script>
+<!--    <script type="text/javascript" src="/marstravel-bootstrap/datepicker/daterangepicker.js"></script>-->
+<!--    <script type="text/javascript" src="/marstravel-bootstrap/datepicker/ru.js"></script>-->
     <script src="/marstravel-bootstrap/js/barousel.js"></script>
     <script src="/marstravel-bootstrap/js/bootstrap-select.min.js"></script>
     <script src="/marstravel-bootstrap/js/icheck.js"></script>
+    <script type="text/javascript" src="/marstravel-bootstrap/js/jquery.scrollTo.min.js"></script>
+    <script type="text/javascript" src="/marstravel-bootstrap/js/jquery.localScroll.min.js"></script>
     <!-- Include  user-js -->
     <script src="/marstravel-bootstrap/js/script.js"></script>
     <script src="/marstravel-bootstrap/js/jquery.printPage.js"></script>
@@ -61,10 +65,11 @@
                     <div class="navigation">
                         <div class="row">
                             <div class="col-xs-7">
+                                <?php echo $_SERVER['REQUEST_URI'];?>
                                 <ul class="list-inline pull-left">
                                     <li class="dropdown_hover"><span class="a">О компании</span>
                                         <ul class="dropdown_menu list-unstyled">
-                                            <li><a href="/about-us">О нас</a></li>
+                                            <li><a href="/about-us"<??>>О нас</a></li>
                                             <li><a href="/touroperator">Туроператорская деятельность</a></li>
                                         </ul>
                                     </li>
@@ -172,25 +177,34 @@
                         <ul class="list-unstyled">
                             <li><a href="/about-us">О нас</a></li>
                             <li><a href="/advertising">Для корпоративных клиентов</a></li>
-                        </ul>
-
-                        <ul class="list-unstyled">
-                            <li><a href="/our-partners">Наши партнёры</a></li>
                             <li><a href="/contacts">Контакты</a></li>
                         </ul>
 
                         <ul class="list-unstyled">
+                            <li>
+                                <?php
+                                if (!Auth::instance()->logged_in()) { ?>
+                                    <a href="/auth">Вход для партнёров</a>
+                                <?php } else {?>
+                                    <a href="/auth/logout">Выйти</a>
+                                <?php } ?>
+                            </li>
+                            <li><a href="/our-partners">Наши партнёры</a></li>
+                        </ul>
+
+                        <ul class="list-unstyled">
                             <li><a href="/hotels">Отели Турции</a></li>
-                            <li><a href="/weather">Погода в Турции</a></li>
+                            <li><a href="/sights">Достопримечательности</a></li>
+                            <li><a href="/excursions">Экскурсии</a></li>
                         </ul>
 
                         <ul class="list-unstyled">
                             <li><a href="/about-turkey">О Турции</a></li>
-                            <li><a href="/sights">Достопримечательности</a></li>
+                            <li><a href="/weather">Погода в Турции</a></li>
                         </ul>
 
                         <ul class="list-unstyled gold">
-                            <li><b><?php echo Kohana::$config->load('properties.phone'); ?></b></li>
+                            <li><b><a href="tel:<?php echo Kohana::$config->load('properties.phone'); ?>"><?php echo Kohana::$config->load('properties.phone'); ?></a></b></li>
                             <li><a href="#ask_consultant" class="fancy"><?php echo Kohana::$config->load('properties.email'); ?></a></li>
                         </ul>
                         <div class="clearfix"></div>

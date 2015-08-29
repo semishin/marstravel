@@ -81,7 +81,7 @@ class Controller_Site extends Controller
 				}
 			}
 			else {
-				$this->template->$column = $this->_model->$column->fetchActive();
+                $this->template->$column = $this->_model->$column->fetchActive();
 			}
 		}
 

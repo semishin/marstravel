@@ -11,10 +11,10 @@
                     <div class="left_menu">
                         <ul class="list-unstyled">
                             <li><a href="/about-turkey"><i class="icon icon_turkey"></i><span>О Турции</span></a></li>
-                            <li><a href="/sights"><i class="icon icon_attractions"></i><span>Достопримечательности</span></a></li>
                             <li><a href="/hotels"><i class="icon icon_hotel"></i><span>Отели Турции</span></a></li>
-                            <li><a href="/excursions"><i class="icon icon_excursions"></i><span>Экскурсии</span></a></li>
+                            <li><a href="/sights"><i class="icon icon_attractions"></i><span>Достопримечательности</span></a></li>
                             <li><a href="/weather"><i class="icon icon_weather"></i><span>Погода в Турции</span></a></li>
+                            <li><a href="/excursions"><i class="icon icon_excursions"></i><span>Экскурсии</span></a></li>
                         </ul>
                     </div>
                 </div>
@@ -59,7 +59,7 @@
                                 <div class="bottom">
                                     <div class="price">
                                         <p>Стоимость на человека</p>
-                                        <b><?php echo $item->price ?> руб.</b>
+                                        <b><?php echo number_format($item->price, 0, ' ', ' '); ?> руб.</b>
                                     </div>
                                     <div class="button">
                                         <a href="/tour/<?php echo $item->url ?>" class="red_btn">Полная информация</a>
@@ -90,7 +90,8 @@
                         ymaps.ready(function() {
                             map = new ymaps.Map('map', {
                                 center: [39.52, 32.52],
-                                zoom: 6
+                                zoom: 6,
+                                behaviors: ['default', 'scrollZoom']
                             });
                         });
 

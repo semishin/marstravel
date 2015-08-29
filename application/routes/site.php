@@ -161,7 +161,7 @@ Route::set('site-sight-more', 'sight/more')
         'action'     => 'more',
     ));
 
-Route::set('site-sight', 'sight/<url>')
+Route::set('site-sight-item', 'sight/<url>')
     ->defaults(array(
         'directory' => 'site',
         'controller' => 'sight',
@@ -207,6 +207,13 @@ Route::set('site-tour-item', 'tour/<url>')
         'directory' => 'site',
         'controller' => 'tour',
         'action'     => 'item',
+    ));
+
+Route::set('site-tour-info', 'tour/get/info')
+    ->defaults(array(
+        'directory' => 'site',
+        'controller' => 'tour',
+        'action'     => 'info',
     ));
 
 Route::set('site-question', 'question/add')

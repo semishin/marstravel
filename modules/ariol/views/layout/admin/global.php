@@ -41,6 +41,7 @@
 	    <script src="/ariol/assets/js/jquery.validate.min.js"></script>
 	    <script src="/ariol/assets/js/additional-methods.min.js"></script>
 	    <script src="/ariol/assets/js/bootstrap-switch.min.js"></script>
+        <script type="text/javascript" src="/ariol/assets/js/jquery.chosen.min.js"></script>
 	    <script type="text/javascript" src="/ariol/assets/fancybox/jquery.fancybox.js"></script>
 	    <script type="text/javascript" src="/ariol/assets/js/tmpl.min.js"></script>
 	    <script type="text/javascript" src="/ariol/assets/js/load-image.min.js"></script>

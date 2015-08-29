@@ -103,7 +103,7 @@ class Controller_Site_User extends Controller_Site_DefaultUserController
     public function action_save()
     {
         if ($this->request->is_ajax()) {
-            $profile = ORM::factory('Coupon_Firm');
+            $profile = ORM::factory('Coupon_Firm')->where('user_id', '=',  Auth::instance()->get_user()->id)->find();
             $profile->name = $this->request->post('name');
             $profile->phone = $this->request->post('phone');
             $profile->contact = $this->request->post('contact');

@@ -3,6 +3,7 @@
 class Controller_Site_Sight extends Controller_Site
 {
 
+    private $_items_on_page = 6;
     const LIMIT_ON_PAGE = 6;
 
     public function action_index()
@@ -57,16 +58,15 @@ class Controller_Site_Sight extends Controller_Site
     {
         $this->set_metatags_and_content($this->param('url'), 'sight');
 
-
-//        $services = ORM::factory('Service')
-//            ->where('category_id','=',$this->_model->category_id)
-//            ->where('active','=',1)
-//            ->order_by('position','asc')
-//            ->find_all();
-//        $this->template->services = $services;
-//
-//        $this->template->category = $this->_model->category;
+        $PDO = ORM::factory('Excursion')->PDO();
+        $query = "SELECT excursions.url, excursions.name
+                        FROM sight_excursion
+                        LEFT JOIN sights ON sights.id = sight_excursion.sight_id
+                        LEFT JOIN excursions ON excursions.id = sight_excursion.excursion_id
+                        WHERE sight_excursion.sight_id = {$this->_model->id}";
+        $excursions = $PDO->query($query)->fetchAll();
         $this->template->images = json_decode($this->_model->images, true);
+        $this->template->excursions = $excursions;
 
     }
 

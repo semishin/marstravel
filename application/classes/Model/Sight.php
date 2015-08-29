@@ -15,6 +15,24 @@ class Model_Sight extends ORM
         )
     );
 
+    protected $_has_many_to_save = array(
+        'excursions'    => array(
+            'model'=> 'Excursion',
+            'foreign_key' => 'excursion_id',
+            'through'      => 'sight_excursion',
+            'far_key'      => 'sight_id',
+        )
+    );
+
+    protected $_has_many = array(
+        'excursions'    => array(
+            'model'=> 'Excursion',
+            'foreign_key' => 'excursion_id',
+            'through'      => 'sight_excursion',
+            'far_key'      => 'sight_id',
+        )
+    );
+
     public function labels()
     {
         return array(
@@ -26,7 +44,7 @@ class Model_Sight extends ORM
             'active' => 'Активность',
             'main_image' => 'Главное изображение',
             'images' => 'Изображения',
-            'excursion' => 'Экскурсии',
+            'excursions' => 'Экскурсии',
             'url' => 'URL',
             's_title' => 'SEO title',
             's_description' => 'SEO description',
@@ -61,7 +79,6 @@ class Model_Sight extends ORM
             'type' => 'template',
             'template' => '${category_name}'
         ),
-        'excursion' => 'bool',
         'active' => 'bool',
         'edit' => array(
             'width' => '40',

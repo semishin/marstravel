@@ -5,12 +5,9 @@
         <p class="text-center duration">7 ночей 8 дней</p>
         <ul class="list-inline cities text-center">
             <?php foreach ($route as $index => $item) { ?>
-                <li><a href="#yandex_map_with_route" data-img="img/logo-red.png" data-number="<?php echo $index; ?>" class="fancy"><?php echo $cities[$item]->name; ?></a></li>
+                <li><a href="#yandex_map_with_route" data-img="<?php echo Lib_Image::crop($cities[$item]->images, 'city', $cities[$item]->id, 250, 200)?>" data-number="<?php echo $index; ?>" class="fancy"><?php echo $cities[$item]->name; ?></a></li>
             <?php } ?>
         </ul>
-        <script>
-
-        </script>
         <div style="display: none">
             <div id="yandex_map_with_route">
                 <script>
@@ -19,7 +16,8 @@
                     ymaps.ready(function() {
                         map = new ymaps.Map('map', {
                             center: [39.52, 32.52],
-                            zoom: 5
+                            zoom: 5,
+                            behaviors: ['default', 'scrollZoom']
                         });
                     });
 
@@ -136,6 +134,13 @@
                             <!--<img src="<?php echo Lib_Image::resize_bg($item, 'tour',$id, 664, 382); ?>" class="current" style="display: inline">-->
                         <?php } ?>
                     </div>
+
+
+                    <?php if(!$images) { ?>
+                        <img src="/files/image.png" class="<?php if ($index == 0) echo "current"  ?>" style="<?php if ($index == 0) echo "display: block;" ?>">
+                    <? } ?>
+
+
                     <div class="barousel_content" style="display: none">
                         <!-- content 1 -->
                         <?php foreach ($images as $index=>$item) { ?>
@@ -153,13 +158,15 @@
         </div>
         <div class="col-xs-5">
             <div class="description_on_left">
-                <p>Стоимость на человека <i class="tooltip_icon" data-toggle="tooltip" data-placement="top" title="Tooltip on top"></i></p>
-                <p class="price"><?php echo $price?> руб.</p>
+                <p>Стоимость на человека <i class="tooltip_icon" data-toggle="tooltip" data-placement="top" title="При покупке тура"></i></p>
+                <p class="price"><?php echo number_format($price, 0, ' ', ' '); ?> руб.</p>
                 <a href="#yandex_map_with_route" class="yellow_btn fancy" onclick="createRoute();">Посмотреть программу тура на карте</a>
                 <p class="text">
                     <?php echo $short_content?>
                 </p>
+                <a href="#from_top_get_free_button" class="red_btn">Получить бесплатно</a>
             </div>
+
         </div>
         <div class="col-xs-12">
             <div class="adventure_program">
@@ -194,37 +201,50 @@
                 </div>
                 <div class="clearfix"></div>
             </div>
-            <div class="order_tour">
+            <div class="order_tour" id="from_top_get_free_button">
                 <p class="text-center">Заказ тура</p>
-
                 <div class="form-group date">
-                    <p style="margin-bottom: 12px;padding-left: 25px;font-size: 16px;color: #111111;font-weight: bold">Выберите дату вылета</p>
-                    <div class="input-group">
-                        <input type="text" name="daterange" class="form-control" placeholder="Выберите дату" id="date">
-                        <label class="input-group-addon" for="date">date</label>
-                    </div>
+                    <p style="margin-bottom: 12px;padding-left: 25px;font-size: 16px;color: #111111;font-weight: bold">Выберите дату поездки</p>
+					<div class='input-group date add_error' id='datetimepicker'>
+						<input placeholder="Выберите дату" name="daterange" type='text' id="date" class="form-control" />
+						<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+					</div>
                 </div>
-
+				<script>
+				  $(function () {
+					  $.ajax({
+						  type: "POST",
+						  url: "/tour/get/info",
+						  dataType: 'json',
+						  success: function(result) {
+							  var days = result.days;
+							  $('#datetimepicker').datetimepicker({
+								  format: 'YYYY-MM-D',
+								  enabledDates: $.makeArray(days)
+							  });
+						  }
+					  });
+				  });
+				</script>
                 <div class="form-group counter counter1">
                     <label for="adult_number">Количество взрослых</label>
                     <div class="btn-group">
-                        <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-minus"></span></button>
-                        <input type="text" class="form-control" id="adult_number" placeholder="Выберите кол-во взрослых">
-                        <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span></button>
+                        <button name="send_data_people" type="button" class="btn btn-default"><span class="glyphicon glyphicon-minus"></span></button>
+                            <input type="text" value="2"  class="form-control" id="adult_number" placeholder="Выберите кол-во взрослых">
+                        <button name="send_data_people" type="button" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span></button>
                     </div>
                 </div>
 
                 <div class="form-group counter counter2">
                     <label for="children_number">Количество детей</label>
                     <div class="btn-group">
-                        <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-minus"></span></button>
-                        <input type="text" class="form-control" id="children_number" placeholder="Выберите кол-во детей">
-                        <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span></button>
+                        <button name="send_data_people" type="button" class="btn btn-default"><span class="glyphicon glyphicon-minus"></span></button>
+                        <input  type="text" class="form-control" id="children_number" placeholder="Выберите кол-во детей">
+                        <button name="send_data_people" type="button" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span></button>
                     </div>
                 </div>
-
-                <p class="total_price" data-price="<?php echo $price?>">Итоговая стоимость без сертификата: <span></span><b><small>Выберите дату</small></b></p>
-
+                <div class="add_content_flight"></div>
+                <p class="total_price"  data-price_adult="<?php echo $price?>" data-price_child="<?php echo $price_child?>"><span>Итоговая стоимость без сертификата:</span> <b><?php echo number_format($price * 2, 0, ' ', ' ');?> руб.</b></p>
                 <a href="#pay" class="black_btn fancy" id="pay_btn_gen_1">Купить тур</a>
                 <a href="#push_code" class="red_btn fancy" id="free_btn_gen_1">Получить бесплатно</a>
                 <div class="clearfix"></div>
@@ -255,20 +275,26 @@
                             <div class="form-group">
                                 <input type="text" class="form-control" id="phone_1" placeholder="Номер телефона" name="phone">
                             </div>
-                            <select required size = "1" id = "payment_1" name="payment">
-                                <option disabled value = "0">Способ оплаты</option>
-                                <option value = "1">Оплатить в офисе</option>
-                                <option value = "2">Картой онлайн</option>
-                                <option value = "3">Терминалы</option>
-                                <option value = "4">Отделения сотовой связи</option>
-                            </select>
                             <div class="form-group">
-                                <label for="agreement_1">Согласие с условиями</label>
-                                <input type="checkbox" class="form-control" id="agreement_1" name="agreement">
+                                <select required size = "1" id = "payment_1" name="payment" class="selectpicker form-control">
+                                    <option disabled value = "0">Способ оплаты</option>
+                                    <option value = "1">Оплатить в офисе</option>
+                                    <option value = "2">Картой онлайн</option>
+                                    <option value = "3">Терминалы</option>
+                                    <option value = "4">Отделения сотовой связи</option>
+                                </select>
                             </div>
-                            <div class="form-group">
-                                <label for="surcharge_1">Доплата за одноместное размещение 120 долларов</label>
-                                <input type="checkbox" class="form-control" id="surcharge_1" name="surcharge">
+                            <div class="form-group text-left">
+                                <label for="agreement_1" class="checkbox">
+                                    <input type="checkbox" class="form-control" id="agreement_1" name="agreement">
+                                    Согласие с условиями
+                                </label>
+                            </div>
+                            <div class="form-group text-left">
+                                <label for="surcharge_1" class="checkbox">
+                                    <input type="checkbox" class="form-control" id="surcharge_1" name="surcharge">
+                                    Доплата за одноместное размещение 120 долларов
+                                </label>
                             </div>
                             <a href="#" class="red_btn" id="pay_btn" data-id="<?php echo $id?>">Отправить</a>
                         </form>
@@ -315,13 +341,17 @@
                             <div class="form-group">
                                 <input type="text" class="form-control" id="phone_2" placeholder="Номер телефона" name="phone">
                             </div>
-                            <div class="form-group">
-                                <label for="agreement_1">Согласие с условиями</label>
-                                <input type="checkbox" class="form-control" id="agreement_2" name="agreement">
+                            <div class="form-group text-left">
+                                <label for="agreement_1" class="checkbox">
+                                    <input type="checkbox" class="form-control" id="agreement_2" name="agreement">
+                                    Согласие с условиями
+                                </label>
                             </div>
-                            <div class="form-group">
-                                <label for="surcharge_1">Доплата за одноместное размещение 120 долларов</label>
-                                <input type="checkbox" class="form-control" id="surcharge_2" name="surcharge">
+                            <div class="form-group text-left">
+                                <label for="surcharge_1" class="checkbox">
+                                    <input type="checkbox" class="form-control" id="surcharge_2" name="surcharge">
+                                    Доплата за одноместное размещение 120 долларов
+                                </label>
                             </div>
                             <a href="#" class="red_btn" id="free_btn" data-id="<?php echo $id?>">Отправить</a>
                         </form>
