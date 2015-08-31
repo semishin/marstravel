@@ -33,7 +33,7 @@ $(document).ready(function() {
         offColor: 'danger'
     });
 
-    $('select').chosen();
+    $('select[multiple]').chosen();
 
     $('.change').bootstrapSwitch({
         size: 'small',

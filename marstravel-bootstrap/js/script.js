@@ -425,13 +425,14 @@ $( document ).ready(function() {
 
         var payment = $('#payment_1').val();
 
-        if ($('#agreement_1').is(':checked')) {
+		 var agreement = 1;//remove
+        /*if ($('#agreement_1').is(':checked')) {
             var agreement = 1;
             $('#agreement_1').parent().parent().removeClass('error');
         } else {
             $('#agreement_1').parent().parent().addClass('error');
             return false;
-        }
+        }*/
         if ($('#surcharge_1').is(':checked')) {
             var surcharge = 1;
         } else {
@@ -545,13 +546,14 @@ $( document ).ready(function() {
             }
         }
 
-        if ($('#a2').is(':checked')) {
+		var agreement = 1; //remove
+        /*if ($('#a2').is(':checked')) {
             var agreement = 1;
             $('#agreement_2').parent().parent().removeClass('error');
         } else {
             $('#agreement_2').parent().parent().addClass('error');
             return false;
-        }
+        }*/
         if ($('#surcharge_2').is(':checked')) {
             var surcharge = 1;
         } else {
