@@ -8,6 +8,9 @@
                             <li><a href="/user"><i class="icon icon_turkey"></i><span>Купоны</span></a></li>
                             <li><a href="/user/profile"><i class="icon icon_attractions"></i><span>Профиль</span></a></li>
                         </ul>
+                        <p>
+                            <a href="/auth/logout" class="black_btn logout_btn">Выйти</a>
+                        </p>
                     </div>
                 </div>
             </div>

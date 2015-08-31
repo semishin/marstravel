@@ -160,6 +160,10 @@ $( document ).ready(function() {
         $(this).find('.sight .name').equalizeHeights();
     });
 
+    $('.two_half_block').each(function(i,elem) {
+        $(this).find('.same_height').equalizeHeights();
+    });
+
 
     if($('.selectpicker').length>0){
         $('.selectpicker').selectpicker();
@@ -1066,6 +1070,10 @@ $( document ).ready(function() {
                 }
             })
 
+    });
+    $('.input-group.date #date').click(function(e){
+        //e.preventDefault();
+        $('#datetimepicker').data("DateTimePicker").show();
     });
 
 
