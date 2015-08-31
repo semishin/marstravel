@@ -102,21 +102,37 @@ $( document ).ready(function() {
     var counter2 = 0;
 
     $(".counter1>.btn-group>button:first-child").click(function () {
+        var quantity_val = $("#adult_number").val();
+        if(quantity_val){
+            counter1 = quantity_val;
+        }
         if(counter1>0)
             counter1--;
         $("#adult_number").val(counter1);
     });
     $(".counter1>.btn-group>button:last-child").click(function () {
+        var quantity_val = $("#adult_number").val();
+        if(quantity_val){
+            counter1 = quantity_val;
+        }
         counter1++;
         $("#adult_number").val(counter1);
     });
 
     $(".counter2>.btn-group>button:first-child").click(function () {
+        var quantity_val = $("#children_number").val();
+        if(quantity_val){
+            counter1 = quantity_val;
+        }
         if(counter2>0)
             counter2--;
         $("#children_number").val(counter2);
     });
     $(".counter2>.btn-group>button:last-child").click(function () {
+        var quantity_val = $("#children_number").val();
+        if(quantity_val){
+            counter1 = quantity_val;
+        }
         counter2++;
         $("#children_number").val(counter2);
     });
@@ -158,6 +174,10 @@ $( document ).ready(function() {
 
     $('.sights_block').each(function(i,elem) {
         $(this).find('.sight .name').equalizeHeights();
+    });
+
+    $('.two_half_block').each(function(i,elem) {
+        $(this).find('.same_height').equalizeHeights();
     });
 
 
@@ -263,6 +283,12 @@ $( document ).ready(function() {
         e.preventDefault();
         var quantity_adults = $('#adult_number').val();
         var quantity_children = $('#children_number').val();
+        if(!quantity_children){
+            quantity_children = 0;
+        }
+        if(!quantity_adults){
+            quantity_adults = 0;
+        }
         var price = $('.total_price').data('price_adult');
         var price_child = $('.total_price').data('price_child');
         var cost = ((quantity_adults * price) + (quantity_children * price_child));
@@ -298,16 +324,16 @@ $( document ).ready(function() {
     });
 
 
-    $('button[name="check_coupon"]').click(function(e){
+    $('#check_coupon').click(function(e){
         e.preventDefault();
         var tour_id = $(this).data('tour_id');
         if($('#code_2').length>0){
             var code = $('#code_2').val();
             if (!code) {
-                $('#code_2').addClass('error');
+                $('.promo_code_block').addClass('error');
                 return false;
             } else {
-                $('#code_2').removeClass('error');
+                $('.promo_code_block').removeClass('error');
             }
         }
         $.ajax({
@@ -320,7 +346,7 @@ $( document ).ready(function() {
             },
             success : function(jsondata) {
                 if (jsondata.coupon_id == 0) {
-                    $('#code_2').addClass('error');
+                    $('#code_2').parent().addClass('error');
                     $('input[name="code"]').val('Неверный код сертификата');
                     return false;
                 } else {
@@ -888,8 +914,14 @@ $( document ).ready(function() {
         $('.add_content_flight').html(' ');
         var quantity_adults = $('#adult_number').val();
         var quantity_children = $('#children_number').val();
-        var single_price = $('surcharge_single').data('price_single');
-        if(parseInt(quantity_adults) + quantity_children == 1){
+        if(!quantity_children){
+            quantity_children = 0;
+        }
+        if(!quantity_adults){
+            quantity_adults = 0;
+        }
+        var single_price = $('.content_single_price').data('single_price');
+        if(((parseInt(quantity_adults) + parseInt(quantity_children)) == 1) &&  single_price > 0){
             $('.surcharge').addClass('hidden');
             $('.surcharge_single').removeClass('hidden');
             $('.add_content_single_price').removeClass('hidden');
@@ -917,6 +949,9 @@ $( document ).ready(function() {
         if(!quantity_children){
             quantity_children = 0;
         }
+        if(!quantity_adults){
+            quantity_adults = 0;
+        }
         if(parseInt(quantity_adults) + parseInt(quantity_children) == 1) {
            var single_price = $('.content_single_price').data("single_price");
         }else{
@@ -940,6 +975,10 @@ $( document ).ready(function() {
                 }
             })
 
+    });
+    $('.input-group.date #date').click(function(e){
+        //e.preventDefault();
+        $('#datetimepicker').data("DateTimePicker").show();
     });
 
 

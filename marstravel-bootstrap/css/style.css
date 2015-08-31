@@ -406,6 +406,12 @@ body{
     background-color: #000000;
     color: white;
 }
+.black_btn:focus, .red_btn:focus{
+    color: #ffffff;
+}
+.yellow_btn:focus{
+   color: #ee1c25;
+}
 .yellow_btn{
     color: #131313;
     background-color: #ffde4c;
@@ -1500,7 +1506,8 @@ body{
     padding: 0px 32px;
     margin-bottom: -20px;
 }
-.filter .bootstrap-select{
+.filter .bootstrap-select,
+.promo_code_block{
     /*width: 100%;*/
     background-color: #dddddd;
     padding: 4px;
@@ -1571,11 +1578,13 @@ body{
     font-weight: bold;
 }
 
-.filter .bootstrap-select.findsight{
+.filter .bootstrap-select.findsight,
+.promo_code_block{
     width: 100% !important;
     position: relative;
 }
-.filter .bootstrap-select.findsight #find_btn{
+.filter .bootstrap-select.findsight #find_btn,
+.promo_code_block .use_code_btn{
     position: absolute;
     font-family: 'PT Sans', sans-serif;
     background-image: none;
@@ -1590,7 +1599,8 @@ body{
     font-size: 16px;
     cursor: pointer;
 }
-.filter .bootstrap-select.findsight>input{
+.filter .bootstrap-select.findsight>input,
+.promo_code_block>input{
     border: 0px;
     border-radius: 2px;
     padding: 8px 12px;
@@ -1866,9 +1876,31 @@ ul.modified>li:before{
 .lightbox_form .checkbox.error {
     color: #ee1c25;
 }
+.logout_btn{
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+}
 
-#pay_btn_gen_1{
+
+#pay_btn_gen_1 {
     margin-left: 160px;
+}
+
+.promo_code_block{
+    border-radius: 23px;
+}
+.promo_code_block.error{
+    background-color: red;
+}
+.promo_code_block>input{
+    border-radius: 19px;
+}
+.promo_code_block .use_code_btn {
+    width: 98px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+
 }
 
 

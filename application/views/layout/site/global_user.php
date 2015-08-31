@@ -39,6 +39,7 @@
 <!--    <script type="text/javascript" src="/marstravel-bootstrap/datepicker/ru.js"></script>-->
     <script src="/marstravel-bootstrap/js/barousel.js"></script>
     <script src="/marstravel-bootstrap/js/bootstrap-select.min.js"></script>
+    <script src="/marstravel-bootstrap/js/ru.js"></script>
     <script src="/marstravel-bootstrap/js/icheck.js"></script>
     <script type="text/javascript" src="/marstravel-bootstrap/js/jquery.scrollTo.min.js"></script>
     <script type="text/javascript" src="/marstravel-bootstrap/js/jquery.localScroll.min.js"></script>
@@ -135,9 +136,6 @@
                             <div class="col-md-3 col-xs-4">
                                 <div class="pull-right">
                                     <a href="#ask_consultant" class="black_btn fancy">Задать вопрос консультанту</a>
-                                    <p style="text-align: right">
-                                        <span class="label label-info"><a href="/auth/logout">Выйти</a></span>
-                                    </p>
                                 </div>
                             </div>
                         </div>

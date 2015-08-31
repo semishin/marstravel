@@ -28,4 +28,5 @@ class Form_Admin_Order extends CM_Form_Abstract
         $this->set_field('number_order', new CM_Field_String(), 31);
         $this->set_field('active', new CM_Field_Boolean(), 33);
     }
+
 }

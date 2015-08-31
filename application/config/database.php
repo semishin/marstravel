@@ -12,6 +12,6 @@ return array(
 		'table_prefix' => '',
         'charset'      => 'utf8',
         'caching'      => false,
-		'profiling' => false
-	)
+        'profiling' => false
+    )
 );

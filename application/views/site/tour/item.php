@@ -191,11 +191,11 @@
                 </div>
             </div>
             <div class="two_half_block">
-                <div class="left">
+                <div class="left same_height">
                     <p>В стоимость входит:</p>
                         <?php echo $included?>
                 </div>
-                <div class="right">
+                <div class="right same_height">
                     <p>В стоимость не входит:</p>
                         <?php echo $excluded?>
                 </div>
@@ -219,7 +219,8 @@
 						  success: function(result) {
 							  var days = result.days;
 							  $('#datetimepicker').datetimepicker({
-								  format: 'YYYY-MM-D',
+                                  locale: 'ru',
+                                  format: 'DD.MM.YYYY',
 								  enabledDates: $.makeArray(days)
 							  });
 						  }
@@ -242,10 +243,23 @@
                         <button name="send_data_people" type="button" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span></button>
                     </div>
                 </div>
-                <div class="add_content_flight"></div>
-                <div class="add_content_single_price hidden">
-                    <p class="content_single_price"  data-single_price="<?php echo $price_single?>"><span>Доплата за одноместное размещение:</span> <b><?php echo number_format($price_single, 0, ' ', ' ');?> руб.</b></p>
+<!--                <div class="form-group">-->
+<!--                    <div class="input-group">-->
+<!--                        <input type="text" class="form-control" id="code_2" placeholder="Код сертификата" name="code">-->
+<!--                        <span class="input-group-btn"><button name="check_coupon" class="btn btn-default" type="button" data-tour_id="--><?php //echo $id?><!--" data-coupon_code="">Применить</button></span>-->
+<!--                    </div>-->
+<!--                </div>-->
+                <div class="form-group bootstrap-select promo_code_block">
+                    <input type="text" name="code"  id="code_2" class="form-control" placeholder="Введите промокод">
+                    <span id="check_coupon" class="use_code_btn" data-tour_id="<?php echo $id?>" data-coupon_code="">Применить</span>
                 </div>
+
+                <div class="add_content_flight"></div>
+                <div <?php if(!$price_single) { ?> class="hidden"<?php } ?>>
+                    <div class="add_content_single_price hidden">
+                        <p class="content_single_price"  data-single_price="<?php echo $price_single?>"><span>Доплата за одноместное размещение:</span> <b><?php echo number_format($price_single, 0, ' ', ' ');?> руб.</b></p>
+                    </div>
+              </div>
                 <p class="total_price"  data-price_adult="<?php echo $price?>" data-price_child="<?php echo $price_child?>"><span>Итоговая стоимость без сертификата:</span> <b><?php echo number_format($price * 2, 0, ' ', ' ');?> руб.</b></p>
                 <a href="#pay" class="black_btn fancy" id="pay_btn_gen_1">Купить тур</a>
                 <div class="clearfix"></div>
@@ -276,10 +290,7 @@
                                 <input type="text" class="form-control" id="phone_1" placeholder="Номер телефона" name="phone">
                             </div>
                             <div class="form-group">
-                                <div class="input-group">
                                 <input type="text" class="form-control" id="code_2" placeholder="Код сертификата" name="code">
-                                    <span class="input-group-btn"><button name="check_coupon" class="btn btn-default" type="button" data-tour_id="<?php echo $id?>" data-coupon_code="">Применить</button></span>
-                                </div>
                             </div>
                             <div class="form-group">
                                 <select required size = "1" id = "payment_1" name="payment" class="selectpicker form-control">
