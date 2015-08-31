@@ -1,12 +1,13 @@
 <div class="col-xs-12">
     <div class="slider_shadow"></div>
-    <div class="tour_header_block">
+    <div class="grey_top_block">
+		<a href="/sight" class="back_to_main">&larr; <span>Назад</span></a>
         <p class="text-center header"><?php echo $name?></p>
     </div>
 </div>
 <div class="col-xs-12">
     <div class="row">
-        <div class="col-xs-7">
+        <div class="col-xs-7 mb30">
             <img src="<?php echo Lib_Image::resize_bg($main_image, 'sight',$id, 664, 382); ?>" class="<?php if ($index == 0) echo "current"  ?>" style="<?php if ($index == 0) echo "display: block;" ?>">
         </div>
         <div class="col-xs-5">
@@ -17,11 +18,11 @@
         <div class="col-xs-12">
             <div class="adventure_program">
                 <div class="intro">
-                    <p class="text-center header">Дополнительные изображения</p>
+                    <p class="text-center header mb30">Дополнительные изображения</p>
                     <p class="text">
                         <?php foreach($images as $item) { ?>
                             <a class="images_sight" rel="gallery1" href="<?php echo $item;?>" title="<?php echo $name?>">
-                                <img src="<?php echo $item;?>">
+                                <img src="<?php echo $item;?>" class="img-rounded col-xs-3 mb30" />
                             </a>
                         <?php } ?>
                     </p>
@@ -31,7 +32,7 @@
         <div class="col-xs-12">
             <div class="adventure_program">
                 <div class="intro">
-                    <p class="text-center header">Экскурсии в которые входит достопримечательность</p>
+                    <p class="text-center header mb30">Экскурсии в которые входит достопримечательность</p>
                         <?php foreach($excursions as $items) { ?>
                             <a href="/excursion/<?php echo $items['url'];?>"><?php echo $items['name']?>
                         <?php } ?>
