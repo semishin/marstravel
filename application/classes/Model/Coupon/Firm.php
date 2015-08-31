@@ -22,7 +22,8 @@ class Model_Coupon_Firm extends ORM
             'description' => 'Описание',
             'contact' => 'Контакты',
             'requisites' => 'Реквизиты',
-            'phone' => 'Телефон'
+            'phone' => 'Телефон',
+			'user_id' => 'Пользователь'
         );
     }
 

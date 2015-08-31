@@ -4,7 +4,7 @@
         <input type="email" class="form-control email" name="email_login" placeholder="E-mail" required autofocus>
     </div>
     <div class="form-group">
-        <input type="text" class="form-control password" name="password" placeholder="Пароль" required>
+        <input type="password" class="form-control password" name="password" placeholder="Пароль" required>
     </div>
     <label class="checkbox" id="remember_check">
         <input type="checkbox" value="remember-me" name="checkme">

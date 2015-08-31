@@ -33,11 +33,13 @@ class Controller_Site_Tour extends Controller_Site
         }
         $quantity_people = $quantity_children + $quantity_adults;
         if($date){
-            $PDO = ORM::factory('PriceFlight')->PDO();
-            $date = explode('/', $date);
-            $date = $date[2].'-'.$date[1].'-'.$date[0];
-            $cost_flight = ORM::factory('PriceFlight')->where('free_places', '>=', $quantity_people)->where('start_date', '<=', $date)->find();
-            exit(json_encode(array('cost_flight_view' => number_format($cost_flight->price, 0, ' ', ' '), 'cost_flight' => $cost_flight->price, '$date' => $query)));
+            $get_date = new DateTime($date);
+            $date = $get_date->format('Y-m-d');
+//            $PDO = ORM::factory('PriceFlight')->PDO();
+//            $date = explode('/', $date);
+//            $date = $date[2].'-'.$date[1].'-'.$date[0];
+            $cost_flight = ORM::factory('PriceFlight')->where('free_places', '>=', $quantity_people)->where('end_date', '>=', $date)->where('start_date', '<=', $date)->find();
+            exit(json_encode(array('cost_flight_view' => number_format($cost_flight->price, 0, ' ', ' '), 'cost_flight' => $cost_flight->price)));
         }
         $free_date = ORM::factory('PriceFlight')->where('free_places', '>=', $quantity_people)->find_all();
         $days = [];

@@ -13,10 +13,6 @@
                         <input type="text" class="form-control" placeholder="Введите слово для поиска по отелям">
                         <span id="find_btn" class="findhotel">Найти</span>
                     </div>
-<!--                    <input type="text" class="form-control" id="findhotel">-->
-                    <!--                    <select class="selectpicker form-control finder" data-live-search="true">-->
-                    <!--                        <option disabled selected style="display: none">Введите слово для поиска по местам</option>-->
-                    <!--                    </select>-->
                 </div>
                 <div class="col-xs-4" id="cityhotel">
                     <select class="selectpicker form-control">
@@ -38,11 +34,6 @@
                         <option value="5">5</option>
                     </select>
                 </div>
-<!--                <div class="col-xs-2">-->
-<!--                    <label class="checkbox">-->
-<!--                        <input type="checkbox" id="inlineCheckbox1" value="option1">С экскурсиями <sup><small>145</small></sup>-->
-<!--                    </label>-->
-<!--                </div>-->
             </div>
         </div>
     </div>

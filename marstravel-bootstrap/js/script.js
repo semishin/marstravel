@@ -1052,7 +1052,7 @@ $( document ).ready(function() {
             $.ajax({
                 type: "POST",
                 url: "/tour/get/info",
-                data: {date: date},
+                data: {date: date, quantity_adults: quantity_adults, quantity_children: quantity_children},
                 dataType: 'json',
                 success: function (data) {
                     if (data.cost_flight) {
@@ -1061,7 +1061,6 @@ $( document ).ready(function() {
                         $('.total_price b').html('' + cost + ' руб.');
                         $('.add_content_flight').html('<p class="content_flight"> <span>Стоимость перелета:</span> <b>' + data.cost_flight_view + ' руб.</b> </p>');
                     }
-                   // alert('n')
                 }
             })
 

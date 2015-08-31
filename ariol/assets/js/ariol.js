@@ -33,6 +33,8 @@ $(document).ready(function() {
         offColor: 'danger'
     });
 
+    $('select').chosen();
+
     $('.change').bootstrapSwitch({
         size: 'small',
         onColor: 'success',

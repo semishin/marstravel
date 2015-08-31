@@ -5,12 +5,9 @@
         <p class="text-center duration">7 ночей 8 дней</p>
         <ul class="list-inline cities text-center">
             <?php foreach ($route as $index => $item) { ?>
-                <li><a href="#yandex_map_with_route" data-img="img/logo-red.png" data-number="<?php echo $index; ?>" class="fancy"><?php echo $cities[$item]->name; ?></a></li>
+                <li><a href="#yandex_map_with_route" data-img="<?php echo Lib_Image::crop($cities[$item]->images, 'city', $cities[$item]->id, 250, 200)?>" data-number="<?php echo $index; ?>" class="fancy"><?php echo $cities[$item]->name; ?></a></li>
             <?php } ?>
         </ul>
-        <script>
-
-        </script>
         <div style="display: none">
             <div id="yandex_map_with_route">
                 <script>
@@ -137,6 +134,13 @@
                             <!--<img src="<?php echo Lib_Image::resize_bg($item, 'tour',$id, 664, 382); ?>" class="current" style="display: inline">-->
                         <?php } ?>
                     </div>
+
+
+                    <?php if(!$images) { ?>
+                        <img src="/files/image.png" class="<?php if ($index == 0) echo "current"  ?>" style="<?php if ($index == 0) echo "display: block;" ?>">
+                    <? } ?>
+
+
                     <div class="barousel_content" style="display: none">
                         <!-- content 1 -->
                         <?php foreach ($images as $index=>$item) { ?>
@@ -201,27 +205,27 @@
                 <p class="text-center">Заказ тура</p>
                 <div class="form-group date">
                     <p style="margin-bottom: 12px;padding-left: 25px;font-size: 16px;color: #111111;font-weight: bold">Выберите дату поездки</p>
-                        <div class='input-group date add_error' id='datetimepicker'>
-                            <input placeholder="Выберите дату" name="daterange" type='text' id="date" class="form-control" />
-                            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
-                        </div>
+					<div class='input-group date add_error' id='datetimepicker'>
+						<input placeholder="Выберите дату" name="daterange" type='text' id="date" class="form-control" />
+						<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+					</div>
                 </div>
-              <script>
-                  $(function () {
-                      $.ajax({
-                          type: "POST",
-                          url: "/tour/get/info",
-                          dataType: 'json',
-                          success: function(result) {
-                              var days = result.days;
-                              $('#datetimepicker').datetimepicker({
-                                  format: 'YYYY-MM-D',
-                                  enabledDates: $.makeArray(days)
-                              });
-                          }
-                      });
-                  });
-              </script>
+				<script>
+				  $(function () {
+					  $.ajax({
+						  type: "POST",
+						  url: "/tour/get/info",
+						  dataType: 'json',
+						  success: function(result) {
+							  var days = result.days;
+							  $('#datetimepicker').datetimepicker({
+								  format: 'YYYY-MM-D',
+								  enabledDates: $.makeArray(days)
+							  });
+						  }
+					  });
+				  });
+				</script>
                 <div class="form-group counter counter1">
                     <label for="adult_number">Количество взрослых</label>
                     <div class="btn-group">
@@ -299,11 +303,11 @@
 
                 <div style="display: none">
                     <div id="push_code">
-                        <p class="lightbox_header">Введите промокод</p>
+                        <p class="lightbox_header">Введите код сертификата</p>
                         <p class="lightbox_text"><?php echo $name?></p>
                         <form role="form" class="lightbox_form">
                             <div class="form-group">
-                                <input type="text" class="form-control" id="code_2" placeholder="Промокод" name="code">
+                                <input type="text" class="form-control" id="code_2" placeholder="Код" name="code">
                             </div>
 
                             <a href="#get_free" class="red_btn fancy" id="code_btn" data-id="<?php echo $id?>">Отправить</a>
@@ -337,13 +341,6 @@
                             <div class="form-group">
                                 <input type="text" class="form-control" id="phone_2" placeholder="Номер телефона" name="phone">
                             </div>
-<!--                            <select required size = "1" id = "payment_1" name="payment">-->
-<!--                                <option disabled value = "0">Способ оплаты</option>-->
-<!--                                <option value = "1">Оплатить в офисе</option>-->
-<!--                                <option value = "2">Картой онлайн</option>-->
-<!--                                <option value = "3">Терминалы</option>-->
-<!--                                <option value = "4">Отделения сотовой связи</option>-->
-<!--                            </select>-->
                             <div class="form-group text-left">
                                 <label for="agreement_1" class="checkbox">
                                     <input type="checkbox" class="form-control" id="agreement_2" name="agreement">
@@ -360,29 +357,7 @@
                         </form>
                     </div>
                 </div>
-<!--                <div style="display: none">-->
-<!--                    <div id="get_free">-->
-<!--                        <form role="form">-->
-<!--                            <div class="form-group">-->
-<!--                                <label for="Email_2">Email</label>-->
-<!--                                <input type="email" class="form-control" id="Email_2" placeholder="Enter email">-->
-<!--                            </div>-->
-<!--                            <div class="form-group">-->
-<!--                                <label for="Name_2">Имя</label>-->
-<!--                                <input type="text" class="form-control" id="Name_2" placeholder="Name">-->
-<!--                            </div>-->
-<!--                            <div class="form-group">-->
-<!--                                <label for="Password_2">Пароль</label>-->
-<!--                                <input type="password" class="form-control" id="Password_2" placeholder="Password">-->
-<!--                            </div>-->
-<!--                            <div class="form-group">-->
-<!--                                <label for="Code_2">Промокод</label>-->
-<!--                                <input type="password" class="form-control" id="Code_2" placeholder="Code">-->
-<!--                            </div>-->
-<!--                            <button type="submit" class="btn btn-success" id="get_free_btn">Отправить</button>-->
-<!--                        </form>-->
-<!--                    </div>-->
-<!--                </div>-->
+
             </div>
         </div>
     </div>

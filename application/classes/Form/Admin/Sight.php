@@ -9,17 +9,15 @@ class Form_Admin_Sight extends CM_Form_Abstract
     protected function init()
     {
         $this->add_plugin(new CM_Form_Plugin_ORM());
-        $excursion = ORM::factory('Excursion')->order_by('name', 'ASC')->find_all();
-        $excursion_list = array();
-        foreach ($excursion as $item) {
-            $excursion_list[$item->id] = $item->name;
-        }
 
         $this->set_field('name', new CM_Field_String(), 0);
         $this->set_field('city_id', new CM_Field_Select_ORM(ORM::factory('City')), 2);
         $this->set_field('category_id', new CM_Field_Select_ORM(ORM::factory('Sight_Category')), 4);
         $this->set_field('active', new CM_Field_Boolean(), 6);
-        $this->set_field('excursion', new CM_Field_Manytomany($excursion_list, $this->get_model()), 1);
+        $this->set_field('excursions', new CM_Field_Manytomany_ORM(
+            ORM::factory('Excursion')->order_by('name', 'ASC'),
+            $this->get_model()
+        ), 1);
         $this->set_field('main_image', new CM_Field_File(), 10);
         $this->set_field('images', new CM_Field_Multifile(),12);
         $this->set_field('url', new CM_Field_String(), 13);
@@ -29,7 +27,7 @@ class Form_Admin_Sight extends CM_Form_Abstract
         $this->set_field('s_keywords', new CM_Field_Text(), 19);
 
         $fieldgroups = array(
-            'Основные данные' => array('name', 'city_id', 'category_id', 'active', 'excursion', 'main_image', 'images', 'url', 'content'),
+            'Основные данные' => array('name', 'city_id', 'category_id', 'active', 'excursions', 'main_image', 'images', 'url', 'content'),
             'Мета данные' => array('s_title', 's_description', 's_keywords'),
         );
 
