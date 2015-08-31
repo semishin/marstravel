@@ -266,6 +266,12 @@ $( document ).ready(function() {
         var price = $('.total_price').data('price_adult');
         var price_child = $('.total_price').data('price_child');
         var cost = ((quantity_adults * price) + (quantity_children * price_child));
+        if(parseInt(quantity_adults, 10) + quantity_children == 1) {
+            var single_price = $('.content_single_price').data("single_price");
+        }else{
+            var  single_price = 0;
+        }
+        cost +=  parseInt(single_price, 10);
         $('.total_price b').html(''+cost+' руб.');
     });
 
@@ -280,7 +286,7 @@ $( document ).ready(function() {
         }else{
             $('input[name="daterange"]').parent().removeClass('error');
         }
-        if (!quantity_adults ) {
+        if (!quantity_adults || quantity_adults == 0) {
             error++;
             $('#adult_number').addClass('error');
         }else{
@@ -291,32 +297,10 @@ $( document ).ready(function() {
         }
     });
 
-    $('#free_btn_gen_1').click(function(e) {
-        e.preventDefault();
-        var date = $('#date').val();
-        var quantity_adults = $('#adult_number').val();
-        var error = 0;
-        if (!date) {
-            error++;
-            $('input[name="daterange"]').parent().addClass('error');
-        }else{
-            $('input[name="daterange"]').parent().removeClass('error');
-        }
-        if (!quantity_adults ) {
-            error++;
-            $('#adult_number').addClass('error');
-        }else{
-            $('#adult_number').removeClass('error');
-        }
-        if(error > 0){
-            return false;
-        }
 
-    });
-
-    $('#code_btn').click(function(e) {
+    $('button[name="check_coupon"]').click(function(e){
         e.preventDefault();
-        var tour_id = $(this).data('id');
+        var tour_id = $(this).data('tour_id');
         if($('#code_2').length>0){
             var code = $('#code_2').val();
             if (!code) {
@@ -325,9 +309,7 @@ $( document ).ready(function() {
             } else {
                 $('#code_2').removeClass('error');
             }
-
         }
-
         $.ajax({
             url : "/ordercoupon/code",
             dataType : "json",
@@ -337,15 +319,15 @@ $( document ).ready(function() {
                 tour_id : tour_id
             },
             success : function(jsondata) {
-                if (!jsondata.coupon_id) {
-                    $('#get_free').html('<p class="lightbox_header">Промомкод не верный</p><p class="lightbox_text"></p>');
-                    //return false;
+                if (jsondata.coupon_id == 0) {
+                    $('#code_2').addClass('error');
+                    $('input[name="code"]').val('Неверный код сертификата');
+                    return false;
                 } else {
+                    $('input[name="code"]').val('Код сертификата '+ jsondata.code_coupon +' принят');
+                    $('input[name="code"]').data('coupon_code', jsondata.code_coupon);
                     coupon_id = jsondata.coupon_id;
                 }
-            },
-            error: function(xhr, status, error) {
-                alert(status + '|\n' +error);
             }
         });
     });
@@ -353,6 +335,7 @@ $( document ).ready(function() {
     $('#pay_btn').click(function(e) {
         e.preventDefault();
         var errors = 0;
+        var code = $('input[name="code"]').data('coupon_code');
         var tour_id = $(this).data('id');
         var date = $('#date').val();
         var quantity_adults = $('#adult_number').val();
@@ -422,17 +405,15 @@ $( document ).ready(function() {
                 $('#phone_1').removeClass('error');
             }
         }
-
         var payment = $('#payment_1').val();
 
-		 var agreement = 1;//remove
-        /*if ($('#agreement_1').is(':checked')) {
+        if ($('#agreement_1').is(':checked')) {
             var agreement = 1;
             $('#agreement_1').parent().parent().removeClass('error');
         } else {
             $('#agreement_1').parent().parent().addClass('error');
             return false;
-        }*/
+        }
         if ($('#surcharge_1').is(':checked')) {
             var surcharge = 1;
         } else {
@@ -458,6 +439,8 @@ $( document ).ready(function() {
                     validity : validity,
                     issuedby : issuedby,
                     email : email,
+                    coupon_id : coupon_id,
+                    code: code,
                     phone : phone,
                     payment : payment,
                     agreement : agreement,
@@ -472,128 +455,6 @@ $( document ).ready(function() {
             });
         }
     });
-
-    $('#free_btn').click(function(e) {
-        e.preventDefault();
-        var errors = 0;
-        var tour_id = $(this).data('id');
-        var date = $('#date').val();
-        var quantity_adults = $('#adult_number').val();
-        var quantity_children = $('#children_number').val();
-        var price = $('.total_price').data('price');
-        var cost = ((quantity_adults * price) + (quantity_children * price));
-        if($('#fio_2').length>0){
-            var fio = $('#fio_2').val();
-            if (!fio) {
-                $('#fio_2').addClass('error');
-                errors++;
-            } else {
-                $('#fio_2').removeClass('error');
-            }
-        }
-        if($('#dob_2').length>0){
-            var dob = $('#dob_2').val();
-            if (!dob) {
-                $('#dob_2').addClass('error');
-                errors++;
-            } else {
-                $('#dob_2').removeClass('error');
-            }
-        }
-        if($('#passport_2').length>0){
-            var passport = $('#passport_2').val();
-            if (!passport) {
-                $('#passport_2').addClass('error');
-                errors++;
-            } else {
-                $('#passport_2').removeClass('error');
-            }
-        }
-        if($('#validity_2').length>0){
-            var validity = $('#validity_2').val();
-            if (!validity) {
-                $('#validity_2').addClass('error');
-                errors++;
-            } else {
-                $('#validity_2').removeClass('error');
-            }
-        }
-        if($('#issuedby_2').length>0){
-            var issuedby = $('#issuedby_2').val();
-            if (!issuedby) {
-                $('#issuedby_2').addClass('error');
-                errors++;
-            } else {
-                $('#issuedby_2').removeClass('error');
-            }
-        }
-        if($('#email_2').length>0){
-            var email = $('#email_2').val();
-            if (!email) {
-                $('#email_2').addClass('error');
-                errors++;
-            } else {
-                $('#email_2').removeClass('error');
-            }
-        }
-        if($('#phone_2').length>0){
-            var phone = $('#phone_2').val();
-            if (!phone) {
-                $('#phone_2').addClass('error');
-                errors++;
-            } else {
-                $('#phone_2').removeClass('error');
-            }
-        }
-
-		var agreement = 1; //remove
-        /*if ($('#a2').is(':checked')) {
-            var agreement = 1;
-            $('#agreement_2').parent().parent().removeClass('error');
-        } else {
-            $('#agreement_2').parent().parent().addClass('error');
-            return false;
-        }*/
-        if ($('#surcharge_2').is(':checked')) {
-            var surcharge = 1;
-        } else {
-            var surcharge = 0;
-        }
-
-        if(errors){
-            return false;
-        } else{
-            $.ajax({
-                url : "/ordercoupon/add",
-                dataType : "json",
-                type : "post",
-                data : {
-                    tour_id : tour_id,
-                    date : date,
-                    quantity_adults : quantity_adults,
-                    quantity_children : quantity_children,
-                    cost : cost,
-                    fio : fio,
-                    dob : dob,
-                    passport : passport,
-                    validity : validity,
-                    issuedby : issuedby,
-                    email : email,
-                    phone : phone,
-                    coupon_id : coupon_id,
-                    agreement : agreement,
-                    surcharge : surcharge
-                },
-                success : function(jsondata) {
-                    $('#get_free').html('<p class="lightbox_header">Спасибо за заказ!</p><p class="lightbox_text">Номер вашего заказа '+jsondata.number_order+'</p>');
-                },
-                error: function(xhr, status, error) {
-                    alert(status + '|\n' +error);
-                }
-            });
-        }
-    });
-
 
     $('.star_label_trans').hover(
         function(){
@@ -1027,6 +888,14 @@ $( document ).ready(function() {
         $('.add_content_flight').html(' ');
         var quantity_adults = $('#adult_number').val();
         var quantity_children = $('#children_number').val();
+        var single_price = $('surcharge_single').data('price_single');
+        if(parseInt(quantity_adults) + quantity_children == 1){
+            $('.surcharge').addClass('hidden');
+            $('.surcharge_single').removeClass('hidden');
+            $('.add_content_single_price').removeClass('hidden');
+        }else{
+            $('.add_content_single_price').addClass('hidden');
+        }
             $.ajax({
                 type: "POST",
                 url: "/tour/get/info",
@@ -1048,6 +917,11 @@ $( document ).ready(function() {
         if(!quantity_children){
             quantity_children = 0;
         }
+        if(parseInt(quantity_adults) + parseInt(quantity_children) == 1) {
+           var single_price = $('.content_single_price').data("single_price");
+        }else{
+           var  single_price = 0;
+        }
         var price = $('.total_price').data('price_adult');
         var price_child = $('.total_price').data('price_child');
         var date = $('.day.active').attr('data-day');
@@ -1059,7 +933,7 @@ $( document ).ready(function() {
                 success: function (data) {
                     if (data.cost_flight) {
                         console.log(quantity_adults , price, quantity_children, price_child, parseInt(data.cost_flight));
-                        var cost = ((quantity_adults * price) + (quantity_children * price_child) + parseInt(data.cost_flight));
+                        var cost = ((quantity_adults * price) + (quantity_children * price_child) + parseInt(data.cost_flight)+ parseInt(single_price));
                         $('.total_price b').html('' + cost + ' руб.');
                         $('.add_content_flight').html('<p class="content_flight"> <span>Стоимость перелета:</span> <b>' + data.cost_flight_view + ' руб.</b> </p>');
                     }

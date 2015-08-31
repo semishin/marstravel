@@ -1248,6 +1248,44 @@ body{
     color: #ee1c25;
     float: right;
 }
+
+.order_tour .total_price, .content_single_price{
+    margin-bottom: 35px;
+    position: relative;
+    margin-right: 25px;
+    margin-left: 25px;
+    font-weight: bold;
+    font-size: 16px;
+    color: #111111;
+}
+.order_tour .total_price:before, .content_single_price:before{
+    border-bottom: 1px solid #cccccc;
+    display: inline-block;
+    position: absolute;
+    content: " ";
+    width: 100%;
+    bottom: 5px;
+    left: 0px;
+}
+.order_tour .total_price:after, .content_single_price:after{
+    display: block;
+    content: " ";
+    clear: both;
+}
+.order_tour .total_price>span, .content_single_price>span{
+    background-color: #ffffff;
+    padding-bottom: 5px;
+    position: relative;
+    padding-top: 12px;
+    float: left;
+}
+.order_tour .total_price>b, .content_single_price>b{
+    background-color: #ffffff;
+    position: relative;
+    font-size: 28px;
+    color: #ee1c25;
+    float: right;
+}
 .order_tour .black_btn{
     font-size: 18px;
     float: left;
@@ -1829,7 +1867,9 @@ ul.modified>li:before{
     color: #ee1c25;
 }
 
-
+#pay_btn_gen_1{
+    margin-left: 160px;
+}
 
 
 

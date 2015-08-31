@@ -26,7 +26,7 @@
 
         <hr>
 
-        <p class="header col-xs-12">Об отеле</p>
+        <p class="header col-xs-12">О отеле</p>
         <div class="add_margin col-xs-12"><?php echo $content ?></div>
 
 

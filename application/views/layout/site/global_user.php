@@ -65,7 +65,6 @@
                     <div class="navigation">
                         <div class="row">
                             <div class="col-xs-7">
-                                <?php echo $_SERVER['REQUEST_URI'];?>
                                 <ul class="list-inline pull-left">
                                     <li class="dropdown_hover"><span class="a">О компании</span>
                                         <ul class="dropdown_menu list-unstyled">

@@ -71,7 +71,8 @@ class Model_Tour extends ORM
             'd8_content' => '8 день описание',
             's_title' => 'SEO title',
             's_description' => 'SEO categorydescription',
-            's_keywords' => 'SEO keywords'
+            's_keywords' => 'SEO keywords',
+            'price_single' => 'Доплата за одноместное размещение'
         );
     }
 

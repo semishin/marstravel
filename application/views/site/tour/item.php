@@ -234,8 +234,7 @@
                         <button name="send_data_people" type="button" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span></button>
                     </div>
                 </div>
-
-                <div class="form-group counter counter2">
+                <div class="form-group counter counter2  <?php if($price_child == 0) { ?> hidden <?php } ?>">
                     <label for="children_number">Количество детей</label>
                     <div class="btn-group">
                         <button name="send_data_people" type="button" class="btn btn-default"><span class="glyphicon glyphicon-minus"></span></button>
@@ -244,11 +243,12 @@
                     </div>
                 </div>
                 <div class="add_content_flight"></div>
+                <div class="add_content_single_price hidden">
+                    <p class="content_single_price"  data-single_price="<?php echo $price_single?>"><span>Доплата за одноместное размещение:</span> <b><?php echo number_format($price_single, 0, ' ', ' ');?> руб.</b></p>
+                </div>
                 <p class="total_price"  data-price_adult="<?php echo $price?>" data-price_child="<?php echo $price_child?>"><span>Итоговая стоимость без сертификата:</span> <b><?php echo number_format($price * 2, 0, ' ', ' ');?> руб.</b></p>
                 <a href="#pay" class="black_btn fancy" id="pay_btn_gen_1">Купить тур</a>
-                <a href="#push_code" class="red_btn fancy" id="free_btn_gen_1">Получить бесплатно</a>
                 <div class="clearfix"></div>
-
                 <div style="display: none">
                     <div id="pay">
                         <p class="lightbox_header">Купить тур</p>
@@ -276,6 +276,12 @@
                                 <input type="text" class="form-control" id="phone_1" placeholder="Номер телефона" name="phone">
                             </div>
                             <div class="form-group">
+                                <div class="input-group">
+                                <input type="text" class="form-control" id="code_2" placeholder="Код сертификата" name="code">
+                                    <span class="input-group-btn"><button name="check_coupon" class="btn btn-default" type="button" data-tour_id="<?php echo $id?>" data-coupon_code="">Применить</button></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
                                 <select required size = "1" id = "payment_1" name="payment" class="selectpicker form-control">
                                     <option disabled value = "0">Способ оплаты</option>
                                     <option value = "1">Оплатить в офисе</option>
@@ -290,74 +296,19 @@
                                     Согласие с условиями
                                 </label>
                             </div>
-                            <div class="form-group text-left">
+                            <div class="form-group text-left surcharge">
                                 <label for="surcharge_1" class="checkbox">
                                     <input type="checkbox" class="form-control" id="surcharge_1" name="surcharge">
                                     Доплата за одноместное размещение 120 долларов
                                 </label>
                             </div>
+                            <div class="form-group text-left surcharge_single hidden checkbox" data-price_single="<?php echo $price_single?>">
+                                    <b>Доплата за одноместное размещение <?php echo number_format($price_single, 0, ' ', ' ') ?> руб.</b>
+                            </div>
                             <a href="#" class="red_btn" id="pay_btn" data-id="<?php echo $id?>">Отправить</a>
                         </form>
                     </div>
                 </div>
-
-                <div style="display: none">
-                    <div id="push_code">
-                        <p class="lightbox_header">Введите код сертификата</p>
-                        <p class="lightbox_text"><?php echo $name?></p>
-                        <form role="form" class="lightbox_form">
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="code_2" placeholder="Код" name="code">
-                            </div>
-
-                            <a href="#get_free" class="red_btn fancy" id="code_btn" data-id="<?php echo $id?>">Отправить</a>
-                        </form>
-                    </div>
-                </div>
-
-                <div style="display: none">
-                    <div id="get_free">
-                        <p class="lightbox_header">Получить тур</p>
-                        <p class="lightbox_text"><?php echo $name?></p>
-                        <form role="form" class="lightbox_form">
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="fio_2" placeholder="ФИО" name="fio">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="dob_2" placeholder="Дата рождения" name="dob">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="passport_2" placeholder="Номер паспорта" name="passport">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="validity_2" placeholder="Срок действия" name="validity">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="issuedby_2" placeholder="Кем выдан" name="issuedby">
-                            </div>
-                            <div class="form-group">
-                                <input type="email" class="form-control" id="email_2" placeholder="Введите email" name="email">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="phone_2" placeholder="Номер телефона" name="phone">
-                            </div>
-                            <div class="form-group text-left">
-                                <label for="agreement_1" class="checkbox">
-                                    <input type="checkbox" class="form-control" id="agreement_2" name="agreement">
-                                    Согласие с условиями
-                                </label>
-                            </div>
-                            <div class="form-group text-left">
-                                <label for="surcharge_1" class="checkbox">
-                                    <input type="checkbox" class="form-control" id="surcharge_2" name="surcharge">
-                                    Доплата за одноместное размещение 120 долларов
-                                </label>
-                            </div>
-                            <a href="#" class="red_btn" id="free_btn" data-id="<?php echo $id?>">Отправить</a>
-                        </form>
-                    </div>
-                </div>
-
             </div>
         </div>
     </div>

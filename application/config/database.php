@@ -5,8 +5,8 @@ return array(
 		'type'	     => 'MySQLi',
 		'connection' => array(
 			'username'   => 'root',
-			'password'   => 'woo4aDoo',
-			'database'   => 'mars.ariol.by',
+			'password'   => '',
+			'database'   => 'marstravel_local',
 			'hostname'   => 'localhost',
 		),
 		'table_prefix' => '',
