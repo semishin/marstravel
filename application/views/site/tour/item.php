@@ -289,8 +289,8 @@
                             <div class="form-group">
                                 <input type="text" class="form-control" id="phone_1" placeholder="Номер телефона" name="phone">
                             </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="code_2" placeholder="Код сертификата" name="code">
+                            <div class="form-group certificate_hidden hidden">
+                                <input type="text" disabled class="form-control" id="code_2" placeholder="Код сертификата" name="code">
                             </div>
                             <div class="form-group">
                                 <select required size = "1" id = "payment_1" name="payment" class="selectpicker form-control">

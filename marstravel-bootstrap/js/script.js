@@ -350,6 +350,7 @@ $( document ).ready(function() {
                     $('input[name="code"]').val('Неверный код сертификата');
                     return false;
                 } else {
+                    $('.certificate_hidden.hidden').removeClass('hidden');
                     $('input[name="code"]').val('Код сертификата '+ jsondata.code_coupon +' принят');
                     $('input[name="code"]').data('coupon_code', jsondata.code_coupon);
                     coupon_id = jsondata.coupon_id;
