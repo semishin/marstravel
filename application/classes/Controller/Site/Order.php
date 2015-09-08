@@ -27,7 +27,6 @@ class Controller_Site_Order extends Controller_Site
                 $number_order = mb_substr(md5(time()), 0, 8);
 
                 $data_tour =  ORM::factory('Tour')->where('id', '=', $tour_id)->find();
-                $cost_flight = ORM::factory('PriceFlight')->where('end_date', '>=', $date)->where('start_date', '<=', $date)->find();
 
                 if($quantity_adults + $quantity_children == 1){
                     if(!$data_tour->price_single){
@@ -47,7 +46,7 @@ class Controller_Site_Order extends Controller_Site
                 $order->cost = $cost;
                 $order->fio = $fio;
                 $order->dob = $dob;
-                $order->total_price = ($data_tour->price *  $quantity_adults) + ($data_tour->price_child * $quantity_children) + $cost_flight->price + $price_single;
+                $order->total_price = ($data_tour->price *  $quantity_adults) + ($data_tour->price_child * $quantity_children) + $price_single;
                 $order->passport = $passport;
                 $order->validity = $validity;
                 $order->issuedby = $issuedby;
