@@ -39,10 +39,10 @@ class Controller_Site_Tour extends Controller_Site
         if($date){
             $get_date = new DateTime($date);
             $date = $get_date->format('Y-m-d');
-            $cost_flight = ORM::factory('PriceFlight')->where('free_places', '>=', $quantity_people)->where('end_date', '>=', $date)->where('start_date', '<=', $date)->where('start_date', '>=', $current_date)->find();
+            $cost_flight = ORM::factory('PriceFlight')->where('free_places', '>=', $quantity_people)->where('end_date', '>=', $date)->where('start_date', '<=', $date)->where('end_date', '>=', $current_date)->find();
             exit(json_encode(array('cost_flight_view' => number_format($cost_flight->price, 0, ' ', ' '), 'cost_flight' => $cost_flight->price, 'quantity_adults' => $quantity_adults, 'quantity_children' => $quantity_children)));
         }
-        $free_date = ORM::factory('PriceFlight')->where('free_places', '>=', $quantity_people)->where('start_date', '>=', $current_date)->find_all();
+        $free_date = ORM::factory('PriceFlight')->where('free_places', '>=', $quantity_people)->where('end_date', '>=', $current_date)->find_all();
         $days = [];
         $count_places = 0;
         foreach($free_date as $item){

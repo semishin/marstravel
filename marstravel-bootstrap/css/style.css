@@ -560,7 +560,7 @@ body{
 .left_menu ul>li>a{
     font-weight: normal;
     color: #111111;
-
+    height: 100%;
     display: block;
     min-height: 65px;
     padding-left: 15px;
