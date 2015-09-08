@@ -1,5 +1,5 @@
+<script src="/marstravel-bootstrap/js/holder.js"></script>
 <?php foreach ($hotel as $item) { ?>
-
     <div class="col-xs-12">
         <div class="hotel hotel2">
             <div class="row">
@@ -8,11 +8,16 @@
                         <div class="hotel_stars"><span><?php echo $item->stars ?></span></div>
                         <!--<a href="#"><img src="img/hotel.jpg" class="img-responsive"></a>-->
                         <div id="hotel-<?php echo $item->id ?>" class="carousel slide" data-ride="carousel">
-
                             <!-- Wrapper for slides -->
                             <div class="carousel-inner">
                                 <div class="item active">
-                                    <a href="/hotel/<?php echo $item->url ?>"><img src="<?php echo Lib_Image::resize_bg($item->main_image, 'hotel',$item->id, 370, 258); ?>" class="img-responsive"></a>
+                                    <a href="/hotel/<?php echo $item->url ?>">
+                                        <?php if($item->main_image) { ?>
+                                            <img src="<?php echo Lib_Image::resize_bg($item->main_image, 'hotel',$item->id, 370, 258); ?>" class="img-responsive">
+                                        <?php } else { ?>
+                                            <div class="image_holder"></div>
+                                        <?php } ?>
+                                    </a>
                                 </div>
                                 <?php $item->images = json_decode($item->images, true);?>
                                 <?php if ($item->images) {

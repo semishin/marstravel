@@ -134,13 +134,9 @@
                             <!--<img src="<?php echo Lib_Image::resize_bg($item, 'tour',$id, 664, 382); ?>" class="current" style="display: inline">-->
                         <?php } ?>
                     </div>
-
-
                     <?php if(!$images) { ?>
-                        <img src="/files/image.png" class="<?php if ($index == 0) echo "current"  ?>" style="<?php if ($index == 0) echo "display: block;" ?>">
+                        <img src="holder.js/700x450">
                     <? } ?>
-
-
                     <div class="barousel_content" style="display: none">
                         <!-- content 1 -->
                         <?php foreach ($images as $index=>$item) { ?>

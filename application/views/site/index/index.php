@@ -76,7 +76,13 @@
                                 </div>
 
                                 <div class="triangle"></div>
-                                <a href="/tour/<?php echo $item->url ?>"><img src="<?php echo Lib_Image::crop($item->main_image, 'tour',$item->id, 300, 330); ?>" class="img-responsive"></a>
+                                <a href="/tour/<?php echo $item->url ?>">
+                                    <?php if($item->main_image) { ?>
+                                        <img src="<?php echo Lib_Image::crop($item->main_image, 'tour',$item->id, 300, 330); ?>" class="img-responsive">
+                                    <?php }else { ?>
+                                        <img src="holder.js/300x300">
+                                    <?php } ?>
+                                </a>
                             </div>
                         </div>
                     </div>

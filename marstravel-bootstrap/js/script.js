@@ -168,9 +168,6 @@ $( document ).ready(function() {
         return this.height( Math.max.apply(this, maxHeight) );
     };
 
-    /*$('.hotels_block').each(function(i,elem) {
-        $(this).find('.hotel .name').equalizeHeights();
-    });*/
 
     $('.sights_block').each(function(i,elem) {
         $(this).find('.sight .name').equalizeHeights();
