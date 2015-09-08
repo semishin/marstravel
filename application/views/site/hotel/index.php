@@ -57,18 +57,24 @@
                                                 <!-- Wrapper for slides -->
                                                 <div class="carousel-inner">
                                                     <div class="item active">
-                                                        <a href="/hotel/<?php echo $item->url ?>"><img src="<?php echo Lib_Image::resize_bg($item->main_image, 'hotel',$item->id, 370, 258); ?>" class="img-responsive"></a>
+                                                        <a href="/hotel/<?php echo $item->url ?>">
+                                                            <?php if($item->main_image) { ?>
+                                                            <img src="<?php echo Lib_Image::resize_bg($item->main_image, 'hotel',$item->id, 370, 258); ?>" class="img-responsive">
+                                                            <?php } else { ?>
+                                                                <img src="holder.js/370x258">
+                                                            <?php } ?>
+                                                        </a>
                                                     </div>
-                                                    <?php $item->images = json_decode($item->images, true);?>
-                                                    <?php if ($item->images) {
-                                                        foreach ($item->images as $image) { ?>
-                                                            <div class="item">
-                                                                <a href="/hotel/<?php echo $item->url ?>">
-                                                                    <img src="<?php echo Lib_Image::resize_bg($image, 'hotel', $item->id, 370, 258); ?>" class="img-responsive">
-                                                                </a>
-                                                            </div>
-                                                        <?php }
-                                                    } ?>
+                                                        <?php $item->images = json_decode($item->images, true);?>
+                                                        <?php if ($item->images) {
+                                                            foreach ($item->images as $image) { ?>
+                                                                <div class="item">
+                                                                    <a href="/hotel/<?php echo $item->url ?>">
+                                                                        <img src="<?php echo Lib_Image::resize_bg($image, 'hotel', $item->id, 370, 258); ?>" class="img-responsive">
+                                                                    </a>
+                                                                </div>
+                                                            <?php }
+                                                        } ?>
                                                 </div>
                                                 <div class="indicators_panel">
                                                     <!-- Indicators -->

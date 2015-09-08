@@ -168,9 +168,6 @@ $( document ).ready(function() {
         return this.height( Math.max.apply(this, maxHeight) );
     };
 
-    /*$('.hotels_block').each(function(i,elem) {
-        $(this).find('.hotel .name').equalizeHeights();
-    });*/
 
     $('.sights_block').each(function(i,elem) {
         $(this).find('.sight .name').equalizeHeights();
@@ -910,9 +907,6 @@ $( document ).ready(function() {
 
 
     $('button[name="send_data_people"]').click(function(){
-        $('#datetimepicker').data("DateTimePicker").clear();
-        $('#datetimepicker').data("DateTimePicker").destroy();
-        $('.add_content_flight').html(' ');
         var quantity_adults = $('#adult_number').val();
         var quantity_children = $('#children_number').val();
         if(!quantity_children){
@@ -935,11 +929,24 @@ $( document ).ready(function() {
                 data: {quantity_adults: quantity_adults, quantity_children: quantity_children},
                 dataType: 'json',
                 success: function(result) {
-                    var days = result.days;
-                    $('#datetimepicker').datetimepicker({
-                        format: 'YYYY-MM-D',
-                        enabledDates: $.makeArray(days)
-                    });
+                    if(result.message){
+                            $('input[name="daterange"]').parent().addClass('error');
+                            $('.change_placeholder').attr('placeholder', result.message);
+                            $('.change_placeholder').attr("disabled", true);
+                        }else{
+                            $('.change_placeholder').attr("disabled", false);
+                            $('#datetimepicker').data("DateTimePicker").clear();
+                            $('#datetimepicker').data("DateTimePicker").destroy();
+                            $('.add_content_flight').html(' ');
+                            $('input[name="daterange"]').parent().removeClass('error');
+                            $('.change_placeholder').attr('placeholder', 'Выберите дату');
+                            var days = result.days;
+                            $('#datetimepicker').datetimepicker({
+                                format: 'YYYY-MM-D',
+                                enabledDates: $.makeArray(days)
+                            });
+                        }
+
                 }
             });
         });
@@ -978,7 +985,6 @@ $( document ).ready(function() {
 
     });
     $('.input-group.date #date').click(function(e){
-        //e.preventDefault();
         $('#datetimepicker').data("DateTimePicker").show();
     });
 

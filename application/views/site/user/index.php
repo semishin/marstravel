@@ -5,7 +5,7 @@
                 <div class="col-md-12 col-xs-8">
                     <div class="left_menu">
                         <ul class="list-unstyled">
-                            <li><a href="/user"><i class="icon icon_turkey"></i><span>Купоны</span></a></li>
+                            <li><a href="/user" class="active"><i class="icon icon_turkey"></i><span>Купоны</span></a></li>
                             <li><a href="/user/profile"><i class="icon icon_attractions"></i><span>Профиль</span></a></li>
                         </ul>
                         <p>

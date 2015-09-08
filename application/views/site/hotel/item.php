@@ -23,13 +23,9 @@
             <p><b>Электронный адрес:</b> <?php echo $email ?></p>
             <p><b>Сайт отеля:</b> <a href="http://<?php echo $link_site ?>"><?php echo $link_site ?></a></p>
         </div>
-
         <hr>
-
         <p class="header col-xs-12">О отеле</p>
         <div class="add_margin col-xs-12"><?php echo $content ?></div>
-
-
         <div class="col-xs-12">
             <div class="adventure_program">
                 <div class="intro">

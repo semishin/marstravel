@@ -46,6 +46,7 @@
 
     <!-- Include  user-js -->
     <script src="/marstravel-bootstrap/js/script.js"></script>
+    <script src="/marstravel-bootstrap/js/holder.js"></script>
 
 
 </head>
@@ -179,10 +180,10 @@
                         <ul class="list-unstyled">
                             <li>
                                 <?php
-                                if (!Auth::instance()->logged_in()) { ?>
+                                if (Auth::instance()->logged_in()) { ?>
                                     <a href="/auth">Вход для партнёров</a>
                                 <?php } else {?>
-                                    <a href="/auth/logout">Выйти</a>
+                                    <a href="/auth/logout">Вход для партнёров</a>
                                 <?php } ?>
                             </li>
                             <li><a href="/our-partners">Наши партнёры</a></li>

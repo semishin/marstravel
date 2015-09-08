@@ -134,13 +134,9 @@
                             <!--<img src="<?php echo Lib_Image::resize_bg($item, 'tour',$id, 664, 382); ?>" class="current" style="display: inline">-->
                         <?php } ?>
                     </div>
-
-
                     <?php if(!$images) { ?>
-                        <img src="/files/image.png" class="<?php if ($index == 0) echo "current"  ?>" style="<?php if ($index == 0) echo "display: block;" ?>">
+                        <img src="holder.js/700x450">
                     <? } ?>
-
-
                     <div class="barousel_content" style="display: none">
                         <!-- content 1 -->
                         <?php foreach ($images as $index=>$item) { ?>
@@ -206,7 +202,7 @@
                 <div class="form-group date">
                     <p style="margin-bottom: 12px;padding-left: 25px;font-size: 16px;color: #111111;font-weight: bold">Выберите дату поездки</p>
 					<div class='input-group date add_error' id='datetimepicker'>
-						<input placeholder="Выберите дату" name="daterange" type='text' id="date" class="form-control" />
+						<input placeholder="Выберите дату" value="<?php echo  $free_date->start_date?>" name="daterange" type='text' id="date" class="form-control change_placeholder" />
 						<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
 					</div>
                 </div>
@@ -220,7 +216,7 @@
 							  var days = result.days;
 							  $('#datetimepicker').datetimepicker({
                                   locale: 'ru',
-                                  format: 'DD.MM.YYYY',
+                                  format: 'YYYY-MM-D',
 								  enabledDates: $.makeArray(days)
 							  });
 						  }
@@ -243,24 +239,24 @@
                         <button name="send_data_people" type="button" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span></button>
                     </div>
                 </div>
-<!--                <div class="form-group">-->
-<!--                    <div class="input-group">-->
-<!--                        <input type="text" class="form-control" id="code_2" placeholder="Код сертификата" name="code">-->
-<!--                        <span class="input-group-btn"><button name="check_coupon" class="btn btn-default" type="button" data-tour_id="--><?php //echo $id?><!--" data-coupon_code="">Применить</button></span>-->
-<!--                    </div>-->
-<!--                </div>-->
+
                 <div class="form-group bootstrap-select promo_code_block">
                     <input type="text" name="code"  id="code_2" class="form-control" placeholder="Введите промокод">
                     <span id="check_coupon" class="use_code_btn" data-tour_id="<?php echo $id?>" data-coupon_code="">Применить</span>
                 </div>
 
-                <div class="add_content_flight"></div>
+                <div class="add_content_flight">
+                    <p class="content_flight">
+                        <span>Стоимость перелета:</span>
+                        <b><?php echo number_format($free_date->price, 0, '', ' ')?> руб.</b>
+                    </p>
+                </div>
                 <div <?php if(!$price_single) { ?> class="hidden"<?php } ?>>
                     <div class="add_content_single_price hidden">
                         <p class="content_single_price"  data-single_price="<?php echo $price_single?>"><span>Доплата за одноместное размещение:</span> <b><?php echo number_format($price_single, 0, ' ', ' ');?> руб.</b></p>
                     </div>
               </div>
-                <p class="total_price"  data-price_adult="<?php echo $price?>" data-price_child="<?php echo $price_child?>"><span>Итоговая стоимость без сертификата:</span> <b><?php echo number_format($price * 2, 0, ' ', ' ');?> руб.</b></p>
+                <p class="total_price"  data-price_adult="<?php echo $price?>" data-price_child="<?php echo $price_child?>"><span>Итоговая стоимость без сертификата:</span> <b><?php echo number_format($price * 2 + $free_date->price, 0, ' ', ' ');?> руб.</b></p>
                 <a href="#pay" class="black_btn fancy" id="pay_btn_gen_1">Купить тур</a>
                 <div class="clearfix"></div>
                 <div style="display: none">

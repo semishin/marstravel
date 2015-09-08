@@ -47,6 +47,7 @@
     <script src="/marstravel-bootstrap/js/script.js"></script>
     <script src="/marstravel-bootstrap/js/jquery.printPage.js"></script>
     <script src="/marstravel-bootstrap/js/summernote.js"></script>
+    <script src="/marstravel-bootstrap/js/holder.js"></script>
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet" />
 
 </head>

@@ -1,20 +1,25 @@
 <div class="col-xs-12">
     <div class="slider_shadow"></div>
     <div class="grey_top_block">
-		<a href="/sight" class="back_to_main">&larr; <span>Назад</span></a>
+		<a href="/sights" class="back_to_main">&larr; <span>Назад</span></a>
         <p class="text-center header"><?php echo $name?></p>
     </div>
 </div>
 <div class="col-xs-12">
     <div class="row">
         <div class="col-xs-7 mb30">
-            <img src="<?php echo Lib_Image::resize_bg($main_image, 'sight',$id, 664, 382); ?>" class="<?php if ($index == 0) echo "current"  ?>" style="<?php if ($index == 0) echo "display: block;" ?>">
+            <?php if($main_image) { ?>
+                <img src="<?php echo Lib_Image::resize_bg($main_image, 'sight',$id, 664, 382); ?>" class="<?php if ($index == 0) echo "current"  ?>" style="<?php if ($index == 0) echo "display: block;" ?>">
+            <?php } else { ?>
+                <img src="holder.js/600x350">
+            <?php } ?>
         </div>
         <div class="col-xs-5">
             <div class="description_on_left">
               <?php echo $content;?>
             </div>
         </div>
+        <?php if($images) { ?>
         <div class="col-xs-12">
             <div class="adventure_program">
                 <div class="intro">
@@ -29,6 +34,8 @@
                 </div>
             </div>
         </div>
+        <?php } ?>
+        <?php if($excursions) { ?>
         <div class="col-xs-12">
             <div class="adventure_program">
                 <div class="intro">
@@ -39,5 +46,6 @@
                 </div>
             </div>
         </div>
+        <?php } ?>
     </div>
 </div>

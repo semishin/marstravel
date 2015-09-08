@@ -1643,6 +1643,25 @@ body{
     border-radius: 0px;
     color: #111111;
 }
+.image_holder:before{
+    content: '370x258';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: rgb(170, 170, 170);
+    font-weight: bold;
+    font-size: 26px;
+    margin-left: -50px;
+    margin-top: -18px;
+}
+
+.image_holder{
+    position: relative;
+    display: block;
+    background-color: rgb(238, 238, 238);
+    height: 300px;
+}
+
 .fancybox-close{
     top: 0px;
     right: 0px;

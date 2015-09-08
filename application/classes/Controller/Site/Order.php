@@ -26,14 +26,28 @@ class Controller_Site_Order extends Controller_Site
                 $surcharge = $this->request->post('surcharge');
                 $number_order = mb_substr(md5(time()), 0, 8);
 
+                $data_tour =  ORM::factory('Tour')->where('id', '=', $tour_id)->find();
+                $cost_flight = ORM::factory('PriceFlight')->where('end_date', '>=', $date)->where('start_date', '<=', $date)->find();
+
+                if($quantity_adults + $quantity_children == 1){
+                    if(!$data_tour->price_single){
+                        $price_single = 0;
+                    }else{
+                        $price_single = $data_tour->price_single;
+                    }
+                }
+
                 $order = ORM::factory('Order');
                 $order->tour_id = $tour_id;
                 $order->date = $date;
                 $order->quantity_adults = $quantity_adults;
                 $order->quantity_children = $quantity_children;
+                $order->price_adults = $data_tour->price *  $quantity_adults;
+                $order->price_child = $data_tour->price_child * $quantity_children;
                 $order->cost = $cost;
                 $order->fio = $fio;
                 $order->dob = $dob;
+                $order->total_price = ($data_tour->price *  $quantity_adults) + ($data_tour->price_child * $quantity_children) + $cost_flight->price + $price_single;
                 $order->passport = $passport;
                 $order->validity = $validity;
                 $order->issuedby = $issuedby;
