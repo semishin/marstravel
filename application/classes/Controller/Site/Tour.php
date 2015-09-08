@@ -18,6 +18,9 @@ class Controller_Site_Tour extends Controller_Site
                 $citiesHash[$city->id] = $city;
             }
         }
+        $current_date = date("Y-m-d");
+        $free_date = ORM::factory('PriceFlight')->where('free_places', '>=', 2)->where('start_date', '>=', $current_date)->order_by('start_date')->find();
+        $this->template->free_date = $free_date;
         $this->template->route = $ids;
         $this->template->cities = $citiesHash;
 
@@ -28,6 +31,7 @@ class Controller_Site_Tour extends Controller_Site
         $quantity_children = $this->request->post('quantity_children');
         $quantity_adults = $this->request->post('quantity_adults');
         $date = $this->request->post('date');
+        $current_date = date("Y-m-d");
         if(!$quantity_adults){
             $quantity_adults = 2;
         }
@@ -35,13 +39,19 @@ class Controller_Site_Tour extends Controller_Site
         if($date){
             $get_date = new DateTime($date);
             $date = $get_date->format('Y-m-d');
-            $cost_flight = ORM::factory('PriceFlight')->where('free_places', '>=', $quantity_people)->where('end_date', '>=', $date)->where('start_date', '<=', $date)->find();
+            $cost_flight = ORM::factory('PriceFlight')->where('free_places', '>=', $quantity_people)->where('end_date', '>=', $date)->where('start_date', '<=', $date)->where('start_date', '>=', $current_date)->find();
             exit(json_encode(array('cost_flight_view' => number_format($cost_flight->price, 0, ' ', ' '), 'cost_flight' => $cost_flight->price, 'quantity_adults' => $quantity_adults, 'quantity_children' => $quantity_children)));
         }
-        $free_date = ORM::factory('PriceFlight')->where('free_places', '>=', $quantity_people)->find_all();
+        $free_date = ORM::factory('PriceFlight')->where('free_places', '>=', $quantity_people)->where('start_date', '>=', $current_date)->find_all();
         $days = [];
+        $count_places = 0;
         foreach($free_date as $item){
             $days_array[] =  range(strtotime($item->start_date), strtotime($item->end_date), (24*60*60));
+            $count_places += $item->free_places;
+        }
+        if($count_places < $quantity_people){
+            exit(json_encode(array('message' => 'Извините. На данный момент нету столько свободных мест')));
+
         }
         foreach ($days_array as  $date) {
             foreach($date as $index => $item) {

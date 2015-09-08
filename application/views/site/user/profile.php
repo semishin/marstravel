@@ -6,7 +6,7 @@
                     <div class="left_menu">
                         <ul class="list-unstyled">
                             <li><a href="/user"><i class="icon icon_turkey"></i><span>Купоны</span></a></li>
-                            <li><a href="/user/profile"><i class="icon icon_attractions"></i><span>Профиль</span></a></li>
+                            <li><a href="/user/profile" class="active"><i class="icon icon_attractions"></i><span>Профиль</span></a></li>
                         </ul>
                         <p>
                             <a href="/auth/logout" class="black_btn logout_btn">Выйти</a>
@@ -40,7 +40,9 @@
                         <label for="address">Адрес</label>
                         <input type="text" class="form-control" id="address" name="address" placeholder="адрес" value="<?php echo $profile->address?>">
                     </div>
+                    <p>Реквизиты</p>
                     <div id="requisites"><?php echo $profile->requisites?></div>
+                    <p>Описание</p>
                     <div id="description"><?php echo $profile->description?></div>
                     <button type="submit" name="save_data_profile" class="btn btn-default save_data_profile">Сохранить</button>
                 </form>
