@@ -944,6 +944,7 @@ $( document ).ready(function() {
     $('button[name="send_data_people"]').click(function(){
         var quantity_adults = $('#adult_number').val();
         var quantity_children = $('#children_number').val();
+        var get_carent_date = $('input[name="daterange"]').val();
         if(!quantity_children){
             quantity_children = 0;
         }
@@ -968,7 +969,7 @@ $( document ).ready(function() {
             $.ajax({
                 type: "POST",
                 url: "/tour/get/info",
-                data: {quantity_adults: quantity_adults, quantity_children: quantity_children},
+                data: {quantity_adults: quantity_adults, quantity_children: quantity_children, get_carent_date: get_carent_date},
                 dataType: 'json',
                 success: function(result) {
                     if(result.message){

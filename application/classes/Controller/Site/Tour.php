@@ -40,6 +40,7 @@ class Controller_Site_Tour extends Controller_Site
         $quantity_children = $this->request->post('quantity_children');
         $quantity_adults = $this->request->post('quantity_adults');
         $date = $this->request->post('date');
+        $get_carent_date = $this->request->post('get_carent_date');
         $current_date = date("Y-m-d");
         if(!$quantity_adults){
             $quantity_adults = 2;
