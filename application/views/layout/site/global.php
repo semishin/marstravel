@@ -158,7 +158,7 @@
                     <div class="row">
                         <?php foreach($row as $item) { ?>
                             <div class="col-xs-3">
-                                <a href="http://<?php echo $item->link; ?>">
+                                <a href="http://<?php echo $item->link; ?>" target="_blank">
                                     <img src="<?php echo $item->image; ?>" class="img-responsive">
                                 </a>
                             </div>

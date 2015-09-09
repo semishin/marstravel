@@ -7,7 +7,7 @@ class Controller_Site extends Controller
 
 	protected $_model;
 
-    const LIMIT_ON_PAGE_PARTNERS = 8;
+    const LIMIT_ON_PAGE_PARTNERS = 100;
     const LIMIT_ON_PAGE_BANNERS = 1;
 
 	public function before()
