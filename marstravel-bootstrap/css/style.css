@@ -1912,6 +1912,9 @@ ul.modified>li:before{
 .promo_code_block.error{
     background-color: red;
 }
+.promo_code_block.succes{
+    background-color: lawngreen;
+}
 .promo_code_block>input{
     border-radius: 19px;
 }
@@ -1919,7 +1922,8 @@ ul.modified>li:before{
     width: 98px;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
-
+    padding: 0px;
+    border: 0px;
 }
 
 

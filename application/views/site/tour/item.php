@@ -240,9 +240,9 @@
                     </div>
                 </div>
 
-                <div class="form-group bootstrap-select promo_code_block">
+                <div class="form-group bootstrap-select promo_code_block" >
                     <input type="text" name="code"  id="code_2" class="form-control" placeholder="Введите промокод">
-                    <span id="check_coupon" class="use_code_btn" data-tour_id="<?php echo $id?>" data-coupon_code="">Применить</span>
+                    <button  id="check_coupon"  class="use_code_btn" data-tour_id="<?php echo $id?>" data-coupon_code="">Применить</button>
                 </div>
 
                 <div class="add_content_flight">

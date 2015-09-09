@@ -360,10 +360,13 @@ $( document ).ready(function() {
             },
             success : function(jsondata) {
                 if (jsondata.coupon_id == 0) {
-                    $('#code_2').parent().addClass('error');
+                    $('.promo_code_block').addClass('error');
                     $('input[name="code"]').val('Неверный код сертификата');
                     return false;
                 } else {
+                    $('.promo_code_block').addClass('succes');
+                    $('.promo_code_block .use_code_btn').attr('disabled', true);
+                    $('.promo_code_block input[name="code"]').attr('disabled', true);
                     $('.certificate_hidden.hidden').removeClass('hidden');
                     $('input[name="code"]').val('Код сертификата '+ jsondata.code_coupon +' принят');
                     $('input[name="code"]').data('coupon_code', jsondata.code_coupon);
