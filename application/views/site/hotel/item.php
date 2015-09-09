@@ -10,7 +10,67 @@
 
 <div class="col-xs-12">
     <div class="full_width">
-        <script type="text/javascript" charset="utf-8" src="//api-maps.yandex.ru/services/constructor/1.0/js/?sid=29uD3jKC-8XFdTlfCwkxSmnSQkYPbrYH&id=map"></script>
+
+        <script>
+            ymaps.ready(init);
+
+            function init() {
+                var myMap = new ymaps.Map('map', {
+                    center: [55.753994, 37.622093],
+                    zoom: 9
+                });
+
+                // Поиск координат центра Нижнего Новгорода.
+                ymaps.geocode('<?php echo $address?>', {
+                    results: 1
+                }).then(function (res) {
+
+                    var firstGeoObject = res.geoObjects.get(0),
+
+                        coords = firstGeoObject.geometry.getCoordinates(),
+                    // Область видимости геообъекта.
+                        bounds = firstGeoObject.properties.get('boundedBy');
+
+                    // Добавляем первый найденный геообъект на карту.
+                    myMap.geoObjects.add(firstGeoObject);
+                    // Масштабируем карту на область видимости геообъекта.
+                    myMap.setBounds(bounds, {
+                        // Проверяем наличие тайлов на данном масштабе.
+                        checkZoomRange: true
+                    });
+
+                    /**
+                     * Все данные в виде javascript-объекта.
+                     */
+                    console.log('Все данные геообъекта: ', firstGeoObject.properties.getAll());
+                    /**
+                     * Метаданные запроса и ответа геокодера.
+                     * @see https://api.yandex.ru/maps/doc/geocoder/desc/reference/GeocoderResponseMetaData.xml
+                     */
+                    console.log('Метаданные ответа геокодера: ', res.metaData);
+                    /**
+                     * Метаданные геокодера, возвращаемые для найденного объекта.
+                     * @see https://api.yandex.ru/maps/doc/geocoder/desc/reference/GeocoderMetaData.xml
+                     */
+                    console.log('Метаданные геокодера: ', firstGeoObject.properties.get('metaDataProperty.GeocoderMetaData'));
+                    /**
+                     * Точность ответа (precision) возвращается только для домов.
+                     * @see https://api.yandex.ru/maps/doc/geocoder/desc/reference/precision.xml
+                     */
+                    console.log('precision', firstGeoObject.properties.get('metaDataProperty.GeocoderMetaData.precision'));
+                    /**
+                     * Тип найденного объекта (kind).
+                     * @see https://api.yandex.ru/maps/doc/geocoder/desc/reference/kind.xml
+                     */
+                    console.log('Тип геообъекта: %s', firstGeoObject.properties.get('metaDataProperty.GeocoderMetaData.kind'));
+                    console.log('Название объекта: %s', firstGeoObject.properties.get('name'));
+                    console.log('Описание объекта: %s', firstGeoObject.properties.get('description'));
+                    console.log('Полное описание объекта: %s', firstGeoObject.properties.get('text'));
+
+                });
+            }
+        </script>
+
         <div id="map" style="width: 100%; height: 275px"></div>
     </div>
 </div>

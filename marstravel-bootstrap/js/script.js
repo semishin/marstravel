@@ -947,7 +947,6 @@ $( document ).ready(function() {
         if(!quantity_children){
             quantity_children = 0;
         }
-
         if(!quantity_adults){
             quantity_adults = 0;
         }

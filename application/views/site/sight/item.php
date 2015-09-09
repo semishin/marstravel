@@ -9,7 +9,7 @@
     <div class="row">
         <div class="col-xs-7 mb30">
             <?php if($main_image) { ?>
-                <img src="<?php echo Lib_Image::resize_bg($main_image, 'sight',$id, 664, 382); ?>" class="<?php if ($index == 0) echo "current"  ?>" style="<?php if ($index == 0) echo "display: block;" ?>">
+                <img  src="<?php echo Lib_Image::resize_bg($main_image, 'sight',$id, 664, 382); ?>" class="<?php if ($index == 0) echo "current"  ?> img-responsive" style="<?php if ($index == 0) echo "display: block;" ?>">
             <?php } else { ?>
                 <img src="holder.js/600x350">
             <?php } ?>
