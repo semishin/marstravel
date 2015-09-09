@@ -1003,7 +1003,7 @@ $( document ).ready(function() {
                     if (data.cost_flight) {
                         console.log(quantity_adults , price, quantity_children, price_child, parseInt(data.cost_flight));
                         var cost = ((quantity_adults * price) + (quantity_children * price_child) + parseInt(data.cost_flight)+ parseInt(single_price));
-                        $('.total_price b').html('' + cost + ' руб.');
+                        $('.total_price b').html('' + numFormat(cost) + ' руб.');
                         $('.add_content_flight').html('<p class="content_flight"> <span>Стоимость перелета:</span> <b>' + numFormat(data.cost_flight_view) + ' руб.</b> </p>');
                     }
                 }
