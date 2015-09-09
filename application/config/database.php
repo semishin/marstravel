@@ -7,7 +7,7 @@ return array(
 			'username'   => 'root',
 			'password'   => 'woo4aDoo',
 			'database'   => 'mars.ariol.by',
-			'hostname'   => 'localhost',
+			'hostname'   => 'ariol.by',
 		),
 		'table_prefix' => '',
         'charset'      => 'utf8',

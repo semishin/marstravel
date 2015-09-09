@@ -19,9 +19,18 @@ class Controller_Site_Tour extends Controller_Site
             }
         }
         $current_date = date("Y-m-d");
-        $free_date = ORM::factory('PriceFlight')->where('free_places', '>=', 2)->where('start_date', '>=', $current_date)->order_by('start_date')->find();
+        $free_date = ORM::factory('PriceFlight')->where('free_places', '>=', 2)->where('start_date', '<=', $current_date)->order_by('start_date')->find();
+        $days = [];
+        $count_places = 0;
+        foreach($free_date as $item){
+            $days_array[] =  range(strtotime($item->start_date), strtotime($item->end_date), (24*60*60));
+            if($current_date == range(strtotime($item->start_date), strtotime($item->end_date), (24*60*60))){
+                $current_date = range(strtotime($item->start_date), strtotime($item->end_date), (48*60*60));
+            }
+        }
         $this->template->free_date = $free_date;
         $this->template->route = $ids;
+        $this->template->current_date = $current_date;
         $this->template->cities = $citiesHash;
 
     }

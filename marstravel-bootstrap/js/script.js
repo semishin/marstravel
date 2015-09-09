@@ -22,6 +22,30 @@ function isValidEmailAddress(emailAddress) {
     return pattern.test(emailAddress);
 }
 
+
+function numFormat(n, d, s) { // number format function
+    if (arguments.length == 2) { s = " "; }
+    if (arguments.length == 1) { s = " "; d = "."; }
+    n = n.toString();
+    a = n.split(d);
+    x = a[0];
+    y = a[1];
+    z = "";
+    if (typeof(x) != "undefined") {
+        for (i=x.length-1;i>=0;i--)
+            z += x.charAt(i);
+        z = z.replace(/(\d{3})/g, "$1" + s);
+        if (z.slice(-s.length) == s)
+            z = z.slice(0, -s.length);
+        x = "";
+        for (i=z.length-1;i>=0;i--)
+            x += z.charAt(i);
+        if (typeof(y) != "undefined" && y.length > 0)
+            x += d + y;
+    }
+    return x;
+}
+
 // A $( document ).ready() block.
 $( document ).ready(function() {
 
@@ -138,13 +162,6 @@ $( document ).ready(function() {
     });
 
 
-
-    //if($('input[name="daterange"]').length>0){
-    //    $('input[name="daterange"]').daterangepicker({
-    //        singleDatePicker: true,
-    //        showDropdowns: true
-    //    });
-    //}
 
 
     if($('#any_id').length>0){
@@ -295,7 +312,7 @@ $( document ).ready(function() {
             var  single_price = 0;
         }
         cost +=  parseInt(single_price, 10);
-        $('.total_price b').html(''+cost+' руб.');
+        $('.total_price b').html(''+numFormat(cost)+' руб.');
     });
 
     $('#pay_btn_gen_1').click(function(e) {
@@ -912,8 +929,14 @@ $( document ).ready(function() {
         if(!quantity_children){
             quantity_children = 0;
         }
+
         if(!quantity_adults){
             quantity_adults = 0;
+        }
+        if(quantity_adults == 1){
+            $(".counter1>.btn-group>button:first-child").attr('disabled', true);
+        }else{
+            $(".counter1>.btn-group>button:first-child").attr('disabled', false);
         }
         var single_price = $('.content_single_price').data('single_price');
         if(((parseInt(quantity_adults) + parseInt(quantity_children)) == 1) &&  single_price > 0){
@@ -931,10 +954,12 @@ $( document ).ready(function() {
                 success: function(result) {
                     if(result.message){
                             $('input[name="daterange"]').parent().addClass('error');
+                            $(".counter1>.btn-group>button:last-child").attr('disabled', true);
                             $('.change_placeholder').attr('placeholder', result.message);
                             $('.change_placeholder').attr("disabled", true);
                         }else{
                             $('.change_placeholder').attr("disabled", false);
+                            $(".counter1>.btn-group>button:last-child").attr('disabled', false);
                             $('#datetimepicker').data("DateTimePicker").clear();
                             $('#datetimepicker').data("DateTimePicker").destroy();
                             $('.add_content_flight').html(' ');
@@ -942,7 +967,8 @@ $( document ).ready(function() {
                             $('.change_placeholder').attr('placeholder', 'Выберите дату');
                             var days = result.days;
                             $('#datetimepicker').datetimepicker({
-                                format: 'YYYY-MM-D',
+                                useCurrent: false,
+                                format: 'YYYY-MM-DD',
                                 enabledDates: $.makeArray(days)
                             });
                         }
@@ -978,7 +1004,7 @@ $( document ).ready(function() {
                         console.log(quantity_adults , price, quantity_children, price_child, parseInt(data.cost_flight));
                         var cost = ((quantity_adults * price) + (quantity_children * price_child) + parseInt(data.cost_flight)+ parseInt(single_price));
                         $('.total_price b').html('' + cost + ' руб.');
-                        $('.add_content_flight').html('<p class="content_flight"> <span>Стоимость перелета:</span> <b>' + data.cost_flight_view + ' руб.</b> </p>');
+                        $('.add_content_flight').html('<p class="content_flight"> <span>Стоимость перелета:</span> <b>' + numFormat(data.cost_flight_view) + ' руб.</b> </p>');
                     }
                 }
             })

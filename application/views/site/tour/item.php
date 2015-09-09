@@ -202,7 +202,7 @@
                 <div class="form-group date">
                     <p style="margin-bottom: 12px;padding-left: 25px;font-size: 16px;color: #111111;font-weight: bold">Выберите дату поездки</p>
 					<div class='input-group date add_error' id='datetimepicker'>
-						<input placeholder="Выберите дату" value="<?php echo  $free_date->start_date?>" name="daterange" type='text' id="date" class="form-control change_placeholder" />
+						<input placeholder="Выберите дату" value="<?php echo  $current_date?>" name="daterange" type='text' id="date" class="form-control change_placeholder" />
 						<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
 					</div>
                 </div>
@@ -216,7 +216,7 @@
 							  var days = result.days;
 							  $('#datetimepicker').datetimepicker({
                                   locale: 'ru',
-                                  format: 'YYYY-MM-D',
+                                  format: 'YYYY-MM-DD',
 								  enabledDates: $.makeArray(days)
 							  });
 						  }
