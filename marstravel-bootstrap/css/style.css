@@ -1217,7 +1217,7 @@ body{
     font-size: 16px;
     color: #111111;
 }
-.order_tour .total_price, .content_flight{
+.order_tour .total_price, .content_flight .total_price_coupon{
     margin-bottom: 35px;
     position: relative;
     margin-right: 25px;
@@ -1226,7 +1226,7 @@ body{
     font-size: 16px;
     color: #111111;
 }
-.order_tour .total_price:before, .content_flight:before{
+.order_tour .total_price:before, .content_flight:before, .total_price_coupon:before{
     border-bottom: 1px solid #cccccc;
     display: inline-block;
     position: absolute;
@@ -1235,19 +1235,19 @@ body{
     bottom: 5px;
     left: 0px;
 }
-.order_tour .total_price:after, .content_flight:after{
+.order_tour .total_price:after, .content_flight:after, .total_price_coupon:after{
     display: block;
     content: " ";
     clear: both;
 }
-.order_tour .total_price>span, .content_flight>span{
+.order_tour .total_price>span, .content_flight>span, .total_price_coupon>span{
     background-color: #ffffff;
     padding-bottom: 5px;
     position: relative;
     padding-top: 12px;
     float: left;
 }
-.order_tour .total_price>b, .content_flight>b{
+.order_tour .total_price>b, .content_flight>b, .total_price_coupon>b{
     background-color: #ffffff;
     position: relative;
     font-size: 28px;
@@ -1255,7 +1255,7 @@ body{
     float: right;
 }
 
-.order_tour .total_price, .content_single_price{
+.order_tour .total_price, .content_single_price, .total_price_coupon{
     margin-bottom: 35px;
     position: relative;
     margin-right: 25px;
@@ -1264,7 +1264,7 @@ body{
     font-size: 16px;
     color: #111111;
 }
-.order_tour .total_price:before, .content_single_price:before{
+.order_tour .total_price:before, .content_single_price:before, .total_price_coupon:before{
     border-bottom: 1px solid #cccccc;
     display: inline-block;
     position: absolute;
@@ -1273,19 +1273,19 @@ body{
     bottom: 5px;
     left: 0px;
 }
-.order_tour .total_price:after, .content_single_price:after{
+.order_tour .total_price:after, .content_single_price:after, .total_price_coupon:after{
     display: block;
     content: " ";
     clear: both;
 }
-.order_tour .total_price>span, .content_single_price>span{
+.order_tour .total_price>span, .content_single_price>span, .total_price_coupon>span{
     background-color: #ffffff;
     padding-bottom: 5px;
     position: relative;
     padding-top: 12px;
     float: left;
 }
-.order_tour .total_price>b, .content_single_price>b{
+.order_tour .total_price>b, .content_single_price>b, .total_price_coupon>b{
     background-color: #ffffff;
     position: relative;
     font-size: 28px;

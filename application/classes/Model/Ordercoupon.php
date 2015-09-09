@@ -33,7 +33,7 @@ class Model_Ordercoupon extends ORM
             'phone' => 'Номер телефона',
             'agreement' => 'Согласие с условиями',
             'coupon_id' => 'Номер купона',
-            'surcharge' => 'Доплата',
+            'surcharge' => 'Доплата за одноместное размещение',
             'number_order' => 'Номер заказа'
         );
     }

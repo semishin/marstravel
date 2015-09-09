@@ -340,6 +340,16 @@ $( document ).ready(function() {
 
     $('#check_coupon').click(function(e){
         e.preventDefault();
+        var quantity_adults = $('#adult_number').val();
+        var quantity_children = $('#children_number').val();
+        var single_price = $('.content_single_price').data('single_price');
+        var date = $('.day.active').attr('data-day');
+        if(!quantity_children){
+            quantity_children = 0;
+        }
+        if(!quantity_adults){
+            quantity_adults = 0;
+        }
         var tour_id = $(this).data('tour_id');
         if($('#code_2').length>0){
             var code = $('#code_2').val();
@@ -356,7 +366,10 @@ $( document ).ready(function() {
             type : "post",
             data : {
                 code : code,
-                tour_id : tour_id
+                tour_id : tour_id,
+                date: date,
+                quantity_adults: quantity_adults,
+                quantity_children: quantity_children
             },
             success : function(jsondata) {
                 if (jsondata.coupon_id == 0) {
@@ -364,6 +377,8 @@ $( document ).ready(function() {
                     $('input[name="code"]').val('Неверный код сертификата');
                     return false;
                 } else {
+                    $('.coupon_hidden').addClass('hidden');
+                    $('.coupon_view_content').removeClass('hidden');
                     $('.promo_code_block').addClass('succes');
                     $('.promo_code_block .use_code_btn').attr('disabled', true);
                     $('.promo_code_block input[name="code"]').attr('disabled', true);
@@ -948,6 +963,8 @@ $( document ).ready(function() {
             $('.add_content_single_price').removeClass('hidden');
         }else{
             $('.add_content_single_price').addClass('hidden');
+            $('.surcharge_single').addClass('hidden');
+            $('.surcharge').removeClass('hidden');
         }
             $.ajax({
                 type: "POST",
@@ -1004,9 +1021,11 @@ $( document ).ready(function() {
                 dataType: 'json',
                 success: function (data) {
                     if (data.cost_flight) {
+                        var cost_flight = parseInt(data.cost_flight);
                         console.log(quantity_adults , price, quantity_children, price_child, parseInt(data.cost_flight));
-                        var cost = ((quantity_adults * price) + (quantity_children * price_child) + parseInt(data.cost_flight)+ parseInt(single_price));
+                        var cost = ((quantity_adults * price) + (quantity_children * price_child) + (cost_flight * (parseInt(quantity_adults) + parseInt(quantity_children)))+ parseInt(single_price));
                         $('.total_price b').html('' + numFormat(cost) + ' руб.');
+                        $('.total_price_coupon b').html('' + numFormat(cost_flight*(parseInt(quantity_adults) + parseInt(quantity_children))) + ' руб.');
                         $('.add_content_flight').html('<p class="content_flight"> <span>Стоимость перелета:</span> <b>' + numFormat(data.cost_flight_view) + ' руб.</b> </p>');
                     }
                 }

@@ -251,12 +251,25 @@
                         <b><?php echo number_format($free_date->price, 0, '', ' ')?> руб.</b>
                     </p>
                 </div>
-                <div <?php if(!$price_single) { ?> class="hidden"<?php } ?>>
-                    <div class="add_content_single_price hidden">
-                        <p class="content_single_price"  data-single_price="<?php echo $price_single?>"><span>Доплата за одноместное размещение:</span> <b><?php echo number_format($price_single, 0, ' ', ' ');?> руб.</b></p>
+                <div class="coupon_hidden">
+                    <div <?php if(!$price_single) { ?> class="hidden"<?php } ?>>
+                        <div class="add_content_single_price hidden">
+                            <p class="content_single_price"  data-single_price="<?php echo $price_single?>"><span>Доплата за одноместное размещение:</span> <b><?php echo number_format($price_single, 0, ' ', ' ');?> руб.</b></p>
+                        </div>
                     </div>
-              </div>
-                <p class="total_price"  data-price_adult="<?php echo $price?>" data-price_child="<?php echo $price_child?>"><span>Итоговая стоимость без сертификата:</span> <b><?php echo number_format($price * 2 + $free_date->price, 0, ' ', ' ');?> руб.</b></p>
+                </div>
+                <div class="coupon_hidden">
+                    <p class="total_price"  data-price_adult="<?php echo $price?>" data-price_child="<?php echo $price_child?>">
+                        <span>Итоговая стоимость без сертификата:</span>
+                        <b><?php echo number_format($price * 2 + ($free_date->price * 2), 0, ' ', ' ');?> руб.</b>
+                    </p>
+                </div>
+                <div class="coupon_view_content hidden">
+                    <p class="total_price_coupon"  data-price_adult="<?php echo $price?>" data-price_child="<?php echo $price_child?>">
+                        <span>Итого с использованием сертификата:</span>
+                        <b><?php echo number_format($free_date->price, 0, ' ', ' ');?> руб.</b>
+                    </p>
+                </div>
                 <a href="#pay" class="black_btn fancy" id="pay_btn_gen_1">Купить тур</a>
                 <div class="clearfix"></div>
                 <div style="display: none">
@@ -309,8 +322,10 @@
                                     Доплата за одноместное размещение 120 долларов
                                 </label>
                             </div>
-                            <div class="form-group text-left surcharge_single hidden checkbox" data-price_single="<?php echo $price_single?>">
+                            <div class="coupon_hidden">
+                                <div class="form-group text-left surcharge_single hidden checkbox" data-price_single="<?php echo $price_single?>">
                                     <b>Доплата за одноместное размещение <?php echo number_format($price_single, 0, ' ', ' ') ?> руб.</b>
+                                </div>
                             </div>
                             <a href="#" class="red_btn" id="pay_btn" data-id="<?php echo $id?>">Отправить</a>
                         </form>
