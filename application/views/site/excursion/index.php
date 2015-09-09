@@ -1,7 +1,6 @@
 <div class="col-xs-12">
     <div class="slider_shadow"></div>
     <div class="grey_top_block">
-        <a href="/" class="back_to_main">&larr; <span>Назад на главную</span></a>
         <p class="text-center header">Экскурсии по Турции</p>
         <p class="text-center duration" id="count_excursion">всего <?php echo $count_excursion; ?> экскурсий</p>
         <div class="filter">
@@ -43,11 +42,17 @@
                         <div class="col-xs-4">
                             <div class="sight">
                                 <div class="image">
-                                    <a href="/excursion/<?php echo $item->url ?>"><img src="<?php echo Lib_Image::resize_bg($item->main_image, 'excursion',$item->id, 370, 258); ?>" class="img-responsive"></a>
+                                    <a href="/excursion/<?php echo $item->url ?>">
+                                        <?php if($item->main_image) { ?>
+                                            <img src="<?php echo Lib_Image::resize_bg($item->main_image, 'excursion',$item->id, 370, 258); ?>" class="img-responsive">
+                                        <?php } else { ?>
+                                            <img src="holder.js/370x258">
+                                        <?php } ?>
+                                    </a>
                                 </div>
                                 <div class="name">
                                     <a href="/excursion/<?php echo $item->url ?>"><?php echo $item->name ?></a>
-                                    <p class="additional_text"><?php echo $item->city_name ?>, <?php echo $item->category_name ?></p>
+                                    <p class="additional_text"><?php echo $item->city_name ?> <?php if($item->city_name && $item->category_name) echo ', '?> <?php echo $item->category_name ?></p>
                                 </div>
                             </div>
                         </div>

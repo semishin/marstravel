@@ -15,7 +15,7 @@
                                         <?php if($item->main_image) { ?>
                                             <img src="<?php echo Lib_Image::resize_bg($item->main_image, 'hotel',$item->id, 370, 258); ?>" class="img-responsive">
                                         <?php } else { ?>
-                                            <div class="image_holder"></div>
+                                            <img src="holder.js/370x258">
                                         <?php } ?>
                                     </a>
                                 </div>
