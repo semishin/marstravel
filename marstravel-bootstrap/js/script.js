@@ -987,6 +987,7 @@ $( document ).ready(function() {
                             $('.change_placeholder').attr('placeholder', 'Выберите дату');
                             var days = result.days;
                             $('#datetimepicker').datetimepicker({
+                                locale: 'ru',
                                 useCurrent: false,
                                 format: 'YYYY-MM-DD',
                                 enabledDates: $.makeArray(days)
