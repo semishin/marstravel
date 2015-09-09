@@ -2,7 +2,6 @@
 <div class="col-xs-12">
     <div class="slider_shadow"></div>
     <div class="grey_top_block">
-        <div class="hotel_stars"><span><?php echo $stars ?></span></div>
         <a href="/excursions" class="back_to_main">&larr; <span>К списку экскурсий</span></a>
         <p class="text-center header"><?php echo $name ?></p>
     </div>
@@ -25,11 +24,11 @@
         <div class="col-xs-12">
             <div class="adventure_program">
                 <div class="intro">
-                    <p class="text-center header">Дополнительные изображения</p>
+                    <p class="text-center header mb30">Дополнительные изображения</p>
                     <p class="text">
                         <?php foreach($images as $item) { ?>
                             <a class="images_sight" rel="gallery1" href="<?php echo $item;?>" title="<?php echo $name?>">
-                                <img src="<?php echo $item;?>">
+                                <img src="<?php echo $item;?>" class="img-rounded col-xs-3 mb30" />
                             </a>
                         <?php } ?>
                     </p>

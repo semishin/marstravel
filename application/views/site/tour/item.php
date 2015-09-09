@@ -245,7 +245,7 @@
                     <button  id="check_coupon"  class="use_code_btn" data-tour_id="<?php echo $id?>" data-coupon_code="">Применить</button>
                 </div>
 
-                <div class="add_content_flight">
+                <div class="add_content_flight hidden">
                     <p class="content_flight">
                         <span>Стоимость перелета:</span>
                         <b><?php echo number_format($free_date->price, 0, '', ' ')?> руб.</b>
