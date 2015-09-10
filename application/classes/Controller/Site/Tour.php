@@ -6,11 +6,8 @@ class Controller_Site_Tour extends Controller_Site
     public function action_item()
     {
         $this->set_metatags_and_content($this->param('url'), 'tour');
-
         $this->template->images = json_decode($this->_model->images, true);
-
         $ids = @unserialize($this->_model->route);
-
         $citiesHash = array();
         if ($ids) {
             $cities = ORM::factory('City')->where('id', 'IN', $ids)->find_all()->as_array();
@@ -19,18 +16,21 @@ class Controller_Site_Tour extends Controller_Site
             }
         }
         $current_date = date("Y-m-d");
-        $free_date = ORM::factory('PriceFlight')->where('free_places', '>=', 2)->where('start_date', '<=', $current_date)->order_by('start_date')->find();
+        $free_date = ORM::factory('PriceFlight')->where('free_places', '>=', 2)->order_by('start_date')->find_all();
         $days = [];
-        $count_places = 0;
         foreach($free_date as $item){
             $days_array[] =  range(strtotime($item->start_date), strtotime($item->end_date), (24*60*60));
-            if($current_date == range(strtotime($item->start_date), strtotime($item->end_date), (24*60*60))){
-                $current_date = range(strtotime($item->start_date), strtotime($item->end_date), (48*60*60));
+        }
+        foreach ($days_array as  $dat) {
+            foreach($dat as $index => $item) {
+                if(date('Y-m-d', $item) > $current_date){
+                    $days[] = date('Y-m-d', $item);
+                }
             }
         }
         $this->template->free_date = $free_date;
         $this->template->route = $ids;
-        $this->template->current_date = $current_date;
+        $this->template->current_date = $days[0];
         $this->template->cities = $citiesHash;
 
     }
@@ -41,36 +41,93 @@ class Controller_Site_Tour extends Controller_Site
         $quantity_adults = $this->request->post('quantity_adults');
         $date = $this->request->post('date');
         $get_carent_date = $this->request->post('get_carent_date');
+        $tour_id = $this->request->post('tour_id');
+        $quantity_people = $quantity_children + $quantity_adults;
+        $days = [];
+        $count_places = 0;
+        if($date){
+            $format_date = new DateTime($date);
+            $date = $format_date->format('Y-m-d');
+        }
         $current_date = date("Y-m-d");
         if(!$quantity_adults){
             $quantity_adults = 2;
         }
-        $quantity_people = $quantity_children + $quantity_adults;
-        if($date){
-            $get_date = new DateTime($date);
-            $date = $get_date->format('Y-m-d');
-            $cost_flight = ORM::factory('PriceFlight')->where('free_places', '>=', $quantity_people)->where('end_date', '>=', $date)->where('start_date', '<=', $date)->find();
-            exit(json_encode(array('cost_flight_view' => number_format($cost_flight->price, 0, ' ', ' '), 'cost_flight' => $cost_flight->price, 'quantity_adults' => $quantity_adults, 'quantity_children' => $quantity_children)));
-        }
-        $free_date = ORM::factory('PriceFlight')->where('free_places', '>=', $quantity_people)->where('end_date', '>=', $current_date)->find_all();
-        $days = [];
-        $count_places = 0;
-        foreach($free_date as $item){
+        $tour = ORM::factory('Tour')->where('id', '=', $tour_id)->find();
+
+        $cost_flight = ORM::factory('PriceFlight')
+            ->where('free_places', '>=', $quantity_people)
+            ->where('end_date', '>=', $get_carent_date)
+            ->where('start_date', '<=', $get_carent_date)
+            ->find();
+
+        $free_date_total = ORM::factory('PriceFlight')
+            ->where('free_places', '>=', $quantity_people)
+            ->where('end_date', '>=', $current_date)
+            ->find_all();
+
+        $free_place_carent_date = ORM::factory('PriceFlight')
+            ->where('free_places', '>=', $quantity_adults)
+            ->where('start_date', '<=', $get_carent_date)
+            ->order_by('start_date')
+            ->find();
+
+        foreach($free_date_total as $item){
             $days_array[] =  range(strtotime($item->start_date), strtotime($item->end_date), (24*60*60));
             $count_places += $item->free_places;
         }
         if($count_places < $quantity_people){
-            exit(json_encode(array('message' => 'Извините. На данный момент нету столько свободных мест')));
-
+            exit(json_encode(array('message' => 'Извините. На данный момент нет столько свободных мест')));
         }
-        foreach ($days_array as  $date) {
-            foreach($date as $index => $item) {
+
+        if(!$get_carent_date || (($free_place_carent_date->free_places + 5) < $quantity_people) &&  $free_place_carent_date->free_places < $quantity_people){
+            foreach ($days_array as  $dat) {
+                foreach($dat as $index => $item) {
+                    if(date('Y-m-d', $item) > $current_date){
+                        $days[] = date('Y-m-d', $item);
+                    }
+                }
+            }
+            exit(json_encode(array(
+                'not_free_places_carent_date' => 'Выберите дату',
+                'days' => $days)));
+        }
+
+        if($free_place_carent_date->free_places < $quantity_people){
+            foreach ($days_array as  $dat) {
+                foreach($dat as $index => $item) {
+                    if(date('Y-m-d', $item) > $current_date){
+                        $days[] = date('Y-m-d', $item);
+                    }
+                }
+            }
+            exit(json_encode(array(
+                'not_free_places_carent_date' => 'Извините. На текущую дату '. $get_carent_date .' нет '. $quantity_people .' мест',
+                'days' => $days)));
+        }
+
+        foreach ($days_array as  $dat) {
+            foreach($dat as $index => $item) {
                 if(date('Y-m-d', $item) > $current_date){
                     $days[] = date('Y-m-d', $item);
                 }
             }
         }
-        exit(json_encode(array('days' => $days, 'quantity_adults' => $quantity_adults, 'quantity_children' => $quantity_children)));
+        if($quantity_people == 1){
+            $price_single = $tour->price_single;
+        }else{
+            $price_single = 0;
+        }
+        $total_cost_not_coupon = ($cost_flight->price * $quantity_people) + ($tour->price * $quantity_adults) + ($tour->price_child * $quantity_children) + $price_single;
+        $total_cost_coupon = $cost_flight->price * $quantity_people;
+        exit(json_encode(array(
+            'days' => $days,
+            'quantity_adults' => $quantity_adults,
+            'quantity_children' => $quantity_children,
+            'total_cost_not_coupon' => $total_cost_not_coupon,
+            'total_cost_coupon' => $total_cost_coupon,
+            'cost_flight' => $cost_flight->price,
+            'free_place_carent_date' => $free_place_carent_date)));
     }
 
 }

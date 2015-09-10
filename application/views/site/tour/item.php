@@ -197,7 +197,7 @@
                 </div>
                 <div class="clearfix"></div>
             </div>
-            <div class="order_tour" id="from_top_get_free_button">
+            <div class="order_tour" data-tour_id="<?php echo $id;?>" id="from_top_get_free_button">
                 <p class="text-center">Заказ тура</p>
                 <div class="form-group date">
                     <p style="margin-bottom: 12px;padding-left: 25px;font-size: 16px;color: #111111;font-weight: bold">Выберите дату поездки</p>
@@ -207,12 +207,14 @@
 					</div>
                 </div>
 				<script>
-				  $(function () {
+                    window.onload = function () {
+                        var tour_id = '<?php echo $id;?>';
 					  $.ajax({
 						  type: "POST",
 						  url: "/tour/get/info",
 						  dataType: 'json',
-						  success: function(result) {
+                          data: {tour_id: tour_id},
+                          success: function(result) {
 							  var days = result.days;
 							  $('#datetimepicker').datetimepicker({
                                   locale: 'ru',
@@ -221,7 +223,7 @@
 							  });
 						  }
 					  });
-				  });
+				  }
 				</script>
                 <div class="form-group counter counter1">
                     <label for="adult_number">Количество взрослых</label>

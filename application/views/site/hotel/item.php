@@ -20,7 +20,6 @@
                     zoom: 9
                 });
 
-                // Поиск координат центра Нижнего Новгорода.
                 ymaps.geocode('<?php echo $address?>', {
                     results: 1
                 }).then(function (res) {

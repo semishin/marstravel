@@ -293,28 +293,6 @@ $( document ).ready(function() {
         }
     });
 
-    $('.form-group.counter button').click(function(e) {
-        e.preventDefault();
-        var quantity_adults = $('#adult_number').val();
-        var quantity_children = $('#children_number').val();
-        if(!quantity_children){
-            quantity_children = 0;
-        }
-        if(!quantity_adults){
-            quantity_adults = 0;
-        }
-        var price = $('.total_price').data('price_adult');
-        var price_child = $('.total_price').data('price_child');
-        var cost = ((quantity_adults * price) + (quantity_children * price_child));
-        if(parseInt(quantity_adults, 10) + quantity_children == 1) {
-            var single_price = $('.content_single_price').data("single_price");
-        }else{
-            var  single_price = 0;
-        }
-        cost +=  parseInt(single_price, 10);
-        $('.total_price b').html(''+numFormat(cost)+' руб.');
-    });
-
     $('#pay_btn_gen_1').click(function(e) {
         e.preventDefault();
         var date = $('#date').val();
@@ -945,6 +923,7 @@ $( document ).ready(function() {
         var quantity_adults = $('#adult_number').val();
         var quantity_children = $('#children_number').val();
         var get_carent_date = $('input[name="daterange"]').val();
+        var tour_id = $('.order_tour').attr('data-tour_id');
         if(!quantity_children){
             quantity_children = 0;
         }
@@ -969,31 +948,38 @@ $( document ).ready(function() {
             $.ajax({
                 type: "POST",
                 url: "/tour/get/info",
-                data: {quantity_adults: quantity_adults, quantity_children: quantity_children, get_carent_date: get_carent_date},
+                data: {quantity_adults: quantity_adults, quantity_children: quantity_children, get_carent_date: get_carent_date, tour_id: tour_id},
                 dataType: 'json',
                 success: function(result) {
                     if(result.message){
-                            $('input[name="daterange"]').parent().addClass('error');
-                            $(".counter1>.btn-group>button:last-child").attr('disabled', true);
-                            $('.change_placeholder').attr('placeholder', result.message);
-                            $('.change_placeholder').attr("disabled", true);
-                        }else{
-                            $('.change_placeholder').attr("disabled", false);
-                            $(".counter1>.btn-group>button:last-child").attr('disabled', false);
+                        $('#datetimepicker').data("DateTimePicker").clear();
+                        $('input[name="daterange"]').parent().addClass('error');
+                        $(".counter1>.btn-group>button:last-child").attr('disabled', true);
+                        $('.change_placeholder').attr('placeholder', result.message);
+                        $('.change_placeholder').attr("disabled", true);
+                    }else{
+                        $('.change_placeholder').attr("disabled", false);
+                        $(".counter1>.btn-group>button:last-child").attr('disabled', false);
+                        $('#datetimepicker').data("DateTimePicker").destroy();
+                        $('.add_content_flight').html(' ');
+                        $('input[name="daterange"]').parent().removeClass('error');
+                        $('.change_placeholder').attr('placeholder', 'Выберите дату');
+                        var days = result.days;
+                        $('#datetimepicker').datetimepicker({
+                            locale: 'ru',
+                            useCurrent: false,
+                            format: 'YYYY-MM-DD',
+                            enabledDates: $.makeArray(days)
+                        });
+                        if(result.not_free_places_carent_date){
                             $('#datetimepicker').data("DateTimePicker").clear();
-                            $('#datetimepicker').data("DateTimePicker").destroy();
-                            $('.add_content_flight').html(' ');
-                            $('input[name="daterange"]').parent().removeClass('error');
-                            $('.change_placeholder').attr('placeholder', 'Выберите дату');
-                            var days = result.days;
-                            $('#datetimepicker').datetimepicker({
-                                locale: 'ru',
-                                useCurrent: false,
-                                format: 'YYYY-MM-DD',
-                                enabledDates: $.makeArray(days)
-                            });
+                            $('input[name="daterange"]').parent().addClass('error');
+                            $('.change_placeholder').attr('placeholder', result.not_free_places_carent_date);
+                        }else{
+                            $('input[name="daterange"]').parent().remove('error');
+                            $('.change_placeholder').attr('placeholder', result.not_free_places_carent_date);
                         }
-
+                    }
                 }
             });
         });
@@ -1001,33 +987,26 @@ $( document ).ready(function() {
     $("#datetimepicker").on("dp.change", function (e) {
         var quantity_adults = $('#adult_number').val();
         var quantity_children = $('#children_number').val();
+        var get_carent_date = $('input[name="daterange"]').val();
+        var tour_id = $('.order_tour').attr('data-tour_id');
         if(!quantity_children){
             quantity_children = 0;
         }
         if(!quantity_adults){
             quantity_adults = 0;
         }
-        if(parseInt(quantity_adults) + parseInt(quantity_children) == 1) {
-           var single_price = $('.content_single_price').data("single_price");
-        }else{
-           var  single_price = 0;
-        }
-        var price = $('.total_price').data('price_adult');
-        var price_child = $('.total_price').data('price_child');
         var date = $('.day.active').attr('data-day');
             $.ajax({
                 type: "POST",
                 url: "/tour/get/info",
-                data: {date: date, quantity_adults: quantity_adults, quantity_children: quantity_children},
+                data: {tour_id: tour_id, get_carent_date: get_carent_date, date: date, quantity_adults: quantity_adults, quantity_children: quantity_children},
                 dataType: 'json',
                 success: function (data) {
                     if (data.cost_flight) {
-                        var cost_flight = parseInt(data.cost_flight);
-                        console.log(quantity_adults , price, quantity_children, price_child, parseInt(data.cost_flight));
-                        var cost = ((quantity_adults * price) + (quantity_children * price_child) + (cost_flight * (parseInt(quantity_adults) + parseInt(quantity_children)))+ parseInt(single_price));
-                        $('.total_price b').html('' + numFormat(cost) + ' руб.');
-                        $('.total_price_coupon b').html('' + numFormat(cost_flight*(parseInt(quantity_adults) + parseInt(quantity_children))) + ' руб.');
-                        $('.add_content_flight').html('<p class="content_flight"> <span>Стоимость перелета:</span> <b>' + numFormat(data.cost_flight_view) + ' руб.</b> </p>');
+                        $('input[name="daterange"]').parent().removeClass('error');
+                        $('.total_price b').html('' + numFormat(data.total_cost_not_coupon) + ' руб.');
+                        $('.total_price_coupon b').html('' + numFormat(data.total_cost_coupon) + ' руб.');
+                        $('.add_content_flight').html('<p class="content_flight"> <span>Стоимость перелета:</span> <b>' + numFormat(data.cost_flight) + ' руб.</b> </p>');
                     }
                 }
             })
