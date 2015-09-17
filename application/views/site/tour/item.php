@@ -154,7 +154,7 @@
         </div>
         <div class="col-xs-5">
             <div class="description_on_left">
-                <p>Стоимость на человека <i class="tooltip_icon" data-toggle="tooltip" data-placement="top" title="При покупке тура"></i></p>
+                <p>Стоимость на человека <i class="tooltip_icon" data-toggle="tooltip" data-placement="top" title="Стоимость на человека при двухместном размещении"></i></p>
                 <p class="price"><?php echo number_format($price, 0, ' ', ' '); ?> руб.</p>
                 <a href="#yandex_map_with_route" class="yellow_btn fancy" onclick="createRoute();">Посмотреть программу тура на карте</a>
                 <p class="text">
@@ -180,6 +180,11 @@
                         <div class="right">
                             <p><?php echo ${'d'.$day_tour.'_name'};?></p>
                             <p><?php echo ${'d'.$day_tour.'_content'}?></p>
+                            <p>
+                                <?php if(${'d'.$day_tour.'_image'}) { ?>
+                                    <img src="<?php echo ${'d'.$day_tour.'_image'};?>">
+                                <?php } ?>
+                            </p>
                         </div>
                         <div class="clearfix"></div>
                     </div>
@@ -243,7 +248,7 @@
                 </div>
 
                 <div class="form-group bootstrap-select promo_code_block" >
-                    <input type="text" name="code"  id="code_2" class="form-control" placeholder="Введите промокод">
+                    <input type="text" name="code"  id="code_2" class="form-control" placeholder="Введите код сертификата">
                     <button  id="check_coupon"  class="use_code_btn" data-tour_id="<?php echo $id?>" data-coupon_code="">Применить</button>
                 </div>
 
@@ -286,7 +291,7 @@
                                 <input type="text" class="form-control" id="dob_1" placeholder="Дата рождения" name="dob">
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" id="passport_1" placeholder="Номер паспорта" name="passport">
+                                <input type="text" class="form-control" id="passport_1" placeholder="Номер паспорта РФ" name="passport">
                             </div>
                             <div class="form-group">
                                 <input type="text" class="form-control" id="validity_1" placeholder="Срок действия" name="validity">

@@ -20,6 +20,13 @@ Route::set('admin-priceflight', $adminPrefix . 'priceflight(/<action>(/<id>))')
         'action' => 'index'
     ));
 
+Route::set('admin-review', $adminPrefix . 'review(/<action>(/<id>))')
+    ->defaults(array(
+        'directory' => 'admin',
+        'controller' => 'review',
+        'action' => 'index'
+    ));
+
 Route::set('admin-banner', $adminPrefix . 'banner(/<action>(/<id>))')
     ->defaults(array(
         'directory' => 'admin',

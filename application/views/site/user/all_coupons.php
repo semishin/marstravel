@@ -22,6 +22,9 @@
                 <tr>
                     <th>Код купона</th>
                     <th>Статус</th>
+                    <th>Имя</th>
+                    <th>Телефон</th>
+                    <th>email</th>
                     <th>Печать</th>
                 </tr>
                 </thead>
@@ -29,7 +32,10 @@
                 <?php foreach($coupon as $item) { ?>
                     <tr>
                         <td><?php echo $item->code;?></td>
-                        <td><?php if($item->active == 1) { ?><span class="label label-success">Не использован</span><?php } else { ?> <span class="label label-danger">Использован</span><?php } ?></td>
+                        <td><?php if($item->active_firm == 1) { ?><span class="label label-success">Не активирован</span><?php } else { ?> <span class="label label-danger">Активирован</span><?php } ?></td>
+                        <td><?php echo $item->name?></td>
+                        <td><?php echo $item->phone?></td>
+                        <td><?php echo $item->email?></td>
                         <td> <button data-tour_id="<?php echo $item->tour_id;?>" data-code_coupon="<?php echo $item->code;?>" type="button" class="btn btn-primary btn-sm " name="print_page">Распечатать купон</button></td>
                     </tr>
                 <?php } ?>

@@ -29,7 +29,11 @@ class Model_Coupon extends ORM
             'code' => 'Код',
             'firm_id' => 'Фирма',
             'tour_id' => 'Тур',
-            'active' => 'Активность'
+            'active' => 'Активность',
+            'name' => 'Имя',
+            'phone' => 'Телефон',
+            'email' => 'email',
+            'active_firm' => 'Активность заказа'
         );
     }
 
@@ -48,7 +52,11 @@ class Model_Coupon extends ORM
             'type' => 'template',
             'template' => '${tour_name}'
         ),
+        'name' => null,
+        'phone' => null,
+        'email' => null,
         'active' => 'bool',
+        'active_firm' => 'bool',
         'edit' => array(
             'width' => '40',
             'type' => 'link',

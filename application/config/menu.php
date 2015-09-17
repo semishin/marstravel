@@ -9,7 +9,7 @@ return array
 	(
         '<i class="fa fa-picture-o"></i>|Слайды' => 'admin-slide',
         '<i class="fa fa-paint-brush"></i>|Баннеры' => 'admin-banner',
-//        '<i class="fa fa-bell-o"></i>|Коментарии' => 'admin-comment',
+        '<i class="fa fa-bell-o"></i>|Отзывы' => 'admin-review',
 //        '<i class="fa fa-bell-o"></i>|Заявки от клиентов' => 'admin-brief',
         '<i class="fa fa-bell"></i>|Вопросы с сайта' => 'admin-question',
         '<i class="fa fa-money"></i>|Партнеры' => 'admin-partner',

@@ -38,13 +38,13 @@ class Controller_Site_User extends Controller_Site_DefaultUserController
     public function action_createCoupon()
     {
         $tour_id = $this->param('id');
-
+        $email = $this->request->post('email');
+        $name = $this->request->post('name');
+        $phone = $this->request->post('phone');
             $code_coupon = substr(md5(microtime()), rand(0, 5), rand(11, 16));
-
             $tour = ORM::factory('Tour')
                 ->where('id','=', $tour_id)
                 ->find();
-
         if (!$tour->id) {
             $this->forward_404();
         }
@@ -58,11 +58,17 @@ class Controller_Site_User extends Controller_Site_DefaultUserController
             $coupon->active = 1;
             $coupon->user_id = $user_id;
             $coupon->firm_id = $firm_id;
+            $coupon->email = $email;
+            $coupon->name = $name;
+            $coupon->phone = $phone;
             $coupon->save();
 
             $pagePdf = View::factory('site/pdf/index', array(
                 'code' => $code_coupon,
-                'tour' => $tour
+                'tour' => $tour,
+                'name' => $name,
+                'email' => $email,
+                'phone' => $phone
             ))->render();
             $pdfName = $code_coupon.'-'.$tour_id.'.pdf';
             $dirPdf = $_SERVER['DOCUMENT_ROOT'].'/coupons/';

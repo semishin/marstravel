@@ -12,8 +12,9 @@ class Form_Admin_Hotel extends CM_Form_Abstract
 
         $this->set_field('name', new CM_Field_String(), 0);
         $this->set_field('city_id', new CM_Field_Select_ORM(ORM::factory('City')), 2);
-        $this->set_field('active', new CM_Field_Boolean(), 4);
-        $this->set_field('stars', new CM_Field_Select(array(1 => '1 звезда', 2 => '2 звезды', 3 => '3 звезды', 4 => '4 звезды', 5 => '5 звезд')), 5);
+        $this->set_field('active', new CM_Field_Boolean(), 3);
+        $this->set_field('stars', new CM_Field_Select(array(1 => '1 звезда', 2 => '2 звезды', 3 => '3 звезды', 4 => '4 звезды', 5 => '5 звезд')), 4);
+        $this->set_field('position', new CM_Field_String(), 5);
         $this->set_field('main_image', new CM_Field_File(), 6);
         $this->set_field('images', new CM_Field_Multifile(),7);
         $this->set_field('url', new CM_Field_String(), 8);
@@ -29,7 +30,7 @@ class Form_Admin_Hotel extends CM_Form_Abstract
         $this->set_field('s_keywords', new CM_Field_Text(), 19);
 
         $fieldgroups = array(
-            'Основные данные' => array('name', 'city_id', 'active', 'stars', 'main_image', 'images', 'url', 'link_site', 'link_booking', 'email', 'phone', 'address', 'content', 'short_content'),
+            'Основные данные' => array('name', 'city_id', 'active', 'stars', 'position', 'main_image', 'images', 'url', 'link_site', 'link_booking', 'email', 'phone', 'address', 'content', 'short_content'),
             'Мета данные' => array('s_title', 's_description', 's_keywords'),
         );
 

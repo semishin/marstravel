@@ -281,6 +281,8 @@
   height: 20px;
   line-height: 20px;
   width: 20px;
+    border: 3px solid #fff;
+    color: #fff ;
 }
 .bootstrap-datetimepicker-widget table td.day:hover,
 .bootstrap-datetimepicker-widget table td.hour:hover,
@@ -291,7 +293,7 @@
 }
 .bootstrap-datetimepicker-widget table td.old,
 .bootstrap-datetimepicker-widget table td.new {
-  color: #777777;
+  color: #aaa;
 }
 .bootstrap-datetimepicker-widget table td.today {
   position: relative;
@@ -370,4 +372,7 @@
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   border: 0;
+}
+.datepicker-days .day:not(.disabled):not(.active){
+    background-color: #ee1c25;
 }

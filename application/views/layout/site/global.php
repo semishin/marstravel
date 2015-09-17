@@ -71,10 +71,12 @@
                                         <ul class="dropdown_menu list-unstyled">
                                             <li><a href="/about-us" <?php if( $_SERVER['REQUEST_URI'] == '/about-us') { ?> class="active" <?php } ?>>О нас</a></li>
                                             <li><a href="/touroperator" <?php if( $_SERVER['REQUEST_URI'] == '/touroperator') { ?> class="active" <?php } ?>>Туроператорская деятельность</a></li>
+                                            <li><a href="/awards" <?php if( $_SERVER['REQUEST_URI'] == '/awards') { ?> class="active" <?php } ?>>Наши награды</a></li>
                                         </ul>
                                     </li>
                                     <li><a href="/our-partners" <?php if( $_SERVER['REQUEST_URI'] == '/our-partners') { ?> class="active" <?php } ?> >Наши партнёры</a></li>
                                     <li><a href="/advertising"  <?php if( $_SERVER['REQUEST_URI'] == '/advertising') { ?> class="active" <?php } ?>>Для корпоративных клиентов</a></li>
+                                    <li><a href="/review"  <?php if( $_SERVER['REQUEST_URI'] == '/review') { ?> class="active" <?php } ?>>Отзывы</a></li>
                                     <li><a href="/contacts"  <?php if( $_SERVER['REQUEST_URI'] == '/contacts') { ?> class="active" <?php } ?>>Контакты</a></li>
                                 </ul>
                             </div>

@@ -28,6 +28,8 @@ class Controller_Site_Order extends Controller_Site
 
                 $data_tour =  ORM::factory('Tour')->where('id', '=', $tour_id)->find();
 
+                $cost_flight = ORM::factory('PriceFlight')->where('tour_id', '=', $tour_id)->find();
+
                 if($quantity_adults + $quantity_children == 1){
                     if(!$data_tour->price_single){
                         $price_single = 0;
@@ -36,6 +38,8 @@ class Controller_Site_Order extends Controller_Site
                     }
                 }
 
+                $total_price = ($data_tour->price *  $quantity_adults) + ($data_tour->price_child * $quantity_children) + ($cost_flight->price * ($quantity_adults + $quantity_children)) + $price_single;
+
                 $order = ORM::factory('Order');
                 $order->tour_id = $tour_id;
                 $order->date = $date;
@@ -43,10 +47,10 @@ class Controller_Site_Order extends Controller_Site
                 $order->quantity_children = $quantity_children;
                 $order->price_adults = $data_tour->price *  $quantity_adults;
                 $order->price_child = $data_tour->price_child * $quantity_children;
-                $order->cost = $cost;
+                $order->price_flight = $cost_flight->price;
                 $order->fio = $fio;
                 $order->dob = $dob;
-                $order->total_price = ($data_tour->price *  $quantity_adults) + ($data_tour->price_child * $quantity_children) + $price_single;
+                $order->total_price = $total_price;
                 $order->passport = $passport;
                 $order->validity = $validity;
                 $order->issuedby = $issuedby;
@@ -57,18 +61,27 @@ class Controller_Site_Order extends Controller_Site
                 $order->surcharge = $surcharge;
                 $order->number_order = $number_order;
                 $order->save();
+                $user_message = View::factory('site/message/order_usermessage', array(
+                    'fio' => $fio,
+                    'quantity_adults' => $quantity_adults,
+                    'quantity_children' => $quantity_children,
+                    'total_price' => $total_price,
+                    'email' => $email,
+                    'phone' => $phone,
+                    'tour' => $data_tour
+                ))->render();
 
-                try {
-                    Email::send(Kohana::$config->load('properties.email'), array(Kohana::$config->load('properties.email'), 'Marstravel'),
-                        'Новый заказ',
-                        'ФИО - ' . $fio . '<br/>' .
-                        'Email - ' . $email . '<br/>' .
-                        'Телефон - ' . $phone . '<br/>' .
-                        'Номер заказа - ' . $number_order . '<br/>',
-                        /*html*/
-                        true
-                    );
-                } catch (Exception $e) {}
+                $admin_message = View::factory('site/message/order_adminmessage', array(
+                    'fio' => $fio,
+                    'quantity_adults' => $quantity_adults,
+                    'quantity_children' => $quantity_children,
+                    'total_price' => $total_price,
+                    'email' => $email,
+                    'phone' => $phone,
+                    'tour' => $data_tour
+                ))->render();
+                Helpers_Email::send(Kohana::$config->load('mailer.admin'), 'Новый заказ '.$fio.' '.$phone, $admin_message, true);
+                Helpers_Email::send($email, 'Новый заказ '.$fio.' '.$phone, $user_message, true);
             } else {
                 $code = $this->request->post('code');
                 $tour_id = $this->request->post('tour_id');
@@ -78,11 +91,9 @@ class Controller_Site_Order extends Controller_Site
                     ->where('code','=', $code)
                     ->limit(1)
                     ->find();
-
-
                 if ($coupon_check->id) {
                     $coupon_id = $coupon_check->id;
-                    $coupon_check->active = 0;
+                    $coupon_check->active_firm = 0;
                     $coupon_check->save();
                 } else {
                     exit(json_encode(array('number_order' => 'false')));
@@ -101,13 +112,14 @@ class Controller_Site_Order extends Controller_Site
                 $agreement = $this->request->post('agreement');
                 $surcharge = $this->request->post('surcharge');
                 $number_order = mb_substr(md5(time()), 0, 8);
-
+                $data_tour =  ORM::factory('Tour')->where('id', '=', $tour_id)->find();
+                $cost_flight = ORM::factory('PriceFlight')->where('tour_id', '=', $tour_id)->find();
                 $ordercoupon = ORM::factory('Ordercoupon');
                 $ordercoupon->tour_id = $tour_id;
                 $ordercoupon->date = $date;
                 $ordercoupon->quantity_adults = $quantity_adults;
                 $ordercoupon->quantity_children = $quantity_children;
-                $ordercoupon->cost = $cost;
+                $ordercoupon->price_flight = $cost_flight->price;
                 $ordercoupon->fio = $fio;
                 $ordercoupon->dob = $dob;
                 $ordercoupon->passport = $passport;
@@ -121,19 +133,30 @@ class Controller_Site_Order extends Controller_Site
                 $ordercoupon->number_order = $number_order;
                 $ordercoupon->save();
 
-                try {
-                    Email::send(Kohana::$config->load('properties.email'), array(Kohana::$config->load('properties.email'), 'Marstravel'),
-                        'Новый заказ по купонам',
-                        'ФИО - ' . $fio . '<br/>' .
-                        'Email - ' . $email . '<br/>' .
-                        'Телефон - ' . $phone . '<br/>' .
-                        'Номер заказа - ' . $number_order . '<br/>',
-                        /*html*/
-                        true
-                    );
-                } catch (Exception $e) {}
-            }
+                $user_message = View::factory('site/message/order_usermessage', array(
+                    'fio' => $fio,
+                    'quantity_adults' => $quantity_adults,
+                    'quantity_children' => $quantity_children,
+                    'cost_flight' => $cost_flight->price,
+                    'email' => $email,
+                    'phone' => $phone,
+                    'tour' => $data_tour,
+                    'code_certificate' => $code
+                ))->render();
 
+                $admin_message = View::factory('site/message/order_adminmessage', array(
+                    'fio' => $fio,
+                    'quantity_adults' => $quantity_adults,
+                    'quantity_children' => $quantity_children,
+                    'cost_flight' => $cost_flight->price,
+                    'email' => $email,
+                    'phone' => $phone,
+                    'tour' => $data_tour,
+                    'code_certificate' => $code
+                ))->render();
+                Helpers_Email::send(Kohana::$config->load('mailer.admin'), 'Новый заказ '.$fio.' '.$phone, $admin_message, true);
+                Helpers_Email::send($email, 'Новый заказ '.$fio.' '.$phone, $user_message, true);
+            }
             exit(json_encode(array('number_order' => $number_order)));
         }
         $this->forward_404();

@@ -35,20 +35,28 @@ class Form_Admin_Tour extends CM_Form_Abstract
         $this->set_field('url', new CM_Field_String(), 20);
         $this->set_field('d1_name', new CM_Field_String(), 22);
         $this->set_field('d1_content', new CM_Field_HTML(), 24);
+        $this->set_field('d1_image', new CM_Field_File(),25);
         $this->set_field('d2_name', new CM_Field_String(), 26);
         $this->set_field('d2_content', new CM_Field_HTML(), 28);
+        $this->set_field('d2_image', new CM_Field_File(),29);
         $this->set_field('d3_name', new CM_Field_String(), 30);
         $this->set_field('d3_content', new CM_Field_HTML(), 32);
+        $this->set_field('d3_image', new CM_Field_File(),33);
         $this->set_field('d4_name', new CM_Field_String(), 34);
         $this->set_field('d4_content', new CM_Field_HTML(), 36);
+        $this->set_field('d4_image', new CM_Field_File(),37);
         $this->set_field('d5_name', new CM_Field_String(), 38);
         $this->set_field('d5_content', new CM_Field_HTML(), 40);
+        $this->set_field('d5_image', new CM_Field_File(),41);
         $this->set_field('d6_name', new CM_Field_String(), 42);
         $this->set_field('d6_content', new CM_Field_HTML(), 44);
+        $this->set_field('d6_image', new CM_Field_File(),45);
         $this->set_field('d7_name', new CM_Field_String(), 46);
         $this->set_field('d7_content', new CM_Field_HTML(), 48);
+        $this->set_field('d7_image', new CM_Field_File(),49);
         $this->set_field('d8_name', new CM_Field_String(), 50);
         $this->set_field('d8_content', new CM_Field_HTML(), 52);
+        $this->set_field('d8_image', new CM_Field_File(),43);
 
         $this->set_field('s_title', new CM_Field_String(), 54);
         $this->set_field('s_description', new CM_Field_Text(), 56);
@@ -73,20 +81,28 @@ class Form_Admin_Tour extends CM_Form_Abstract
                                         'url',
                                         'd1_name',
                                         'd1_content',
+                                        'd1_image',
                                         'd2_name',
                                         'd2_content',
+                                        'd2_image',
                                         'd3_name',
                                         'd3_content',
+                                        'd3_image',
                                         'd4_name',
                                         'd4_content',
+                                        'd4_image',
                                         'd5_name',
                                         'd5_content',
+                                        'd5_image',
                                         'd6_name',
                                         'd6_content',
+                                        'd6_image',
                                         'd7_name',
                                         'd7_content',
+                                        'd7_image',
                                         'd8_name',
-                                        'd8_content'),
+                                        'd8_content',
+                                        'd8_image'),
             'Мета данные' => array('s_title', 's_description', 's_keywords'),
         );
 
