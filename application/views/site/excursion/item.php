@@ -39,7 +39,7 @@
         <div class="col-xs-12">
             <div class="adventure_program">
                 <div class="intro">
-                    <p class="text-center header">Экскурсии в которые входит достопримечательность</p>
+                    <p class="text-center header">Туры в которые входит экскурсия:</p>
                     <?php foreach($tours as $items) { ?>
                         <a href="/tour/<?php echo $items['url'];?>"><?php echo $items['name']?><br>
                      <?php } ?>

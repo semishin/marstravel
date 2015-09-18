@@ -17,6 +17,12 @@
         </div>
         <div class="col-md-9 col-xs-12 right_block">
             <h2>Купоны - <?php echo $tour->name;?></h2>
+            <?php foreach($coupon as $item) { ?>
+
+            <?php } ?>
+            <?php if(!$item->code) { ?>
+                <h2>Нет купонов по данному туру</h2>
+            <?php } else { ?>
             <table class="table table-striped table-hover table-bordered">
                 <thead>
                 <tr>
@@ -41,6 +47,7 @@
                 <?php } ?>
                 </tbody>
             </table>
+            <?php } ?>
             <div class="row">
                 <div class="paginator">
                     <?php echo $pagination; ?>

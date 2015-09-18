@@ -215,6 +215,13 @@ Route::set('site-excursion', 'excursion/<url>')
         'action'     => 'item',
     ));
 
+Route::set('site-tour-item-ajax', 'ajax')
+    ->defaults(array(
+        'directory' => 'site',
+        'controller' => 'tour',
+        'action'     => 'ajax',
+    ));
+
 Route::set('site-tour-item', 'tour/<url>')
     ->defaults(array(
         'directory' => 'site',
@@ -236,6 +243,12 @@ Route::set('site-question', 'question/add')
         'action'     => 'add',
     ));
 
+Route::set('site-pre-order', 'order/pre_order')
+    ->defaults(array(
+        'directory' => 'site',
+        'controller' => 'order',
+        'action'     => 'preOrder',
+    ));
 Route::set('site-order', 'order/add')
     ->defaults(array(
         'directory' => 'site',

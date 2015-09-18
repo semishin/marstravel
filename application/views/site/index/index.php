@@ -125,7 +125,7 @@
 
                                     for(i=0; i<cities_amount;i++){
                                         // Задаем контент меток.
-                                        points.get(i).properties.set('iconContent', cities[i].substring(8));
+                                       // points.get(i).properties.set('iconContent', cities[i].substring(8));
                                         points.get(i).properties.set('balloonContent', "<p><img src="+cities_images[i]+" /></p><p>" + cities[i].substring(8)+"</p>");
                                     }
 

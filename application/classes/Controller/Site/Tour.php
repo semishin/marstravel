@@ -135,4 +135,15 @@ class Controller_Site_Tour extends Controller_Site
             'free_place_carent_date' => $free_place_carent_date)));
     }
 
+    public function action_ajax(){
+        $quantity_children = $_GET['quantity_children'];
+        $quantity_adults = $_GET['quantity_adults'];
+        $view = View::factory('site/tour/ajax', array(
+            'quantity_children' => $quantity_children,
+            'quantity_adults' => $quantity_adults,
+            'totla_people' => $quantity_children + $quantity_adults
+        ))->render();
+        exit($view);
+    }
+
 }

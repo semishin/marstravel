@@ -1,6 +1,7 @@
 <div class="col-xs-12">
     <div class="slider_shadow"></div>
-    <div class="tour_header_block">
+    <div class="tour_header_block grey_top_block">
+        <a href="/sights" class="back_to_main">&larr; <span>Все туры</span></a>
         <p class="text-center header"><?php echo $name?></p>
         <p class="text-center duration">7 ночей 8 дней</p>
         <ul class="list-inline cities text-center">
@@ -52,7 +53,7 @@
 
                                 for(i=0; i<cities_amount;i++){
                                     // Задаем контент меток.
-                                    points.get(i).properties.set('iconContent', cities[i].substring(8));
+                                    //points.get(i).properties.set('iconContent', cities[i].substring(8));
                                     points.get(i).properties.set('balloonContent', "<p><img src="+cities_images[i]+" /></p><p>" + cities[i].substring(8)+"</p>");
                                     //points.get(i).properties.set('hintContent', 'hover');
                                 }
@@ -97,7 +98,7 @@
 
                                 for(i=0; i<cities_amount;i++){
                                     // Задаем контент меток.
-                                    points.get(i).properties.set('iconContent', cities[i].substring(8));
+                                    //points.get(i).properties.set('iconContent', cities[i].substring(8));
                                     points.get(i).properties.set('balloonContent', "<p><img src="+cities_images[i]+" /></p><p>" + cities[i].substring(8)+"</p>");
                                 }
 
@@ -277,13 +278,13 @@
                         <b><?php echo number_format($free_date->price, 0, ' ', ' ');?> руб.</b>
                     </p>
                 </div>
-                <a href="#pay" class="black_btn fancy" id="pay_btn_gen_1">Купить тур</a>
+                <a href="/ajax" class="pre_pay_class black_btn various fancybox.ajax" id="pay_btn_gen_1">Купить тур</a>
                 <div class="clearfix"></div>
                 <div style="display: none">
-                    <div id="pay">
+                    <div id="pay_order">
                         <p class="lightbox_header">Купить тур</p>
                         <p class="lightbox_text"><?php echo $name?></p>
-                        <form role="form" class="lightbox_form" data-id="1">
+                        <form id="order_form" role="form" class="lightbox_form" data-id="1">
                             <div class="form-group">
                                 <input type="text" class="form-control" id="fio_1" placeholder="ФИО" name="fio">
                             </div>

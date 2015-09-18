@@ -4,16 +4,16 @@ class Controller_Site_Order extends Controller_Site
 {
     public function action_add()
     {
-        $this->set_metatags_and_content('', 'page');
-
         if ($this->request->is_ajax()) {
+            $this->set_metatags_and_content('', 'page');
+            $pre_data = Session::instance()->get('pre_data');
+            $pre_data =   json_encode($pre_data);
             $coupon_id = $this->request->post('coupon_id');
             if(!$coupon_id) {
                 $tour_id = $this->request->post('tour_id');
                 $date = $this->request->post('date');
                 $quantity_adults = $this->request->post('quantity_adults');
                 $quantity_children = $this->request->post('quantity_children');
-                $cost = $this->request->post('cost');
                 $fio = $this->request->post('fio');
                 $dob = $this->request->post('dob');
                 $passport = $this->request->post('passport');
@@ -50,6 +50,7 @@ class Controller_Site_Order extends Controller_Site
                 $order->price_flight = $cost_flight->price;
                 $order->fio = $fio;
                 $order->dob = $dob;
+                $order->data_people = $pre_data;
                 $order->total_price = $total_price;
                 $order->passport = $passport;
                 $order->validity = $validity;
@@ -101,7 +102,6 @@ class Controller_Site_Order extends Controller_Site
                 $date = $this->request->post('date');
                 $quantity_adults = $this->request->post('quantity_adults');
                 $quantity_children = $this->request->post('quantity_children');
-                $cost = $this->request->post('cost');
                 $fio = $this->request->post('fio');
                 $dob = $this->request->post('dob');
                 $passport = $this->request->post('passport');
@@ -122,6 +122,7 @@ class Controller_Site_Order extends Controller_Site
                 $ordercoupon->price_flight = $cost_flight->price;
                 $ordercoupon->fio = $fio;
                 $ordercoupon->dob = $dob;
+                $ordercoupon->data_people = $pre_data;
                 $ordercoupon->passport = $passport;
                 $ordercoupon->validity = $validity;
                 $ordercoupon->issuedby = $issuedby;
@@ -161,4 +162,12 @@ class Controller_Site_Order extends Controller_Site
         }
         $this->forward_404();
     }
+
+    public function action_preOrder()
+    {
+        Session::instance()->set('pre_data', $_POST);
+        $pre_data=  Session::instance()->get('pre_data');
+        exit(json_encode(array($pre_data)));
+    }
+
 }

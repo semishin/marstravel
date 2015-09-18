@@ -1,7 +1,7 @@
 <div class="col-xs-12">
     <div class="slider_shadow"></div>
     <div class="grey_top_block">
-		<a href="/sights" class="back_to_main">&larr; <span>Назад</span></a>
+		<a href="/sights" class="back_to_main">&larr; <span>Все достопримечательности</span></a>
         <p class="text-center header"><?php echo $name?></p>
     </div>
 </div>
@@ -39,7 +39,7 @@
         <div class="col-xs-12">
             <div class="adventure_program">
                 <div class="intro">
-                    <p class="text-center header mb30">Экскурсии в которые входит достопримечательность</p>
+                    <p class="text-center header mb30">Экскурсии по достопримечательности - <?php echo $name;?></p>
                         <?php foreach($excursions as $items) { ?>
                             <a href="/excursion/<?php echo $items['url'];?>"><?php echo $items['name']?>
                         <?php } ?>

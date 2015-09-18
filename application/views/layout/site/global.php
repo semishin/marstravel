@@ -76,7 +76,6 @@
                                     </li>
                                     <li><a href="/our-partners" <?php if( $_SERVER['REQUEST_URI'] == '/our-partners') { ?> class="active" <?php } ?> >Наши партнёры</a></li>
                                     <li><a href="/advertising"  <?php if( $_SERVER['REQUEST_URI'] == '/advertising') { ?> class="active" <?php } ?>>Для корпоративных клиентов</a></li>
-                                    <li><a href="/review"  <?php if( $_SERVER['REQUEST_URI'] == '/review') { ?> class="active" <?php } ?>>Отзывы</a></li>
                                     <li><a href="/contacts"  <?php if( $_SERVER['REQUEST_URI'] == '/contacts') { ?> class="active" <?php } ?>>Контакты</a></li>
                                 </ul>
                             </div>
