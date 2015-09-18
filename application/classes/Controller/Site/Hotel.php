@@ -11,7 +11,7 @@ class Controller_Site_Hotel extends Controller_Site
 
         $hotel = ORM::factory('Hotel')
             ->where('active','=',1)
-            ->order_by('id','desc')
+            ->order_by('position','ASC')
             ->limit(self::LIMIT_ON_PAGE)
             ->find_all()
             ->as_array();
@@ -72,7 +72,7 @@ class Controller_Site_Hotel extends Controller_Site
                 ->where('stars', '=', $stars);
         }
         $hotel = $hotel
-            ->order_by('id', 'desc')
+            ->order_by('position', 'ASC')
             ->limit(self::LIMIT_ON_PAGE)
             ->find_all()
             ->as_array();
@@ -134,7 +134,7 @@ class Controller_Site_Hotel extends Controller_Site
                 ->where('stars', '=', $stars);
         }
         $hotel = $hotel
-            ->order_by('id', 'desc')
+            ->order_by('position', 'ASC')
             ->limit(self::LIMIT_ON_PAGE)
             ->offset($offset)
             ->find_all()

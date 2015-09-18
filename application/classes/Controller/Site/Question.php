@@ -18,17 +18,12 @@ class Controller_Site_Question extends Controller_Site
             $question_db->question = $question;
             $question_db->save();
 
-            try {
-                Email::send(Kohana::$config->load('properties.email'), array(Kohana::$config->load('properties.email'), 'Marstravel'),
-                    'Новая вопрос от клиентов',
-                    'Имя - ' . $name . '<br/>' .
-                    'Email - ' . $email . '<br/>' .
-                    'Телефон - ' . $phone . '<br/>' .
-                    'Текст вопроса - ' . $question . '<br/>',
-                    /*html*/
-                    true
-                );
-            } catch (Exception $e) {}
+            $user_message = View::factory('site/message/question_usermessage', array(
+                'name' => $name,
+                'email' => $email,
+                'phone' => $phone,
+            ))->render();
+            Helpers_Email::send($email, 'Сообщение консультанту '.$name.' '.$phone, $user_message, true);
 
             exit(json_encode(array()));
         }

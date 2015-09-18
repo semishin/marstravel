@@ -19,7 +19,7 @@ class Model_Order extends ORM
             'date' => 'Дата тура',
             'quantity_adults' => 'Количество взрослых',
             'quantity_children' => 'Количество детей',
-            'cost' => 'Стоимость',
+            'price_flight' => 'Стоимость перелета',
             'price_child' => 'Стоимость для детей',
             'price_adults' => 'Стоимость для взрослых',
             'fio' => 'ФИО',
@@ -33,7 +33,8 @@ class Model_Order extends ORM
             'payment' => 'Способ оплаты',
             'surcharge' => 'Доплата',
             'number_order' => 'Номер заказа',
-            'active' => 'Активность'
+            'active' => 'Активность',
+            'total_price' => 'Итоговая стоимость'
         );
     }
 

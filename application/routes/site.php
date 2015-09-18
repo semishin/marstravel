@@ -105,6 +105,19 @@ Route::set('site-touroperator', 'touroperator')
         'action'     => 'touroperator',
     ));
 
+Route::set('site-awards', 'awards')
+    ->defaults(array(
+        'directory' => 'site',
+        'controller' => 'page',
+        'action'     => 'awards',
+    ));
+Route::set('site-review', 'review')
+    ->defaults(array(
+        'directory' => 'site',
+        'controller' => 'review',
+        'action'     => 'index',
+    ));
+
 Route::set('site-advertising', 'advertising')
     ->defaults(array(
         'directory' => 'site',

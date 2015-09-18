@@ -23,7 +23,7 @@ class Model_Ordercoupon extends ORM
             'date' => 'Дата тура',
             'quantity_adults' => 'Количество взрослых',
             'quantity_children' => 'Количество детей',
-            'cost' => 'Стоимость',
+            'price_flight' => 'Стоимость перелета',
             'fio' => 'ФИО',
             'dob' => 'Дата рождения',
             'passport' => 'Номер паспорта',

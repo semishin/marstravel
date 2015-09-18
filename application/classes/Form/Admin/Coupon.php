@@ -14,6 +14,7 @@ class Form_Admin_Coupon extends CM_Form_Abstract
         $this->set_field('firm_id', new CM_Field_Select_ORM(ORM::factory('Coupon_Firm')), 2);
         $this->set_field('tour_id', new CM_Field_Select_ORM(ORM::factory('Tour')), 4);
         $this->set_field('active', new CM_Field_Boolean(), 6);
+        $this->set_field('active_firm', new CM_Field_Boolean(), 10);
 
     }
 }

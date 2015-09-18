@@ -72,10 +72,12 @@
                                         <ul class="dropdown_menu list-unstyled">
                                             <li><a href="/about-us"<??>>О нас</a></li>
                                             <li><a href="/touroperator">Туроператорская деятельность</a></li>
+                                            <li><a href="/awards" <?php if( $_SERVER['REQUEST_URI'] == '/awards') { ?> class="active" <?php } ?>>Наши награды</a></li>
                                         </ul>
                                     </li>
                                     <li><a href="/our-partners">Наши партнёры</a></li>
                                     <li><a href="/advertising">Для корпоративных клиентов</a></li>
+                                    <li><a href="/review"  <?php if( $_SERVER['REQUEST_URI'] == '/review') { ?> class="active" <?php } ?>>Отзывы</a></li>
                                     <li><a href="/contacts">Контакты</a></li>
                                 </ul>
                             </div>

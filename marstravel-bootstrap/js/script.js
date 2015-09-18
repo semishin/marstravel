@@ -1016,6 +1016,51 @@ $( document ).ready(function() {
         $('#datetimepicker').data("DateTimePicker").show();
     });
 
+    $(".generate_code").click(function(e){
+        e.preventDefault();
+        var tour_id = $(this).attr('data-tour_id');
+        $("#create_coupon_form").attr("action", 'http://marstravel.local/user/create_coupon/'+tour_id);
+        $("#certificate_data_user").attr("href", 'http://marstravel.local/user/create_coupon/'+tour_id);
+        $(".generate_code").fancybox();
+    });
+
+    $('#certificate_data_user').click(function(e){
+        e.preventDefault();
+        var errors = 0;
+        var quantity = $(this).attr('data-quantity');
+        if($('#name').length>0){
+            var name = $('#name').val();
+            if (!name) {
+                $('#name').addClass('error');
+                errors++;
+            } else {
+                $('#name').removeClass('error');
+            }
+        }  if($('#email').length>0){
+            var email = $('#email').val();
+            if (!email) {
+                $('#email').addClass('error');
+                errors++;
+            } else {
+                $('#email').removeClass('error');
+            }
+        }
+        if($('#phone').length>0){
+            var phone = $('#phone').val();
+            if (!phone) {
+                $('#phone').addClass('error');
+                errors++;
+            } else {
+                $('#phone').removeClass('error');
+            }
+        }
+        if(errors > 0){
+            return false;
+        }else{
+            $('#create_coupon_form').submit();
+            $(".generate_code").fancybox();
+        }
+    });
 
 });
 

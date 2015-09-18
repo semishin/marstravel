@@ -31,7 +31,8 @@ class Model_Hotel extends ORM
             'address' => 'Адрес',
             's_title' => 'SEO title',
             's_description' => 'SEO description',
-            's_keywords' => 'SEO keywords'
+            's_keywords' => 'SEO keywords',
+            'position' => 'Позиция'
         );
     }
 
@@ -60,6 +61,7 @@ class Model_Hotel extends ORM
         ),
         'stars' => null,
         'active' => 'bool',
+        'position' => null,
         'edit' => array(
             'width' => '40',
             'type' => 'link',
@@ -90,7 +92,8 @@ class Model_Hotel extends ORM
             'name',
             'city_id',
             'stars',
-            'active'
+            'active',
+            'position'
         );
     }
 }

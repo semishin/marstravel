@@ -16,7 +16,10 @@ class Controller_Site_Tour extends Controller_Site
             }
         }
         $current_date = date("Y-m-d");
-        $free_date = ORM::factory('PriceFlight')->where('free_places', '>=', 2)->order_by('start_date')->find_all();
+        $free_date = ORM::factory('PriceFlight')
+            ->where('tour_id', '=', $this->_model->id)
+            ->where('free_places', '>=', 2)
+            ->order_by('start_date')->find_all();
         $days = [];
         foreach($free_date as $item){
             $days_array[] =  range(strtotime($item->start_date), strtotime($item->end_date), (24*60*60));
@@ -32,7 +35,6 @@ class Controller_Site_Tour extends Controller_Site
         $this->template->route = $ids;
         $this->template->current_date = $days[0];
         $this->template->cities = $citiesHash;
-
     }
 
     public function action_info()
@@ -56,17 +58,20 @@ class Controller_Site_Tour extends Controller_Site
         $tour = ORM::factory('Tour')->where('id', '=', $tour_id)->find();
 
         $cost_flight = ORM::factory('PriceFlight')
+            ->where('tour_id', '=', $tour_id)
             ->where('free_places', '>=', $quantity_people)
             ->where('end_date', '>=', $get_carent_date)
             ->where('start_date', '<=', $get_carent_date)
             ->find();
 
         $free_date_total = ORM::factory('PriceFlight')
+            ->where('tour_id', '=', $tour_id)
             ->where('free_places', '>=', $quantity_people)
             ->where('end_date', '>=', $current_date)
             ->find_all();
 
         $free_place_carent_date = ORM::factory('PriceFlight')
+            ->where('tour_id', '=', $tour_id)
             ->where('free_places', '>=', $quantity_adults)
             ->where('start_date', '<=', $get_carent_date)
             ->order_by('start_date')

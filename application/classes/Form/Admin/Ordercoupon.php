@@ -19,6 +19,7 @@ class Form_Admin_Ordercoupon extends CM_Form_Abstract
         $this->set_field('date', new CM_Field_String(), 3);
         $this->set_field('quantity_adults', new CM_Field_String(), 5);
         $this->set_field('quantity_children', new CM_Field_String(), 7);
+        $this->set_field('price_flight', new CM_Field_String(), 8);
         $this->set_field('fio', new CM_Field_String(), 11);
         $this->set_field('dob', new CM_Field_String(), 13);
         $this->set_field('passport', new CM_Field_String(), 15);

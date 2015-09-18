@@ -3,8 +3,12 @@
 class Model_PriceFlight extends ORM
 {
     protected $_table_name = 'prices_flights';
-
-
+    protected $_belongs_to = array(
+        'tour' => array(
+            'model'       => 'Tour',
+            'foreign_key' => 'tour_id',
+        )
+    );
 
     public function labels()
     {
@@ -15,7 +19,8 @@ class Model_PriceFlight extends ORM
             'end_date' => 'Конечная дата',
             'active' => 'Активность',
             'total_places' => 'Всего мест',
-            'free_places' => 'Осталось мест'
+            'free_places' => 'Осталось мест',
+            'tour_id' => 'Тур'
         );
     }
 
@@ -25,15 +30,16 @@ class Model_PriceFlight extends ORM
     }
 
     protected $_grid_columns = array(
-
-        'id' =>  null,
         'price' => null,
         'start_date' => null,
         'end_date' => null,
         'total_places' => null,
         'free_places' => null,
         'active' => 'bool',
-
+        'tour_id' => array(
+            'type' => 'template',
+            'template' => '${tour_name}'
+        ),
         'edit' => array(
             'width' => '40',
             'type' => 'link',
@@ -53,11 +59,16 @@ class Model_PriceFlight extends ORM
         )
     );
 
+    public function get_tour_name()
+    {
+        return $this->tour->name;
+    }
+
     public function sortable_fields()
     {
         return array(
-            'id',
-            'price'
+            'price',
+            'tour_id'
         );
     }
 

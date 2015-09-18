@@ -241,7 +241,7 @@ body{
     margin-bottom: -20px;
 }
 .header .navigation ul.pull-left>li+li{
-    margin-left: 40px;
+    margin-left: 20px;
 }
 .header .navigation ul .phone b{
     font-size: 26px;
@@ -1929,6 +1929,8 @@ ul.modified>li:before{
 
 
 
+
+
 @media (min-width: 992px) and (max-width: 1240px){
     .left_menu .icon{
         display: none;
@@ -2031,7 +2033,7 @@ ul.modified>li:before{
     }
     .header .navigation ul>li>a,
     .header .navigation ul>li>.a{
-        font-size: 14px;
+        font-size: 13px;
     }
 }
 
@@ -2042,7 +2044,7 @@ ul.modified>li:before{
     }
     .header .navigation ul>li>a,
     .header .navigation ul>li>.a{
-        font-size: 14px;
+        font-size: 12px;
     }
     .flag{
         display: none;
