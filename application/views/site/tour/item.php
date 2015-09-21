@@ -266,18 +266,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="coupon_hidden">
-                    <p class="total_price"  data-price_adult="<?php echo $price?>" data-price_child="<?php echo $price_child?>">
-                        <span>Итоговая стоимость без сертификата:</span>
-                        <b><?php echo number_format($price * 2 + ($free_date->price * 2), 0, ' ', ' ');?> руб.</b>
-                    </p>
-                </div>
-                <div class="coupon_view_content hidden">
-                    <p class="total_price_coupon"  data-price_adult="<?php echo $price?>" data-price_child="<?php echo $price_child?>">
-                        <span>Итого с использованием сертификата:</span>
-                        <b><?php echo number_format($free_date->price, 0, ' ', ' ');?> руб.</b>
-                    </p>
-                </div>
                 <a href="/ajax" class="pre_pay_class black_btn various fancybox.ajax" id="pay_btn_gen_1">Купить тур</a>
                 <div class="clearfix"></div>
                 <div style="display: none">

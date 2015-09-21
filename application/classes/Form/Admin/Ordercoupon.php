@@ -31,7 +31,14 @@ class Form_Admin_Ordercoupon extends CM_Form_Abstract
         $this->set_field('coupon_id', new CM_Field_Select($coupons), 17);
         $this->set_field('surcharge', new CM_Field_Boolean(), 29); //доплата
         $this->set_field('number_order', new CM_Field_String(), 31);
-        $this->set_field('active', new CM_Field_Boolean(), 33);
+
+        $this->get_field('quantity_adults')->set_attributes(array('disabled'));
+        $this->get_field('quantity_children')->set_attributes(array('disabled'));
+        $this->get_field('coupon_id')->set_attributes(array('disabled'));
+        $this->get_field('price_flight')->set_attributes(array('disabled'));
+        $this->get_field('number_order')->set_attributes(array('disabled'));
+        $this->get_field('surcharge')->set_attributes(array('disabled'));
+        $this->get_field('tour_id')->set_attributes(array('disabled'));
 
     }
 }

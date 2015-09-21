@@ -17,4 +17,10 @@ class Controller_Admin_Order extends Controller_Crud
         $this->template->filter_form = $filter_form;
         return parent::before_fetch($item);
     }
+
+    public function action_view()
+    {
+        $order = ORM::factory('Order', $this->request->param('id'));
+        $this->template->order = $order;
+    }
 }

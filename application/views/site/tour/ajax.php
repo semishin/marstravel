@@ -8,50 +8,50 @@
                     <?php for($i = 1; $i <= $quantity_adults; $i++) { ?>
                         <p><b>Турист <?php echo $i?>(взрослый)</b></p>
                         <p><b>Пол</b></p>
-                        <label><input class="pre_data_adults" checked type="radio" name="data[<?php echo $i?>]['gender_adults']"  value="1"/>Мужской</label>
-                        <label><input  class="pre_data_adults" type="radio" name="data[<?php echo $i?>]['gender_adults']"  value="2"/>Женский</label>
+                        <label><input class="pre_data_adults" checked type="radio" name="adults[<?php echo $i?>][gender_adults]"  value="1"/>Мужской</label>
+                        <label><input  class="pre_data_adults" type="radio" name="adults[<?php echo $i?>][gender_adults]"  value="2"/>Женский</label>
                         <div class="form-group">
-                            <input type="text" class="form-control pre_data_adults" placeholder="Фамилия" name="data[<?php echo $i?>]['surname_adults']">
+                            <input type="text" class="form-control pre_data_adults" placeholder="Фамилия" name="adults[<?php echo $i?>][surname_adults]">
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control pre_data_adults" placeholder="Имя" name="data[<?php echo $i?>]['pre_name_adults']">
+                            <input type="text" class="form-control pre_data_adults" placeholder="Имя" name="adults[<?php echo $i?>][pre_name_adults]">
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control pre_data_adults" placeholder="Дата рождения" name="data[<?php echo $i?>]['birth_adults']">
+                            <input type="text" class="form-control pre_data_adults" placeholder="Дата рождения" name="adults[<?php echo $i?>][birth_adults]">
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control pre_data_adults" placeholder="Серия паспорта" name="data[<?php echo $i?>]['passport_series_adults']">
+                            <input type="text" class="form-control pre_data_adults" placeholder="Серия паспорта" name="adults[<?php echo $i?>][passport_series_adults]">
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control pre_data_adults" placeholder="Номер паспорта" name="data[<?php echo $i?>]['passport_id_adults']">
+                            <input type="text" class="form-control pre_data_adults" placeholder="Номер паспорта" name="adults[<?php echo $i?>][passport_id_adults]">
                         </div>
                         <div class="form-group">
-                            <input type="email" class="form-control pre_data_adults" placeholder="Паспорт действителен до" name="data[<?php echo $i?>]['passport_valid_adults']">
+                            <input type="email" class="form-control pre_data_adults" placeholder="Паспорт действителен до" name="adults[<?php echo $i?>][passport_valid_adults]">
                         </div>
                     <?php } ?>
                     <?php if($quantity_children) { ?>
-                        <?php for($i = 1; $i <= $quantity_adults; $i++) { ?>
+                        <?php for($c = 1; $c <= $quantity_children; $c++) { ?>
                             <p><b>Турист <?php echo $i?>(ребенок)</b></p>
                             <p><b>Пол</b></p>
-                            <label><input class="pre_data_child" checked type="radio" name="data[<?php echo $i?>]['gender_child']"  value="1"/>Мужской</label>
-                            <label><input  class="pre_data_child"  type="radio" name="data[<?php echo $i?>]['gender_child']"  value="2"/>Женский</label>
+                            <label><input class="pre_data_child" checked type="radio" name="child[<?php echo $i?>][gender_child]"  value="1"/>Мужской</label>
+                            <label><input  class="pre_data_child"  type="radio" name="child[<?php echo $i?>][gender_child]"  value="2"/>Женский</label>
                             <div class="form-group">
-                                <input type="text" class="form-control pre_data_child" placeholder="Фамилия" name="data[<?php echo $i?>]['surname_child']">
+                                <input type="text" class="form-control pre_data_child" placeholder="Фамилия" name="child[<?php echo $i?>][surname_child]">
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control pre_data_child" placeholder="Имя" name="data[<?php echo $i?>]['pre_name_child']">
+                                <input type="text" class="form-control pre_data_child" placeholder="Имя" name="child[<?php echo $i?>][pre_name_child]">
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control pre_data_child" placeholder="Дата рождения" name="data[<?php echo $i?>]['birth_child']">
+                                <input type="text" class="form-control pre_data_child" placeholder="Дата рождения" name="child[<?php echo $i?>][birth_child]">
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control pre_data_child" placeholder="Серия паспорта" name="data[<?php echo $i?>]['passport_series_child']">
+                                <input type="text" class="form-control pre_data_child" placeholder="Серия паспорта" name="child[<?php echo $i?>][passport_series_child]">
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control pre_data_child" placeholder="Номер паспорта" name="data[<?php echo $i?>]['passport_id_child']">
+                                <input type="text" class="form-control pre_data_child" placeholder="Номер паспорта" name="child[<?php echo $i?>][passport_id_child]">
                             </div>
                             <div class="form-group">
-                                <input type="email" class="form-control pre_data_child" placeholder="Паспорт действителен до" name="data[<?php echo $i?>]['passport_valid_child']">
+                                <input type="email" class="form-control pre_data_child" placeholder="Паспорт действителен до" name="child[<?php echo $i?>][passport_valid_child]">
                             </div>
                         <?php } ?>
                     <?php } ?>
@@ -179,7 +179,6 @@
             } else {
                 var surcharge = 0;
             }
-
             if(errors){
                 return false;
             } else{

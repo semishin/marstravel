@@ -355,8 +355,6 @@ $( document ).ready(function() {
                     $('input[name="code"]').val('Неверный код сертификата');
                     return false;
                 } else {
-                    $('.coupon_hidden').addClass('hidden');
-                    $('.coupon_view_content').removeClass('hidden');
                     $('.promo_code_block').addClass('succes');
                     $('.promo_code_block .use_code_btn').attr('disabled', true);
                     $('.promo_code_block input[name="code"]').attr('disabled', true);

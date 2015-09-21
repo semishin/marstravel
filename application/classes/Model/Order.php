@@ -3,6 +3,11 @@
 class Model_Order extends ORM
 {
     protected $_table_name = 'orders';
+    public $statuses = array(
+        1 => 'Новый',
+        2 => 'Подтверждён',
+        3 => 'Отменен'
+    );
 
     protected $_belongs_to = array(
         'tour' => array(
@@ -23,6 +28,7 @@ class Model_Order extends ORM
             'price_child' => 'Стоимость для детей',
             'price_adults' => 'Стоимость для взрослых',
             'fio' => 'ФИО',
+            'status' => 'Статус',
             'dob' => 'Дата рождения',
             'passport' => 'Номер паспорта',
             'validity' => 'Срок действия',
@@ -62,6 +68,15 @@ class Model_Order extends ORM
         'date' => null,
         'fio' => null,
         'number_order' => null,
+        'status_name' => null,
+        'order_info' => array(
+            'width' => '40',
+            'type' => 'link',
+            'route_str' => 'admin-order:view?id=${id}',
+            'title' => '<i class="fa fa-cogs"></i>',
+            'color' => 'blue',
+            'alternative' => 'Детали заказа'
+        ),
         'edit' => array(
             'width' => '40',
             'type' => 'link',
@@ -94,5 +109,22 @@ class Model_Order extends ORM
             'fio',
             'number_order'
         );
+    }
+
+    public function get_status_name()
+    {
+        $status_value = '';
+        switch($this->statuses[$this->status]) {
+            case 'Новый':
+                $status_value = '<span class="label label-info">Новый</span>';
+                break;
+            case 'Подтверждён':
+                $status_value = '<span class="label label-primary">Подтверждён</span>';
+                break;
+            case 'Отменен':
+                $status_value = '<span class="label label-danger">Возврат</span>';
+                break;
+        }
+        return $status_value;
     }
 }

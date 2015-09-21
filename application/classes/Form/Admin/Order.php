@@ -9,7 +9,7 @@ class Form_Admin_Order extends CM_Form_Abstract
     protected function init()
     {
         $this->add_plugin(new CM_Form_Plugin_ORM());
-
+        $this->set_field('status', new CM_Field_Select(ORM::factory('Order')->statuses), 0);
         $this->set_field('tour_id', new CM_Field_Select_ORM(ORM::factory('Tour')), 1);
         $this->set_field('date', new CM_Field_String(), 3);
         $this->set_field('quantity_adults', new CM_Field_String(), 5);
@@ -29,7 +29,17 @@ class Form_Admin_Order extends CM_Form_Abstract
         $this->set_field('payment', new CM_Field_Select(array(1 => 'Оплатить в офисе', 2 => 'Картой онлайн', 3 => 'Терминалы', 4 => 'Отделения сотовой связи')), 27);
         $this->set_field('surcharge', new CM_Field_Boolean(), 29); //доплата
         $this->set_field('number_order', new CM_Field_String(), 31);
-        $this->set_field('active', new CM_Field_Boolean(), 33);
+
+        $this->get_field('quantity_adults')->set_attributes(array('disabled'));
+        $this->get_field('quantity_children')->set_attributes(array('disabled'));
+        $this->get_field('price_adults')->set_attributes(array('disabled'));
+        $this->get_field('price_child')->set_attributes(array('disabled'));
+        $this->get_field('price_flight')->set_attributes(array('disabled'));
+        $this->get_field('total_price')->set_attributes(array('disabled'));
+        $this->get_field('number_order')->set_attributes(array('disabled'));
+        $this->get_field('surcharge')->set_attributes(array('disabled'));
+        $this->get_field('tour_id')->set_attributes(array('disabled'));
+
     }
 
 }
