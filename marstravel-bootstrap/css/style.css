@@ -817,7 +817,7 @@ body{
 }
 .footer ul>li>a{
     font-size: 16px;
-    color: #ffffff;
+    color: #333;
     border-bottom: 1px solid #4c4c4c;
 }
 .footer ul>li>a:hover,
