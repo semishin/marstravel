@@ -6,10 +6,12 @@
                 <p class="lightbox_header">Заполните ваши данные</p>
                 <form role="form" class="lightbox_form" id="pre_order_form">
                     <?php for($i = 1; $i <= $quantity_adults; $i++) { ?>
-                        <p><b>Турист <?php echo $i?>(взрослый)</b></p>
-                        <p><b>Пол</b></p>
-                        <label><input class="pre_data_adults" checked type="radio" name="adults[<?php echo $i?>][gender_adults]"  value="1"/>Мужской</label>
-                        <label><input  class="pre_data_adults" type="radio" name="adults[<?php echo $i?>][gender_adults]"  value="2"/>Женский</label>
+                        <p><b>Турист <?php echo $i?> (взрослый)</b></p>
+                        <div class="form-group text-left">
+                            <p class=""><b>Пол</b></p>
+                            <label><input class="pre_data_adults icheck_radio" checked type="radio" name="adults[<?php echo $i?>][gender_adults]"  value="1"/>Мужской</label>
+                            <label style="margin-left: 20px;"><input  class="pre_data_adults icheck_radio" type="radio" name="adults[<?php echo $i?>][gender_adults]"  value="2"/>Женский</label>
+                        </div>
                         <div class="form-group">
                             <input type="text" class="form-control pre_data_adults" placeholder="Фамилия" name="adults[<?php echo $i?>][surname_adults]">
                         </div>
@@ -31,10 +33,10 @@
                     <?php } ?>
                     <?php if($quantity_children) { ?>
                         <?php for($c = 1; $c <= $quantity_children; $c++) { ?>
-                            <p><b>Турист <?php echo $i?>(ребенок)</b></p>
+                            <p><b>Турист <?php echo $i?> (ребенок)</b></p>
                             <p><b>Пол</b></p>
-                            <label><input class="pre_data_child" checked type="radio" name="child[<?php echo $i?>][gender_child]"  value="1"/>Мужской</label>
-                            <label><input  class="pre_data_child"  type="radio" name="child[<?php echo $i?>][gender_child]"  value="2"/>Женский</label>
+                            <label><input class="pre_data_child icheck_radio" checked type="radio" name="child[<?php echo $i?>][gender_child]"  value="1"/>Мужской</label>
+                            <label><input  class="pre_data_child icheck_radio"  type="radio" name="child[<?php echo $i?>][gender_child]"  value="2"/>Женский</label>
                             <div class="form-group">
                                 <input type="text" class="form-control pre_data_child" placeholder="Фамилия" name="child[<?php echo $i?>][surname_child]">
                             </div>
@@ -64,6 +66,13 @@
 
 <script>
     $(document).ready(function() {
+
+        $('.icheck_radio').iCheck({
+            checkboxClass: 'icheckbox_minimal',
+            radioClass: 'iradio_minimal',
+            increaseArea: '20%' // optional
+        });
+
         $('#pre_order').click(function (e) {
             e.preventDefault();
             var error = 0;

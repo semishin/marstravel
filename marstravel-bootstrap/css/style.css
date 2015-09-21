@@ -64,6 +64,8 @@ body {
     -ms-filter: blur(5px);
     filter: blur(5px);
 }
+
+
 .index_page.grayscale .background_image{
     -webkit-filter: blur(0px)  grayscale(100%);
     -moz-filter: blur(0px) grayscale(100%);
@@ -1926,7 +1928,9 @@ ul.modified>li:before{
     border: 0px;
 }
 
-
+.iradio_minimal{
+    margin-right: 5px;
+}
 
 
 
