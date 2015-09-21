@@ -116,7 +116,7 @@ class Model_Ordercoupon extends ORM
                 $status_value = '<span class="label label-primary">Подтверждён</span>';
                 break;
             case 'Отменен':
-                $status_value = '<span class="label label-danger">Возврат</span>';
+                $status_value = '<span class="label label-danger">Отменен</span>';
                 break;
         }
         return $status_value;
