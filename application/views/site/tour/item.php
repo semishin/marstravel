@@ -1,7 +1,7 @@
 <div class="col-xs-12">
     <div class="slider_shadow"></div>
     <div class="tour_header_block grey_top_block">
-        <a href="/" class="back_to_main">&larr; <span>Все туры</span></a>
+        <a href="/sights" class="back_to_main">&larr; <span>Все туры</span></a>
         <p class="text-center header"><?php echo $name?></p>
         <p class="text-center duration">7 ночей 8 дней</p>
         <ul class="list-inline cities text-center">
@@ -265,6 +265,12 @@
                             <p class="content_single_price"  data-single_price="<?php echo $price_single?>"><span>Доплата за одноместное размещение:</span> <b><?php echo number_format($price_single, 0, ' ', ' ');?> руб.</b></p>
                         </div>
                     </div>
+                </div>
+                <div class="coupon_hidden">
+                    <p class="total_price"  data-price_adult="<?php echo $price?>" data-price_child="<?php echo $price_child?>">
+                        <span>Итоговая стоимость без сертификата:</span>
+                        <b><?php echo number_format($price * 2 + ($free_date->price * 2), 0, ' ', ' ');?> руб.</b>
+                    </p>
                 </div>
                 <a href="/ajax" class="pre_pay_class black_btn various fancybox.ajax" id="pay_btn_gen_1">Купить тур</a>
                 <div class="clearfix"></div>
