@@ -55,7 +55,7 @@
                             </div>
                         <?php } ?>
                     <?php } ?>
-                    <a href="#pay_order" class="black_btn fancy" id="pre_order">Купить тур</a>
+                    <a href="#pay_order" class="black_btn fancy" id="pre_order">Продолжить</a>
                 </form>
             </div>
         </div>
