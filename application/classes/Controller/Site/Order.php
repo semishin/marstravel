@@ -81,8 +81,8 @@ class Controller_Site_Order extends Controller_Site
                     'phone' => $phone,
                     'tour' => $data_tour
                 ))->render();
-                //Helpers_Email::send(Kohana::$config->load('mailer.admin'), 'Новый заказ '.$fio.' '.$phone, $admin_message, true);
-                //Helpers_Email::send($email, 'Новый заказ '.$fio.' '.$phone, $user_message, true);
+                Helpers_Email::send(Kohana::$config->load('mailer.admin'), 'Новый заказ '.$fio.' '.$phone, $admin_message, true);
+                Helpers_Email::send($email, 'Новый заказ '.$fio.' '.$phone, $user_message, true);
             } else {
                 $code = $this->request->post('code');
                 $tour_id = $this->request->post('tour_id');
@@ -155,8 +155,8 @@ class Controller_Site_Order extends Controller_Site
                     'tour' => $data_tour,
                     'code_certificate' => $code
                 ))->render();
-                //Helpers_Email::send(Kohana::$config->load('mailer.admin'), 'Новый заказ '.$fio.' '.$phone, $admin_message, true);
-                //Helpers_Email::send($email, 'Новый заказ '.$fio.' '.$phone, $user_message, true);
+                Helpers_Email::send(Kohana::$config->load('mailer.admin'), 'Новый заказ '.$fio.' '.$phone, $admin_message, true);
+                Helpers_Email::send($email, 'Новый заказ '.$fio.' '.$phone, $user_message, true);
             }
             Session::instance()->destroy('pre_data');
             exit(json_encode(array('number_order' => $number_order)));

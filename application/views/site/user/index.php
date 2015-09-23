@@ -41,6 +41,7 @@
         </div>
     </div>
 </div>
+<input type="hidden" name="server_name" value="<?php echo $_SERVER['SERVER_NAME']?>">
 
 <div style="display: none">
     <div id="generate_code">

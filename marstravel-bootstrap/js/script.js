@@ -896,8 +896,9 @@ $( document ).ready(function() {
     $(".generate_code").click(function(e){
         e.preventDefault();
         var tour_id = $(this).attr('data-tour_id');
-        $("#create_coupon_form").attr("action", 'http://marstravel.local/user/create_coupon/'+tour_id);
-        $("#certificate_data_user").attr("href", 'http://marstravel.local/user/create_coupon/'+tour_id);
+        var server_name = $('input[name="server_name"]').val();
+        $("#create_coupon_form").attr("action", 'http://'+server_name+'/user/create_coupon/'+tour_id);
+        $("#certificate_data_user").attr("href", 'http://'+server_name+'/user/create_coupon/'+tour_id);
         $(".generate_code").fancybox();
     });
 
