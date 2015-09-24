@@ -56,7 +56,7 @@ class Form_Admin_Tour extends CM_Form_Abstract
         $this->set_field('d7_image', new CM_Field_File(),49);
         $this->set_field('d8_name', new CM_Field_String(), 50);
         $this->set_field('d8_content', new CM_Field_HTML(), 52);
-        $this->set_field('d8_image', new CM_Field_File(),43);
+        $this->set_field('d8_image', new CM_Field_File(),53);
 
         $this->set_field('s_title', new CM_Field_String(), 54);
         $this->set_field('s_description', new CM_Field_Text(), 56);
