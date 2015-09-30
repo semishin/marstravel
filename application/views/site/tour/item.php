@@ -161,7 +161,7 @@
                 <p class="text">
                     <?php echo $short_content?>
                 </p>
-                <a href="#from_top_get_free_button" class="red_btn">Получить бесплатно</a>
+                <a href="#from_top_get_free_button" class="red_btn">Получить по сертификату</a>
             </div>
 
         </div>
@@ -180,12 +180,18 @@
                         </div>
                         <div class="right">
                             <p><?php echo ${'d'.$day_tour.'_name'};?></p>
-                            <p><?php echo ${'d'.$day_tour.'_content'}?></p>
-                            <p>
-                                <?php if(${'d'.$day_tour.'_image'}) { ?>
-                                    <img src="<?php echo ${'d'.$day_tour.'_image'};?>">
-                                <?php } ?>
-                            </p>
+                            <div class="tour_image">
+                            <div class="col-sm-5">
+                                <p>
+                                    <?php if(${'d'.$day_tour.'_image'}) { ?>
+                                        <img src="<?php echo Lib_Image::resize_width(${'d'.$day_tour.'_image'}, 'tour', $id, 400, 300); ?>" class="img-responsive">
+                                    <?php } ?>
+                                </p>
+                            </div>
+                            <div  class="col-sm-7">
+                                <p><?php echo ${'d'.$day_tour.'_content'}?></p>
+                            </div>
+                        </div>
                         </div>
                         <div class="clearfix"></div>
                     </div>
@@ -272,11 +278,11 @@
                         <b><?php echo number_format($price * 2 + ($free_date->price * 2), 0, ' ', ' ');?> руб.</b>
                     </p>
                 </div>
-                <a href="/ajax" class="pre_pay_class black_btn various fancybox.ajax" id="pay_btn_gen_1">Купить тур</a>
+                <a href="/ajax" class="pre_pay_class black_btn various fancybox.ajax" id="pay_btn_gen_1">Предварительно забронировать</a>
                 <div class="clearfix"></div>
                 <div style="display: none">
                     <div id="pay_order">
-                        <p class="lightbox_header">Купить тур</p>
+                        <p class="lightbox_header">Предварительно забронировать</p>
                         <p class="lightbox_text"><?php echo $name?></p>
                         <form id="order_form" role="form" class="lightbox_form" data-id="1">
                             <div class="form-group">

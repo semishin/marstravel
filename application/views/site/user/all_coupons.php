@@ -26,11 +26,14 @@
             <table class="table table-striped table-hover table-bordered">
                 <thead>
                 <tr>
-                    <th>Код купона</th>
+                    <th>№(код) сертификата</th>
+                    <th>Дата выдачи сертификата</th>
+                    <th>ФИО владельца сертификата</th>
+                    <th>Дата рождения владельца сертификата</th>
+                    <th>Телефон владельца сертификата</th>
+                    <th>email владельца сертификата</th>
+                    <th>ФИО менеджера, выдавшего сертификат</th>
                     <th>Статус</th>
-                    <th>Имя</th>
-                    <th>Телефон</th>
-                    <th>email</th>
                     <th>Печать</th>
                 </tr>
                 </thead>
@@ -38,10 +41,13 @@
                 <?php foreach($coupon as $item) { ?>
                     <tr>
                         <td><?php echo $item->code;?></td>
-                        <td><?php if($item->active_firm == 1) { ?><span class="label label-success">Не активирован</span><?php } else { ?> <span class="label label-danger">Активирован</span><?php } ?></td>
+                        <td><?php echo $item->created_at;?></td>
                         <td><?php echo $item->name?></td>
+                        <td><?php echo $item->date_birth?></td>
                         <td><?php echo $item->phone?></td>
                         <td><?php echo $item->email?></td>
+                        <td><?php echo $item->name_manager?></td>
+                        <td><?php if($item->active_firm == 1) { ?><span class="label label-success">Не активирован</span><?php } else { ?> <span class="label label-danger">Активирован</span><?php } ?></td>
                         <td> <button data-tour_id="<?php echo $item->tour_id;?>" data-code_coupon="<?php echo $item->code;?>" type="button" class="btn btn-primary btn-sm " name="print_page">Распечатать купон</button></td>
                     </tr>
                 <?php } ?>

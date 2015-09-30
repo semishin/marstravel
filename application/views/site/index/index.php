@@ -18,6 +18,11 @@
             </div>
         </div>
         <div class="col-md-9 col-xs-12 right_block">
+            <?php  $tour = ORM::factory('Tour')
+                ->where('active','=',1)
+                ->order_by('position','asc')
+                ->find_all()
+                ->as_array();?>
             <?php foreach ($tour as $index => $item) { ?>
                 <?php
                     $ids = @unserialize($item->route);

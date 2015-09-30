@@ -41,6 +41,8 @@ class Controller_Site_User extends Controller_Site_DefaultUserController
         $email = $this->request->post('email');
         $name = $this->request->post('name');
         $phone = $this->request->post('phone');
+        $date_birth = $this->request->post('date_birth');
+        $name_manager = $this->request->post('name_manager');
             $code_coupon = substr(md5(microtime()), rand(0, 5), rand(11, 16));
             $tour = ORM::factory('Tour')
                 ->where('id','=', $tour_id)
@@ -52,6 +54,10 @@ class Controller_Site_User extends Controller_Site_DefaultUserController
             ->where('id','=', Auth::instance()->get_user()->id)
             ->find();
             $user_id = Auth::instance()->get_user()->id;
+
+            $partner = ORM::factory('Partner')
+                ->where('id','=', $firm_id->partner_id)
+                ->find();
             $coupon = ORM::factory('Coupon');
             $coupon->code = $code_coupon;
             $coupon->tour_id = $tour_id;
@@ -61,14 +67,37 @@ class Controller_Site_User extends Controller_Site_DefaultUserController
             $coupon->email = $email;
             $coupon->name = $name;
             $coupon->phone = $phone;
+            $coupon->name_manager = $name_manager;
+            $coupon->date_birth = $date_birth;
             $coupon->save();
+
+            if($tour->plus == 1) {
+                $certificate_content = ORM::factory('Config')
+                    ->where('key','=', 'content_plus')
+                    ->find();
+                $certificate_rule = ORM::factory('Config')
+                    ->where('key','=', 'rule_plus')
+                    ->find();
+            }else{
+                $certificate_content = ORM::factory('Config')
+                    ->where('key','=', 'content')
+                    ->find();
+                $certificate_rule = ORM::factory('Config')
+                    ->where('key','=', 'rule')
+                    ->find();
+            }
 
             $pagePdf = View::factory('site/pdf/index', array(
                 'code' => $code_coupon,
                 'tour' => $tour,
                 'name' => $name,
                 'email' => $email,
-                'phone' => $phone
+                'phone' => $phone,
+                'certificate_content' => $certificate_content->value,
+                'certificate_rule' => $certificate_rule->value,
+                'partner_name' =>$partner->name,
+                'partner_image' => $partner->image,
+                'plus' => $tour->plus,
             ))->render();
             $pdfName = $code_coupon.'-'.$tour_id.'.pdf';
             $dirPdf = $_SERVER['DOCUMENT_ROOT'].'/coupons/';

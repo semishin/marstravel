@@ -10,6 +10,7 @@ return array(
 			'Общие' => 100,
             'Соцсети' => 200,
 //            'Почта' => 300,
+            'Сертификаты' => 400,
 		),
 		'fieldgroups' => array(
 //            'Почта' => array(
@@ -58,6 +59,24 @@ return array(
                 'properties.email' => array(
                     'label' => 'Email',
                     'field' => new CM_Field_String(),
+                )
+			),
+            'Сертификаты' => array(
+                'certificate.content' => array(
+                    'label' => 'Контент',
+                    'field' => new CM_Field_HTML(),
+                ),
+                'certificate.rule' => array(
+                    'label' => 'Правила использования сертификата',
+                    'field' => new CM_Field_HTML(),
+                ),
+                'certificate.content_plus' => array(
+                    'label' => 'Контент(+)',
+                    'field' => new CM_Field_HTML(),
+                ),
+                'certificate.rule_plus' => array(
+                    'label' => 'Правила использования сертификата(+)',
+                    'field' => new CM_Field_HTML(),
                 )
 			),
             'Соцсети' => array(

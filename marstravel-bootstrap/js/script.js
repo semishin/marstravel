@@ -237,6 +237,7 @@ $( document ).ready(function() {
 
     $('#ask_consultant_btn').click(function(e) {
         e.preventDefault();
+        var theme = $("#theme_quastion :selected").val();
         var errors = 0;
         if($('#Name_0').length>0){
             var name = $('#Name_0').val();
@@ -275,6 +276,13 @@ $( document ).ready(function() {
             }
         }
 
+        if(theme == 'null'){
+            $('#theme_quastion').addClass('error');
+            errors++;
+        } else {
+            $('#theme_quastion').removeClass('error');
+        }
+
         if (errors) {
             return false;
         } else{
@@ -282,9 +290,9 @@ $( document ).ready(function() {
                 url : "/question/add",
                 dataType : "json",
                 type : "post",
-                data : {name : name, email : email, phone : phone, question : question},
+                data : {name : name, email : email, phone : phone, question : question, theme: theme},
                 success : function(jsondata) {
-                    $('#ask_consultant').html('<p class="lightbox_header">Спасибо за вопрос!</p><p class="lightbox_text">С Вами свяжутся в ближайшее время.</p>');
+                    $('#ask_consultant').html('<p class="lightbox_header">Здравствуйте. Ваш вопрос принят.</p><p class="lightbox_text">В самое ближайшее время  менеджер компании   «МАРС-тревел»  свяжется с Вами.</p>');
                 },
                 error: function(xhr, status, error) {
                     alert(status + '|\n' +error);
@@ -896,7 +904,9 @@ $( document ).ready(function() {
     $(".generate_code").click(function(e){
         e.preventDefault();
         var tour_id = $(this).attr('data-tour_id');
+        var tour_name = $(this).attr('data-tour_name');
         var server_name = $('input[name="server_name"]').val();
+        $('.name_tour_header').text(tour_name);
         $("#create_coupon_form").attr("action", 'http://'+server_name+'/user/create_coupon/'+tour_id);
         $("#certificate_data_user").attr("href", 'http://'+server_name+'/user/create_coupon/'+tour_id);
         $(".generate_code").fancybox();
@@ -914,7 +924,17 @@ $( document ).ready(function() {
             } else {
                 $('#name').removeClass('error');
             }
-        }  if($('#email').length>0){
+        }
+        if($('#date_birth').length>0){
+            var date_birth = $('#date_birth').val();
+            if (!date_birth) {
+                $('#date_birth').addClass('error');
+                errors++;
+            } else {
+                $('#date_birth').removeClass('error');
+            }
+        }
+        if($('#email').length>0){
             var email = $('#email').val();
             if (!email) {
                 $('#email').addClass('error');
@@ -930,6 +950,15 @@ $( document ).ready(function() {
                 errors++;
             } else {
                 $('#phone').removeClass('error');
+            }
+        }
+        if($('#name_manager').length>0){
+            var name_manager = $('#name_manager').val();
+            if (!name_manager) {
+                $('#name_manager').addClass('error');
+                errors++;
+            } else {
+                $('#name_manager').removeClass('error');
             }
         }
         if(errors > 0){

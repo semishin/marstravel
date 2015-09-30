@@ -370,6 +370,7 @@ body{
     background-color: #FFFFFF;
     padding: 35px 32px 40px 32px;
     font-family: 'PT Sans', sans-serif;
+	box-shadow: 0 0 5px #ccc;
 }
 .content>.flag{
     top: 0px;
@@ -782,6 +783,7 @@ body{
     padding-bottom: 55px;
     padding-left: 85px;
     padding-right: 85px;
+	box-shadow: 0 0 5px #ccc;
 }
 .our_partners>.flag{
     bottom: 0px;
@@ -1748,7 +1750,7 @@ body{
     border-color: transparent;
 }
 .lightbox_form input.error,
-.lightbox_form textarea.error{
+.lightbox_form textarea.error, .selectpicker.error + .bootstrap-select .dropdown-toggle{
     border: 1px solid #ee1c25;
 }
 .lightbox_form input.error+.input-group-btn{
@@ -1758,6 +1760,11 @@ body{
 .lightbox_form input[name=code],
 .lightbox_form .input-group>input{
     border-right: 0px !important;
+}
+
+.tour_image{
+    margin-left: -15px;
+    margin-right: -15px;
 }
 
 .full_width,
@@ -1905,7 +1912,7 @@ ul.modified>li:before{
 
 
 #pay_btn_gen_1 {
-    margin-left: 160px;
+    margin-left: 90px;
 }
 
 .promo_code_block{

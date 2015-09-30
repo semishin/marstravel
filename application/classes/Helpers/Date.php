@@ -24,7 +24,7 @@ class Helpers_Date
 	return self::get_date($dateStr).' в '.date('H:i', $time);
     }
 
-    private static function get_month_name($month_number)
+    public static function get_month_name($month_number)
     {
 	switch(intval($month_number))
 	{

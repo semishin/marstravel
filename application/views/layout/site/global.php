@@ -88,6 +88,16 @@
                                     <div id="ask_consultant">
                                         <p class="lightbox_header">Задать вопрос консультанту</p>
                                         <form role="form" class="lightbox_form">
+                                            <?php  $tour = ORM::factory('Tour')->where('active','=',1)->order_by('position','asc')->find_all()->as_array();?>
+                                            <div class="form-group">
+                                                <select class="selectpicker form-control" id="theme_quastion">
+                                                    <option value="null">Выберите тему вопроса</option>
+                                                    <?php foreach ($tour as $index => $item) { ?>
+                                                        <option value="<?php echo $item->id;?>"><?php echo $item->name?></option>
+                                                    <?php } ?>
+                                                    <option value="0">Общие вопросы</option>
+                                                </select>
+                                            </div>
                                             <div class="form-group">
                                                 <input type="text" class="form-control" id="Name_0" placeholder="Имя" name="name">
                                             </div>

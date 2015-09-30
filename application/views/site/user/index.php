@@ -33,7 +33,7 @@
                     ?>
                     <tr>
                         <td><a href="/user/all_coupons/<?php echo $item->url;?>" target="_blank"><?php echo $item->name;?></a>  <span class="add_quantity">(<?php echo $coupon?>)</span></td>
-                        <td><a href="#generate_code" class="generate_code" data-quantity="<?php echo $coupon;?>" data-tour_id="<?php echo $item->id?>" target="_blank"><span class="label label-success" style="font-size: 12px;">Сгенерировать купон</span></a></td>
+                        <td><a href="#generate_code" class="generate_code" data-quantity="<?php echo $coupon;?>" data-tour_id="<?php echo $item->id?>" data-tour_name="<?php echo $item->name?>" target="_blank"><span class="label label-success" style="font-size: 12px;">Сгенерировать купон</span></a></td>
                     </tr>
                 <?php } ?>
                 </tbody>
@@ -45,16 +45,23 @@
 
 <div style="display: none">
     <div id="generate_code">
+        <p class="lightbox_header name_tour_header"></p>
         <p class="lightbox_header">Заполните данные</p>
         <form id="create_coupon_form" ACTION="" METHOD="POST" role="form" class="lightbox_form" data-id="1">
             <div class="form-group">
                 <input type="text" class="form-control" id="name" placeholder="ФИО" name="name">
             </div>
             <div class="form-group">
+                <input type="text" class="form-control" id="date_birth" placeholder="Дата рождения" name="date_birth">
+            </div>
+            <div class="form-group">
                 <input type="email" class="form-control" id="email" placeholder="Введите email" name="email">
             </div>
             <div class="form-group">
                 <input type="text" class="form-control" id="phone" placeholder="Номер телефона" name="phone">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" id="name_manager" placeholder="ФИО менеджера выдавшего сертификат" name="name_manager">
             </div>
             <a href="/user/create_coupon/" class="red_btn" id="certificate_data_user" data-id="">Сохранить</a>
         </form>
