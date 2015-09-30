@@ -370,6 +370,7 @@ body{
     background-color: #FFFFFF;
     padding: 35px 32px 40px 32px;
     font-family: 'PT Sans', sans-serif;
+	box-shadow: 0 0 5px #ccc;
 }
 .content>.flag{
     top: 0px;
@@ -782,6 +783,7 @@ body{
     padding-bottom: 55px;
     padding-left: 85px;
     padding-right: 85px;
+	box-shadow: 0 0 5px #ccc;
 }
 .our_partners>.flag{
     bottom: 0px;
