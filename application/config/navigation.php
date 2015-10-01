@@ -50,16 +50,16 @@ return array(
     ),
 
     'admin.coupon.index' => array(
-        'title' => 'Список купонов',
+        'title' => 'Список сертификатов',
         'route' => 'admin-coupon'
     ),
     'admin.coupon.edit' => array(
-        'title' => 'Редактирование купонов',
+        'title' => 'Редактирование сертификатов',
         'route' => 'admin-coupon:edit',
         'parent' => 'admin.coupon.index'
     ),
     'admin.coupon.create' => array(
-        'title' => 'Добавление купонов',
+        'title' => 'Добавление сертификатов',
         'route' => 'admin-coupon:create',
         'parent' => 'admin.coupon.index'
     ),
@@ -215,16 +215,16 @@ return array(
     ),
 
     'admin.ordercoupon.index' => array(
-        'title' => 'Список заказов по купонам',
+        'title' => 'Список заказов по сертификатам',
         'route' => 'admin-ordercoupon'
     ),
     'admin.ordercoupon.edit' => array(
-        'title' => 'Редактирование заказов по купонам',
+        'title' => 'Редактирование заказов по сертификатам',
         'route' => 'admin-ordercoupon:edit',
         'parent' => 'admin.ordercoupon.index'
     ),
     'admin.ordercoupon.create' => array(
-        'title' => 'Добавление заказов по купонам',
+        'title' => 'Добавление заказов по сертификатам',
         'route' => 'admin-ordercoupon:create',
         'parent' => 'admin.ordercoupon.index'
     ),

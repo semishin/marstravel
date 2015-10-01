@@ -29,11 +29,13 @@ class Model_Coupon extends ORM
             'code' => 'Код',
             'firm_id' => 'Фирма',
             'tour_id' => 'Тур',
-            'active' => 'Активность',
+            'active' => 'Статус',
+            'activate_phone' => 'Активирован вручную',
             'name' => 'Имя',
             'phone' => 'Телефон',
             'email' => 'email',
-            'active_firm' => 'Активность заказа'
+            'active_firm' => 'Активность заказа',
+            'active_phone' => 'Активность вручную'
         );
     }
 
@@ -57,6 +59,7 @@ class Model_Coupon extends ORM
         'email' => null,
         'active' => 'bool',
         'active_firm' => 'bool',
+        'activate_phone' => 'bool',
         'edit' => array(
             'width' => '40',
             'type' => 'link',
@@ -79,6 +82,19 @@ class Model_Coupon extends ORM
     public function get_firm_name()
     {
         return $this->firm->name;
+    }
+
+    public function get_status_name()
+    {
+        switch($this->active) {
+            case '0':
+                $status_name = '<span class="label label-info">Новый</span>';
+                break;
+            case '1':
+                $status_name = '<span class="label label-primary">Подтверждён</span>';
+                break;
+        }
+        return $status_name;
     }
 
     public function get_tour_name()

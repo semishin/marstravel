@@ -281,6 +281,12 @@
                         <b><?php echo number_format($price * 2 + ($free_date->price * 2), 0, ' ', ' ');?> руб.</b>
                     </p>
                 </div>
+                <div class="certificate_hidden hidden">
+                    <p class="total_price_coupon total_price_certificate">
+                        <span>Стоимость с использованием сертификата:</span>
+                        <b><?php echo number_format($free_date->price * 2, 0, ' ', ' ');?> руб.</b>
+                    </p>
+                </div>
                 <a href="/ajax" class="pre_pay_class black_btn various fancybox.ajax" id="pay_btn_gen_1">Предварительно забронировать</a>
                 <div class="clearfix"></div>
                 <div style="display: none">

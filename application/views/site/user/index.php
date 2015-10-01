@@ -5,7 +5,7 @@
                 <div class="col-md-12 col-xs-8">
                     <div class="left_menu">
                         <ul class="list-unstyled">
-                            <li><a href="/user" class="active"><i class="icon icon_turkey"></i><span>Купоны</span></a></li>
+                            <li><a href="/user" class="active"><i class="icon icon_turkey"></i><span>Сертификаты</span></a></li>
                             <li><a href="/user/profile"><i class="icon icon_attractions"></i><span>Профиль</span></a></li>
                         </ul>
                         <p>
@@ -16,12 +16,12 @@
             </div>
         </div>
         <div class="col-md-9 col-xs-12 right_block">
-            <h2>Купоны</h2>
+            <h2>Сертификаты</h2>
             <table class="table table-striped table-hover table-bordered">
                 <thead>
                 <tr>
                     <th>Наименование тура</th>
-                    <th>Купон</th>
+                    <th>Сертификат</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -33,7 +33,7 @@
                     ?>
                     <tr>
                         <td><a href="/user/all_coupons/<?php echo $item->url;?>" target="_blank"><?php echo $item->name;?></a>  <span class="add_quantity">(<?php echo $coupon?>)</span></td>
-                        <td><a href="#generate_code" class="generate_code" data-quantity="<?php echo $coupon;?>" data-tour_id="<?php echo $item->id?>" data-tour_name="<?php echo $item->name?>" target="_blank"><span class="label label-success" style="font-size: 12px;">Сгенерировать купон</span></a></td>
+                        <td><a href="#generate_code" class="generate_code" data-quantity="<?php echo $coupon;?>" data-tour_id="<?php echo $item->id?>" data-tour_name="<?php echo $item->name?>" target="_blank"><span class="label label-success" style="font-size: 12px;">Сгенерировать сертификат</span></a></td>
                     </tr>
                 <?php } ?>
                 </tbody>

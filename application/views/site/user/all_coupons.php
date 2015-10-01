@@ -5,7 +5,7 @@
                 <div class="col-md-12 col-xs-8">
                     <div class="left_menu">
                         <ul class="list-unstyled">
-                            <li><a href="/user"  class="active"><i class="icon icon_turkey"></i><span>Купоны</span></a></li>
+                            <li><a href="/user"  class="active"><i class="icon icon_turkey"></i><span>Сертификаты</span></a></li>
                             <li><a href="/user/profile"><i class="icon icon_attractions"></i><span>Профиль</span></a></li>
                         </ul>
                         <p>
@@ -16,12 +16,12 @@
             </div>
         </div>
         <div class="col-md-9 col-xs-12 right_block">
-            <h2>Купоны - <?php echo $tour->name;?></h2>
+            <h2>Сертификаты - <?php echo $tour->name;?></h2>
             <?php foreach($coupon as $item) { ?>
 
             <?php } ?>
             <?php if(!$item->code) { ?>
-                <h2>Нет купонов по данному туру</h2>
+                <h2>Нет сертификатов по данному туру</h2>
             <?php } else { ?>
             <table class="table table-striped table-hover table-bordered">
                 <thead>
@@ -48,7 +48,7 @@
                         <td><?php echo $item->email?></td>
                         <td><?php echo $item->name_manager?></td>
                         <td><?php if($item->active_firm == 1) { ?><span class="label label-success">Не активирован</span><?php } else { ?> <span class="label label-danger">Активирован</span><?php } ?></td>
-                        <td> <button data-tour_id="<?php echo $item->tour_id;?>" data-code_coupon="<?php echo $item->code;?>" type="button" class="btn btn-primary btn-sm " name="print_page">Распечатать купон</button></td>
+                        <td> <button data-tour_id="<?php echo $item->tour_id;?>" data-code_coupon="<?php echo $item->code;?>" type="button" class="btn btn-primary btn-sm " name="print_page">Распечатать сертификат</button></td>
                     </tr>
                 <?php } ?>
                 </tbody>

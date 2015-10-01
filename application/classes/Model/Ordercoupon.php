@@ -37,7 +37,7 @@ class Model_Ordercoupon extends ORM
             'email' => 'Эл. почта',
             'phone' => 'Номер телефона',
             'agreement' => 'Согласие с условиями',
-            'coupon_id' => 'Номер купона',
+            'coupon_id' => 'Номер сертификата',
             'surcharge' => 'Доплата за одноместное размещение',
             'number_order' => 'Номер заказа'
         );

@@ -176,7 +176,7 @@ class Controller_Site_User extends Controller_Site_DefaultUserController
         $this->template->tour = $tour;
         $this->template->coupon = $coupon;
         $total_page = ceil($total_coupon / $limit);
-        $this->template->s_title = 'Купоны';
+        $this->template->s_title = 'Сертификаты';
         $this->template->pagination =
             Pagination::factory(
                 array(

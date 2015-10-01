@@ -367,6 +367,7 @@ $( document ).ready(function() {
                     $('.promo_code_block .use_code_btn').attr('disabled', true);
                     $('.promo_code_block input[name="code"]').attr('disabled', true);
                     $('.certificate_hidden.hidden').removeClass('hidden');
+                    $('.coupon_hidden').addClass('hidden');
                     $('input[name="code"]').val('Код сертификата '+ jsondata.code_coupon +' принят');
                     $('input[name="code"]').data('coupon_code', jsondata.code_coupon);
                     coupon_id = jsondata.coupon_id;
