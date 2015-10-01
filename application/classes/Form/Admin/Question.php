@@ -10,13 +10,16 @@ class Form_Admin_Question extends CM_Form_Abstract
     {
         $this->add_plugin(new CM_Form_Plugin_ORM());
 
+        $this->set_field('themeName', new CM_Field_String(), 0.5);
         $this->set_field('name', new CM_Field_String(), 1);
         $this->set_field('email', new CM_Field_String(), 6);
         $this->set_field('phone', new CM_Field_String(), 7);
         $this->set_field('question', new CM_Field_HTML(), 19);
 
+        $this->get_field('themeName')->set_attributes(array('disabled'));
+
         $fieldgroups = array(
-            'Основные данные' => array('name', 'email', 'phone', 'question'),
+            'Основные данные' => array('themeName', 'name', 'email', 'phone', 'question'),
         );
 
         $this->add_plugin(new CM_Form_Plugin_Fieldgroups($fieldgroups));

@@ -218,9 +218,11 @@
 						<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
 					</div>
                 </div>
+                <input class="hidden" name="min_date_start" value="<?php echo date("Y-m-d");?>"/>
 				<script>
                     window.onload = function () {
                         var tour_id = '<?php echo $id;?>';
+                        var min_date_start = $('input[name="min_date_start"]').val();
 					  $.ajax({
 						  type: "POST",
 						  url: "/tour/get/info",
@@ -231,6 +233,7 @@
 							  $('#datetimepicker').datetimepicker({
                                   locale: 'ru',
                                   format: 'YYYY-MM-DD',
+                                  minDate: (min_date_start),
 								  enabledDates: $.makeArray(days)
 							  });
 						  }

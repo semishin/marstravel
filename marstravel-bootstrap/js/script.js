@@ -854,6 +854,7 @@ $( document ).ready(function() {
                             locale: 'ru',
                             useCurrent: false,
                             format: 'YYYY-MM-DD',
+                            minDate: (result.min_date_start),
                             enabledDates: $.makeArray(days)
                         });
                         if(result.not_free_places_carent_date){

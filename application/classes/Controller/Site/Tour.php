@@ -39,6 +39,7 @@ class Controller_Site_Tour extends Controller_Site
 
     public function action_info()
     {
+        $min_date_start = date("Y-m-d");
         $quantity_children = $this->request->post('quantity_children');
         $quantity_adults = $this->request->post('quantity_adults');
         $date = $this->request->post('date');
@@ -73,16 +74,37 @@ class Controller_Site_Tour extends Controller_Site
         $free_place_carent_date = ORM::factory('PriceFlight')
             ->where('tour_id', '=', $tour_id)
             ->where('free_places', '>=', $quantity_adults)
+            ->where('end_date', '>=', $get_carent_date)
             ->where('start_date', '<=', $get_carent_date)
             ->order_by('start_date')
             ->find();
+
+        if(!$date && !$get_carent_date && !$quantity_children){
+            foreach($free_date_total as $item){
+                $days_array[] =  range(strtotime($item->start_date), strtotime($item->end_date), (24*60*60));
+                $count_places += $item->free_places;
+            }
+            foreach ($days_array as  $dat) {
+                foreach($dat as $index => $item) {
+                    if(date('Y-m-d', $item) > $current_date){
+                        $days[] = date('Y-m-d', $item);
+                    }
+                }
+            }
+            exit(json_encode(array(
+                'not_free_places_carent_date' => 'Выберите дату',
+                'min_date_start' => $min_date_start,
+                'days' => $days)));
+        }
+
+
 
         foreach($free_date_total as $item){
             $days_array[] =  range(strtotime($item->start_date), strtotime($item->end_date), (24*60*60));
             $count_places += $item->free_places;
         }
         if($count_places < $quantity_people){
-            exit(json_encode(array('message' => 'Извините. На данный момент нет столько свободных мест')));
+            exit(json_encode(array('message' => 'Извините. На данный момент нет столько свободных мест',      'min_date_start' => $min_date_start,)));
         }
 
         if(!$get_carent_date || (($free_place_carent_date->free_places + 5) < $quantity_people) &&  $free_place_carent_date->free_places < $quantity_people){
@@ -95,6 +117,7 @@ class Controller_Site_Tour extends Controller_Site
             }
             exit(json_encode(array(
                 'not_free_places_carent_date' => 'Выберите дату',
+                'min_date_start' => $min_date_start,
                 'days' => $days)));
         }
 
@@ -108,7 +131,7 @@ class Controller_Site_Tour extends Controller_Site
             }
             exit(json_encode(array(
                 'not_free_places_carent_date' => 'Извините. На текущую дату '. $get_carent_date .' нет '. $quantity_people .' мест',
-                'days' => $days)));
+                'days' => $days, 'min_date_start' => $min_date_start)));
         }
 
         foreach ($days_array as  $dat) {
@@ -132,7 +155,8 @@ class Controller_Site_Tour extends Controller_Site
             'total_cost_not_coupon' => $total_cost_not_coupon,
             'total_cost_coupon' => $total_cost_coupon,
             'cost_flight' => $cost_flight->price,
-            'free_place_carent_date' => $free_place_carent_date)));
+            'free_place_carent_date' => $free_place_carent_date,
+            'min_date_start' => $min_date_start)));
     }
 
     public function action_ajax(){

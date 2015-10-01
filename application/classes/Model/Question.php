@@ -15,6 +15,7 @@ class Model_Question extends ORM
             'question' => 'Вопрос',
             'email' => 'Email',
             'phone' => 'Номер телефона',
+            'themeName' => 'Тема'
         );
     }
 
@@ -32,6 +33,7 @@ class Model_Question extends ORM
             'title' => '${name}'
         ),
         'email' => null,
+        'themeName' => null,
         'edit' => array(
             'width' => '40',
             'type' => 'link',
@@ -50,4 +52,15 @@ class Model_Question extends ORM
             'confirm' => 'Вы уверены?'
         )
     );
+
+    public function get_themeName()
+    {
+        $tour = ORM::factory('Tour')->where('id', '=', $this->theme)->find();
+       if($tour->name){
+           $theme = $tour->name;
+       }else{
+           $theme = 'Общие вопросы';
+       }
+        return $theme;
+    }
 }
