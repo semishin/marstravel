@@ -339,6 +339,134 @@
                                 </div>
                             </div>
                             <a href="#" class="red_btn" id="pay_btn" data-id="<?php echo $id?>">Отправить</a>
+                            <script>
+                                $(document).ready(function() {
+                                $('#pay_btn').click(function(e) {
+                                    e.preventDefault();
+                                    var errors = 0;
+                                    var code = $('input[name="code"]').data('coupon_code');
+                                    var tour_id = $(this).data('id');
+                                    var date = $('#date').val();
+                                    var quantity_adults = $('#adult_number').val();
+                                    var quantity_children = $('#children_number').val();
+                                    var price = $('.total_price').data('price');
+                                    if($('#fio_1').length>0){
+                                        var fio = $('#fio_1').val();
+                                        if (!fio) {
+                                            $('#fio_1').addClass('error');
+                                            errors++;
+                                        } else {
+                                            $('#fio_1').removeClass('error');
+                                        }
+                                    }
+                                    if($('#dob_1').length>0){
+                                        var dob = $('#dob_1').val();
+                                        if (!dob) {
+                                            $('#dob_1').addClass('error');
+                                            errors++;
+                                        } else {
+                                            $('#dob_1').removeClass('error');
+                                        }
+                                    }
+                                    if($('#passport_1').length>0){
+                                        var passport = $('#passport_1').val();
+                                        if (!passport) {
+                                            $('#passport_1').addClass('error');
+                                            errors++;
+                                        } else {
+                                            $('#passport_1').removeClass('error');
+                                        }
+                                    }
+                                    if($('#validity_1').length>0){
+                                        var validity = $('#validity_1').val();
+                                        if (!validity) {
+                                            $('#validity_1').addClass('error');
+                                            errors++;
+                                        } else {
+                                            $('#validity_1').removeClass('error');
+                                        }
+                                    }
+                                    if($('#issuedby_1').length>0){
+                                        var issuedby = $('#issuedby_1').val();
+                                        if (!issuedby) {
+                                            $('#issuedby_1').addClass('error');
+                                            errors++;
+                                        } else {
+                                            $('#issuedby_1').removeClass('error');
+                                        }
+                                    }
+                                    if($('#email_1').length>0){
+                                        var email = $('#email_1').val();
+                                        if (!email) {
+                                            $('#email_1').addClass('error');
+                                            errors++;
+                                        } else {
+                                            $('#email_1').removeClass('error');
+                                        }
+                                    }
+                                    if($('#phone_1').length>0){
+                                        var phone = $('#phone_1').val();
+                                        if (!phone) {
+                                            $('#phone_1').addClass('error');
+                                            errors++;
+                                        } else {
+                                            $('#phone_1').removeClass('error');
+                                        }
+                                    }
+                                    var payment = $('#payment_1').val();
+
+                                    if ($('#agreement_1').is(':checked')) {
+                                        var agreement = 1;
+                                        $('#agreement_1').parent().parent().removeClass('error');
+                                    } else {
+                                        $('#agreement_1').parent().parent().addClass('error');
+                                        return false;
+                                    }
+                                    if ($('#surcharge_1').is(':checked')) {
+                                        var surcharge = 1;
+                                    } else {
+                                        var surcharge = 0;
+                                    }
+                                    if(errors){
+                                        return false;
+                                    } else{
+                                        $.ajax({
+                                            url : "/order/add",
+                                            dataType : "json",
+                                            type : "post",
+                                            data : {
+                                                tour_id : tour_id,
+                                                date : date,
+                                                quantity_adults : quantity_adults,
+                                                quantity_children : quantity_children,
+                                                fio : fio,
+                                                dob : dob,
+                                                passport : passport,
+                                                validity : validity,
+                                                issuedby : issuedby,
+                                                email : email,
+                                                coupon_id : coupon_id,
+                                                code: code,
+                                                phone : phone,
+                                                payment : payment,
+                                                agreement : agreement,
+                                                surcharge : surcharge
+                                            },
+                                            success : function(jsondata) {
+                                                if(payment == 1) {
+                                                    $('#pay_order').html('<p class="lightbox_header">Здравствуйте.  Ваша заявка принята.</p><p class="lightbox_text"><p>Спасибо за обращение в компанию «МАРС-тревел». Ждем Вас в течение двух рабочих дней  в офисахкомпании «МАРС-тревел»  для заключения договора и  совершения оплаты.</p>');
+                                                }else{
+                                                    $('#pay_order').html('<p class="lightbox_header">Здравствуйте.  Ваша заявка принята.</p><p class="lightbox_text">Спасибо за обращение в компанию «МАРС-тревел».  В течение одного рабочего  дня на данныйэлектронный адрес   мы  отправим   Вам  ДОГОВОР.   Вам необходимо  его подписать, отсканировать и выслать нам на почтуexcursion@turistic.ru  в течение одного  рабочего дня после его получения*</p> <p>*Если Вы не получили договор в течение одного  рабочего дня после оформления  заявки  сообщите, пожалуйста, об этом в  компанию «МАРС-тревел» по телефону:  +7 (495) 22 33 829 </p>');
+                                                }
+                                            },
+                                            error: function(xhr, status, error) {
+                                                alert(status + '|\n' +error);
+                                            }
+                                        });
+                                    }
+                                });
+                                });
+                            </script>
                         </form>
                     </div>
                 </div>
