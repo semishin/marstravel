@@ -49,7 +49,7 @@ body {
     margin: -3px;
 
     display: block;
-    background: url('../img/index-background.jpg') no-repeat left top;
+    background: url('../img/index-background.jpg') no-repeat top left;
     background-size: cover;
 
     -webkit-transition: all 1s ease 0.1s;
@@ -838,6 +838,7 @@ body{
     color: #ffde4c;
     border-bottom: 1px solid #4b4b30;
 }
+.footer ul.gold>li>a,
 .footer ul.gold>li>a:hover,
 .footer ul.gold>li>a.active{
     color: #ee1c25;

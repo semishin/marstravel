@@ -70,14 +70,14 @@
                                 <ul class="list-inline pull-left">
                                     <li class="dropdown_hover"><span class="a">О компании</span>
                                         <ul class="dropdown_menu list-unstyled">
-                                            <li><a href="/about-us"<??>>О нас</a></li>
+                                            <li><a href="/about-us">О нас</a></li>
                                             <li><a href="/touroperator">Туроператорская деятельность</a></li>
-                                            <li><a href="/awards" <?php if( $_SERVER['REQUEST_URI'] == '/awards') { ?> class="active" <?php } ?>>Наши награды</a></li>
+                                            <li><a href="/awards">Наши награды</a></li>
                                         </ul>
                                     </li>
                                     <li><a href="/our-partners">Наши партнёры</a></li>
-                                    <li><a href="/advertising">Для корпоративных клиентов</a></li>
-                                    <li><a href="/review"  <?php if( $_SERVER['REQUEST_URI'] == '/review') { ?> class="active" <?php } ?>>Отзывы</a></li>
+                                    <!--<li><a href="/corp-clients"  <?php if( $_SERVER['REQUEST_URI'] == '/corp-clients') { ?> class="active" <?php } ?>>Для корпоративных клиентов</a></li>-->
+                                    <li><a href="/review">Отзывы</a></li>
                                     <li><a href="/contacts">Контакты</a></li>
                                 </ul>
                             </div>
@@ -186,7 +186,7 @@
                     <div class="footer_menu">
                         <ul class="list-unstyled">
                             <li><a href="/about-us">О нас</a></li>
-                            <li><a href="/advertising">Для корпоративных клиентов</a></li>
+                            <!--<li><a href="/corp-clients"  <?php if( $_SERVER['REQUEST_URI'] == '/corp-clients') { ?> class="active" <?php } ?>>Для корпоративных клиентов</a></li>-->
                             <li><a href="/contacts">Контакты</a></li>
                         </ul>
 
@@ -225,7 +225,7 @@
                 <div class="col-xs-12">
                     <div class="text">
                         <p class="text-center">Использование текстов и фотографий с сайта допускается только с разрешения компании MarsTravel</p>
-                        <p class="text-center">© 2003–2015 turistic.ru</p>
+                        <p class="text-center">© 2015 turskazka.ru</p>
                     </div>
                 </div>
             </div>

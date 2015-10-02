@@ -64,10 +64,7 @@ $( document ).ready(function() {
             $(".tour .right_part .image img").width(img_width+30);
             $(".tour .right_part .image img").height(img_height);
         }
-        if( ($('.left_menu').length>0) && ($('.tour').length>0)){
-            var height = $(".tour").height();
-            $(".left_menu>ul").height(height);
-        }
+
         if( ($('.left_banner').length>0) && ($('.tour').length>0)){
             var height = $(".tour").height();
             $(".left_block .left_banner").height(height);

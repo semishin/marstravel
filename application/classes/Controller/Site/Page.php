@@ -51,6 +51,30 @@ class Controller_Site_Page extends Controller_Site
         $this->template->count_slide = $count_slide;
         $this->template->left_banner = $left_banner;
     }
+	
+	 public function action_corp_clients()
+    {
+        $this->set_metatags_and_content('corp-clients', 'page');
+
+        $slide = ORM::factory('Slide')
+            ->where('active','=',1)
+            ->order_by('position','asc')
+            ->find_all();
+        $count_slide = ORM::factory('Slide')
+            ->where('active','=',1)
+            ->count_all();
+        $left_banner = ORM::factory('Banner')
+            ->where('active','=',1)
+            ->where('type','=',2)
+            ->order_by('id','desc')
+            ->limit(self::LIMIT_ON_PAGE_BANNERS)
+            ->find_all()
+            ->as_array();
+
+        $this->template->slide = $slide;
+        $this->template->count_slide = $count_slide;
+        $this->template->left_banner = $left_banner;
+    }
 
     public function action_our_partners()
     {

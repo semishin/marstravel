@@ -1,7 +1,7 @@
 <div class="col-xs-12">
     <div class="slider_shadow"></div>
     <div class="tour_header_block grey_top_block">
-        <a href="/sights" class="back_to_main">&larr; <span>Все туры</span></a>
+        <a href="/" class="back_to_main">&larr; <span>Все туры</span></a>
         <p class="text-center header"><?php echo $name?></p>
         <p class="text-center duration">7 ночей 8 дней</p>
         <ul class="list-inline cities text-center">
