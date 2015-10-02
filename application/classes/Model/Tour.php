@@ -91,8 +91,6 @@ class Model_Tour extends ORM
 
     public function save($validation)
     {
-        $this->md5_url = md5($this->url);
-
         parent::save($validation);
 
     }

@@ -28,7 +28,6 @@ class Controller_Site_Order extends Controller_Site
 
                 $data_tour =  ORM::factory('Tour')->where('id', '=', $tour_id)->find();
 
-                $cost_flight = ORM::factory('PriceFlight')->where('tour_id', '=', $tour_id)->find();
 
                 if($quantity_adults + $quantity_children == 1){
                     if(!$data_tour->price_single){
@@ -37,6 +36,13 @@ class Controller_Site_Order extends Controller_Site
                         $price_single = $data_tour->price_single;
                     }
                 }
+
+                $cost_flight = ORM::factory('PriceFlight')
+                    ->where('tour_id', '=', $tour_id)
+                    ->where('free_places', '>=', $quantity_adults + $quantity_children)
+                    ->where('end_date', '>=', $date)
+                    ->where('start_date', '<=', $date)
+                    ->find();
 
                 $total_price = ($data_tour->price *  $quantity_adults) + ($data_tour->price_child * $quantity_children) + ($cost_flight->price * ($quantity_adults + $quantity_children)) + $price_single;
 
@@ -87,14 +93,15 @@ class Controller_Site_Order extends Controller_Site
                 $code = $this->request->post('code');
                 $tour_id = $this->request->post('tour_id');
                 $coupon_check = ORM::factory('Coupon')
-                    ->where('active','=',1)
+                    ->where('active','=',0)
                     ->where('tour_id','=', $tour_id)
                     ->where('code','=', $code)
                     ->limit(1)
                     ->find();
                 if ($coupon_check->id) {
                     $coupon_id = $coupon_check->id;
-                    $coupon_check->active_firm = 0;
+                    $coupon_check->active_firm = 1;
+                    $coupon_check->active = 1;
                     $coupon_check->save();
                 } else {
                     exit(json_encode(array('number_order' => 'false')));
@@ -113,7 +120,12 @@ class Controller_Site_Order extends Controller_Site
                 $surcharge = $this->request->post('surcharge');
                 $number_order = mb_substr(md5(time()), 0, 8);
                 $data_tour =  ORM::factory('Tour')->where('id', '=', $tour_id)->find();
-                $cost_flight = ORM::factory('PriceFlight')->where('tour_id', '=', $tour_id)->find();
+                $cost_flight = ORM::factory('PriceFlight')
+                    ->where('tour_id', '=', $tour_id)
+                    ->where('free_places', '>=', $quantity_adults + $quantity_children)
+                    ->where('end_date', '>=', $date)
+                    ->where('start_date', '<=', $date)
+                    ->find();
                 $ordercoupon = ORM::factory('Ordercoupon');
                 $ordercoupon->tour_id = $tour_id;
                 $ordercoupon->date = $date;

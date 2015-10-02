@@ -26,16 +26,28 @@ class Model_Coupon extends ORM
     {
         return array(
             'id' => 'Идентификатор',
-            'code' => 'Код',
+            'code' => 'Номер сертификата',
             'firm_id' => 'Фирма',
             'tour_id' => 'Тур',
-            'active' => 'Статус',
-            'activate_phone' => 'Активирован вручную',
-            'name' => 'Имя',
-            'phone' => 'Телефон',
-            'email' => 'email',
-            'active_firm' => 'Активность заказа',
-            'active_phone' => 'Активность вручную'
+            'active' => 'Сертификат использован',
+            'activate_phone' => 'Сертификат активирован',
+            'active_firm' => 'Активность для фирмы',
+            'active_phone' => 'Активность вручную',
+            'date_phone' => 'Дата звонка (заявки)',
+            'status_work_client' => 'Статус работы с клиентом',
+            'contract_signature' => 'Дата подписания договора в офисе',
+            'send_contract_email' => 'Дата отправления договора клиенту по email',
+            'sent_other_tour' => 'Предложения по другим турам',
+            'review' => 'Отзыв клиента',
+            'date_get_order' => 'Дата получения договора, подписанного клиентом',
+            'manager_mars' => 'Ф.И. Менеджера Марс-тревел, принявшего первый звонок (заявку) от клиента',
+            'send_all_document' => 'Дата оправления клиенту  всех документов необходимых для использования сертификата',
+            'created_at' => 'Дата выдачи сертификата',
+            'name' => 'ФИО владельца сертификата',
+            'date_birth' => 'Дата рождения владельца сертификата',
+            'phone' => 'Телефон владельца сертификата',
+            'email' => 'Email владельца сертификата',
+            'name_manager' => 'ФИО менеджера, выдавшего сертификат'
         );
     }
 
@@ -45,21 +57,16 @@ class Model_Coupon extends ORM
     }
 
     protected $_grid_columns = array(
-        'code' => null,
-        'firm_id' => array(
-            'type' => 'template',
-            'template' => '${firm_name}'
-        ),
-        'tour_id' => array(
-            'type' => 'template',
-            'template' => '${tour_name}'
-        ),
-        'name' => null,
-        'phone' => null,
-        'email' => null,
-        'active' => 'bool',
-        'active_firm' => 'bool',
         'activate_phone' => 'bool',
+        'manager_mars' => null,
+        'date_phone' => null,
+        'status_work_client' => null,
+        'contract_signature' => null,
+        'send_contract_email' => null,
+        'date_get_order' => null,
+        'send_all_document' => null,
+        'active' => 'bool',
+        'sent_other_tour' => 'bool',
         'edit' => array(
             'width' => '40',
             'type' => 'link',

@@ -25,7 +25,7 @@ return array
         '<i class="fa fa-location-arrow"></i>|Города' => 'admin-city',
         '<i class="fa fa-map-marker"></i>|Туры' => 'admin-tour',
         '<i class="fa fa-bookmark"></i>|Заказы' => 'admin-order',
-        '<i class="fa fa-bookmark-o"></i>|Заказы по купонам' => 'admin-ordercoupon',
+        '<i class="fa fa-bookmark-o"></i>|Заказы по сертификатам' => 'admin-ordercoupon',
         '<i class="fa fa-barcode"></i>|Сертификаты' => array(
             '<i class="fa fa-barcode"></i>|Фирмы' => 'admin-coupon_firm',
             '<i class="fa fa-barcode"></i>|Сертификаты' => 'admin-coupon',

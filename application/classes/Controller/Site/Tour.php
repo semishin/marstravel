@@ -20,7 +20,7 @@ class Controller_Site_Tour extends Controller_Site
             ->where('tour_id', '=', $this->_model->id)
             ->where('free_places', '>=', 2)
             ->order_by('start_date')->find_all();
-        $days = [];
+        $days = array();
         foreach($free_date as $item){
             $days_array[] =  range(strtotime($item->start_date), strtotime($item->end_date), (24*60*60));
         }
@@ -46,7 +46,7 @@ class Controller_Site_Tour extends Controller_Site
         $get_carent_date = $this->request->post('get_carent_date');
         $tour_id = $this->request->post('tour_id');
         $quantity_people = $quantity_children + $quantity_adults;
-        $days = [];
+        $days = array();
         $count_places = 0;
         if($date){
             $format_date = new DateTime($date);

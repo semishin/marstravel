@@ -12,7 +12,8 @@ class Controller_Site_Ordercoupon extends Controller_Site
         $quantity_adults = $this->request->post('quantity_adults');
         $quantity_people = $quantity_children + $quantity_adults;
         $coupon_check = ORM::factory('Coupon')
-            ->where('active_firm','=',1)
+            ->where('active_firm','=',0)
+            ->where('active','=',0)
             ->where('tour_id','=', $tour_id)
             ->where('code','=', $code)
             ->limit(1)

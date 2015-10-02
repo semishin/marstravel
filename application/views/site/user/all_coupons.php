@@ -47,7 +47,7 @@
                         <td><?php echo $item->phone?></td>
                         <td><?php echo $item->email?></td>
                         <td><?php echo $item->name_manager?></td>
-                        <td><?php if($item->active_firm == 1) { ?><span class="label label-success">Не активирован</span><?php } else { ?> <span class="label label-danger">Активирован</span><?php } ?></td>
+                        <td><?php if($item->active_firm == 0) { ?><span class="label label-success">Не активирован</span><?php } else { ?> <span class="label label-danger">Активирован</span><?php } ?></td>
                         <td> <button data-tour_id="<?php echo $item->tour_id;?>" data-code_coupon="<?php echo $item->code;?>" type="button" class="btn btn-primary btn-sm " name="print_page">Распечатать сертификат</button></td>
                     </tr>
                 <?php } ?>
