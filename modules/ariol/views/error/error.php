@@ -30,7 +30,7 @@
 							<?php } else { ?>
 								<h2>Страница не найдена</h2>
 								<p>Волшебная строка поможет вам</p>
-								<form action="https://www.google.by/search" method="get">
+								<form action="/search" method="get">
 									<div class="input-prepend input-group">
 										<span class="input-group-addon clear"><i class="fa fa-search"></i></span>
 										<input name="q" value="" id="prependedInput" class="form-control" size="16" type="text" placeholder="Волшебная строка">
@@ -39,6 +39,7 @@
 										</span>
 									</div>
 								</form>
+								<div style="margin-top:20px;"><p>Перейти на <a href="/" class="btn btn-xs btn-warning">главную</a></p></p></div>
 							<?php } ?>
 						</div>
 					</div>
@@ -47,10 +48,3 @@
 		</div>
 	</body>
 </html>
-<script>
-	$(document).ready(function() {
-		$('form').on('submit', function() {
-			$('input[name=q]').val('site:<?php echo $_SERVER['HTTP_HOST']; ?> ' + $('input[name=q]').val());
-		});
-	})
-</script>

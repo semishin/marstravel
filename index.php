@@ -117,7 +117,7 @@ if ( ! defined('KOHANA_START_MEMORY'))
 /**
  * Define application env.
  */
-define('IN_PRODUCTION', false);
+define('IN_PRODUCTION', true);
 
 // Bootstrap the application
 require_once DOCROOT.'mpdf/mpdf.php';
