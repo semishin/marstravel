@@ -11,3 +11,4 @@ phpunit.xml
 /composer.phar
 /.idea
 aplication/config/database.php
+files
