@@ -4,10 +4,10 @@ return array(
 	'default' => array(
 		'type'	     => 'MySQLi',
 		'connection' => array(
-			'username'   => 'turistic_skazka',
-			'password'   => 'Z9ZwQKRs1g',
-			'database'   => 'turistic_skazka',
-			'hostname'   => 'localhost',
+			'username'   => 'root',
+			'password'   => 'woo4aDoo',
+			'database'   => 'mars.ariol.by',
+			'hostname'   => 'ariol.by',
 		),
 		'table_prefix' => '',
         'charset'      => 'utf8',
