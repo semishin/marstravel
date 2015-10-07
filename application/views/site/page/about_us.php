@@ -21,5 +21,42 @@
             <h1 style="margin-top: 0px;"><?php echo $name ?></h1>
             <?php echo $content ?>
         </div>
+        <div class="col-xs-12">
+            <h2>Наши гарантии</h2>
+            <div class="adventure_program text-center">
+                <div class="intro">
+                  <div class="col-sm-4">
+                      <a href="#"><img src="/marstravel-bootstrap/img/word_img.png">
+                          <p>Text</p>
+                      </a>
+                  </div>
+                  <div class="col-sm-4">
+                      <a href="#"><img src="/marstravel-bootstrap/img/pdf_img.png">
+                          <p>Text</p>
+                      </a>
+                  </div>
+                  <div class="col-sm-4">
+                      <a href="#"><img src="/marstravel-bootstrap/img/pdf_img.png">
+                          <p>Text</p>
+                      </a>
+                  </div>
+                </div>
+            </div>
+        </div>
+        <?php if($images) { $images = json_decode($images)?>
+            <div class="col-xs-12">
+                <div class="adventure_program">
+                    <div class="intro">
+                        <p class="text">
+                            <?php foreach($images as $item) { ?>
+                                <a class="images_sight " rel="gallery1" href="<?php echo $item;?>" title="<?php echo $name?>">
+                                    <img src="<?php echo $item;?>" class="img-rounded col-xs-4 mb30" />
+                                </a>
+                            <?php } ?>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        <?php } ?>
     </div>
 </div>

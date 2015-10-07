@@ -33,6 +33,7 @@ class Form_Admin_Tour extends CM_Form_Abstract
         $this->set_field('excluded', new CM_Field_HTML(), 16);
         $this->set_field('position', new CM_Field_Int(), 18);
         $this->set_field('url', new CM_Field_String(), 20);
+        $this->set_field('link_forum', new CM_Field_String(), 21);
         $this->set_field('d1_name', new CM_Field_String(), 22);
         $this->set_field('d1_content', new CM_Field_HTML(), 24);
         $this->set_field('d1_image', new CM_Field_File(),25);
@@ -79,6 +80,7 @@ class Form_Admin_Tour extends CM_Form_Abstract
                                         'excluded',
                                         'position',
                                         'url',
+                                        'link_forum',
                                         'd1_name',
                                         'd1_content',
                                         'd1_image',

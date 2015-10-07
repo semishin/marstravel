@@ -1358,7 +1358,7 @@ body{
 }
 .hotels_block .hotel .image .hotel_stars>span,
 .grey_top_block>.hotel_stars>span{
-    font-family: "Solomon-Sans-Black";
+    /*font-family: "Solomon-Sans-Black";*/
     font-size: 28px;
     /*color: #f3cf31;*/
     color: #a78e1f;
@@ -1376,15 +1376,24 @@ body{
     padding-right: 15px;
 }
 .hotels_block .hotel .name>a,
-.sights_block .sight .name>a{
+.sights_block .sight .name>a, .black_link{
     color: #111111;
     font-size: 18px;
     font-weight: bold;
     font-family: 'PT Sans', sans-serif;
     border-bottom: 1px solid #afb2b4;
 }
+
+.forum_link{
+    color: #111111;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: -20px;
+    margin-bottom: 20px;
+}
+
 .hotels_block .hotel:hover .name>a,
-.sights_block .sight:hover .name>a{
+.sights_block .sight:hover .name>a, .black_link:hover{
     color: #ee1c25;
     border-bottom: 1px solid #ee1c25;
 }
@@ -1407,7 +1416,7 @@ body{
 }
 .hotels_block .hotel2 .image .indicators_panel .carousel-indicators li {
     background-color: #afaf4c;
-    border: 5px solid #111111;
+    border: 2px solid #111111;
     width: 19px;
     height: 19px;
     margin: 2px;
@@ -1911,10 +1920,11 @@ ul.modified>li:before{
     margin-top: 10px;
 }
 
-
-#pay_btn_gen_1 {
-    margin-left: 90px;
+.img_tor_print img{
+    margin-left: 10px;
+    margin-right: 10px;
 }
+
 
 .promo_code_block{
     border-radius: 23px;

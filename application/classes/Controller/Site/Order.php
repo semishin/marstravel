@@ -118,6 +118,9 @@ class Controller_Site_Order extends Controller_Site
                 $phone = $this->request->post('phone');
                 $agreement = $this->request->post('agreement');
                 $surcharge = $this->request->post('surcharge');
+                if($quantity_adults + $quantity_children == 1) {
+                    $surcharge = 1;
+                }
                 $number_order = mb_substr(md5(time()), 0, 8);
                 $data_tour =  ORM::factory('Tour')->where('id', '=', $tour_id)->find();
                 $cost_flight = ORM::factory('PriceFlight')

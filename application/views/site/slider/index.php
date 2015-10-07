@@ -1,5 +1,5 @@
 <div class="slider_shadow"></div>
-<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+<div id="carousel-example-generic" class="carousel slide" data-interval="5000" data-ride="carousel">
     <div class="row">
         <div class="col-md-9 col-xs-8 left_part">
 
@@ -25,7 +25,7 @@
             <?php } ?>
 
             <!-- Indicators -->
-            <ol class="carousel-indicators">
+            <ol class="carousel-indicators" style="display: none">
                 <?php for ($i = 0; $i < $count_slide; $i++) { ?>
                     <li data-target="#carousel-example-generic" data-slide-to="<?php echo $i ?>" <?php if (!$i) { ?>class="active"<?php } ?>></li>
                 <?php } ?>

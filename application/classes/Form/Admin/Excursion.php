@@ -11,6 +11,7 @@ class Form_Admin_Excursion extends CM_Form_Abstract
         $this->add_plugin(new CM_Form_Plugin_ORM());
 
         $tours = ORM::factory('Tour')->order_by('name', 'ASC')->find_all();
+        $tours_facultative = ORM::factory('Tour')->order_by('name', 'ASC')->find_all();
 
         $tours_list = array();
         foreach ($tours as $item) {
@@ -21,6 +22,7 @@ class Form_Admin_Excursion extends CM_Form_Abstract
         $this->set_field('city_id', new CM_Field_Select_ORM(ORM::factory('City')), 2);
         $this->set_field('category_id', new CM_Field_Select_ORM(ORM::factory('Excursion_Category')), 4);
         $this->set_field('tours', new CM_Field_Manytomany($tours_list, $this->get_model()), 1);
+        $this->set_field('tours_facultative', new CM_Field_Manytomany($tours_list, $this->get_model()), 1);
         $this->set_field('active', new CM_Field_Boolean(), 6);
         $this->set_field('main_image', new CM_Field_File(), 10);
         $this->set_field('images', new CM_Field_Multifile(),12);
@@ -31,7 +33,7 @@ class Form_Admin_Excursion extends CM_Form_Abstract
         $this->set_field('s_keywords', new CM_Field_Text(), 19);
 
         $fieldgroups = array(
-            'Основные данные' => array('name', 'city_id', 'category_id', 'tours', 'active', 'main_image', 'images', 'url', 'content'),
+            'Основные данные' => array('name', 'city_id', 'category_id', 'tours', 'tours_facultative', 'active', 'main_image', 'images', 'url', 'content'),
             'Мета данные' => array('s_title', 's_description', 's_keywords'),
         );
 

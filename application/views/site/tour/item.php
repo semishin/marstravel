@@ -163,7 +163,6 @@
                 </p>
                 <a href="#from_top_get_free_button" class="red_btn">Получить по сертификату</a>
             </div>
-
         </div>
         <div class="col-xs-12">
             <div class="adventure_program">
@@ -184,7 +183,9 @@
                             <div class="col-sm-5">
                                 <p>
                                     <?php if(${'d'.$day_tour.'_image'}) { ?>
-                                        <img src="<?php echo Lib_Image::resize_width(${'d'.$day_tour.'_image'}, 'tour', $id, 400, 300); ?>" class="img-responsive">
+                                        <a class="images_sight" rel="gallery<?php echo  ${'d'.$day_tour.'_name'};?>" href="<?php echo ${'d'.$day_tour.'_image'};?>" title="<?php echo  ${'d'.$day_tour.'_name'};?>">
+                                            <img src="<?php echo  Lib_Image::resize_bg(${'d'.$day_tour.'_image'}, 'tour', $id, 400, 300)?>" class="img-responsive mb30" />
+                                        </a>
                                     <?php } ?>
                                 </p>
                             </div>
@@ -211,6 +212,11 @@
             </div>
             <div class="order_tour" data-tour_id="<?php echo $id;?>" id="from_top_get_free_button">
                 <p class="text-center">Заказ тура</p>
+                <?php if($link_forum) { ?>
+                    <div class="forum_link text-center">
+                        <a href="/<?php echo $link_forum;?>">Поиск попутчика Online</a>
+                    </div>
+                <?php } ?>
                 <div class="form-group date">
                     <p style="margin-bottom: 12px;padding-left: 25px;font-size: 16px;color: #111111;font-weight: bold">Выберите дату поездки</p>
 					<div class='input-group date add_error' id='datetimepicker'>
@@ -268,7 +274,7 @@
                         <b><?php echo number_format($free_date->price, 0, '', ' ')?> руб.</b>
                     </p>
                 </div>
-                <div class="coupon_hidden">
+                <div class="">
                     <div <?php if(!$price_single) { ?> class="hidden"<?php } ?>>
                         <div class="add_content_single_price hidden">
                             <p class="content_single_price"  data-single_price="<?php echo $price_single?>"><span>Доплата за одноместное размещение:</span> <b><?php echo number_format($price_single, 0, ' ', ' ');?> руб.</b></p>
@@ -287,7 +293,8 @@
                         <b><?php echo number_format($free_date->price * 2, 0, ' ', ' ');?> руб.</b>
                     </p>
                 </div>
-                <a href="/ajax" class="pre_pay_class black_btn various fancybox.ajax" id="pay_btn_gen_1">Предварительно забронировать</a>
+                    <a href="/ajax" class="pre_pay_class black_btn various fancybox.ajax" id="pay_btn_gen_1">Предварительно забронировать</a>
+                    <a class="img_tor_print" href="#"><img src="/marstravel-bootstrap/img/word_img.png" width="51px"><span>Скачать договор</span></a>
                 <div class="clearfix"></div>
                 <div style="display: none">
                     <div id="pay_order">
@@ -339,12 +346,12 @@
                                     Доплата за одноместное размещение 120 долларов
                                 </label>
                             </div>
-                            <div class="coupon_hidden">
+                            <div class="">
                                 <div class="form-group text-left surcharge_single hidden checkbox" data-price_single="<?php echo $price_single?>">
                                     <b>Доплата за одноместное размещение <?php echo number_format($price_single, 0, ' ', ' ') ?> руб.</b>
                                 </div>
                             </div>
-                            <a href="#" class="red_btn" id="pay_btn" data-id="<?php echo $id?>">Отправить</a>
+                            <a href="#" class="red_btn" id="pay_btn" data-id="<?php echo $id?>">Оформить</a>
                             <script>
                                 $(document).ready(function() {
                                 $('#pay_btn').click(function(e) {

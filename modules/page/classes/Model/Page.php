@@ -47,7 +47,8 @@ class Model_Page extends ORM
             'url' => 'ЧПУ',
             'active' => 'Статус',
             'updated_at' => 'Последнее обновление',
-            'content' => 'Контент'
+            'content' => 'Контент',
+            'images' => 'Картинки'
         );
     }
     

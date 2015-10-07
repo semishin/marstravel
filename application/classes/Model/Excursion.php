@@ -21,6 +21,12 @@ class Model_Excursion extends ORM
             'foreign_key' => 'excursion_id',
             'through'      => 'tour_excursion',
             'far_key'      => 'tour_id',
+        ),
+        'tours_facultative'    => array(
+            'model'=> 'Tour',
+            'foreign_key' => 'excursion_id',
+            'through'      => 'tour_excursion_facultative',
+            'far_key'      => 'tour_id',
         )
     );
 
@@ -29,6 +35,12 @@ class Model_Excursion extends ORM
             'model'=> 'Tour',
             'foreign_key' => 'excursion_id',
             'through'      => 'tour_excursion',
+            'far_key'      => 'tour_id',
+        ),
+        'tours_facultative'    => array(
+            'model'=> 'Tour',
+            'foreign_key' => 'excursion_id',
+            'through'      => 'tour_excursion_facultative',
             'far_key'      => 'tour_id',
         )
     );
@@ -48,7 +60,8 @@ class Model_Excursion extends ORM
             'url' => 'URL',
             's_title' => 'SEO title',
             's_description' => 'SEO description',
-            's_keywords' => 'SEO keywords'
+            's_keywords' => 'SEO keywords',
+            'tours_facultative' => 'Факультативные экскурсии'
         );
     }
 

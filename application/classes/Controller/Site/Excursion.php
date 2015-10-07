@@ -52,13 +52,20 @@ class Controller_Site_Excursion extends Controller_Site
     {
         $this->set_metatags_and_content($this->param('url'), 'excursion');
         $PDO = ORM::factory('Excursion')->PDO();
-        $query = "SELECT tours.url, tours.name
+        $query = "SELECT tours.url, tours.name, tours.main_image, tours.id
                         FROM tour_excursion
                         LEFT JOIN tours ON tours.id = tour_excursion.tour_id
                         LEFT JOIN excursions ON excursions.id = tour_excursion.excursion_id
                         WHERE tour_excursion.excursion_id = {$this->_model->id}";
+        $query_facultative = "SELECT tours.url, tours.name, tours.main_image, tours.id
+                        FROM tour_excursion_facultative
+                        LEFT JOIN tours ON tours.id = tour_excursion_facultative.tour_id
+                        LEFT JOIN excursions ON excursions.id = tour_excursion_facultative.excursion_id
+                        WHERE tour_excursion_facultative.excursion_id = {$this->_model->id}";
         $tours = $PDO->query($query)->fetchAll();
+        $tours_facultative = $PDO->query($query_facultative)->fetchAll();
         $this->template->tours = $tours;
+        $this->template->tours_facultative = $tours_facultative;
         $this->template->images = json_decode($this->_model->images, true);
 
     }

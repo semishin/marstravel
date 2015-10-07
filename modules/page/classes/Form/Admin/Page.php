@@ -29,5 +29,6 @@ class Form_Admin_Page extends CM_Form_Abstract
         $this->set_field('url', new CM_Field_String(), 50);
         $this->set_field('active', new CM_Field_Boolean(), 60);
         $this->set_field('content', new CM_Field_HTML(), 70);
+        $this->set_field('images', new CM_Field_Multifile(),80);
     }
 }

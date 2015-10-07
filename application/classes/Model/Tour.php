@@ -80,7 +80,8 @@ class Model_Tour extends ORM
             's_title' => 'SEO title',
             's_description' => 'SEO categorydescription',
             's_keywords' => 'SEO keywords',
-            'price_single' => 'Доплата за одноместное размещение'
+            'price_single' => 'Доплата за одноместное размещение',
+            'link_forum' => 'Ссылка на тему форума'
         );
     }
 

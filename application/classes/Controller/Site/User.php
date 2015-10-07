@@ -61,7 +61,9 @@ class Controller_Site_User extends Controller_Site_DefaultUserController
             $coupon = ORM::factory('Coupon');
             $coupon->code = $code_coupon;
             $coupon->tour_id = $tour_id;
-            $coupon->active = 1;
+            $coupon->active = 0;
+            $coupon->active_firm = 0;
+            $coupon->activate_phone = 0;
             $coupon->user_id = $user_id;
             $coupon->firm_id = $firm_id;
             $coupon->email = $email;
