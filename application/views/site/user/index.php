@@ -52,8 +52,16 @@
                 <input type="text" class="form-control" id="name" placeholder="ФИО" name="name">
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" id="date_birth" placeholder="Дата рождения" name="date_birth">
+                <input id='datetimepicker' type="text" class="form-control" id="date_birth" placeholder="Дата рождения" name="date_birth">
             </div>
+            <script type="text/javascript">
+                $(function () {
+                    $('#datetimepicker').datetimepicker({
+                        locale: 'ru',
+                        format: 'YYYY-MM-DD'
+                    });
+                });
+            </script>
             <div class="form-group">
                 <input type="email" class="form-control" id="email" placeholder="Введите email" name="email">
             </div>

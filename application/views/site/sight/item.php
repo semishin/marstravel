@@ -40,9 +40,17 @@
             <div class="adventure_program">
                 <div class="intro">
                     <p class="text-center header mb30">Экскурсии по достопримечательности - <?php echo $name;?></p>
-                        <?php foreach($excursions as $items) { ?>
-                            <a href="/excursion/<?php echo $items['url'];?>"><?php echo $items['name']?>
-                        <?php } ?>
+                    </div>
+                     <div class="row">
+                    <?php foreach($excursions as $items) { ?>
+                        <div class="col-sm-3">
+                            <a href="/excursion/<?php echo $items['url'];?>" title="<?php echo $items['name']?>">
+                                <img src="<?php echo Lib_Image::resize_bg($items['main_image'], 'excursion', $items['id'], 664, 382)?>" class="img-responsive mb30" />
+                            </a>
+                            <a class="black_link"  href="/excursion/<?php echo $items['url'];?>"><?php echo $items['name']?></a>
+                        </div>
+                    <?php } ?>
+                </div>
                 </div>
             </div>
         </div>

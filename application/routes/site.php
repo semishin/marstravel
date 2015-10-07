@@ -11,6 +11,7 @@ Route::set('site-auth', 'auth')
         'action'     => 'index',
     ));
 
+
 Route::set('site-auth-logout', 'auth/logout')
     ->defaults(array(
         'directory' => 'site',
@@ -89,6 +90,13 @@ Route::set('site-weather', 'weather')
         'directory' => 'site',
         'controller' => 'page',
         'action'     => 'weather',
+    ));
+
+Route::set('site-page', 'page/<url>', array('url' => '.*'))
+    ->defaults(array(
+        'directory' => 'site',
+        'controller' => 'page',
+        'action'  => 'index',
     ));
 
 Route::set('site-about_turkey', 'about-turkey')
@@ -277,13 +285,6 @@ Route::set('site-search', 'search(/<page>)', array('page' => '\d+'))
         'directory' => 'site',
         'controller' => 'search',
         'action' => 'index',
-    ));
-
-Route::set('site-page', '<url>', array('url' => '.*'))
-    ->defaults(array(
-        'directory' => 'site',
-        'controller' => 'page',
-        'action'     => 'index',
     ));
 
 Route::set('site-comment', 'comment')

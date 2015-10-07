@@ -59,7 +59,7 @@ class Controller_Site_Sight extends Controller_Site
         $this->set_metatags_and_content($this->param('url'), 'sight');
 
         $PDO = ORM::factory('Excursion')->PDO();
-        $query = "SELECT excursions.url, excursions.name
+        $query = "SELECT excursions.url, excursions.name, excursions.main_image, excursions.id
                         FROM sight_excursion
                         LEFT JOIN sights ON sights.id = sight_excursion.sight_id
                         LEFT JOIN excursions ON excursions.id = sight_excursion.excursion_id

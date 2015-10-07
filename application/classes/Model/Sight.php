@@ -18,18 +18,18 @@ class Model_Sight extends ORM
     protected $_has_many_to_save = array(
         'excursions'    => array(
             'model'=> 'Excursion',
-            'foreign_key' => 'excursion_id',
+            'foreign_key' => 'sight_id',
             'through'      => 'sight_excursion',
-            'far_key'      => 'sight_id',
+            'far_key'      => 'excursion_id',
         )
     );
 
     protected $_has_many = array(
         'excursions'    => array(
             'model'=> 'Excursion',
-            'foreign_key' => 'excursion_id',
+            'foreign_key' => 'sight_id',
             'through'      => 'sight_excursion',
-            'far_key'      => 'sight_id',
+            'far_key'      => 'excursion_id',
         )
     );
 

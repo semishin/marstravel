@@ -44,7 +44,7 @@
                 <div class="row">
                     <?php foreach($tours as $items) { ?>
                     <div class="col-sm-3">
-                        <a class="images_sight" rel="gallery<?php echo $items['name']?>" href="<?php echo $items['main_image'];?>" title="<?php echo $items['name']?>">
+                        <a href="/tour/<?php echo $items['url'];?>" title="<?php echo $items['name']?>">
                             <img src="<?php echo Lib_Image::resize_bg($items['main_image'], 'tour', $items['id'], 664, 382)?>" class="img-responsive mb30" />
                         </a>
                         <a class="black_link"  href="/tour/<?php echo $items['url'];?>"><?php echo $items['name']?></a>
@@ -52,7 +52,7 @@
                     <?php } ?>
                     <?php foreach($tours_facultative as $items) { ?>
                     <div class="col-sm-3">
-                        <a class="images_sight" rel="gallery<?php echo $items['name']?>" href="<?php echo $items['main_image'];?>" title="<?php echo $items['name']?>">
+                        <a href="/tour/<?php echo $items['url'];?>" title="<?php echo $items['name']?>">
                             <img src="<?php echo  Lib_Image::resize_bg($items['main_image'], 'tour', $items['id'], 664, 382)?>" class="img-responsive mb30" />
                         </a>
                         <a  class="black_link" href="/tour/<?php echo $items['url'];?>"><?php echo $items['name']?> (факультативная экскурсия)</a>

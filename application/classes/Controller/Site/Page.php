@@ -4,6 +4,14 @@ class Controller_Site_Page extends Controller_Site
 {
     const LIMIT_ON_PAGE_BANNERS = 1;
 
+    public function action_index()
+    {
+        $page_url = $this->param('url');
+
+        $this->set_metatags_and_content($page_url, 'page');
+        $this->template->set_layout('layout/site/global');
+    }
+
     public function action_contacts()
     {
         $this->set_metatags_and_content('contacts', 'page');

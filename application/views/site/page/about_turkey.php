@@ -20,21 +20,21 @@
         <div class="col-md-9 col-xs-12 right_block">
             <h1 style="margin-top: 0px;"><?php echo $name ?></h1>
             <?php echo $content ?>
-        </div>
-        <?php if($images) { $images = json_decode($images)?>
-            <div class="col-xs-12">
-                <div class="adventure_program">
-                    <div class="intro">
-                        <p class="text">
-                            <?php foreach($images as $item) { ?>
-                                <a class="images_sight " rel="gallery1" href="<?php echo $item;?>" title="<?php echo $name?>">
-                                    <img src="<?php echo $item;?>" class="img-rounded col-xs-4 mb30" />
-                                </a>
-                            <?php } ?>
-                        </p>
+            <?php if($images) { $images = json_decode($images)?>
+                <div class="col-xs-12">
+                    <div class="adventure_program">
+                        <div class="intro">
+                            <p class="text">
+                                <?php foreach($images as $item) { ?>
+                                    <a class="images_sight " rel="gallery1" href="<?php echo $item;?>" title="<?php echo $name?>">
+                                        <img src="<?php echo $item;?>" class="img-rounded col-xs-4 mb30" />
+                                    </a>
+                                <?php } ?>
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
-        <?php } ?>
+            <?php } ?>
+        </div>
     </div>
 </div>
