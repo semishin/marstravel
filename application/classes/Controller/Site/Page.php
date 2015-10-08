@@ -7,7 +7,6 @@ class Controller_Site_Page extends Controller_Site
     public function action_index()
     {
         $page_url = $this->param('url');
-
         $this->set_metatags_and_content($page_url, 'page');
         $this->template->set_layout('layout/site/global');
     }
