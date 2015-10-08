@@ -305,7 +305,7 @@
                                 <input type="text" class="form-control" id="fio_1" placeholder="ФИО" name="fio">
                             </div>
                             <div class="form-group" style="position: relative;">
-                                <input id='datetimepicker_dob1' type="text" class="form-control" id="dob_1" placeholder="Дата рождения" name="dob">
+                                <input id='datetimepicker_dob1' type="text" class="form-control" id="dob_1" placeholder="Дата рождения" name="dob_1">
                             </div>
                             <script type="text/javascript">
                                 $(function () {
@@ -319,9 +319,17 @@
                             <div class="form-group">
                                 <input type="text" class="form-control" id="passport_1" placeholder="Номер паспорта РФ" name="passport">
                             </div>
-                            <div class="form-group">
+                            <div class="form-group" style="position: relative;">
                                 <input type="text" class="form-control" id="validity_1" placeholder="Срок действия" name="validity">
                             </div>
+                            <script type="text/javascript">
+                                $(function () {
+                                    $('#validity_1').datetimepicker({
+                                        locale: 'ru',
+                                        format: 'YYYY-MM-DD'
+                                    });
+                                });
+                            </script>
                             <div class="form-group">
                                 <input type="text" class="form-control" id="issuedby_1" placeholder="Кем выдан" name="issuedby">
                             </div>
@@ -346,7 +354,13 @@
                             <div class="form-group text-left">
                                 <label for="agreement_1" class="checkbox">
                                     <input type="checkbox" class="form-control" id="agreement_1" name="agreement">
-                                    Согласие с условиями <a href="/page/soglasen-s-usloviyami-tura">тура</a> и <a href="/page/soglasen-s-usloviyami-dogovora">договора</a>
+                                    <a href="/page/pravila-tura" target="_blank">Праила тура</a>
+                                </label>
+                            </div>
+                            <div class="form-group text-left">
+                                <label for="agreement_2" class="checkbox">
+                                    <input type="checkbox" class="form-control" id="agreement_2" name="agreement_2">
+                                    <a href="/page/usloviyami-dogovora" target="_blank">Условия договора</a>
                                 </label>
                             </div>
                             <div class="form-group text-left surcharge">
@@ -381,13 +395,13 @@
                                             $('#fio_1').removeClass('error');
                                         }
                                     }
-                                    if($('#dob_1').length>0){
-                                        var dob = $('#dob_1').val();
+                                    if($('input[name=dob_1').length>0){
+                                        var dob = $('input[name=dob_1').val();
                                         if (!dob) {
-                                            $('#dob_1').addClass('error');
+                                            $('input[name=dob_1').addClass('error');
                                             errors++;
                                         } else {
-                                            $('#dob_1').removeClass('error');
+                                            $('input[name=dob_1').removeClass('error');
                                         }
                                     }
                                     if($('#passport_1').length>0){
@@ -442,7 +456,16 @@
                                         $('#agreement_1').parent().parent().removeClass('error');
                                     } else {
                                         $('#agreement_1').parent().parent().addClass('error');
-                                        return false;
+                                        var agreement = 0;
+                                        errors++;
+                                    }
+                                    if ($('#agreement_2').is(':checked')) {
+                                        var agreement = 1;
+                                        $('#agreement_2').parent().parent().removeClass('error');
+                                    } else {
+                                        $('#agreement_2').parent().parent().addClass('error');
+                                        var agreement = 0;
+                                        errors++;
                                     }
                                     if ($('#surcharge_1').is(':checked')) {
                                         var surcharge = 1;

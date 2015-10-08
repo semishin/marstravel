@@ -1425,14 +1425,14 @@ body{
 .hotels_block .hotel2 .image .indicators_panel .carousel-indicators li {
     background-color: #afaf4c;
     border: 2px solid #111111;
-    width: 19px;
-    height: 19px;
+    width: 13px;
+    height: 13px;
     margin: 2px;
 }
 .hotels_block .hotel2 .image .indicators_panel .carousel-indicators .active {
     background-color: #ffde4c;
-    width: 19px;
-    height: 19px;
+    width: 13px;
+    height: 13px;
     margin: 2px;
 }
 .hotels_block .hotel2 .image .indicators_panel .carousel-indicators {
@@ -1919,7 +1919,7 @@ ul.modified>li:before{
     margin-bottom: 0px;
     text-align: left;
 }
-.lightbox_form .checkbox.error {
+.lightbox_form .checkbox.error, .lightbox_form .checkbox.error a {
     color: #ee1c25;
 }
 .logout_btn{
@@ -1931,8 +1931,8 @@ ul.modified>li:before{
 .img_tor_print img{
     margin-left: 10px;
     margin-right: 10px;
+    border-radius: 100%;
 }
-
 
 .promo_code_block{
     border-radius: 23px;

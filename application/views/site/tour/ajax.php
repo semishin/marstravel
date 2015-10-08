@@ -35,9 +35,17 @@
                         <div class="form-group">
                             <input type="text" class="form-control pre_data_adults" placeholder="Номер паспорта" name="adults[<?php echo $i?>][passport_id_adults]">
                         </div>
-                        <div class="form-group">
-                            <input type="email" class="form-control pre_data_adults" placeholder="Паспорт действителен до" name="adults[<?php echo $i?>][passport_valid_adults]">
+                        <div class="form-group" style="position: relative;">
+                            <input id="passport_valid_adults_<?php echo $i;?>" type="text" class="form-control pre_data_adults" placeholder="Паспорт действителен до" name="adults[<?php echo $i?>][passport_valid_adults]">
                         </div>
+                        <script type="text/javascript">
+                            $(function () {
+                                $('#passport_valid_adults_<?php echo $i;?>').datetimepicker({
+                                    locale: 'ru',
+                                    format: 'YYYY-MM-DD'
+                                });
+                            });
+                        </script>
                     <?php } ?>
                     <?php if($quantity_children) { ?>
                         <?php for($c = 1; $c <= $quantity_children; $c++) { ?>
@@ -68,9 +76,17 @@
                             <div class="form-group">
                                 <input type="text" class="form-control pre_data_child" placeholder="Номер паспорта" name="child[<?php echo $i?>][passport_id_child]">
                             </div>
-                            <div class="form-group">
-                                <input type="email" class="form-control pre_data_child" placeholder="Паспорт действителен до" name="child[<?php echo $i?>][passport_valid_child]">
+                            <div class="form-group" style="position: relative;">
+                                <input id="passport_valid_child_<?php echo $c;?>" type="text" class="form-control pre_data_child" placeholder="Паспорт действителен до" name="child[<?php echo $i?>][passport_valid_child]">
                             </div>
+                            <script type="text/javascript">
+                                $(function () {
+                                    $('#passport_valid_child_<?php echo $c;?>').datetimepicker({
+                                        locale: 'ru',
+                                        format: 'YYYY-MM-DD'
+                                    });
+                                });
+                            </script>
                         <?php } ?>
                     <?php } ?>
                     <a href="#pay_order" class="black_btn fancy" id="pre_order">Продолжить</a>
