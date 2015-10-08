@@ -20,6 +20,28 @@
         <div class="col-md-9 col-xs-12 right_block">
             <h1 style="margin-top: 0px;"><?php echo $name ?></h1>
             <?php echo $content ?>
+            <div class="col-xs-12">
+                <h2>Наши гарантии</h2>
+                <div class="adventure_program text-center">
+                    <div class="intro">
+                        <div class="col-sm-4">
+                            <a href="#"><img src="/marstravel-bootstrap/img/word_img.png">
+                                <p>Text</p>
+                            </a>
+                        </div>
+                        <div class="col-sm-4">
+                            <a href="#"><img src="/marstravel-bootstrap/img/pdf_img.png">
+                                <p>Text</p>
+                            </a>
+                        </div>
+                        <div class="col-sm-4">
+                            <a href="#"><img src="/marstravel-bootstrap/img/pdf_img.png">
+                                <p>Text</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <?php if($images) { $images = json_decode($images)?>
             <div class="col-xs-12">

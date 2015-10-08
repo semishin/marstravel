@@ -10,5 +10,5 @@ phpunit.xml
 /composer.lock
 /composer.phar
 /.idea
-aplication/config/database.php
+/marstravel/application/config/database.php
 files

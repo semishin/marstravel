@@ -67,7 +67,7 @@
                         <div class="row">
                             <div class="col-xs-7">
                                 <ul class="list-inline pull-left">
-                                    <li class="dropdown_hover"><span class="a <?php if( $_SERVER['REQUEST_URI'] == '/about-us' ||  $_SERVER['REQUEST_URI'] == '/touroperator') { ?> active <?php } ?>">О компании</span>
+                                    <li class="dropdown_hover"><span class="a <?php if( $_SERVER['REQUEST_URI'] == '/about-us' ||  $_SERVER['REQUEST_URI'] == '/touroperator') { ?> active <?php } ?>">О компании <span class="glyphicon glyphicon-chevron-down"></span></span>
                                         <ul class="dropdown_menu list-unstyled">
                                             <li><a href="/about-us" <?php if( $_SERVER['REQUEST_URI'] == '/about-us') { ?> class="active" <?php } ?>>О нас</a></li>
                                             <li><a href="/touroperator" <?php if( $_SERVER['REQUEST_URI'] == '/touroperator') { ?> class="active" <?php } ?>>Туроператорская деятельность</a></li>

@@ -6,7 +6,7 @@
                 <p class="lightbox_header">Заполните ваши данные</p>
                 <form role="form" class="lightbox_form" id="pre_order_form">
                     <?php for($i = 1; $i <= $quantity_adults; $i++) { ?>
-                        <p><b>Турист <?php echo $i?> (взрослый)</b></p>
+                        <p <?php if($i > 1) { ?>class="next_turist"<?php } ?>><b>Турист <?php echo $i?> (взрослый)</b></p>
                         <div class="form-group text-left">
                             <p class=""><b>Пол</b></p>
                             <label><input class="pre_data_adults icheck_radio" checked type="radio" name="adults[<?php echo $i?>][gender_adults]"  value="1"/>Мужской</label>
@@ -18,9 +18,17 @@
                         <div class="form-group">
                             <input type="text" class="form-control pre_data_adults" placeholder="Имя" name="adults[<?php echo $i?>][pre_name_adults]">
                         </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control pre_data_adults" placeholder="Дата рождения" name="adults[<?php echo $i?>][birth_adults]">
+                        <div class="form-group" style="position: relative;">
+                            <input id="adults_birth_adults_<?php echo $i;?>" type="text" class="form-control pre_data_adults" placeholder="Дата рождения" name="adults[<?php echo $i?>][birth_adults]">
                         </div>
+                        <script type="text/javascript">
+                            $(function () {
+                                $('#adults_birth_adults_<?php echo $i;?>').datetimepicker({
+                                    locale: 'ru',
+                                    format: 'YYYY-MM-DD'
+                                });
+                            });
+                        </script>
                         <div class="form-group">
                             <input type="text" class="form-control pre_data_adults" placeholder="Серия паспорта" name="adults[<?php echo $i?>][passport_series_adults]">
                         </div>
@@ -33,7 +41,7 @@
                     <?php } ?>
                     <?php if($quantity_children) { ?>
                         <?php for($c = 1; $c <= $quantity_children; $c++) { ?>
-                            <p><b>Турист <?php echo $i?> (ребенок)</b></p>
+                            <p <?php if($c > 1) { ?>class="next_turist"<?php } ?>><b>Турист <?php echo $c?> (ребенок)</b></p>
                             <p><b>Пол</b></p>
                             <label><input class="pre_data_child icheck_radio" checked type="radio" name="child[<?php echo $i?>][gender_child]"  value="1"/>Мужской</label>
                             <label><input  class="pre_data_child icheck_radio"  type="radio" name="child[<?php echo $i?>][gender_child]"  value="2"/>Женский</label>
@@ -43,9 +51,17 @@
                             <div class="form-group">
                                 <input type="text" class="form-control pre_data_child" placeholder="Имя" name="child[<?php echo $i?>][pre_name_child]">
                             </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control pre_data_child" placeholder="Дата рождения" name="child[<?php echo $i?>][birth_child]">
+                            <div class="form-group" style="position: relative;">
+                                <input id="adults_birth_child_<?php echo $c;?>" type="text" class="form-control pre_data_child" placeholder="Дата рождения" name="child[<?php echo $i?>][birth_child]">
                             </div>
+                            <script type="text/javascript">
+                                $(function () {
+                                    $('#adults_birth_child_<?php echo $c;?>').datetimepicker({
+                                        locale: 'ru',
+                                        format: 'YYYY-MM-DD'
+                                    });
+                                });
+                            </script>
                             <div class="form-group">
                                 <input type="text" class="form-control pre_data_child" placeholder="Серия паспорта" name="child[<?php echo $i?>][passport_series_child]">
                             </div>

@@ -184,7 +184,7 @@
                                 <p>
                                     <?php if(${'d'.$day_tour.'_image'}) { ?>
                                         <a class="images_sight" rel="gallery<?php echo  ${'d'.$day_tour.'_name'};?>" href="<?php echo ${'d'.$day_tour.'_image'};?>" title="<?php echo  ${'d'.$day_tour.'_name'};?>">
-                                            <img src="<?php echo  Lib_Image::resize_bg(${'d'.$day_tour.'_image'}, 'tour', $id, 400, 300)?>" class="img-responsive mb30" />
+                                            <img src="<?php echo  Lib_Image::crop(${'d'.$day_tour.'_image'}, 'tour', $id, 400, 285)?>" class="img-responsive mb30" />
                                         </a>
                                     <?php } ?>
                                 </p>
@@ -304,9 +304,18 @@
                             <div class="form-group">
                                 <input type="text" class="form-control" id="fio_1" placeholder="ФИО" name="fio">
                             </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="dob_1" placeholder="Дата рождения" name="dob">
+                            <div class="form-group" style="position: relative;">
+                                <input id='datetimepicker_dob1' type="text" class="form-control" id="dob_1" placeholder="Дата рождения" name="dob">
                             </div>
+                            <script type="text/javascript">
+                                $(function () {
+                                    $('#datetimepicker_dob1').datetimepicker({
+                                        locale: 'ru',
+                                        format: 'YYYY-MM-DD'
+                                    });
+                                });
+                            </script>
+
                             <div class="form-group">
                                 <input type="text" class="form-control" id="passport_1" placeholder="Номер паспорта РФ" name="passport">
                             </div>
@@ -337,7 +346,7 @@
                             <div class="form-group text-left">
                                 <label for="agreement_1" class="checkbox">
                                     <input type="checkbox" class="form-control" id="agreement_1" name="agreement">
-                                    Согласие с условиями
+                                    Согласие с условиями <a href="/page/soglasen-s-usloviyami-tura">тура</a> и <a href="/page/soglasen-s-usloviyami-dogovora">договора</a>
                                 </label>
                             </div>
                             <div class="form-group text-left surcharge">
