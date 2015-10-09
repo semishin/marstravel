@@ -268,6 +268,12 @@ $( document ).ready(function() {
                 $('#Email_0').removeClass('error');
             }
         }
+        if(!isValidEmailAddress(email)){
+            $('#Email_0').addClass('error');
+            errors++;
+        }else{
+            $('#Email_0').removeClass('error');
+        }
         if($('#Phone_0').length>0){
             var phone = $('#Phone_0').val();
             if (!phone) {
