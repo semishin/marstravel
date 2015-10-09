@@ -9,40 +9,40 @@ return array(
 		'priorities' => array(
 			'Общие' => 100,
             'Соцсети' => 200,
-//            'Почта' => 300,
+            'Почта' => 300,
             'Сертификаты' => 400,
 		),
 		'fieldgroups' => array(
-//            'Почта' => array(
-//                'mailer.hostname' => array(
-//                    'label' => 'Хост',
-//                    'field' => new CM_Field_String(),
-//                ),
-//                'mailer.admin' => array(
-//                    'label' => 'Почта администратора',
-//                    'field' => new CM_Field_String(),
-//                ),
-//                'mailer.from' => array(
-//                    'label' => 'Отправитель',
-//                    'field' => new CM_Field_String(),
-//                ),
-//                'mailer.username' => array(
-//                    'label' => 'Логин',
-//                    'field' => new CM_Field_String(),
-//                ),
-//                'mailer.password' => array(
-//                    'label' => 'Пароль',
-//                    'field' => new CM_Field_Password(),
-//                ),
-//                'mailer.port' => array(
-//                    'label' => 'Порт',
-//                    'field' => new CM_Field_Int(),
-//                ),
-//                'mailer.encryption' => array(
-//                    'label' => 'Шифрование',
-//                    'field' => new CM_Field_String(),
-//                )
-//            ),
+            'Почта' => array(
+                'mailer.hostname' => array(
+                    'label' => 'Хост',
+                    'field' => new CM_Field_String(),
+                ),
+                'mailer.admin' => array(
+                    'label' => 'Почта администратора',
+                    'field' => new CM_Field_String(),
+                ),
+                'mailer.from' => array(
+                    'label' => 'Отправитель',
+                    'field' => new CM_Field_String(),
+                ),
+                'mailer.username' => array(
+                    'label' => 'Логин',
+                    'field' => new CM_Field_String(),
+                ),
+                'mailer.password' => array(
+                    'label' => 'Пароль',
+                    'field' => new CM_Field_Password(),
+                ),
+                'mailer.port' => array(
+                    'label' => 'Порт',
+                    'field' => new CM_Field_Int(),
+                ),
+                'mailer.encryption' => array(
+                    'label' => 'Шифрование',
+                    'field' => new CM_Field_String(),
+                )
+            ),
 			'Общие' => array(
                 'properties.address' => array(
                     'label' => 'Адрес',
