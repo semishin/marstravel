@@ -354,7 +354,7 @@
                             <div class="form-group text-left">
                                 <label for="agreement_1" class="checkbox">
                                     <input type="checkbox" class="form-control" id="agreement_1" name="agreement">
-                                    <a href="/page/pravila-tura" target="_blank">Праила тура</a>
+                                    <a href="/page/pravila-tura" target="_blank">Правила тура</a>
                                 </label>
                             </div>
                             <div class="form-group text-left">
