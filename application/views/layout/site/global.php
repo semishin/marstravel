@@ -37,6 +37,7 @@
 <!--    <script type="text/javascript" src="/marstravel-bootstrap/datepicker/daterangepicker.js"></script>-->
 <!--    <script type="text/javascript" src="/marstravel-bootstrap/datepicker/ru.js"></script>-->
     <script src="/marstravel-bootstrap/js/barousel.js"></script>
+    <script src="/marstravel-bootstrap/js/jquery.maskedinput.js"></script>
     <script src="/marstravel-bootstrap/js/bootstrap-select.min.js"></script>
     <script src="/marstravel-bootstrap/js/ru.js"></script>
     <script src="/marstravel-bootstrap/js/icheck.js"></script>

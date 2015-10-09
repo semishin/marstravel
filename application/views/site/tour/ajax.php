@@ -24,6 +24,7 @@
                         <script type="text/javascript">
                             $(function () {
                                 $('#adults_birth_adults_<?php echo $i;?>').datetimepicker({
+                                    viewMode: 'years',
                                     locale: 'ru',
                                     format: 'YYYY-MM-DD'
                                 });
@@ -41,6 +42,7 @@
                         <script type="text/javascript">
                             $(function () {
                                 $('#passport_valid_adults_<?php echo $i;?>').datetimepicker({
+                                    viewMode: 'years',
                                     locale: 'ru',
                                     format: 'YYYY-MM-DD'
                                 });
@@ -65,6 +67,7 @@
                             <script type="text/javascript">
                                 $(function () {
                                     $('#adults_birth_child_<?php echo $c;?>').datetimepicker({
+                                        viewMode: 'years',
                                         locale: 'ru',
                                         format: 'YYYY-MM-DD'
                                     });
@@ -82,6 +85,7 @@
                             <script type="text/javascript">
                                 $(function () {
                                     $('#passport_valid_child_<?php echo $c;?>').datetimepicker({
+                                        viewMode: 'years',
                                         locale: 'ru',
                                         format: 'YYYY-MM-DD'
                                     });

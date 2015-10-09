@@ -19,7 +19,8 @@ class Model_Partner extends ORM
             'name' => 'Имя',
             'link' => 'Ссылка на партнера',
             'active' => 'Активность',
-            'image' => 'Изображение'
+            'image' => 'Изображение',
+            'background' => 'Фоновое изображение'
         );
     }
 

@@ -1,10 +1,14 @@
-<div style="height: 1200px; background: url('/files/png_image.jpg') no-repeat top left; background-size: cover; ">
+<?php if(!$background) { ?>
+    <div style="height: 1200px; background: url('/files/png_image.jpg') no-repeat top left; background-size: cover; "><?php }
+else { ?>
+    <div style="height: 1200px; background: url('<?php echo $background?>') no-repeat top left; background-size: cover; ">
+<?php }?>
 <div style="text-align: center;">
     <p>
     <b>Туроператор: ООО «МАРС-тревел»<br>
         Адрес: 101000, г. Москва, ул. Маросейка, дом 2/15</b>
     </p>
-    <p><h2>СЕРТИФИКАТ<br>№ <?php echo $code;?></h2></p>
+    <p><h1>СЕРТИФИКАТ</h1><br><h2>№ <?php echo $code;?></h2></p>
     <p style="font-size: 14px">
         <b>
             Дата выдачи:
@@ -24,7 +28,7 @@
     <p><b>Категория  Сертификата:<br>СТАНДАРТ ПЛЮС</b></p>
     <?php } ?>
 </div>
-<div  <?php if($plus != 1){?>style="margin-top: 600px;"<?php } else { ?> style="margin-top: 570px;" <?php } ?>>
+<div  <?php if($plus != 1){?>style="margin-top: 560px;"<?php } else { ?> style="margin-top: 515px;" <?php } ?>>
     <?php echo $certificate_content?>
 </div>
 <div class="logo" style="text-align: center">

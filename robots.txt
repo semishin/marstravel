@@ -6,3 +6,4 @@ Disallow: /ajax
 Disallow: /load
 Disallow: /cart
 Disallow: /like
+Disallow: /coupons

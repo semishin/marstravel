@@ -155,8 +155,8 @@
         </div>
         <div class="col-xs-5">
             <div class="description_on_left">
-                <p>Стоимость на человека <i class="tooltip_icon" data-toggle="tooltip" data-placement="top" title="Стоимость на человека при двухместном размещении"></i></p>
-                <p class="price"><?php echo number_format($price, 0, ' ', ' '); ?> руб.</p>
+                <p>Стоимость на человека<i class="tooltip_icon" data-toggle="tooltip" data-placement="top" title="Стоимость на человека при двухместном размещении"></i></p>
+                <p class="price">от <?php echo number_format($price + $min_price_flight->price, 0, ' ', ' '); ?> руб.</p>
                 <a href="#yandex_map_with_route" class="yellow_btn fancy" onclick="createRoute();">Посмотреть программу тура на карте</a>
                 <p class="text">
                     <?php echo $short_content?>
@@ -310,6 +310,7 @@
                             <script type="text/javascript">
                                 $(function () {
                                     $('#datetimepicker_dob1').datetimepicker({
+                                        viewMode: 'years',
                                         locale: 'ru',
                                         format: 'YYYY-MM-DD'
                                     });
@@ -325,6 +326,7 @@
                             <script type="text/javascript">
                                 $(function () {
                                     $('#validity_1').datetimepicker({
+                                        viewMode: 'years',
                                         locale: 'ru',
                                         format: 'YYYY-MM-DD'
                                     });
@@ -354,24 +356,26 @@
                             <div class="form-group text-left">
                                 <label for="agreement_1" class="checkbox">
                                     <input type="checkbox" class="form-control" id="agreement_1" name="agreement">
-                                    <a href="/page/pravila-tura" target="_blank">Правила тура</a>
+                                    Согласен с <a href="/page/pravila-tura" target="_blank">правилами тура</a>
                                 </label>
                             </div>
                             <div class="form-group text-left">
                                 <label for="agreement_2" class="checkbox">
                                     <input type="checkbox" class="form-control" id="agreement_2" name="agreement_2">
-                                    <a href="/page/usloviyami-dogovora" target="_blank">Условия договора</a>
+                                    Согласен с <a href="/page/usloviyami-dogovora" target="_blank">условиями договора</a>
                                 </label>
                             </div>
-                            <div class="form-group text-left surcharge">
-                                <label for="surcharge_1" class="checkbox">
-                                    <input type="checkbox" class="form-control" id="surcharge_1" name="surcharge">
-                                    Доплата за одноместное размещение 120 долларов
-                                </label>
+
+                            <div class="coupon_hidden">
+                                <div class="total_cost last_cost">
+                                    <span>Итого:</span>
+                                    <b><?php echo number_format($price * 2 + ($free_date->price * 2), 0, ' ', ' ');?> руб.</b>
+                                </div>
                             </div>
-                            <div class="">
-                                <div class="form-group text-left surcharge_single hidden checkbox" data-price_single="<?php echo $price_single?>">
-                                    <b>Доплата за одноместное размещение <?php echo number_format($price_single, 0, ' ', ' ') ?> руб.</b>
+                            <div class="certificate_hidden hidden">
+                                <div class="total_cost_certificate last_cost">
+                                    <span>Итого:</span>
+                                    <b><?php echo number_format(($free_date->price * 2), 0, ' ', ' ');?> руб.</b>
                                 </div>
                             </div>
                             <a href="#" class="red_btn" id="pay_btn" data-id="<?php echo $id?>">Оформить</a>

@@ -19,7 +19,11 @@ class Controller_Site_Tour extends Controller_Site
         $free_date = ORM::factory('PriceFlight')
             ->where('tour_id', '=', $this->_model->id)
             ->where('free_places', '>=', 2)
-            ->order_by('start_date')->find_all();
+            ->order_by('start_date')->find();
+        $min_price_flight = ORM::factory('PriceFlight')
+            ->where('tour_id', '=', $this->_model->id)
+            ->where('free_places', '>', 0)
+            ->order_by('price', 'ASC')->find();
         $days = array();
         foreach($free_date as $item){
             $days_array[] =  range(strtotime($item->start_date), strtotime($item->end_date), (24*60*60));
@@ -35,6 +39,7 @@ class Controller_Site_Tour extends Controller_Site
         $this->template->route = $ids;
         $this->template->current_date = $days[0];
         $this->template->cities = $citiesHash;
+        $this->template->min_price_flight = $min_price_flight;
     }
 
     public function action_info()
@@ -104,7 +109,8 @@ class Controller_Site_Tour extends Controller_Site
             $count_places += $item->free_places;
         }
         if($count_places < $quantity_people){
-            exit(json_encode(array('message' => 'Извините. На данный момент нет столько свободных мест',      'min_date_start' => $min_date_start,)));
+            exit(json_encode(array('message' => 'Извините. На данный момент нет столько свободных мест',
+                                    'min_date_start' => $min_date_start,)));
         }
 
         if(!$get_carent_date || (($free_place_carent_date->free_places + 5) < $quantity_people) &&  $free_place_carent_date->free_places < $quantity_people){
@@ -141,9 +147,9 @@ class Controller_Site_Tour extends Controller_Site
                 }
             }
         }
-        if($quantity_people == 1){
+        if($quantity_people == 1 && $tour->price_single){
             $price_single = $tour->price_single;
-        }else{
+        } else {
             $price_single = 0;
         }
         $total_cost_not_coupon = ($cost_flight->price * $quantity_people) + ($tour->price * $quantity_adults) + ($tour->price_child * $quantity_children) + $price_single;

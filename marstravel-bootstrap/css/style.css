@@ -1222,7 +1222,7 @@ body{
     font-size: 16px;
     color: #111111;
 }
-.order_tour .total_price, .content_flight .total_price_coupon{
+.order_tour .total_price, .content_flight .total_price_coupon, .last_cost{
     margin-bottom: 35px;
     position: relative;
     margin-right: 25px;
@@ -1231,7 +1231,7 @@ body{
     font-size: 16px;
     color: #111111;
 }
-.order_tour .total_price:before, .content_flight:before, .total_price_coupon:before{
+.order_tour .total_price:before, .content_flight:before, .total_price_coupon:before, .last_cost:before{
     border-bottom: 1px solid #cccccc;
     display: inline-block;
     position: absolute;
@@ -1240,19 +1240,19 @@ body{
     bottom: 5px;
     left: 0px;
 }
-.order_tour .total_price:after, .content_flight:after, .total_price_coupon:after{
+.order_tour .total_price:after, .content_flight:after, .total_price_coupon:after, .last_cost:after{
     display: block;
     content: " ";
     clear: both;
 }
-.order_tour .total_price>span, .content_flight>span, .total_price_coupon>span{
+.order_tour .total_price>span, .content_flight>span, .total_price_coupon>span, .last_cost>span{
     background-color: #ffffff;
     padding-bottom: 5px;
     position: relative;
     padding-top: 12px;
     float: left;
 }
-.order_tour .total_price>b, .content_flight>b, .total_price_coupon>b{
+.order_tour .total_price>b, .content_flight>b, .total_price_coupon>b, .last_cost>b{
     background-color: #ffffff;
     position: relative;
     font-size: 28px;
@@ -1894,9 +1894,14 @@ ul.modified>li:before{
 .empty_result .label{
     font-size: 24px;
 }
-.lightbox_form label{
+.lightbox_form label {
     cursor: pointer;
 }
+.lightbox_form label a{
+    border-bottom: 1px solid currentColor;
+}
+
+
 .lightbox_form .form-group .bootstrap-select{
     margin-bottom: 10px;
 }
@@ -1927,10 +1932,22 @@ ul.modified>li:before{
     text-align: center;
     margin-top: 10px;
 }
+.img_tor_print{
+    background-color: #2B5796;
+    margin-left: 10px;
+    display: inline-block;
+    border-radius: 26px;
+    padding-right: 10px;
+    color: #fff;
+}
+
+.img_tor_print:hover, .img_tor_print:active, .img_tor_print:focus{
+    color: #fff;
+}
 
 .img_tor_print img{
-    margin-left: 10px;
-    margin-right: 10px;
+
+
     border-radius: 100%;
 }
 

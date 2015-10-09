@@ -97,6 +97,7 @@ class Controller_Site_User extends Controller_Site_DefaultUserController
                 'phone' => $phone,
                 'certificate_content' => $certificate_content->value,
                 'certificate_rule' => $certificate_rule->value,
+                'background' => $partner->background,
                 'partner_name' =>$partner->name,
                 'partner_image' => $partner->image,
                 'plus' => $tour->plus,
@@ -106,6 +107,16 @@ class Controller_Site_User extends Controller_Site_DefaultUserController
             $mpdf = new mPDF('blank', 'A4', '8', 'Arial', 15, 5, 7, 7, 10, 10);
             $mpdf->WriteHTML($pagePdf);
             $mpdf->Output($dirPdf.$pdfName, 'F');
+
+        $user_message = View::factory('site/message/user_certificate_message', array(
+            'email' => $email,
+            'phone' => $phone,
+            'tour' => $tour,
+            'name' => $name,
+            'name_certificate' => $pdfName,
+            'code_certificate' => $code_coupon
+        ))->render();
+        Helpers_Email::send($email, 'Сертификат '.$name.' '.$phone, $user_message, true);
 
         if (ob_get_level()) {
             ob_end_clean();

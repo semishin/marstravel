@@ -14,6 +14,7 @@ class Form_Admin_Partner extends CM_Form_Abstract
         $this->set_field('link', new CM_Field_String(), 2);
         $this->set_field('active', new CM_Field_Boolean(), 7);
         $this->set_field('image', new CM_Field_File(), 8);
+        $this->set_field('background', new CM_Field_File(), 9);
 
     }
 }

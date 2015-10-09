@@ -40,6 +40,7 @@
     <script src="/marstravel-bootstrap/js/barousel.js"></script>
     <script src="/marstravel-bootstrap/js/bootstrap-select.min.js"></script>
     <script src="/marstravel-bootstrap/js/ru.js?v1"></script>
+    <script src="/marstravel-bootstrap/js/jquery.maskedinput.js"></script>
     <script src="/marstravel-bootstrap/js/icheck.js"></script>
     <script type="text/javascript" src="/marstravel-bootstrap/js/jquery.scrollTo.min.js"></script>
     <script type="text/javascript" src="/marstravel-bootstrap/js/jquery.localScroll.min.js"></script>

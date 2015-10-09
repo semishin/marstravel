@@ -60,6 +60,7 @@
             <script type="text/javascript">
                 $(function () {
                     $('#datetimepicker').datetimepicker({
+                        viewMode: 'years',
                         locale: 'ru',
                         format: 'YYYY-MM-DD'
                     });

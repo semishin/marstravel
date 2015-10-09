@@ -48,6 +48,9 @@ function numFormat(n, d, s) { // number format function
 
 // A $( document ).ready() block.
 $( document ).ready(function() {
+    $("#phone").mask("+7 (999) 999-9999",{placeholder:" "});
+    $("#phone_1").mask("+7 (999) 999-9999",{placeholder:" "});
+    $("#Phone_0").mask("+7 (999) 999-9999",{placeholder:" "});
 
     $(window).load(function() {
         if($('.index_page').length>0){
@@ -831,13 +834,13 @@ $( document ).ready(function() {
         }
         var single_price = $('.content_single_price').data('single_price');
         if(((parseInt(quantity_adults) + parseInt(quantity_children)) == 1) &&  single_price > 0){
-            $('.surcharge').addClass('hidden');
-            $('.surcharge_single').removeClass('hidden');
+            //$('.surcharge').addClass('hidden');
+            //$('.surcharge_single').removeClass('hidden');
             $('.add_content_single_price').removeClass('hidden');
         }else{
             $('.add_content_single_price').addClass('hidden');
-            $('.surcharge_single').addClass('hidden');
-            $('.surcharge').removeClass('hidden');
+            //$('.surcharge_single').addClass('hidden');
+            //$('.surcharge').removeClass('hidden');
         }
             $.ajax({
                 type: "POST",
@@ -901,6 +904,8 @@ $( document ).ready(function() {
                         $('input[name="daterange"]').parent().removeClass('error');
                         $('.total_price b').html('' + numFormat(data.total_cost_not_coupon) + ' руб.');
                         $('.total_price_coupon b').html('' + numFormat(data.total_cost_coupon) + ' руб.');
+                        $('.total_cost b').html('' + numFormat(data.total_cost_not_coupon) + ' руб.');
+                        $('.total_cost_certificate b').html('' + numFormat(data.total_cost_coupon) + ' руб.');
                         $('.add_content_flight').html('<p class="content_flight"> <span>Стоимость перелета:</span> <b>' + numFormat(data.cost_flight) + ' руб.</b> </p>');
                     }
                 }
