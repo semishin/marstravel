@@ -1999,10 +1999,12 @@ ul.modified>li:before{
 .touroperator_content p>strong{
     margin-left: 10px;
 }
-.touroperator_content .red_color{
+.touroperator_content .bold_red strong{
     font-size: 20px;
 }
-.red_color{
+.red_color,
+.bold_red b,
+.bold_red strong{
     color: #e30a17;
 }
 .allocated{
