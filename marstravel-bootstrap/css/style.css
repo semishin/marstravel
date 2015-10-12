@@ -1975,7 +1975,114 @@ ul.modified>li:before{
     margin-right: 5px;
 }
 
+.text-muted{
+    color: #666666;
+}
+.hb36px{
+    color: #111111;
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 25px;
+    margin-top: -7px;
+}
+.h20px{
+    font-size: 20px;
+    margin-top: 15px;
+    margin-bottom: 25px;
+    font-weight: bold;
+}
+.touroperator_content{
+    padding-bottom: 45px;
+    font-size: 16px;
+    color: #111111;
+}
+.touroperator_content p>strong{
+    margin-left: 10px;
+}
+.touroperator_content .bold_red strong{
+    font-size: 20px;
+}
+.red_color,
+.bold_red b,
+.bold_red strong{
+    color: #e30a17;
+}
+.allocated{
+    background-color: #eeeeee;
+    padding: 15px 29px 20px;
+    background-image: url('../img/doc-bg.png');
+    background-position: 110% -20px;
+    background-repeat: no-repeat;
+    margin-bottom: 35px;
+}
 
+.our_guarantee_block{
+    padding-bottom: 45px;
+}
+.our_guarantee_item{
+    text-align: center;
+    margin-bottom: 20px;
+}
+.our_guarantee_item img{
+    width: 64px;
+    margin-bottom: 25px;
+}
+.our_guarantee_item p,
+.payment_kinds_item .payment_text{
+    font-size: 16px;
+    color: #111111;
+}
+.our_guarantee_item a{}
+
+
+.payment_kinds_block{
+    padding-bottom: 45px;
+}
+.payment_kinds_header{
+    margin-bottom: 35px;
+    font-size: 26px;
+    color: #111111;
+}
+.payment_kinds_item{
+    text-align: center;
+    max-width: 206px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.payment_kinds_item .payment_image{
+    border: 3px solid #000000;
+    width: 100%;
+    padding: 36px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.payment_kinds_item .payment_text{
+    padding-top: 25px;
+}
+.payment_kinds_item.blue .payment_image{
+    border-color: #00a1e1;
+    background-image: url('../img/paytravel.png');
+}
+.payment_kinds_item.orange .payment_image{
+    border-color: #f79510;
+    background-image: url('../img/visaicon.png');
+}
+.payment_kinds_item.red .payment_image{
+    border-color: #fe000a;
+    background-image: url('../img/mastercard.png');
+}
+.payment_kinds_item.grey .payment_image{
+    border-color: #777777;
+    background-image: url('../img/cash.png');
+}
+.payment_kinds_item.grey_light .payment_image{
+    border-color: #999999;
+    background-image: url('../img/cashless_payments.png');
+}
+.payment_kinds_item.green .payment_image{
+    border-color: #4c9825;
+    background-image: url('../img/sberbank.png');
+}
 
 
 @media (min-width: 992px) and (max-width: 1240px){
@@ -2003,6 +2110,9 @@ ul.modified>li:before{
     .tour .left_part .brief_info .bottom .red_btn {
         padding: 17px 15px !important;
     }
+    .allocated .h20px{
+        font-size: 19px;
+    }
 }
 @media (min-width: 320px) and (max-width: 1190px){
     .hotels_block .hotel2 .name>a {
@@ -2016,6 +2126,9 @@ ul.modified>li:before{
     .hotels_block .hotel2 .info{
         padding-top: 5px;
         font-size: 14px;
+    }
+    .payment_kinds_header{
+        font-size: 22px;
     }
 }
 @media (min-width: 1283px) and (max-width: 1344px){

@@ -12,3 +12,4 @@ phpunit.xml
 /.idea
 /application/config/database.php
 files
+.htaccess
