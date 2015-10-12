@@ -205,6 +205,10 @@ $( document ).ready(function() {
         $(this).find('.same_height').equalizeHeights();
     });
 
+    $('.payment_kinds_block').each(function(i,elem) {
+        $(this).find('.payment_text').equalizeHeights();
+    });
+
 
     if($('.selectpicker').length>0){
         $('.selectpicker').selectpicker();
