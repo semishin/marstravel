@@ -2048,6 +2048,7 @@ ul.modified>li:before{
     max-width: 206px;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 40px;
 }
 .payment_kinds_item .payment_image{
     border: 3px solid #000000;
@@ -2055,10 +2056,9 @@ ul.modified>li:before{
     padding: 36px;
     background-position: center;
     background-repeat: no-repeat;
+    margin-bottom: 25px;
 }
-.payment_kinds_item .payment_text{
-    padding-top: 25px;
-}
+.payment_kinds_item .payment_text{}
 .payment_kinds_item.blue .payment_image{
     border-color: #00a1e1;
     background-image: url('../img/paytravel.png');

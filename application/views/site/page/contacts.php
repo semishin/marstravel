@@ -55,7 +55,8 @@
                             </div>
                         </div>
                     </div>
-
+                </div>
+                <div class="row">
                     <div class="col-xs-4">
                         <div class="payment_kinds_item grey">
                             <div class="payment_image"></div>
