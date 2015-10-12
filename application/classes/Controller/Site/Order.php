@@ -75,7 +75,8 @@ class Controller_Site_Order extends Controller_Site
                     'total_price' => $total_price,
                     'email' => $email,
                     'phone' => $phone,
-                    'tour' => $data_tour
+                    'tour' => $data_tour,
+                    'payment' => $payment,
                 ))->render();
 
                 $admin_message = View::factory('site/message/order_adminmessage', array(
@@ -85,10 +86,11 @@ class Controller_Site_Order extends Controller_Site
                     'total_price' => $total_price,
                     'email' => $email,
                     'phone' => $phone,
-                    'tour' => $data_tour
+                    'tour' => $data_tour,
+                    'payment' => $payment,
                 ))->render();
-                Helpers_Email::send(Kohana::$config->load('mailer.admin'), 'Новый заказ '.$fio.' '.$phone, $admin_message, true);
-                Helpers_Email::send($email, 'Новый заказ '.$fio.' '.$phone, $user_message, true);
+                Helpers_Email::send(Kohana::$config->load('mailer.admin'), 'Новая заявка '.$fio.' '.$phone, $admin_message, true);
+                Helpers_Email::send($email, 'Заявка '.$fio.' '.$phone, $user_message, true);
             } else {
                 $code = $this->request->post('code');
                 $tour_id = $this->request->post('tour_id');
@@ -157,7 +159,8 @@ class Controller_Site_Order extends Controller_Site
                     'email' => $email,
                     'phone' => $phone,
                     'tour' => $data_tour,
-                    'code_certificate' => $code
+                    'code_certificate' => $code,
+                    'payment' => null,
                 ))->render();
 
                 $admin_message = View::factory('site/message/order_adminmessage', array(
@@ -168,7 +171,8 @@ class Controller_Site_Order extends Controller_Site
                     'email' => $email,
                     'phone' => $phone,
                     'tour' => $data_tour,
-                    'code_certificate' => $code
+                    'code_certificate' => $code,
+                    'payment' => null,
                 ))->render();
                 Helpers_Email::send(Kohana::$config->load('mailer.admin'), 'Новый заказ '.$fio.' '.$phone, $admin_message, true);
                 Helpers_Email::send($email, 'Новый заказ '.$fio.' '.$phone, $user_message, true);

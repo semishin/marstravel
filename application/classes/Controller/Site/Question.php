@@ -20,14 +20,31 @@ class Controller_Site_Question extends Controller_Site
             $question_db->theme = $theme;
             $question_db->save();
 
+            $tour_name = ORM::factory('Tour')->where('id', '=', $theme)->find();
+            if($tour_name->name){
+                $theme_name = $tour_name->name;
+            }else{
+                $theme_name = 'Общие вопросы';
+            }
+
             $user_message = View::factory('site/message/question_usermessage', array(
                 'name' => $name,
                 'email' => $email,
                 'phone' => $phone,
+                'theme' => $theme_name,
+                'question' => $question
             ))->render();
+            $admin_message = View::factory('site/message/question_adminmessage', array(
+                'name' => $name,
+                'email' => $email,
+                'phone' => $phone,
+                'theme' => $theme_name,
+                'question' => $question
+            ))->render();
+            Helpers_Email::send(Kohana::$config->load('mailer.admin'), 'Новый вопрос с сайта '.$_SERVER['SERVER_NAME'].' '.$theme_name, $admin_message, true);
             Helpers_Email::send($email, 'Сообщение консультанту '.$name.' '.$phone, $user_message, true);
 
-            exit(json_encode(array('$user_message' => $user_message)));
+            exit(json_encode(array('user_message' => 'succes')));
         }
         $this->forward_404();
     }
