@@ -53,8 +53,14 @@
                                 </div>
                                 <div class="bottom">
                                     <div class="price">
+                                        <?php
+                                            $min_price_flight = ORM::factory('PriceFlight')
+                                                ->where('tour_id', '=', $item->id)
+                                                ->where('free_places', '>', 0)
+                                                ->order_by('price', 'ASC')->find();
+                                        ?>
                                         <p>Стоимость на человека</p>
-                                        <b><?php echo number_format($item->price, 0, ' ', ' '); ?> руб.</b>
+                                        <b>от <?php echo number_format($item->price + $min_price_flight->price, 0, ' ', ' '); ?> руб.</b>
                                     </div>
                                     <div class="button">
                                         <a href="/tour/<?php echo $item->url ?>" class="red_btn">Полная информация</a>
