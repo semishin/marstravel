@@ -68,3 +68,4 @@ These options need to match
 [01-Oct-2015 20:51:12 Europe/Minsk] PHP Parse error:  syntax error, unexpected '[' in /home4/turistic/public_html/skazka/application/classes/Controller/Site/Tour.php on line 49
 [01-Oct-2015 20:51:12 Europe/Minsk] PHP Parse error:  syntax error, unexpected '[' in /home4/turistic/public_html/skazka/application/classes/Controller/Site/Tour.php on line 49
 [01-Oct-2015 21:12:13 Europe/Minsk] PHP Parse error:  syntax error, unexpected $end in /home4/turistic/public_html/skazka/application/classes/Controller/Site/Page.php on line 183
+[02-Oct-2015 14:53:45 Europe/Minsk] PHP Fatal error:  Class 'Form_Admin_Coupon' not found in /home4/turistic/public_html/skazka/application/classes/Model/Coupon.php on line 55
