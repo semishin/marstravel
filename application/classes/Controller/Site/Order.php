@@ -77,6 +77,7 @@ class Controller_Site_Order extends Controller_Site
                     'phone' => $phone,
                     'tour' => $data_tour,
                     'payment' => $payment,
+                    'data_people' => $pre_data,
                 ))->render();
 
                 $admin_message = View::factory('site/message/order_adminmessage', array(
@@ -88,9 +89,10 @@ class Controller_Site_Order extends Controller_Site
                     'phone' => $phone,
                     'tour' => $data_tour,
                     'payment' => $payment,
+                    'data_people' => $pre_data,
                 ))->render();
                 Helpers_Email::send(Kohana::$config->load('mailer.admin'), 'Новая заявка '.$fio.' '.$phone, $admin_message, true);
-                Helpers_Email::send($email, 'Заявка '.$fio.' '.$phone, $user_message, true);
+                Helpers_Email::send($email, 'Покупка тура '.$data_tour->name.' на сайте' .$_SERVER['SERVER_NAME'], $user_message, true);
             } else {
                 $code = $this->request->post('code');
                 $tour_id = $this->request->post('tour_id');

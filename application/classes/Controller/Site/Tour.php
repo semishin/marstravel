@@ -19,6 +19,7 @@ class Controller_Site_Tour extends Controller_Site
         $free_date = ORM::factory('PriceFlight')
             ->where('tour_id', '=', $this->_model->id)
             ->where('free_places', '>=', 2)
+            ->where('start_date', '>=', $current_date)
             ->order_by('start_date')->find();
         $min_price_flight = ORM::factory('PriceFlight')
             ->where('tour_id', '=', $this->_model->id)

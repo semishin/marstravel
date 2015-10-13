@@ -132,7 +132,7 @@ class Controller_Site_User extends Controller_Site_DefaultUserController
         header('Content-Length: ' . filesize($dirPdf.$pdfName));
         // читаем файл и отправляем его пользователю
         readfile($dirPdf.$pdfName);
-        exit;
+        exit(json_encode(array('message' => 'success')));
 
     }
 
