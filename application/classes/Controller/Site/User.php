@@ -104,7 +104,7 @@ class Controller_Site_User extends Controller_Site_DefaultUserController
             ))->render();
             $pdfName = $code_coupon.'-'.$tour_id.'.pdf';
             $dirPdf = $_SERVER['DOCUMENT_ROOT'].'/coupons/';
-            $mpdf = new mPDF('blank', 'A4', '8', 'Arial', 15, 5, 7, 7, 10, 10);
+            $mpdf = new mPDF('blank', 'A4', '8', 'Arial', 0, 0, 0, 0, 0, 0);
             $mpdf->WriteHTML($pagePdf);
             $mpdf->Output($dirPdf.$pdfName, 'F');
 
