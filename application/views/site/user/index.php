@@ -55,7 +55,7 @@
                 <input type="email" class="form-control" id="email" placeholder="Введите email" name="email">
             </div>
             <div class="form-group" style="position: relative;">
-                <input id='datetimepicker' type="text" class="form-control" id="date_birth" placeholder="Дата рождения" name="date_birth">
+                <input id='datetimepicker' type="text" class="form-control" placeholder="Дата рождения" name="date_birth">
             </div>
             <script type="text/javascript">
                 $(function () {
@@ -72,7 +72,14 @@
             <div class="form-group">
                 <input type="text" class="form-control" id="name_manager" placeholder="ФИО менеджера выдавшего сертификат" name="name_manager">
             </div>
-            <a href="/user/create_coupon/" class="red_btn" id="certificate_data_user" data-id="">Сохранить</a>
+            <a href="/user/create_coupon/" class="red_btn created_new_certificate" id="certificate_data_user" data-id="">Сохранить</a>
         </form>
+    </div>
+</div>
+
+<div style="display: none">
+    <div id="generate_code_succes">
+        <p class="lightbox_header name_tour_header"></p>
+        <p class="lightbox_header">Спасибо! Сертификат сгенерирован.</p>
     </div>
 </div>

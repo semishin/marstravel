@@ -755,14 +755,51 @@ $( document ).ready(function() {
                 dataType: "json",
                 data: {tour_id: tour_id},
                 success: function (data) {
-                    if (data.message != 'success') {
-                        alert('Не удалось сгенерировать купон');
-                    } else {
-                        alert('Купон сгенерирован');
-                    }
+                    //if (data.message != 'success') {
+                    //    alert('Не удалось сгенерировать купон');
+                    //} else {
+                       // $('.fancybox-outer').html('<p class="lightbox_header">Был сгенерирован сертификат</p>');
+
+                       // alert('Купон сгенерирован');
+                    //}
                 }
             });
     });
+
+    //$(document).on('click', '.created_new_certificate', function(e) {
+    //    e.preventDefault();
+    //    alert('sdgf');
+    //        var tour_id = $(this).attr('data-tour_id');
+    //        var name = $('input[name="name"]').val();
+    //        var email = $('input[name="email"]').val();
+    //        var phone = $('input[name="phone"]').val();
+    //        var name_manager = $('input[name="name_manager"]').val();
+    //        var date_birth = $('input[name="date_birth"]').val();
+    //        if(!tour_id) {
+    //            return false;
+    //        }
+    //        $.ajax({
+    //            type: "POST",
+    //            url: "/user/create_coupon",
+    //            dataType: "json",
+    //            data: {tour_id: tour_id,
+    //                name: name,
+    //                email: email,
+    //                phone: phone,
+    //                name_manager: name_manager,
+    //                date_birth: date_birth},
+    //            success: function (data) {
+    //                alert('sdfg');
+    //                //if (data.message != 'success') {
+    //                //    alert('Не удалось сгенерировать купон');
+    //                //} else {
+    //                    $('.fancybox-outer').html('<p class="lightbox_header">Был сгенерирован сертификат</p>');
+    //
+    //                   // alert('Купон сгенерирован');
+    //                //}
+    //            }
+    //        });
+    //});
 
     $('button[name="print_page"]').click(function(e){
         e.preventDefault();
@@ -934,9 +971,96 @@ $( document ).ready(function() {
     });
 
     $('#certificate_data_user').click(function(e){
+        //e.preventDefault();
+        //var errors = 0;
+        //var quantity = $(this).attr('data-quantity');
+        //var date_birth = $('input[name="date_birth"]').val();
+        //if($('#name').length>0){
+        //    var name = $('#name').val();
+        //    if (!name) {
+        //        $('#name').addClass('error');
+        //        errors++;
+        //    } else {
+        //        $('#name').removeClass('error');
+        //    }
+        //}
+        //if(!date_birth){
+        //    $('input[name="date_birth"]').addClass('error');
+        //        errors++;
+        //    } else {
+        //        $('input[name="date_birth"]').removeClass('error');
+        //    }
+        //if($('#email').length>0){
+        //    var email = $('#email').val();
+        //    if (!email) {
+        //        $('#email').addClass('error');
+        //        errors++;
+        //    } else {
+        //        $('#email').removeClass('error');
+        //    }
+        //}
+        //if($('#phone').length>0){
+        //    var phone = $('#phone').val();
+        //    if (!phone) {
+        //        $('#phone').addClass('error');
+        //        errors++;
+        //    } else {
+        //        $('#phone').removeClass('error');
+        //    }
+        //}
+        //if($('#name_manager').length>0){
+        //    var name_manager = $('#name_manager').val();
+        //    if (!name_manager) {
+        //        $('#name_manager').addClass('error');
+        //        errors++;
+        //    } else {
+        //        $('#name_manager').removeClass('error');
+        //    }
+        //}
+        //if(errors > 0){
+        //    return false;
+        //}else{
+
+            //$.ajax({
+            //    type: "POST",
+            //    url: "/user/create_coupon",
+            //    dataType: "json",
+            //    data: {tour_id: tour_id,
+            //        name: name,
+            //        email: email,
+            //        phone: phone,
+            //        name_manager: name_manager,
+            //        date_birth: date_birth},
+            //    success: function (data) {
+            //        alert('sdfg');
+            //        //if (data.message != 'success') {
+            //        //    alert('Не удалось сгенерировать купон');
+            //        //} else {
+            //        $('.fancybox-outer').html('<p class="lightbox_header">Был сгенерирован сертификат</p>');
+            //
+            //        // alert('Купон сгенерирован');
+            //        //}
+            //    }
+            //});
+
+
+            //$.fancybox.close();
+            //$('#create_coupon_form').submit();
+            //$('#create_coupon_form').submit(function() {
+            //    $(this).submit();
+            //    setTimeout(function() {
+            //      alert('sdf');
+            //    }, 100);
+            //});
+
+   //     }
+    });
+
+    $('.created_new_certificate').click(function (e){
         e.preventDefault();
         var errors = 0;
         var quantity = $(this).attr('data-quantity');
+        var date_birth = $('input[name="date_birth"]').val();
         if($('#name').length>0){
             var name = $('#name').val();
             if (!name) {
@@ -946,14 +1070,11 @@ $( document ).ready(function() {
                 $('#name').removeClass('error');
             }
         }
-        if($('#date_birth').length>0){
-            var date_birth = $('#date_birth').val();
-            if (!date_birth) {
-                $('#date_birth').addClass('error');
-                errors++;
-            } else {
-                $('#date_birth').removeClass('error');
-            }
+        if(!date_birth){
+            $('input[name="date_birth"]').addClass('error');
+            errors++;
+        } else {
+            $('input[name="date_birth"]').removeClass('error');
         }
         if($('#email').length>0){
             var email = $('#email').val();
@@ -984,10 +1105,17 @@ $( document ).ready(function() {
         }
         if(errors > 0){
             return false;
-        }else{
-            $('#create_coupon_form').submit();
-            $(".generate_code").fancybox();
+        }else {
+            $('#create_coupon_form').trigger('submit');
+            $('#name').val('');
+            $('input[name="date_birth"]').val('');
+            $('#email').val('');
+            $('#phone').val('');
+            $('#name_manager').val('');
+            $.fancybox.close();
+            $('#generate_code_succes').fancybox({'overlayShow':true,frameWidth: 838,frameHeight:540}).trigger('click');
         }
+
     });
 
     $(".pre_pay_class").on('click', function(e) {

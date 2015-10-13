@@ -42,7 +42,7 @@ class Controller_Site_Question extends Controller_Site
                 'question' => $question
             ))->render();
             Helpers_Email::send(Kohana::$config->load('mailer.admin'), 'Новый вопрос с сайта '.$_SERVER['SERVER_NAME'].' '.$theme_name, $admin_message, true);
-            Helpers_Email::send($email, 'Сообщение консультанту '.$name.' '.$phone, $user_message, true);
+            Helpers_Email::send($email, 'Вы задали вопрос на сайте '.$_SERVER['SERVER_NAME'], $user_message, true);
 
             exit(json_encode(array('user_message' => 'succes')));
         }
