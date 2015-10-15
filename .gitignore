@@ -12,5 +12,4 @@ phpunit.xml
 /composer.phar
 /.idea
 /application/config/database.php
-files
 .htaccess
