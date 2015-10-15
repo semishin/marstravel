@@ -205,7 +205,7 @@
                         <?php echo $included?>
                 </div>
                 <div class="right same_height">
-                    <p>В стоимость не входит:</p>
+                    <p>Дополнительные предложения:</p>
                         <?php echo $excluded?>
                 </div>
                 <div class="clearfix"></div>
@@ -294,7 +294,7 @@
                     </p>
                 </div>
                     <a href="/ajax" class="pre_pay_class black_btn various fancybox.ajax" id="pay_btn_gen_1">Предварительно забронировать</a>
-                    <a class="img_tor_print" href="#"><img src="/marstravel-bootstrap/img/word_img.png" width="51px"><span>Скачать договор</span></a>
+                    <a class="img_tor_print" href="/files/dogovor.pdf" target="_blank"><img src="/marstravel-bootstrap/img/word_img.png" width="51px"><span>Скачать договор</span></a>
                 <div class="clearfix"></div>
                 <div style="display: none">
                     <div id="pay_order">
@@ -356,13 +356,13 @@
                             <div class="form-group text-left">
                                 <label for="agreement_1" class="checkbox">
                                     <input type="checkbox" class="form-control" id="agreement_1" name="agreement">
-                                    Согласен с <a href="/page/pravila-tura" target="_blank">правилами тура</a>
+                                    Согласен с <a href="/page/usloviya-tura" target="_blank">условиями тура</a>
                                 </label>
                             </div>
                             <div class="form-group text-left">
                                 <label for="agreement_2" class="checkbox">
                                     <input type="checkbox" class="form-control" id="agreement_2" name="agreement_2">
-                                    Согласен с <a href="/page/usloviyami-dogovora" target="_blank">условиями договора</a>
+                                    Согласен с <a href="/files/dogovor.pdf" target="_blank">условиями договора</a>
                                 </label>
                             </div>
 

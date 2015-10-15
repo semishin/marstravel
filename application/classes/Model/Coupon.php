@@ -36,7 +36,7 @@ class Model_Coupon extends ORM
             'status_work_client' => 'Статус работы с клиентом',
             'contract_signature' => 'Дата подписания договора в офисе',
             'send_contract_email' => 'Дата отправления договора клиенту по email',
-            'sent_other_tour' => 'Предложения по другим турам',
+            'sent_other_tour' => 'Высланы ли другие предложения Marstravel',
             'review' => 'Отзыв клиента',
             'date_get_order' => 'Дата получения договора, подписанного клиентом',
             'manager_mars' => 'Ф.И. Менеджера , принявшего  звонок (заявку)',
@@ -46,7 +46,8 @@ class Model_Coupon extends ORM
             'date_birth' => 'Дата рождения владельца сертификата',
             'phone' => 'Телефон владельца сертификата',
             'email' => 'Email владельца сертификата',
-            'name_manager' => 'ФИО менеджера, выдавшего сертификат'
+            'name_manager' => 'ФИО менеджера, выдавшего сертификат',
+			'tour_name' => 'Тур'
         );
     }
 
@@ -58,9 +59,11 @@ class Model_Coupon extends ORM
     protected $_grid_columns = array(
         'activate_phone' => 'bool',
 		'active_firm' => 'bool',
-        'manager_mars' => null,
-        'date_phone' => null,
-        'status_work_client' => null,
+		'code' => null,
+		'created_at' => null,
+		'tour_name' => null,
+		'name' => null,
+		'date_birth' => null,
         'active' => 'bool',
         'edit' => array(
             'width' => '40',

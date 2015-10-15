@@ -1112,6 +1112,7 @@ $( document ).ready(function() {
             $('#email').val('');
             $('#phone').val('');
             $('#name_manager').val('');
+			$('#datetimepicker').val('');
             $.fancybox.close();
             $('#generate_code_succes').fancybox({'overlayShow':true,frameWidth: 838,frameHeight:540}).trigger('click');
         }

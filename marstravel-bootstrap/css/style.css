@@ -1072,10 +1072,11 @@ body{
     font-weight: bold;
     text-align: right;
     /*padding-right: 175px;*/
-    padding-right: 29%;
+    padding-right: 10%;
     font-size: 28px;
     margin-bottom: 15px;
     color: #111111;
+	text-align:center;
 }
 .two_half_block>.left>ul,
 .two_half_block>.right>ul{

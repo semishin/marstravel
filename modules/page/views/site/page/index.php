@@ -14,7 +14,23 @@
         </div>
         <div class="col-md-9 col-xs-12 right_block">
             <h1 style="margin-top: 0px;"><?php echo $name; ?></h1>
-            <article class="col-xs-12 polka"><?php echo $content; ?></article>
+            <article class="col-xs-12 polka"><?php echo $content; ?>
+			<?php if($images) { $images = json_decode($images)?>
+				<div class="row">
+                    <div class="adventure_program">
+                        <div class="intro">
+                            <p class="text">
+                                <?php foreach($images as $item) { ?>
+                                    <a class="images_sight " rel="gallery1" href="<?php echo $item;?>" title="<?php echo $name?>">
+                                        <img src="<?php echo Lib_Image::crop($item, 'page',$id, 291, 173); ?>" class="img-rounded col-xs-4 mb30" />
+                                    </a>
+                                <?php } ?>
+                            </p>
+                        </div>
+                    </div>
+				</div>
+            <?php } ?>
+			</article>
         </div>
     </div>
 </div>
