@@ -51,11 +51,7 @@ return array(
                 'properties.phone' => array(
                     'label' => 'Номер телефона',
                     'field' => new CM_Field_String(),
-                ),
-//                'properties.phone2' => array(
-//                    'label' => 'Номер телефона 2',
-//                    'field' => new CM_Field_String(),
-//                ),
+                )
                 'properties.email' => array(
                     'label' => 'Email',
                     'field' => new CM_Field_String(),
@@ -91,15 +87,7 @@ return array(
                 'social.instagram' => array(
                     'label' => 'Instagram',
                     'field' => new CM_Field_String(),
-                ),
-//                'social.skype' => array(
-//                    'label' => 'Skype',
-//                    'field' => new CM_Field_String(),
-//                ),
-//                'social.twitter' => array(
-//                    'label' => 'Twitter',
-//                    'field' => new CM_Field_String(),
-//                )
+                )
             )
 
 		)
