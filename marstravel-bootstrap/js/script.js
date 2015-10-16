@@ -181,12 +181,12 @@ $( document ).ready(function() {
             }
         },
         function(){
-            $('.rating_stars>li').removeClass('hover');
+            $('.rating_stars:not(.locked)>li').removeClass('hover');
         });
 
     $( ".rating_stars:not(.locked)>li" ).click(function(e) {
         e.preventDefault();
-        $('.rating_stars>li').removeClass('active');
+        $('.rating_stars:not(.locked)>li').removeClass('active');
         var rating = $(this).data('rating');
         for(var n=1; n<=rating;n++){
             $(this).parent().find('li:nth-child('+n+')').addClass('active');
