@@ -4,9 +4,9 @@ return array(
 	'default' => array(
 		'type'	     => 'MySQLi',
 		'connection' => array(
-			'username'   => 'turistic_skazka',
-			'password'   => 'Z9ZwQKRs1g',
-			'database'   => 'turistic_skazka',
+			'username'   => 'root',
+			'password'   => '',
+			'database'   => 'marstravel_bd',
 			'hostname'   => 'localhost',
 		),
 		'table_prefix' => '',
