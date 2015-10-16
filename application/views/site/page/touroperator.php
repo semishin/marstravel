@@ -27,9 +27,9 @@
             <div class="col-xs-12">
                 <div class="our_guarantee_block">
                     <div class="row">
-                        <div class="col-sm-4">
+                        <div class="col-sm-6">
                             <div class="our_guarantee_item">
-                                <a href="#"><img src="/marstravel-bootstrap/img/word_img.png">
+                                <a href="/files/prikaz.docx"><img src="/marstravel-bootstrap/img/word_img.png">
                                     <p>Приказ о внесении<br>
                                         сведений в Единый<br>
                                         федеральный<br>
@@ -37,9 +37,9 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-sm-4" style="display:none">
                             <div class="our_guarantee_item">
-                                <a href="#"><img src="/marstravel-bootstrap/img/pdf_img.png">
+                                <a href="/files/"><img src="/marstravel-bootstrap/img/pdf_img.png">
                                     <p>Свидетельство о внесении<br>
                                         сведений в Единый<br>
                                         федеральный<br>
@@ -47,9 +47,9 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-sm-6">
                             <div class="our_guarantee_item">
-                                <a href="#"><img src="/marstravel-bootstrap/img/pdf_img.png">
+                                <a href="/files/turhelp.pdf"><img src="/marstravel-bootstrap/img/pdf_img.png">
                                     <p>Членство в Ассоциации<br>
                                         “Объединение туроператоров<br>
                                         в сфере выездного туризма<br>
@@ -126,22 +126,5 @@
                 </div>
             </div>
         </div>
-
-<!--        --><?php //if($images) { $images = json_decode($images)?>
-<!--            <div class="col-xs-12">-->
-<!--                <div class="adventure_program">-->
-<!--                    <div class="intro">-->
-<!--                        <p class="text">-->
-<!--                            --><?php //foreach($images as $item) { ?>
-<!--                                <a class="images_sight " rel="gallery1" href="--><?php //echo $item;?><!--" title="--><?php //echo $name?><!--">-->
-<!--                                    <img src="--><?php //echo $item;?><!--" class="img-rounded col-xs-4 mb30" />-->
-<!--                                </a>-->
-<!--                            --><?php //} ?>
-<!--                        </p>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        --><?php //} ?>
-
     </div>
 </div>

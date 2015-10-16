@@ -16,7 +16,6 @@ return array(
 	),
 	'form_plugins' => array(
 		'admin' => 'Form_Plugin_Auth_Admin',
-		'user' => 'Form_Plugin_Auth_Admin',
-		'retailer' => 'Form_Plugin_Auth_Admin'
+		'user' => 'Form_Plugin_Auth_Admin'
 	)
 );

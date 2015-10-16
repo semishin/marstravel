@@ -8,7 +8,7 @@ class Helpers_Email
     static public function send($to, $subject, $message, $html = FALSE)
     {
         $config = array(
-            'driver' => 'smtp',
+            'driver' => 'native',
             'options' => array(
                 'hostname' => Kohana::$config->load('mailer.hostname'),
                 'username' => Kohana::$config->load('mailer.username'),

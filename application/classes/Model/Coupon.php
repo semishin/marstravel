@@ -30,24 +30,24 @@ class Model_Coupon extends ORM
             'firm_id' => 'Фирма',
             'tour_id' => 'Тур',
             'active' => 'Сертификат использован',
-            'activate_phone' => 'Сертификат активирован',
-            'active_firm' => 'Активность для фирмы',
-            'active_phone' => 'Активность вручную',
+            'activate_phone' => 'Активирован вручную',
+            'active_firm' => 'Активирован на сайте',
             'date_phone' => 'Дата звонка (заявки)',
             'status_work_client' => 'Статус работы с клиентом',
             'contract_signature' => 'Дата подписания договора в офисе',
             'send_contract_email' => 'Дата отправления договора клиенту по email',
-            'sent_other_tour' => 'Предложения по другим турам',
+            'sent_other_tour' => 'Высланы ли другие предложения Marstravel',
             'review' => 'Отзыв клиента',
             'date_get_order' => 'Дата получения договора, подписанного клиентом',
-            'manager_mars' => 'Ф.И. Менеджера Марс-тревел, принявшего первый звонок (заявку) от клиента',
+            'manager_mars' => 'Ф.И. Менеджера , принявшего  звонок (заявку)',
             'send_all_document' => 'Дата оправления клиенту  всех документов необходимых для использования сертификата',
             'created_at' => 'Дата выдачи сертификата',
             'name' => 'ФИО владельца сертификата',
             'date_birth' => 'Дата рождения владельца сертификата',
             'phone' => 'Телефон владельца сертификата',
             'email' => 'Email владельца сертификата',
-            'name_manager' => 'ФИО менеджера, выдавшего сертификат'
+            'name_manager' => 'ФИО менеджера, выдавшего сертификат',
+			'tour_name' => 'Тур'
         );
     }
 
@@ -58,15 +58,13 @@ class Model_Coupon extends ORM
 
     protected $_grid_columns = array(
         'activate_phone' => 'bool',
-        'manager_mars' => null,
-        'date_phone' => null,
-        'status_work_client' => null,
-        'contract_signature' => null,
-        'send_contract_email' => null,
-        'date_get_order' => null,
-        'send_all_document' => null,
+		'active_firm' => 'bool',
+		'code' => null,
+		'created_at' => null,
+		'tour_name' => null,
+		'name' => null,
+		'date_birth' => null,
         'active' => 'bool',
-        'sent_other_tour' => 'bool',
         'edit' => array(
             'width' => '40',
             'type' => 'link',

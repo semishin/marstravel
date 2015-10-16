@@ -22,19 +22,19 @@
             <?php echo $content ?>
         </div>
         <?php if($images) { $images = json_decode($images)?>
-            <div class="col-xs-12">
-                <div class="adventure_program">
-                    <div class="intro">
-                        <p class="text">
-                            <?php foreach($images as $item) { ?>
-                                <a class="images_sight " rel="gallery1" href="<?php echo $item;?>" title="<?php echo $name?>">
-                                    <img src="<?php echo $item;?>" class="img-rounded col-xs-4 mb30" />
-                                </a>
-                            <?php } ?>
-                        </p>
+				<div class="row">
+                    <div class="adventure_program">
+                        <div class="intro">
+                            <p class="text">
+                                <?php foreach($images as $item) { ?>
+                                    <a class="images_sight " rel="gallery1" href="<?php echo $item;?>" title="<?php echo $name?>">
+                                        <img src="<?php echo Lib_Image::crop($item, 'page',$id, 291, 173); ?>" class="img-rounded col-xs-4 mb30" />
+                                    </a>
+                                <?php } ?>
+                            </p>
+                        </div>
                     </div>
-                </div>
-            </div>
-        <?php } ?>
+				</div>
+            <?php } ?>
     </div>
 </div>

@@ -92,7 +92,7 @@
                     <div class="intro">
                         <p class="text">
                             <?php foreach($images as $item) { ?>
-                                <a class="images_sight " rel="gallery1" href="<?php echo $item;?>" title="<?php echo $name?>">
+                                <a class="images_sight" rel="gallery1" href="<?php echo $item;?>" title="<?php echo $name?>">
                                     <img src="<?php echo $item;?>" class="img-rounded col-xs-4 mb30" />
                                 </a>
                             <?php } ?>

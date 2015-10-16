@@ -71,15 +71,13 @@
                         </div>
                         <div class="col-xs-4 right_part">
                             <div class="image">
-
                                 <div class="star_label_trans">
                                     <div class="star"></div><div class="text"><p><b><?php echo $item->slogan ?></b></p></div><div class="border"></div>
                                 </div>
-
                                 <div class="triangle"></div>
                                 <a href="/tour/<?php echo $item->url ?>">
                                     <?php if($item->main_image) { ?>
-                                        <img src="<?php echo Lib_Image::crop($item->main_image, 'tour',$item->id, 300, 330); ?>" class="img-responsive">
+                                        <img src="<?php echo Lib_Image::crop($item->main_image, 'tour',$item->id, 300, 400); ?>" class="img-responsive">
                                     <?php }else { ?>
                                         <img src="holder.js/300x300">
                                     <?php } ?>
@@ -153,7 +151,6 @@
                         });
                     </script>
                     <div id="map"></div>
-                    <!--<div id="route-length"></div>-->
                 </div>
             </div>
         </div>

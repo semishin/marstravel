@@ -9,8 +9,11 @@ class Form_Admin_Coupon extends CM_Form_Abstract
     protected function init()
     {
         $this->add_plugin(new CM_Form_Plugin_ORM());
-
-        $this->set_field('activate_phone', new CM_Field_Boolean(), 0);
+		
+		
+		$this->set_field('active_firm', new CM_Field_Boolean(), 0);
+        $this->set_field('activate_phone', new CM_Field_Boolean(), 1);
+		$this->set_field('active', new CM_Field_Boolean(), 2);
         $this->set_field('manager_mars', new CM_Field_String(), 10);
         $this->set_field('date_phone', new CM_Field_Date(), 20);
         $this->set_field('status_work_client', new CM_Field_String(), 30);
@@ -18,7 +21,7 @@ class Form_Admin_Coupon extends CM_Form_Abstract
         $this->set_field('send_contract_email', new CM_Field_Date(), 50);
         $this->set_field('date_get_order', new CM_Field_Date(), 60);
         $this->set_field('send_all_document', new CM_Field_Date(), 70);
-        $this->set_field('active', new CM_Field_Boolean(), 80);
+        
         $this->set_field('review', new CM_Field_Text(), 90);
         $this->set_field('sent_other_tour', new CM_Field_Boolean(), 100);
         $this->set_field('code', new CM_Field_String(), 110);
@@ -38,7 +41,7 @@ class Form_Admin_Coupon extends CM_Form_Abstract
         $this->get_field('tour_id')->set_attributes(array('disabled'));
         $this->get_field('created_at')->set_attributes(array('disabled'));
 
-        $this->set_field('active_firm', new CM_Field_Boolean(), 140);
+        
 
     }
 }

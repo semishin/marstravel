@@ -47,16 +47,16 @@ class Controller_Site_User extends Controller_Site_DefaultUserController
             $tour = ORM::factory('Tour')
                 ->where('id','=', $tour_id)
                 ->find();
-        if (!$tour->id) {
-            $this->forward_404();
-        }
-        $firm_id = ORM::factory('Coupon_Firm')
-            ->where('id','=', Auth::instance()->get_user()->id)
+			if (!$tour->id) {
+				$this->forward_404();
+			}
+			$user_id = Auth::instance()->get_user()->id;
+			$firm = ORM::factory('Coupon_Firm')
+            ->where('user_id','=', $user_id)
             ->find();
-            $user_id = Auth::instance()->get_user()->id;
 
             $partner = ORM::factory('Partner')
-                ->where('id','=', $firm_id->partner_id)
+                ->where('id','=', $firm->partner_id)
                 ->find();
             $coupon = ORM::factory('Coupon');
             $coupon->code = $code_coupon;
@@ -65,7 +65,7 @@ class Controller_Site_User extends Controller_Site_DefaultUserController
             $coupon->active_firm = 0;
             $coupon->activate_phone = 0;
             $coupon->user_id = $user_id;
-            $coupon->firm_id = $firm_id;
+            $coupon->firm_id = $firm->id;
             $coupon->email = $email;
             $coupon->name = $name;
             $coupon->phone = $phone;
@@ -104,7 +104,7 @@ class Controller_Site_User extends Controller_Site_DefaultUserController
             ))->render();
             $pdfName = $code_coupon.'-'.$tour_id.'.pdf';
             $dirPdf = $_SERVER['DOCUMENT_ROOT'].'/coupons/';
-            $mpdf = new mPDF('blank', 'A4', '8', 'Arial', 15, 5, 7, 7, 10, 10);
+            $mpdf = new mPDF('blank', 'A4', '8', 'Arial', 0, 0, 0, 0, 0, 0);
             $mpdf->WriteHTML($pagePdf);
             $mpdf->Output($dirPdf.$pdfName, 'F');
 
@@ -112,16 +112,17 @@ class Controller_Site_User extends Controller_Site_DefaultUserController
             'email' => $email,
             'phone' => $phone,
             'tour' => $tour,
+			'firm_name' => $firm->name,
             'name' => $name,
             'name_certificate' => $pdfName,
             'code_certificate' => $code_coupon
         ))->render();
-        Helpers_Email::send($email, 'Сертификат '.$name.' '.$phone, $user_message, true);
+        Helpers_Email::send($email, 'Подарочный сертификат на путешествие', $user_message, true);
 
         if (ob_get_level()) {
             ob_end_clean();
         }
-        // заставляем браузер показать окно сохранения файла
+
         header('Content-Description: File Transfer');
         header('Content-Type: application/octet-stream');
         header('Content-Disposition: attachment; filename=' . basename($dirPdf.$pdfName));
@@ -130,7 +131,7 @@ class Controller_Site_User extends Controller_Site_DefaultUserController
         header('Cache-Control: must-revalidate');
         header('Pragma: public');
         header('Content-Length: ' . filesize($dirPdf.$pdfName));
-        // читаем файл и отправляем его пользователю
+
         readfile($dirPdf.$pdfName);
         exit(json_encode(array('message' => 'success')));
 

@@ -8,8 +8,8 @@ cache.properties
 phpunit.xml
 /vendor
 /composer.lock
+/coupons
 /composer.phar
 /.idea
 /application/config/database.php
-files
 .htaccess

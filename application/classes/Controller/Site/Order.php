@@ -92,7 +92,7 @@ class Controller_Site_Order extends Controller_Site
                     'data_people' => $pre_data,
                 ))->render();
                 Helpers_Email::send(Kohana::$config->load('mailer.admin'), 'Новая заявка '.$fio.' '.$phone, $admin_message, true);
-                Helpers_Email::send($email, 'Покупка тура '.$data_tour->name.' на сайте' .$_SERVER['SERVER_NAME'], $user_message, true);
+                Helpers_Email::send($email, 'Предварительное бронирование тура '.$data_tour->name.' на сайте ' .$_SERVER['SERVER_NAME'], $user_message, true);
             } else {
                 $code = $this->request->post('code');
                 $tour_id = $this->request->post('tour_id');
@@ -177,7 +177,7 @@ class Controller_Site_Order extends Controller_Site
                     'payment' => null,
                 ))->render();
                 Helpers_Email::send(Kohana::$config->load('mailer.admin'), 'Новый заказ '.$fio.' '.$phone, $admin_message, true);
-                Helpers_Email::send($email, 'Новый заказ '.$fio.' '.$phone, $user_message, true);
+                Helpers_Email::send($email, 'Предварительное бронирование тура '.$data_tour->name.' на сайте ' .$_SERVER['SERVER_NAME'], $user_message, true);
             }
             Session::instance()->destroy('pre_data');
             exit(json_encode(array('number_order' => $number_order)));

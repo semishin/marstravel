@@ -4,52 +4,34 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width">
-<!--    <meta name="viewport" content="width=device-width, initial-scale=1">-->
     <title><?php echo $s_title;?></title>
     <meta name="description" content="<?php echo $s_description;?>">
     <meta name="keywords" content="<?php echo $s_keywords;?>">
-
     <link href='http://fonts.googleapis.com/css?family=Cuprum:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700&subset=cyrillic,latin' rel='stylesheet' type='text/css'>
-    <!--font-family: 'PT Sans', sans-serif;-->
-
-    <!-- Bootstrap -->
     <link href="/marstravel-bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/marstravel-bootstrap/fancybox/jquery.fancybox.css">
+    <link rel="stylesheet" href="/marstravel-bootstrap/fancybox/jquery.fancybox.css?v1">
     <link href="/marstravel-bootstrap/css/bootstrap-datetimepicker.css" rel="stylesheet">
-<!--    <link rel="stylesheet" type="text/css" href="/marstravel-bootstrap/datepicker/daterangepicker-bs3.css" />-->
     <link href="/marstravel-bootstrap/css/barousel.css" rel="stylesheet">
     <link href="/marstravel-bootstrap/css/bootstrap-select.min.css" rel="stylesheet">
     <link href="/marstravel-bootstrap/css/minimal/minimal.css" rel="stylesheet">
-    <link href="/marstravel-bootstrap/css/style.css?v1" rel="stylesheet">
+    <link href="/marstravel-bootstrap/css/style.css?v2" rel="stylesheet">
     <link rel="shortcut icon" href="/marstravel-bootstrap/img/favicon.ico" type="image/x-icon">
-
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-
     <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
-
     <script src="/marstravel-bootstrap/fancybox/jquery.fancybox.pack.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="/marstravel-bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/marstravel-bootstrap/datepicker/moment.min.js"></script>
     <script type="text/javascript" src="/marstravel-bootstrap/js/bootstrap-datetimepicker.js"></script>
-<!--    <script type="text/javascript" src="/marstravel-bootstrap/datepicker/daterangepicker.js"></script>-->
-<!--    <script type="text/javascript" src="/marstravel-bootstrap/datepicker/ru.js"></script>-->
     <script src="/marstravel-bootstrap/js/barousel.js"></script>
     <script src="/marstravel-bootstrap/js/jquery.maskedinput.js"></script>
     <script src="/marstravel-bootstrap/js/bootstrap-select.min.js"></script>
     <script src="/marstravel-bootstrap/js/ru.js"></script>
     <script src="/marstravel-bootstrap/js/icheck.js"></script>
-
     <script type="text/javascript" src="/marstravel-bootstrap/js/jquery.scrollTo.min.js"></script>
     <script type="text/javascript" src="/marstravel-bootstrap/js/jquery.localScroll.min.js"></script>
-
-    <!-- Include  user-js -->
-    <script src="/marstravel-bootstrap/js/script.js?v1"></script>
+    <script src="/marstravel-bootstrap/js/script.js?v2"></script>
     <script src="/marstravel-bootstrap/js/holder.js"></script>
-
-
 </head>
 <body>
 <div class="container-fluid">
@@ -68,6 +50,7 @@
                         <div class="row">
                             <div class="col-xs-7">
                                 <ul class="list-inline pull-left">
+									<li><a href="/">Туры</a></li>
                                     <li class="dropdown_hover"><span class="a <?php if( $_SERVER['REQUEST_URI'] == '/about-us' ||  $_SERVER['REQUEST_URI'] == '/touroperator') { ?> active <?php } ?>">О компании <span class="glyphicon glyphicon-chevron-down"></span></span>
                                         <ul class="dropdown_menu list-unstyled">
                                             <li><a href="/about-us" <?php if( $_SERVER['REQUEST_URI'] == '/about-us') { ?> class="active" <?php } ?>>О нас</a></li>
