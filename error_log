@@ -72,3 +72,17 @@ These options need to match
 [12-Oct-2015 16:44:30] PHP Parse error:  syntax error, unexpected T_FUNCTION, expecting ')' in /home4/turistic/public_html/skazka/system/classes/Kohana/Log.php on line 141
 [12-Oct-2015 16:44:31] PHP Parse error:  syntax error, unexpected T_FUNCTION, expecting ')' in /home4/turistic/public_html/skazka/system/classes/Kohana/Log.php on line 141
 [12-Oct-2015 16:44:32] PHP Parse error:  syntax error, unexpected T_FUNCTION, expecting ')' in /home4/turistic/public_html/skazka/system/classes/Kohana/Log.php on line 141
+[15-Oct-2015 20:58:08 Europe/Minsk] PHP Fatal error:  Class 'CM_Value_DateInterval' not found in /home4/turistic/public_html/skazka/modules/ariol/classes/CM/Field.php on line 168
+[15-Oct-2015 20:58:18 Europe/Minsk] PHP Fatal error:  Class 'Form_Filter_PriceFlight' not found in /home4/turistic/public_html/skazka/application/classes/Controller/Admin/PriceFlight.php on line 12
+[15-Oct-2015 20:58:23 Europe/Minsk] PHP Fatal error:  Class 'CM_Field_DateInterval' not found in /home4/turistic/public_html/skazka/application/classes/Form/Filter/PriceFlight.php on line 26
+[15-Oct-2015 20:58:25 Europe/Minsk] PHP Fatal error:  Class 'CM_Field_DateInterval' not found in /home4/turistic/public_html/skazka/application/classes/Form/Filter/PriceFlight.php on line 26
+[15-Oct-2015 20:59:42 Europe/Minsk] PHP Parse error:  syntax error, unexpected ';' in /home4/turistic/public_html/skazka/application/classes/Form/Filter/PriceFlight.php on line 27
+[15-Oct-2015 20:59:45 Europe/Minsk] PHP Parse error:  syntax error, unexpected ';' in /home4/turistic/public_html/skazka/application/classes/Form/Filter/PriceFlight.php on line 27
+[15-Oct-2015 20:59:54 Europe/Minsk] PHP Fatal error:  Class 'CM_Field_DateInterval' not found in /home4/turistic/public_html/skazka/application/classes/Form/Filter/PriceFlight.php on line 26
+[15-Oct-2015 20:59:56 Europe/Minsk] PHP Fatal error:  Class 'CM_Field_DateInterval' not found in /home4/turistic/public_html/skazka/application/classes/Form/Filter/PriceFlight.php on line 26
+[15-Oct-2015 20:59:58 Europe/Minsk] PHP Fatal error:  Class 'CM_Field_DateInterval' not found in /home4/turistic/public_html/skazka/application/classes/Form/Filter/PriceFlight.php on line 26
+[15-Oct-2015 20:59:59 Europe/Minsk] PHP Fatal error:  Class 'CM_Field_DateInterval' not found in /home4/turistic/public_html/skazka/application/classes/Form/Filter/PriceFlight.php on line 26
+[15-Oct-2015 20:59:59 Europe/Minsk] PHP Fatal error:  Class 'CM_Field_DateInterval' not found in /home4/turistic/public_html/skazka/application/classes/Form/Filter/PriceFlight.php on line 26
+[15-Oct-2015 20:59:59 Europe/Minsk] PHP Fatal error:  Class 'CM_Field_DateInterval' not found in /home4/turistic/public_html/skazka/application/classes/Form/Filter/PriceFlight.php on line 26
+[15-Oct-2015 21:00:00 Europe/Minsk] PHP Fatal error:  Class 'CM_Field_DateInterval' not found in /home4/turistic/public_html/skazka/application/classes/Form/Filter/PriceFlight.php on line 26
+[15-Oct-2015 21:00:07 Europe/Minsk] PHP Fatal error:  Class 'CM_Field_DateInterval' not found in /home4/turistic/public_html/skazka/application/classes/Form/Filter/PriceFlight.php on line 26

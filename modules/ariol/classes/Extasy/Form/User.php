@@ -8,13 +8,15 @@ class Extasy_Form_User extends CM_Form_Abstract
 	protected function init()
 	{
 		$this->add_plugin(new CM_Form_Plugin_ORM(array(
-			'email', 'name', 'roles'
-		)));
+			'email', 'name', 'roles', 'password'
+		), array(), Model_User::get_password_validation()));
 
 		$this->set_field('email', new CM_Field_String(), 10);
 		$this->set_field('name', new CM_Field_String(), 40);
 		$this->set_field('roles', new Extasy_Field_Roles(), 50);
 
+		$this->set_field('password', new CM_Field_Password(), 11);
+		$this->set_field('password_confirm', new CM_Field_Password(), 12);
 		foreach (Kohana::$config->load('auth.form_plugins') as $role => $plugin)
 		{
 			$this->add_plugin(new $plugin($role));
