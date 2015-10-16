@@ -299,7 +299,7 @@
                     </p>
                 </div>
                     <a href="/ajax" class="pre_pay_class black_btn various fancybox.ajax" id="pay_btn_gen_1">Предварительно забронировать</a>
-                    <a class="img_tor_print" href="/files/dogovor.pdf" target="_blank"><img src="/marstravel-bootstrap/img/word_img.png" width="51px"><span>Скачать договор</span></a>
+                    <a class="img_tor_print" href="/files/dogovor.pdf" target="_blank"><img src="/marstravel-bootstrap/img/pdf_img.png" width="51px"><span>Скачать договор</span></a>
                 <div class="clearfix"></div>
                 <div style="display: none">
                     <div id="pay_order">

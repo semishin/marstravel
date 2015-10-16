@@ -172,7 +172,8 @@
                     thumbnailHeight: 80,
                     parallelUploads: 20,
                     autoQueue: false, // Make sure the files aren't queued until manually added
-                    previewsContainer: "#dropzone_previews"
+                    previewsContainer: "#dropzone_previews",
+                    addRemoveLinks: "dictRemoveFile"
                 });
             </script>
         </div>
