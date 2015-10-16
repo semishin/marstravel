@@ -3,11 +3,11 @@
     <div class="grey_top_block">
         <a href="/" class="back_to_main">&larr; <span>Назад на главную</span></a>
         <p class="text-center header">Отзывы</p>
-        <p class="text-center duration">3 отзыва о нашей работе</p>
+        <p class="text-center duration hidden">3 отзыва о нашей работе</p>
     </div>
 </div>
 
-<div class="col-xs-12">
+<div class="col-xs-12 hidden">
     <div class="row tour_select">
         <div class="col-xs-8">
             <div class="row">
@@ -17,13 +17,9 @@
                 <div class="col-lg-10 col-xs-9">
                     <select class="selectpicker form-control rounded" id="tour_select">
                         <option value="null">Все туры</option>
-                        <option>Анталия - Памуккале </option>
-                        <option>Величие Двух Морей</option>
-                        <option>Каппадокия</option>
-                        <option>Наследие великих цивилизаций</option>
-                        <option>Турецко-кипрский вояж</option>
-                        <option>Величие Двух Морей (стандарт плюс)</option>
-                        <option>Общие вопросы</option>
+                        <?php foreach ($tour as $index => $item) { ?>
+                            <option value="<?php echo $item->id;?>"><?php echo $item->name?></option>
+                        <?php } ?>
                     </select>
                 </div>
             </div>
@@ -82,7 +78,7 @@
     </div>
 </div>
 
-<div class="col-xs-12">
+<div class="col-xs-12 hidden">
 
     <div class="order_tour">
         <p class="text-center">Оставьте отзыв</p>
@@ -143,14 +139,9 @@
         <div class="form-group rounded">
             <label for="comment_tour">Тур</label>
             <select class="selectpicker form-control rounded" id="comment_tour">
-                <option>Тур «Наследие великих цивилизаций»</option>
-                <option>Анталия - Памуккале </option>
-                <option>Величие Двух Морей</option>
-                <option>Каппадокия</option>
-                <option>Наследие великих цивилизаций</option>
-                <option>Турецко-кипрский вояж</option>
-                <option>Величие Двух Морей (стандарт плюс)</option>
-                <option>Общие вопросы</option>
+                <?php foreach ($tour as $index => $item) { ?>
+                    <option value="<?php echo $item->id;?>"><?php echo $item->name?></option>
+                <?php } ?>
             </select>
         </div>
         <div class="form-group rounded">
@@ -192,7 +183,7 @@
 
 
 
-<div class="col-xs-12 hidden">
+<div class="col-xs-12 ">
     <?php foreach ($review as $item) { ?>
         <div class="page_info">
             <div class="hotel_contacts col-xs-12">

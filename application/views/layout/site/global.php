@@ -156,7 +156,7 @@
                     <div class="row">
                         <?php foreach($row as $item) { ?>
                             <div class="col-xs-3">
-                                <a href="http://<?php echo $item->link; ?>" target="_blank">
+                                <a href="<?php if (!preg_match('%http%', $item->link)) { ?>http://<?php } ?><?php echo $item->link; ?>" target="_blank">
                                     <img src="<?php echo $item->image; ?>" class="img-responsive">
                                 </a>
                             </div>

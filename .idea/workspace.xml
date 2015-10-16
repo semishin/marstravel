@@ -65,11 +65,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/views/site/review/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.6363635" vertical-offset="2457" max-vertical-offset="3740">
-              <caret line="166" column="18" selection-start-line="166" selection-start-column="18" selection-end-line="166" selection-end-column="18" />
+            <state vertical-scroll-proportion="0.4744352" vertical-offset="2457" max-vertical-offset="3740">
+              <caret line="168" column="66" selection-start-line="168" selection-start-column="66" selection-end-line="168" selection-end-column="66" />
               <folding />
             </state>
           </provider>
@@ -78,8 +78,8 @@
       <file leaf-file-name="item.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/site/tour/item.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="41.036366" vertical-offset="7289" max-vertical-offset="9231">
-              <caret line="296" column="76" selection-start-line="296" selection-start-column="76" selection-end-line="296" selection-end-column="76" />
+            <state vertical-scroll-proportion="-7.8" vertical-offset="7289" max-vertical-offset="9231">
+              <caret line="454" column="53" selection-start-line="454" selection-start-column="53" selection-end-line="454" selection-end-column="53" />
               <folding>
                 <marker date="1445003541344" expanded="true" signature="31394:31432" placeholder="..." />
                 <marker date="1445003541344" expanded="true" signature="31832:31870" placeholder="..." />
@@ -88,10 +88,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/marstravel-bootstrap/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5971897" vertical-offset="38641" max-vertical-offset="43350">
+            <state vertical-scroll-proportion="-17.586206" vertical-offset="38641" max-vertical-offset="43350">
               <caret line="2303" column="1" selection-start-line="2303" selection-start-column="1" selection-end-line="2303" selection-end-column="1" />
               <folding>
                 <element signature="e#50520#50801#2" expanded="true" />
@@ -835,17 +835,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/site/tour/item.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="41.036366" vertical-offset="7289" max-vertical-offset="9231">
-          <caret line="296" column="76" selection-start-line="296" selection-start-column="76" selection-end-line="296" selection-end-column="76" />
-          <folding>
-            <marker date="1445003541344" expanded="true" signature="31394:31432" placeholder="..." />
-            <marker date="1445003541344" expanded="true" signature="31832:31870" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/marstravel-bootstrap/js/dropzone.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.019906323" vertical-offset="0" max-vertical-offset="854">
@@ -854,21 +843,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/site/review/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.6363635" vertical-offset="2457" max-vertical-offset="3740">
-          <caret line="166" column="18" selection-start-line="166" selection-start-column="18" selection-end-line="166" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/marstravel-bootstrap/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5971897" vertical-offset="38641" max-vertical-offset="43350">
+        <state vertical-scroll-proportion="-17.586206" vertical-offset="38641" max-vertical-offset="43350">
           <caret line="2303" column="1" selection-start-line="2303" selection-start-column="1" selection-end-line="2303" selection-end-column="1" />
           <folding>
             <element signature="e#50520#50801#2" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/site/tour/item.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.8" vertical-offset="7289" max-vertical-offset="9231">
+          <caret line="454" column="53" selection-start-line="454" selection-start-column="53" selection-end-line="454" selection-end-column="53" />
+          <folding>
+            <marker date="1445003541344" expanded="true" signature="31394:31432" placeholder="..." />
+            <marker date="1445003541344" expanded="true" signature="31832:31870" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/site/review/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4744352" vertical-offset="2457" max-vertical-offset="3740">
+          <caret line="168" column="66" selection-start-line="168" selection-start-column="66" selection-end-line="168" selection-end-column="66" />
+          <folding />
         </state>
       </provider>
     </entry>
