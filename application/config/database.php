@@ -1,6 +1,7 @@
 <?php
 
 return array(
+
     'default' => array(
         'type'	     => 'MySQLi',
         'connection' => array(

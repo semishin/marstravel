@@ -1144,7 +1144,8 @@ body{
     font-family: 'PT Sans', sans-serif;
 }
 .order_tour .date{}
-.order_tour .date input{
+.order_tour .date input,
+.order_tour .form-group.rounded .form-control:not(.bootstrap-select){
     font-weight: bold;
     background-color: #eeeeee;
     height: 39px;
@@ -1217,7 +1218,8 @@ body{
     border: 2px solid red;
     border-radius: 17px;
 }
-.order_tour .counter label{
+.order_tour .counter label,
+.order_tour .form-group.rounded label{
     margin-bottom: 12px;
     padding-left: 25px;
     font-size: 16px;
@@ -2084,6 +2086,224 @@ ul.modified>li:before{
     border-color: #4c9825;
     background-image: url('../img/sberbank.png');
 }
+
+.btn_bordered{
+    display: inline-block;
+    background-color: #ffffff;
+    border: 3px solid #111111;
+    color: #111111;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 9px;
+    padding-bottom: 9px;
+    border-radius: 25px;
+    padding-left: 52px;
+    padding-right: 52px;
+}
+.btn_bordered:hover,
+.btn_bordered:active,
+.btn_bordered:focus,
+.btn_bordered.active{
+    background-color: #111111;
+    color: #ffffff;
+}
+.btn_bordered .glyphicon{
+    margin-right: 14px;
+    position: relative;
+    top: 3px;
+}
+
+.selectpicker.rounded+.bootstrap-select{
+    height: 39px;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+}
+.selectpicker.rounded+.bootstrap-select .dropdown-toggle{
+    border: 0px;
+    background-color: #e8e8e8;
+    padding: 8px 22px;
+    border-radius: 20px;
+    font-size: 16px;
+    color: #888888;
+}
+.selectpicker.rounded+.bootstrap-select .dropdown-toggle:focus,
+.selectpicker.rounded+.bootstrap-select .dropdown-toggle:active,
+.selectpicker.rounded+.bootstrap-select .dropdown-toggle:hover,
+.selectpicker.rounded+.bootstrap-select.open .dropdown-toggle{
+    outline: none !important;
+}
+.selectpicker.rounded+.bootstrap-select .dropdown-toggle .caret{
+    right: 20px;
+}
+.selectpicker.rounded+.bootstrap-select .dropdown-menu.open{
+    margin-top: 0px;
+}
+
+.tour_select{
+    margin-bottom: 34px;
+    font-size: 16px;
+    padding-top: 5px;
+}
+.tour_select label{
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+.tour_select .btn_bordered{
+    margin-top: -5px;
+}
+
+.rating_stars{
+    margin-left: 0px;
+}
+.rating_stars li{
+    padding-right: 0px;
+    padding-left: 0px;
+}
+.rating_stars .glyphicon-star{
+    color: #ffcc33;
+    cursor: pointer;
+}
+.rating_stars li.hover .glyphicon-star,
+.rating_stars li.active .glyphicon-star{
+   color: #231f20;
+}
+
+.comment_item{
+    font-size: 16px;
+    border: 1px solid #eeeeee;
+    padding: 16px 30px 25px;
+    position: relative;
+    margin-bottom: 55px;
+}
+.comment_item_header{
+    border-bottom: 1px solid #eeeeee;
+    padding-bottom: 5px;
+    margin-bottom: 17px;
+}
+.comment_item_header:after{
+    display: block;
+    content: " ";
+    clear: both;
+}
+.comment_item_header .author{
+    float: left;
+    font-size: 18px;
+    font-weight: bold;
+}
+.comment_item_header .rating_stars{
+    float: right;
+}
+.comment_item_body{}
+.comment_item_body .tour_name{
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.comment_item_body .tour_date{
+    color: #666666;
+    margin-bottom: 15px;
+}
+.comment_item_body .text{}
+
+.comment_item .triangle-topleft {
+    width: 0;
+    left: 31px;
+    bottom: -33px;
+    height: 0;
+    position: absolute;
+    border-top: 33px solid #eeeeee;
+    border-right: 46px solid transparent;
+}
+.comment_item .triangle-topleft:before{
+    content: "";
+    position: absolute;
+    display: block;
+    top: -33px;
+    left: 1px;
+    width: 0;
+    height: 0;
+    border-top: 31px solid #ffffff;
+    border-right: 44px solid transparent;
+}
+
+.order_tour .introductory_text{
+    font-size: 16px;
+    margin-right: -130px;
+    margin-left: -130px;
+}
+.order_tour>p:first-child+.introductory_text{
+    margin-top: -15px;
+    margin-bottom: 35px;
+}
+.order_tour .form-group.rounded{}
+.order_tour .form-group.rounded label{}
+.order_tour .form-group.rounded .form-control:not(.bootstrap-select){
+    border-radius: 17px;
+    padding: 6px 25px;
+}
+.order_tour .form-group.rounded .form-control.bootstrap-select .dropdown-toggle{
+    padding-left: 25px;
+    padding-right: 25px;
+}
+.order_tour .form-group.rounded textarea.form-control{
+    height: auto !important;
+}
+
+.center_rating{
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+.center_rating>span{
+    margin-right: 15px;
+}
+.center_rating .rating_stars{
+    display: inline-block;
+}
+.center_rating>span+.rating_stars{
+    position: relative;
+    top: 2px;
+}
+
+.add_file_block{
+    font-size: 16px;
+    padding-top: 10px;
+}
+.add_file_block .text-muted{
+    color: #888888;
+}
+.dropzone_link{
+    margin-top: 10px;
+    margin-bottom: 30px;
+    display: inline-block;
+    font-weight: bold;
+    font-size: 18px;
+    cursor: pointer;
+    color: #111111;
+    border-bottom: 1px dotted currentColor;
+}
+.dropzone_link:hover,
+.dropzone_link.active{
+    color: #ee1c25;
+}
+#dropzone_previews{
+    margin-bottom: 30px;
+}
+#dropzone_previews .dz-size,
+#dropzone_previews .dz-error-mark,
+#dropzone_previews .dz-success-mark{
+    display: none;
+}
+
+.black_btn.none_float,
+.red_btn.none_float,
+.none_float{
+    float: none;
+}
+
+
+
 
 
 @media (min-width: 992px) and (max-width: 1240px){

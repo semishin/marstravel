@@ -17,8 +17,10 @@ class Controller_Site_Review extends Controller_Site
             ->count_all();
         $this->template->review = $review;
         $this->template->count_review = $count_review;
+        $this->template->tour = ORM::factory('Tour')->where('active','=',1)->order_by('position','asc')->find_all();
 
 
-        $this->template->set_layout('layout/site/global');
+
+$this->template->set_layout('layout/site/global');
     }
 }

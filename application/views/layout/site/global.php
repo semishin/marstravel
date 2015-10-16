@@ -14,6 +14,7 @@
     <link href="/marstravel-bootstrap/css/bootstrap-datetimepicker.css" rel="stylesheet">
     <link href="/marstravel-bootstrap/css/barousel.css" rel="stylesheet">
     <link href="/marstravel-bootstrap/css/bootstrap-select.min.css" rel="stylesheet">
+    <link href="/marstravel-bootstrap/css/dropzone.min.css" rel="stylesheet">
     <link href="/marstravel-bootstrap/css/minimal/minimal.css" rel="stylesheet">
     <link href="/marstravel-bootstrap/css/style.css?v2" rel="stylesheet">
     <link rel="shortcut icon" href="/marstravel-bootstrap/img/favicon.ico" type="image/x-icon">
@@ -28,6 +29,7 @@
     <script src="/marstravel-bootstrap/js/bootstrap-select.min.js"></script>
     <script src="/marstravel-bootstrap/js/ru.js"></script>
     <script src="/marstravel-bootstrap/js/icheck.js"></script>
+    <script src="/marstravel-bootstrap/js/dropzone.min.js"></script>
     <script type="text/javascript" src="/marstravel-bootstrap/js/jquery.scrollTo.min.js"></script>
     <script type="text/javascript" src="/marstravel-bootstrap/js/jquery.localScroll.min.js"></script>
     <script src="/marstravel-bootstrap/js/script.js?v2"></script>
