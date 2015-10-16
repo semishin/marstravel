@@ -220,7 +220,7 @@
                 <div class="form-group date">
                     <p style="margin-bottom: 12px;padding-left: 25px;font-size: 16px;color: #111111;font-weight: bold">Выберите дату поездки</p>
 					<div class='input-group date add_error' id='datetimepicker'>
-						<input placeholder="Выберите дату" value="<?php echo  $current_date?>" name="daterange" type='text' id="date" class="form-control change_placeholder" />
+						<input  <?php if($start_count_places <= 0) { ?>  placeholder="Извините. На данный момент нет свободных мест" disabled="true" <?php } else {  ?> placeholder="Выберите дату" <?php } ?> value="" name="daterange" type='text' id="date" class="form-control change_placeholder" />
 						<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
 					</div>
                 </div>
@@ -238,6 +238,7 @@
 							  var days = result.days;
 							  $('#datetimepicker').datetimepicker({
                                   locale: 'ru',
+                                  useCurrent: false,
                                   format: 'YYYY-MM-DD',
                                   minDate: (min_date_start),
 								  enabledDates: $.makeArray(days)
@@ -249,23 +250,23 @@
                 <div class="form-group counter counter1">
                     <label for="adult_number">Количество взрослых</label>
                     <div class="btn-group">
-                        <button name="send_data_people" type="button" class="btn btn-default"><span class="glyphicon glyphicon-minus"></span></button>
-                            <input type="text" value="2"  class="form-control" id="adult_number" placeholder="Выберите кол-во взрослых">
-                        <button name="send_data_people" type="button" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span></button>
+                        <button <?php if($start_count_places <= 1) { ?> disabled="true" <?php } ?> name="send_data_people" type="button" class="btn btn-default"><span class="glyphicon glyphicon-minus"></span></button>
+                            <input type="text" <?php if($start_count_places >= 2) { ?> value="2"  <?php }elseif($start_count_places == 1) { ?> value="1" <?php } ?> class="form-control" id="adult_number" placeholder="Выберите кол-во взрослых">
+                        <button name="send_data_people" <?php if($start_count_places <= 2) { ?> disabled="true" <?php } ?>  type="button" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span></button>
                     </div>
                 </div>
                 <div class="form-group counter counter2  <?php if($price_child == 0) { ?> hidden <?php } ?>">
                     <label for="children_number">Количество детей</label>
                     <div class="btn-group">
-                        <button name="send_data_people" type="button" class="btn btn-default"><span class="glyphicon glyphicon-minus"></span></button>
+                        <button <?php if($start_count_places <= 1) { ?> disabled="true" <?php } ?> name="send_data_people" type="button" class="btn btn-default"><span class="glyphicon glyphicon-minus"></span></button>
                         <input  type="text" class="form-control" id="children_number" placeholder="Выберите кол-во детей">
-                        <button name="send_data_people" type="button" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span></button>
+                        <button <?php if($start_count_places <= 2) { ?> disabled="true" <?php } ?> name="send_data_people" type="button" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span></button>
                     </div>
                 </div>
 
                 <div class="form-group bootstrap-select promo_code_block" >
                     <input type="text" name="code"  id="code_2" class="form-control" placeholder="Введите код сертификата">
-                    <button  id="check_coupon"  class="use_code_btn" data-tour_id="<?php echo $id?>" data-coupon_code="">Применить</button>
+                    <button  id="check_coupon" <?php if($start_count_places <= 0) { ?> disabled="true" <?php } ?>   class="use_code_btn" data-tour_id="<?php echo $id?>" data-coupon_code="">Применить</button>
                 </div>
 
                 <div class="add_content_flight hidden">
@@ -276,7 +277,7 @@
                 </div>
                 <div class="">
                     <div <?php if(!$price_single) { ?> class="hidden"<?php } ?>>
-                        <div class="add_content_single_price hidden">
+                        <div class="add_content_single_price <?php if($start_count_places != 1) { ?> hidden <?php } ?>">
                             <p class="content_single_price"  data-single_price="<?php echo $price_single?>"><span>Доплата за одноместное размещение:</span> <b><?php echo number_format($price_single, 0, ' ', ' ');?> руб.</b></p>
                         </div>
                     </div>
@@ -284,7 +285,11 @@
                 <div class="coupon_hidden">
                     <p class="total_price"  data-price_adult="<?php echo $price?>" data-price_child="<?php echo $price_child?>">
                         <span>Итоговая стоимость без сертификата:</span>
-                        <b><?php echo number_format($price * 2 + ($free_date->price * 2), 0, ' ', ' ');?> руб.</b>
+                        <?php if($start_count_places == 1) { ?>
+                            <b><?php echo number_format($price + $price_single + $free_date->price, 0, ' ', ' ');?> руб.</b>
+                        <?php } else { ?>
+                            <b><?php echo number_format($price * 2 + ($free_date->price * 2), 0, ' ', ' ');?> руб.</b>
+                        <?php } ?>
                     </p>
                 </div>
                 <div class="certificate_hidden hidden">
@@ -369,13 +374,21 @@
                             <div class="coupon_hidden">
                                 <div class="total_cost last_cost">
                                     <span>Итого:</span>
-                                    <b><?php echo number_format($price * 2 + ($free_date->price * 2), 0, ' ', ' ');?> руб.</b>
+                                    <?php if($start_count_places == 1) { ?>
+                                        <b><?php echo number_format($price + $price_single + $free_date->price, 0, ' ', ' ');?> руб.</b>
+                                    <?php } else { ?>
+                                        <b><?php echo number_format($price * 2 + ($free_date->price * 2), 0, ' ', ' ');?> руб.</b>
+                                    <?php } ?>
                                 </div>
                             </div>
                             <div class="certificate_hidden hidden">
                                 <div class="total_cost_certificate last_cost">
                                     <span>Итого:</span>
-                                    <b><?php echo number_format(($free_date->price * 2), 0, ' ', ' ');?> руб.</b>
+                                    <?php if($start_count_places == 1) { ?>
+                                        <b><?php echo number_format($free_date->price, 0, ' ', ' ');?> руб.</b>
+                                    <?php } else { ?>
+                                        <b><?php echo number_format(($free_date->price * 2), 0, ' ', ' ');?> руб.</b>
+                                    <?php } ?>
                                 </div>
                             </div>
                             <a href="#" class="red_btn" id="pay_btn" data-id="<?php echo $id?>">Оформить</a>

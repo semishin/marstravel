@@ -264,4 +264,19 @@ return array(
         'route' => 'admin-comment:create',
         'parent' => 'admin.comment.index'
     ),
+
+    'admin.priceflight.index' => array(
+        'title' => 'Список туров',
+        'route' => 'admin-priceflight'
+    ),
+    'admin.priceflight.edit' => array(
+        'title' => 'Редактирование цены на полет',
+        'route' => 'admin-priceflight:edit',
+        'parent' => 'admin.priceflight.index'
+    ),
+    'admin.priceflight.create' => array(
+        'title' => 'Добавление цены на полет',
+        'route' => 'admin-priceflight:create',
+        'parent' => 'admin.priceflight.index'
+    ),
 );

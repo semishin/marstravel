@@ -894,12 +894,12 @@ $( document ).ready(function() {
                     if(result.message){
                         $('#datetimepicker').data("DateTimePicker").clear();
                         $('input[name="daterange"]').parent().addClass('error');
-                        $(".counter1>.btn-group>button:last-child").attr('disabled', true);
+                        $(".counter>.btn-group>button:last-child").attr('disabled', true);
                         $('.change_placeholder').attr('placeholder', result.message);
                         $('.change_placeholder').attr("disabled", true);
                     }else{
                         $('.change_placeholder').attr("disabled", false);
-                        $(".counter1>.btn-group>button:last-child").attr('disabled', false);
+                        $(".counter>.btn-group>button:last-child").attr('disabled', false);
                         $('#datetimepicker').data("DateTimePicker").destroy();
                         $('.add_content_flight').html(' ');
                         $('input[name="daterange"]').parent().removeClass('error');
