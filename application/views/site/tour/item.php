@@ -229,11 +229,19 @@
                     window.onload = function () {
                         var tour_id = '<?php echo $id;?>';
                         var min_date_start = $('input[name="min_date_start"]').val();
+                        var quantity_adults = $('#adult_number').val();
+                        var quantity_children = $('#children_number').val();
+                        if(!quantity_children){
+                            quantity_children = 0;
+                        }
+                        if(!quantity_adults){
+                            quantity_adults = 0;
+                        }
 					  $.ajax({
 						  type: "POST",
 						  url: "/tour/get/info",
 						  dataType: 'json',
-                          data: {tour_id: tour_id},
+                          data: {tour_id: tour_id, quantity_adults: quantity_adults, quantity_children: quantity_children},
                           success: function(result) {
 							  var days = result.days;
 							  $('#datetimepicker').datetimepicker({
