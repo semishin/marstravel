@@ -785,40 +785,6 @@ $( document ).ready(function() {
             });
     });
 
-    //$(document).on('click', '.created_new_certificate', function(e) {
-    //    e.preventDefault();
-    //    alert('sdgf');
-    //        var tour_id = $(this).attr('data-tour_id');
-    //        var name = $('input[name="name"]').val();
-    //        var email = $('input[name="email"]').val();
-    //        var phone = $('input[name="phone"]').val();
-    //        var name_manager = $('input[name="name_manager"]').val();
-    //        var date_birth = $('input[name="date_birth"]').val();
-    //        if(!tour_id) {
-    //            return false;
-    //        }
-    //        $.ajax({
-    //            type: "POST",
-    //            url: "/user/create_coupon",
-    //            dataType: "json",
-    //            data: {tour_id: tour_id,
-    //                name: name,
-    //                email: email,
-    //                phone: phone,
-    //                name_manager: name_manager,
-    //                date_birth: date_birth},
-    //            success: function (data) {
-    //                alert('sdfg');
-    //                //if (data.message != 'success') {
-    //                //    alert('Не удалось сгенерировать купон');
-    //                //} else {
-    //                    $('.fancybox-outer').html('<p class="lightbox_header">Был сгенерирован сертификат</p>');
-    //
-    //                   // alert('Купон сгенерирован');
-    //                //}
-    //            }
-    //        });
-    //});
 
     $('button[name="print_page"]').click(function(e){
         e.preventDefault();
@@ -896,13 +862,14 @@ $( document ).ready(function() {
         }
         var single_price = $('.content_single_price').data('single_price');
         if(((parseInt(quantity_adults) + parseInt(quantity_children)) == 1) &&  single_price > 0){
-            //$('.surcharge').addClass('hidden');
-            //$('.surcharge_single').removeClass('hidden');
             $('.add_content_single_price').removeClass('hidden');
         }else{
             $('.add_content_single_price').addClass('hidden');
-            //$('.surcharge_single').addClass('hidden');
-            //$('.surcharge').removeClass('hidden');
+        }
+		if(((parseInt(quantity_adults) + parseInt(quantity_children)) == 1) ){
+            $('.forum_link').removeClass('hidden');
+        }else{
+            $('.forum_link').addClass('hidden');
         }
             $.ajax({
                 type: "POST",

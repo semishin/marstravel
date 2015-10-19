@@ -21,16 +21,19 @@ class Controller_Site_Tour extends Controller_Site
             ->where('tour_id', '=', $this->_model->id)
             ->where('free_places', '>=', 1)
             ->where('start_date', '>=', $current_date)
+			->where('active', '=', 1)
             ->order_by('start_date')->find();
 
         $free_date_total = ORM::factory('PriceFlight')
             ->where('tour_id', '=', $this->_model->id)
             ->where('free_places', '>=', 1)
             ->where('end_date', '>=', $current_date)
+			->where('active', '=', 1)
             ->find_all();
         $min_price_flight = ORM::factory('PriceFlight')
             ->where('tour_id', '=', $this->_model->id)
             ->where('free_places', '>', 0)
+			->where('active', '=', 1)
             ->order_by('price', 'ASC')->find();
         $days = array();
         foreach($free_date_total as $item){

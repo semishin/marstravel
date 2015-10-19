@@ -16,7 +16,7 @@
     <link href="/marstravel-bootstrap/css/bootstrap-select.min.css" rel="stylesheet">
     <link href="/marstravel-bootstrap/css/dropzone.min.css" rel="stylesheet">
     <link href="/marstravel-bootstrap/css/minimal/minimal.css" rel="stylesheet">
-    <link href="/marstravel-bootstrap/css/style.css?v2" rel="stylesheet">
+    <link href="/marstravel-bootstrap/css/style.css?v7" rel="stylesheet">
     <link rel="shortcut icon" href="/marstravel-bootstrap/img/favicon.ico" type="image/x-icon">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
@@ -61,8 +61,8 @@
                                         </ul>
                                     </li>
                                     <li><a href="/our-partners" <?php if( $_SERVER['REQUEST_URI'] == '/our-partners') { ?> class="active" <?php } ?> >Наши партнёры</a></li>
-                                    <!--<li><a href="/corp-clients"  <?php if( $_SERVER['REQUEST_URI'] == '/corp-clients') { ?> class="active" <?php } ?>>Для корпоративных клиентов</a></li>-->
-									<li><a href="/review"  <?php if( $_SERVER['REQUEST_URI'] == '/review') { ?> class="active" <?php } ?>>Отзывы</a></li>
+                                    <li><a href="/review"  <?php if( $_SERVER['REQUEST_URI'] == '/review') { ?> class="active" <?php } ?>>Отзывы</a></li>
+									<li><a href="http://forum.turskazka.ru/" target="_blank">Поиск попутчика</a></li>
                                     <li><a href="/contacts"  <?php if( $_SERVER['REQUEST_URI'] == '/contacts') { ?> class="active" <?php } ?>>Контакты</a></li>
                                 </ul>
                             </div>

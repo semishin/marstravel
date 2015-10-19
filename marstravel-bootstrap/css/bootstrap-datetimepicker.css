@@ -293,7 +293,7 @@
 }
 .bootstrap-datetimepicker-widget table td.old,
 .bootstrap-datetimepicker-widget table td.new {
-  color: #aaa;
+  visibility:hidden;
 }
 .bootstrap-datetimepicker-widget table td.today {
   position: relative;

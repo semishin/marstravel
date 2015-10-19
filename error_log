@@ -86,3 +86,63 @@ These options need to match
 [15-Oct-2015 20:59:59 Europe/Minsk] PHP Fatal error:  Class 'CM_Field_DateInterval' not found in /home4/turistic/public_html/skazka/application/classes/Form/Filter/PriceFlight.php on line 26
 [15-Oct-2015 21:00:00 Europe/Minsk] PHP Fatal error:  Class 'CM_Field_DateInterval' not found in /home4/turistic/public_html/skazka/application/classes/Form/Filter/PriceFlight.php on line 26
 [15-Oct-2015 21:00:07 Europe/Minsk] PHP Fatal error:  Class 'CM_Field_DateInterval' not found in /home4/turistic/public_html/skazka/application/classes/Form/Filter/PriceFlight.php on line 26
+[16-Oct-2015 14:11:56] PHP Parse error:  syntax error, unexpected T_FUNCTION, expecting ')' in /home4/turistic/public_html/skazka/system/classes/Kohana/Log.php on line 141
+[16-Oct-2015 14:11:56] PHP Parse error:  syntax error, unexpected T_FUNCTION, expecting ')' in /home4/turistic/public_html/skazka/system/classes/Kohana/Log.php on line 141
+[16-Oct-2015 14:11:58] PHP Parse error:  syntax error, unexpected T_FUNCTION, expecting ')' in /home4/turistic/public_html/skazka/system/classes/Kohana/Log.php on line 141
+[16-Oct-2015 14:11:58] PHP Parse error:  syntax error, unexpected T_FUNCTION, expecting ')' in /home4/turistic/public_html/skazka/system/classes/Kohana/Log.php on line 141
+[16-Oct-2015 14:12:01] PHP Parse error:  syntax error, unexpected T_FUNCTION, expecting ')' in /home4/turistic/public_html/skazka/system/classes/Kohana/Log.php on line 141
+[16-Oct-2015 14:12:02] PHP Parse error:  syntax error, unexpected T_FUNCTION, expecting ')' in /home4/turistic/public_html/skazka/system/classes/Kohana/Log.php on line 141
+[16-Oct-2015 14:12:06] PHP Parse error:  syntax error, unexpected T_FUNCTION, expecting ')' in /home4/turistic/public_html/skazka/system/classes/Kohana/Log.php on line 141
+[16-Oct-2015 14:12:07] PHP Parse error:  syntax error, unexpected T_FUNCTION, expecting ')' in /home4/turistic/public_html/skazka/system/classes/Kohana/Log.php on line 141
+[16-Oct-2015 14:12:07] PHP Parse error:  syntax error, unexpected T_FUNCTION, expecting ')' in /home4/turistic/public_html/skazka/system/classes/Kohana/Log.php on line 141
+[16-Oct-2015 14:12:09] PHP Parse error:  syntax error, unexpected T_FUNCTION, expecting ')' in /home4/turistic/public_html/skazka/system/classes/Kohana/Log.php on line 141
+[16-Oct-2015 14:12:10] PHP Parse error:  syntax error, unexpected T_FUNCTION, expecting ')' in /home4/turistic/public_html/skazka/system/classes/Kohana/Log.php on line 141
+[16-Oct-2015 14:12:11] PHP Parse error:  syntax error, unexpected T_FUNCTION, expecting ')' in /home4/turistic/public_html/skazka/system/classes/Kohana/Log.php on line 141
+[16-Oct-2015 14:12:12] PHP Parse error:  syntax error, unexpected T_FUNCTION, expecting ')' in /home4/turistic/public_html/skazka/system/classes/Kohana/Log.php on line 141
+[16-Oct-2015 14:12:36] PHP Parse error:  syntax error, unexpected T_FUNCTION, expecting ')' in /home4/turistic/public_html/skazka/system/classes/Kohana/Log.php on line 141
+[16-Oct-2015 14:12:37] PHP Parse error:  syntax error, unexpected T_FUNCTION, expecting ')' in /home4/turistic/public_html/skazka/system/classes/Kohana/Log.php on line 141
+[16-Oct-2015 14:12:38] PHP Parse error:  syntax error, unexpected T_FUNCTION, expecting ')' in /home4/turistic/public_html/skazka/system/classes/Kohana/Log.php on line 141
+[16-Oct-2015 14:12:38] PHP Parse error:  syntax error, unexpected T_FUNCTION, expecting ')' in /home4/turistic/public_html/skazka/system/classes/Kohana/Log.php on line 141
+[16-Oct-2015 14:12:54] PHP Parse error:  syntax error, unexpected T_FUNCTION, expecting ')' in /home4/turistic/public_html/skazka/system/classes/Kohana/Log.php on line 141
+[16-Oct-2015 14:13:02] PHP Parse error:  syntax error, unexpected T_FUNCTION, expecting ')' in /home4/turistic/public_html/skazka/system/classes/Kohana/Log.php on line 141
+[16-Oct-2015 14:13:03] PHP Parse error:  syntax error, unexpected T_FUNCTION, expecting ')' in /home4/turistic/public_html/skazka/system/classes/Kohana/Log.php on line 141
+[16-Oct-2015 14:13:04] PHP Parse error:  syntax error, unexpected T_FUNCTION, expecting ')' in /home4/turistic/public_html/skazka/system/classes/Kohana/Log.php on line 141
+[16-Oct-2015 14:13:04] PHP Parse error:  syntax error, unexpected T_FUNCTION, expecting ')' in /home4/turistic/public_html/skazka/system/classes/Kohana/Log.php on line 141
+[16-Oct-2015 14:13:06] PHP Parse error:  syntax error, unexpected T_FUNCTION, expecting ')' in /home4/turistic/public_html/skazka/system/classes/Kohana/Log.php on line 141
+[16-Oct-2015 14:13:07] PHP Parse error:  syntax error, unexpected T_FUNCTION, expecting ')' in /home4/turistic/public_html/skazka/system/classes/Kohana/Log.php on line 141
+[16-Oct-2015 14:13:09] PHP Parse error:  syntax error, unexpected T_FUNCTION, expecting ')' in /home4/turistic/public_html/skazka/system/classes/Kohana/Log.php on line 141
+[16-Oct-2015 14:13:52] PHP Parse error:  syntax error, unexpected T_FUNCTION, expecting ')' in /home4/turistic/public_html/skazka/system/classes/Kohana/Log.php on line 141
+[16-Oct-2015 14:13:53] PHP Parse error:  syntax error, unexpected T_FUNCTION, expecting ')' in /home4/turistic/public_html/skazka/system/classes/Kohana/Log.php on line 141
+[16-Oct-2015 14:13:53] PHP Parse error:  syntax error, unexpected T_FUNCTION, expecting ')' in /home4/turistic/public_html/skazka/system/classes/Kohana/Log.php on line 141
+[16-Oct-2015 14:13:54] PHP Parse error:  syntax error, unexpected T_FUNCTION, expecting ')' in /home4/turistic/public_html/skazka/system/classes/Kohana/Log.php on line 141
+[16-Oct-2015 14:13:54] PHP Parse error:  syntax error, unexpected T_FUNCTION, expecting ')' in /home4/turistic/public_html/skazka/system/classes/Kohana/Log.php on line 141
+[16-Oct-2015 14:13:54] PHP Parse error:  syntax error, unexpected T_FUNCTION, expecting ')' in /home4/turistic/public_html/skazka/system/classes/Kohana/Log.php on line 141
+[16-Oct-2015 06:14:29] PHP Warning:  PHP Startup: Unable to load dynamic library '/opt/php54/lib/php/extensions/no-debug-non-zts-20100525/imagick.so' - /opt/php54/lib/php/extensions/no-debug-non-zts-20100525/imagick.so: undefined symbol: zend_new_interned_string in Unknown on line 0
+[16-Oct-2015 06:14:29] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
+Module compiled with module API=20100525, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[16-Oct-2015 14:14:29] PHP Parse error:  syntax error, unexpected T_FUNCTION, expecting ')' in /home4/turistic/public_html/skazka/system/classes/Kohana/Log.php on line 141
+[16-Oct-2015 06:14:46] PHP Warning:  PHP Startup: Unable to load dynamic library '/opt/php54/lib/php/extensions/no-debug-non-zts-20100525/imagick.so' - /opt/php54/lib/php/extensions/no-debug-non-zts-20100525/imagick.so: undefined symbol: zend_new_interned_string in Unknown on line 0
+[16-Oct-2015 06:14:46] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
+Module compiled with module API=20100525, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[16-Oct-2015 14:14:46] PHP Parse error:  syntax error, unexpected T_FUNCTION, expecting ')' in /home4/turistic/public_html/skazka/system/classes/Kohana/Log.php on line 141
+[16-Oct-2015 06:14:47] PHP Warning:  PHP Startup: Unable to load dynamic library '/opt/php54/lib/php/extensions/no-debug-non-zts-20100525/imagick.so' - /opt/php54/lib/php/extensions/no-debug-non-zts-20100525/imagick.so: undefined symbol: zend_new_interned_string in Unknown on line 0
+[16-Oct-2015 06:14:47] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
+Module compiled with module API=20100525, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[16-Oct-2015 14:14:47] PHP Parse error:  syntax error, unexpected T_FUNCTION, expecting ')' in /home4/turistic/public_html/skazka/system/classes/Kohana/Log.php on line 141
+[16-Oct-2015 17:49:20 Europe/Minsk] PHP Parse error:  syntax error, unexpected T_CONSTANT_ENCAPSED_STRING, expecting ')' in /home4/turistic/public_html/skazka/modules/ariol/config/config.php on line 55
+[16-Oct-2015 17:50:28 Europe/Minsk] PHP Parse error:  syntax error, unexpected T_CONSTANT_ENCAPSED_STRING, expecting ')' in /home4/turistic/public_html/skazka/modules/ariol/config/config.php on line 55
+[16-Oct-2015 17:50:58 Europe/Minsk] PHP Parse error:  syntax error, unexpected T_CONSTANT_ENCAPSED_STRING, expecting ')' in /home4/turistic/public_html/skazka/modules/ariol/config/config.php on line 55
+[16-Oct-2015 17:51:17 Europe/Minsk] PHP Parse error:  syntax error, unexpected T_CONSTANT_ENCAPSED_STRING, expecting ')' in /home4/turistic/public_html/skazka/modules/ariol/config/config.php on line 55
+[16-Oct-2015 17:51:26 Europe/Minsk] PHP Parse error:  syntax error, unexpected T_CONSTANT_ENCAPSED_STRING, expecting ')' in /home4/turistic/public_html/skazka/modules/ariol/config/config.php on line 55
+[16-Oct-2015 17:51:47 Europe/Minsk] PHP Parse error:  syntax error, unexpected T_CONSTANT_ENCAPSED_STRING, expecting ')' in /home4/turistic/public_html/skazka/modules/ariol/config/config.php on line 55
+[16-Oct-2015 17:51:53 Europe/Minsk] PHP Parse error:  syntax error, unexpected T_CONSTANT_ENCAPSED_STRING, expecting ')' in /home4/turistic/public_html/skazka/modules/ariol/config/config.php on line 55
+[16-Oct-2015 17:53:05 Europe/Minsk] PHP Parse error:  syntax error, unexpected T_CONSTANT_ENCAPSED_STRING, expecting ')' in /home4/turistic/public_html/skazka/modules/ariol/config/config.php on line 55

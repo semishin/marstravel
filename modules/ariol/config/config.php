@@ -51,7 +51,7 @@ return array(
                 'properties.phone' => array(
                     'label' => 'Номер телефона',
                     'field' => new CM_Field_String(),
-                )
+                ),
                 'properties.email' => array(
                     'label' => 'Email',
                     'field' => new CM_Field_String(),

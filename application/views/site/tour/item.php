@@ -212,11 +212,6 @@
             </div>
             <div class="order_tour" data-tour_id="<?php echo $id;?>" id="from_top_get_free_button">
                 <p class="text-center">Заказ тура</p>
-                <?php if($link_forum) { ?>
-                    <div class="forum_link text-center">
-                        <a href="/<?php echo $link_forum;?>">Поиск попутчика Online</a>
-                    </div>
-                <?php } ?>
                 <div class="form-group date">
                     <p style="margin-bottom: 12px;padding-left: 25px;font-size: 16px;color: #111111;font-weight: bold">Выберите дату поездки</p>
 					<div class='input-group date add_error' id='datetimepicker'>
@@ -271,7 +266,11 @@
                         <button <?php if($start_count_places <= 2) { ?> disabled="true" <?php } ?> name="send_data_people" type="button" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span></button>
                     </div>
                 </div>
-
+				<?php if($link_forum) { ?>
+				<div class="forum_link text-center hidden">
+					<a href="<?php echo $link_forum;?>" target="_blank" class="btntobus"><span class="glyphicon glyphicon-link"></span> Поиск попутчика Online</a>
+				</div>
+                <?php } ?>
                 <div class="form-group bootstrap-select promo_code_block" >
                     <input type="text" name="code"  id="code_2" class="form-control" placeholder="Введите код сертификата">
                     <button  id="check_coupon" <?php if($start_count_places <= 0) { ?> disabled="true" <?php } ?>   class="use_code_btn" data-tour_id="<?php echo $id?>" data-coupon_code="">Применить</button>

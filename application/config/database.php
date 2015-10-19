@@ -5,9 +5,9 @@ return array(
     'default' => array(
         'type'	     => 'MySQLi',
         'connection' => array(
-            'username'   => 'root',
-            'password'   => '',
-            'database'   => 'mars.local',
+            'username'   => 'turistic_skazka',
+            'password'   => 'Z9ZwQKRs1g',
+            'database'   => 'turistic_skazka',
             'hostname'   => 'localhost',
         ),
         'table_prefix' => '',
