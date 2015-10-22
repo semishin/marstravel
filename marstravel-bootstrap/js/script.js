@@ -46,7 +46,6 @@ function numFormat(n, d, s) { // number format function
     return x;
 }
 
-// A $( document ).ready() block.
 $( document ).ready(function() {
 
     $("#phone").mask("+7 (999) 999-9999",{placeholder:" "});
@@ -123,11 +122,6 @@ $( document ).ready(function() {
             $(".right_part .slide_text.active").removeClass('active');
             $(".right_part .slide_text.text"+slide_number).addClass('active');
         };
-        //$(".carousel-indicators>li").click(function () {
-        //    var slide_number = $(this).data('slide-to');
-        //    $(".right_part .slide_text.active").removeClass('active');
-        //    $(".right_part .slide_text.text"+slide_number).addClass('active');
-        //});
     };
 
     $('.tooltip_icon').tooltip();
@@ -245,8 +239,6 @@ $( document ).ready(function() {
                 dataType: 'json',
                 success: function(result) {
                     offset = 6;
-                    //$('.portfolio_buttons li button').removeClass('active');
-                    //$(this).addClass('active');
                     $('.sights_block .row').html(result.html);
                     $('#count_sight').text("всего " + result.count_sight + " мест");
 
@@ -365,7 +357,6 @@ $( document ).ready(function() {
         e.preventDefault();
         var quantity_adults = $('#adult_number').val();
         var quantity_children = $('#children_number').val();
-        var single_price = $('.content_single_price').data('single_price');
         var date = $('.day.active').attr('data-day');
         if(!quantity_children){
             quantity_children = 0;
@@ -775,17 +766,14 @@ $( document ).ready(function() {
                 dataType: "json",
                 data: {tour_id: tour_id},
                 success: function (data) {
-                    //if (data.message != 'success') {
-                    //    alert('Не удалось сгенерировать купон');
-                    //} else {
-                       // $('.fancybox-outer').html('<p class="lightbox_header">Был сгенерирован сертификат</p>');
-
-                       // alert('Купон сгенерирован');
-                    //}
                 }
             });
     });
 
+//<<<<<<< HEAD
+//=======
+//
+//>>>>>>> origin/master
     $('button[name="print_page"]').click(function(e){
         e.preventDefault();
         var id = $(this).attr('data-tour_id');
@@ -808,7 +796,7 @@ $( document ).ready(function() {
             data: {phone: phone, contact: contact, address: address, requisites: requisites, description: description, name: name},
             success: function (data) {
                 if (data.message != 'success') {
-                    alert('Не сохранит изменения');
+                    alert('Не удалось сохранить изменения');
                 } else {
                     window.location.href = '/user';
                 }
@@ -860,11 +848,10 @@ $( document ).ready(function() {
         }else{
             $(".counter1>.btn-group>button:first-child").attr('disabled', false);
         }
-        var single_price = $('.content_single_price').data('single_price');
-        if(((parseInt(quantity_adults) + parseInt(quantity_children)) == 1) &&  single_price > 0){
-            $('.add_content_single_price').removeClass('hidden');
+		if(((parseInt(quantity_adults) + parseInt(quantity_children)) == 1) ){
+            $('.forum_link').removeClass('hidden');
         }else{
-            $('.add_content_single_price').addClass('hidden');
+            $('.forum_link').addClass('hidden');
         }
             $.ajax({
                 type: "POST",
@@ -882,7 +869,6 @@ $( document ).ready(function() {
                         $('.change_placeholder').attr("disabled", false);
                         $(".counter>.btn-group>button:last-child").attr('disabled', false);
                         $('#datetimepicker').data("DateTimePicker").destroy();
-                        //$('.add_content_flight').html(' ');
                         $('input[name="daterange"]').parent().removeClass('error');
                         $('.change_placeholder').attr('placeholder', 'Выберите дату');
                         var days = result.days;
@@ -917,7 +903,6 @@ $( document ).ready(function() {
         if(!quantity_adults){
             quantity_adults = 0;
         }
-        //var date = $('.day.active').attr('data-day');
             $.ajax({
                 type: "POST",
                 url: "/tour/get/info",
@@ -930,7 +915,6 @@ $( document ).ready(function() {
                         $('.total_price_coupon b').html('' + numFormat(data.total_cost_coupon) + ' руб.');
                         $('.total_cost b').html('' + numFormat(data.total_cost_not_coupon) + ' руб.');
                         $('.total_cost_certificate b').html('' + numFormat(data.total_cost_coupon) + ' руб.');
-                        //$('.add_content_flight').html('<p class="content_flight"> <span>Стоимость перелета:</span> <b>' + numFormat(data.cost_flight) + ' руб.</b> </p>');
                     }
                 }
             })
@@ -949,92 +933,6 @@ $( document ).ready(function() {
         $("#create_coupon_form").attr("action", 'http://'+server_name+'/user/create_coupon/'+tour_id);
         $("#certificate_data_user").attr("href", 'http://'+server_name+'/user/create_coupon/'+tour_id);
         $(".generate_code").fancybox();
-    });
-
-    $('#certificate_data_user').click(function(e){
-        //e.preventDefault();
-        //var errors = 0;
-        //var quantity = $(this).attr('data-quantity');
-        //var date_birth = $('input[name="date_birth"]').val();
-        //if($('#name').length>0){
-        //    var name = $('#name').val();
-        //    if (!name) {
-        //        $('#name').addClass('error');
-        //        errors++;
-        //    } else {
-        //        $('#name').removeClass('error');
-        //    }
-        //}
-        //if(!date_birth){
-        //    $('input[name="date_birth"]').addClass('error');
-        //        errors++;
-        //    } else {
-        //        $('input[name="date_birth"]').removeClass('error');
-        //    }
-        //if($('#email').length>0){
-        //    var email = $('#email').val();
-        //    if (!email) {
-        //        $('#email').addClass('error');
-        //        errors++;
-        //    } else {
-        //        $('#email').removeClass('error');
-        //    }
-        //}
-        //if($('#phone').length>0){
-        //    var phone = $('#phone').val();
-        //    if (!phone) {
-        //        $('#phone').addClass('error');
-        //        errors++;
-        //    } else {
-        //        $('#phone').removeClass('error');
-        //    }
-        //}
-        //if($('#name_manager').length>0){
-        //    var name_manager = $('#name_manager').val();
-        //    if (!name_manager) {
-        //        $('#name_manager').addClass('error');
-        //        errors++;
-        //    } else {
-        //        $('#name_manager').removeClass('error');
-        //    }
-        //}
-        //if(errors > 0){
-        //    return false;
-        //}else{
-
-            //$.ajax({
-            //    type: "POST",
-            //    url: "/user/create_coupon",
-            //    dataType: "json",
-            //    data: {tour_id: tour_id,
-            //        name: name,
-            //        email: email,
-            //        phone: phone,
-            //        name_manager: name_manager,
-            //        date_birth: date_birth},
-            //    success: function (data) {
-            //        alert('sdfg');
-            //        //if (data.message != 'success') {
-            //        //    alert('Не удалось сгенерировать купон');
-            //        //} else {
-            //        $('.fancybox-outer').html('<p class="lightbox_header">Был сгенерирован сертификат</p>');
-            //
-            //        // alert('Купон сгенерирован');
-            //        //}
-            //    }
-            //});
-
-
-            //$.fancybox.close();
-            //$('#create_coupon_form').submit();
-            //$('#create_coupon_form').submit(function() {
-            //    $(this).submit();
-            //    setTimeout(function() {
-            //      alert('sdf');
-            //    }, 100);
-            //});
-
-   //     }
     });
 
     $('.created_new_certificate').click(function (e){
@@ -1152,7 +1050,6 @@ $( document ).ready(function() {
             }
         });
     });
-
 
     $('#more_review').click(function(e) {
         e.preventDefault();

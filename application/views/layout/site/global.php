@@ -16,7 +16,7 @@
     <link href="/marstravel-bootstrap/css/bootstrap-select.min.css" rel="stylesheet">
     <link href="/marstravel-bootstrap/css/dropzone.min.css" rel="stylesheet">
     <link href="/marstravel-bootstrap/css/minimal/minimal.css" rel="stylesheet">
-    <link href="/marstravel-bootstrap/css/style.css?v2" rel="stylesheet">
+    <link href="/marstravel-bootstrap/css/style.css?v7" rel="stylesheet">
     <link rel="shortcut icon" href="/marstravel-bootstrap/img/favicon.ico" type="image/x-icon">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
@@ -36,6 +36,7 @@
     <script src="/marstravel-bootstrap/js/holder.js"></script>
     <script src="/marstravel-bootstrap/js/stickyKit.js"></script>
     <script src="http://vk.com/js/api/openapi.js" type="text/javascript"></script>
+<!-- Yandex.Metrika counter --><script type="text/javascript"> (function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter33133378 = new Ya.Metrika({ id:33133378, clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks");</script><noscript><div><img src="https://mc.yandex.ru/watch/33133378" style="position:absolute; left:-9999px;" alt="" /></div></noscript><!-- /Yandex.Metrika counter -->
 </head>
 <body>
 <div class="container-fluid">
@@ -63,8 +64,8 @@
                                         </ul>
                                     </li>
                                     <li><a href="/our-partners" <?php if( $_SERVER['REQUEST_URI'] == '/our-partners') { ?> class="active" <?php } ?> >Наши партнёры</a></li>
-                                    <!--<li><a href="/corp-clients"  <?php if( $_SERVER['REQUEST_URI'] == '/corp-clients') { ?> class="active" <?php } ?>>Для корпоративных клиентов</a></li>-->
-									<li><a href="/review"  <?php if( $_SERVER['REQUEST_URI'] == '/review') { ?> class="active" <?php } ?>>Отзывы</a></li>
+                                    <li><a href="/review"  <?php if( $_SERVER['REQUEST_URI'] == '/review') { ?> class="active" <?php } ?>>Отзывы</a></li>
+									<li><a href="http://forum.turskazka.ru/" target="_blank">Поиск попутчика</a></li>
                                     <li><a href="/contacts"  <?php if( $_SERVER['REQUEST_URI'] == '/contacts') { ?> class="active" <?php } ?>>Контакты</a></li>
                                 </ul>
                             </div>

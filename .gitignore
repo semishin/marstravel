@@ -11,5 +11,7 @@ phpunit.xml
 /coupons
 /composer.phar
 /.idea
+/temp
+/files
 /application/config/database.php
 .htaccess

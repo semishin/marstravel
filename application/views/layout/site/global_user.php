@@ -4,14 +4,11 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width">
-    <!--    <meta name="viewport" content="width=device-width, initial-scale=1">-->
     <title><?php echo $s_title;?></title>
     <meta name="description" content="<?php echo $s_description;?>">
     <meta name="keywords" content="<?php echo $s_keywords;?>">
-
     <link href='http://fonts.googleapis.com/css?family=Cuprum:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700&subset=cyrillic,latin' rel='stylesheet' type='text/css'>
-
     <link href="/marstravel-bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="/marstravel-bootstrap/css/summernote.css" rel="stylesheet">
     <link href="/marstravel-bootstrap/css/bootstrap-datetimepicker.css" rel="stylesheet">
@@ -19,13 +16,10 @@
     <link href="/marstravel-bootstrap/css/barousel.css" rel="stylesheet">
     <link href="/marstravel-bootstrap/css/bootstrap-select.min.css" rel="stylesheet">
     <link href="/marstravel-bootstrap/css/minimal/minimal.css" rel="stylesheet">
-    <link href="/marstravel-bootstrap/css/style.css?v2" rel="stylesheet">
+    <link href="/marstravel-bootstrap/css/style.css?7" rel="stylesheet">
     <link rel="shortcut icon" href="/marstravel-bootstrap/img/favicon.ico" type="image/x-icon">
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-
     <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
-
     <script src="/marstravel-bootstrap/fancybox/jquery.fancybox.pack.js"></script>
     <script src="/marstravel-bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/marstravel-bootstrap/datepicker/moment.min.js"></script>
@@ -42,7 +36,6 @@
     <script src="/marstravel-bootstrap/js/summernote.js"></script>
     <script src="/marstravel-bootstrap/js/holder.js"></script>
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet" />
-
 </head>
 <body>
 <div class="container-fluid">
@@ -70,8 +63,8 @@
                                         </ul>
                                     </li>
                                     <li><a href="/our-partners">Наши партнёры</a></li>
-                                    <!--<li><a href="/corp-clients"  <?php if( $_SERVER['REQUEST_URI'] == '/corp-clients') { ?> class="active" <?php } ?>>Для корпоративных клиентов</a></li>-->
                                     <li><a href="/review">Отзывы</a></li>
+									<li><a href="http://forum.turskazka.ru/" target="_blank">Поиск попутчика</a></li>
                                     <li><a href="/contacts">Контакты</a></li>
                                 </ul>
                             </div>

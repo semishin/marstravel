@@ -176,11 +176,18 @@
                         thumbnailWidth: 80,
                         thumbnailHeight: 80,
                         previewsContainer: "#dropzone_previews",
+                        addRemoveLinks: true,
                         success: function(file) {
                           var fileSucces = JSON.parse(file.xhr.response);
-                            console.log(fileSucces);
                             fileName.push(fileSucces.fileName);
                             console.log(fileName);
+                        },
+                        removedfile: function(file) {
+                            var fileSucces = JSON.parse(file.xhr.response);
+                            fileName.splice(fileName.indexOf(fileSucces.fileName), 1);
+                            console.log(fileName);
+                            var _ref;
+                            return (_ref = file.previewElement) != null ? _ref.parentNode.removeChild(file.previewElement) : void 0;
                         }
                     });
 
@@ -188,7 +195,7 @@
             </div>
             </form>
             <div class="text-center">
-                <a href="#" class="black_btn none_float" id="sent_comment">Отправить</a>
+                <a href="#from_send_comment_scroll" class="black_btn none_float" id="sent_comment">Отправить</a>
             </div>
         </div>
     </div>
