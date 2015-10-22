@@ -156,7 +156,7 @@
         <div class="col-xs-5">
             <div class="description_on_left">
                 <p>Стоимость на человека<i class="tooltip_icon" data-toggle="tooltip" data-placement="top" title="Стоимость на человека при двухместном размещении"></i></p>
-                <p class="price">от <?php echo number_format($price + $min_price_flight->price, 0, ' ', ' '); ?> руб.</p>
+                <p class="price">от <?php echo number_format($price + $min_price_flight, 0, ' ', ' '); ?> руб.</p>
                 <a href="#yandex_map_with_route" class="yellow_btn fancy" onclick="createRoute();">Посмотреть программу тура на карте</a>
                 <p class="text">
                     <?php echo $short_content?>
@@ -213,7 +213,7 @@
             <div class="order_tour" data-tour_id="<?php echo $id;?>" id="from_top_get_free_button">
                 <p class="text-center">Заказ тура</p>
                 <?php if($link_forum) { ?>
-                    <div class="forum_link text-center">
+                    <div class="forum_link text-center hidden">
                         <a href="/<?php echo $link_forum;?>">Поиск попутчика Online</a>
                     </div>
                 <?php } ?>
@@ -280,7 +280,7 @@
                 <div class="add_content_flight hidden">
                     <p class="content_flight">
                         <span>Стоимость перелета:</span>
-                        <b><?php echo number_format($free_date->price, 0, '', ' ')?> руб.</b>
+                        <b><?php echo number_format($min_price_flight, 0, '', ' ')?> руб.</b>
                     </p>
                 </div>
                 <div class="">
@@ -294,16 +294,20 @@
                     <p class="total_price"  data-price_adult="<?php echo $price?>" data-price_child="<?php echo $price_child?>">
                         <span>Итоговая стоимость без сертификата:</span>
                         <?php if($start_count_places == 1) { ?>
-                            <b><?php echo number_format($price + $price_single + $free_date->price, 0, ' ', ' ');?> руб.</b>
+                            <b><?php echo number_format($price + $price_single + $min_price_flight, 0, ' ', ' ');?> руб.</b>
                         <?php } else { ?>
-                            <b><?php echo number_format($price * 2 + ($free_date->price * 2), 0, ' ', ' ');?> руб.</b>
+                            <b><?php echo number_format($price * 2 + ($min_price_flight * 2), 0, ' ', ' ');?> руб.</b>
                         <?php } ?>
                     </p>
                 </div>
                 <div class="certificate_hidden hidden">
                     <p class="total_price_coupon total_price_certificate">
                         <span>Стоимость с использованием сертификата:</span>
-                        <b><?php echo number_format($free_date->price * 2, 0, ' ', ' ');?> руб.</b>
+                        <?php if($start_count_places == 1) { ?>
+                            <b><?php echo number_format($min_price_flight + $price_single, 0, ' ', ' ');?> руб.</b>
+                        <?php } else { ?>
+                            <b><?php echo number_format($min_price_flight * 2, 0, ' ', ' ');?> руб.</b>
+                        <?php } ?>
                     </p>
                 </div>
                     <a href="/ajax" class="pre_pay_class black_btn various fancybox.ajax" id="pay_btn_gen_1">Предварительно забронировать</a>
@@ -383,9 +387,9 @@
                                 <div class="total_cost last_cost">
                                     <span>Итого:</span>
                                     <?php if($start_count_places == 1) { ?>
-                                        <b><?php echo number_format($price + $price_single + $free_date->price, 0, ' ', ' ');?> руб.</b>
+                                        <b><?php echo number_format($price + $price_single + $min_price_flight, 0, ' ', ' ');?> руб.</b>
                                     <?php } else { ?>
-                                        <b><?php echo number_format($price * 2 + ($free_date->price * 2), 0, ' ', ' ');?> руб.</b>
+                                        <b><?php echo number_format($price * 2 + ($min_price_flight * 2), 0, ' ', ' ');?> руб.</b>
                                     <?php } ?>
                                 </div>
                             </div>
@@ -393,9 +397,9 @@
                                 <div class="total_cost_certificate last_cost">
                                     <span>Итого:</span>
                                     <?php if($start_count_places == 1) { ?>
-                                        <b><?php echo number_format($free_date->price, 0, ' ', ' ');?> руб.</b>
+                                        <b><?php echo number_format($min_price_flight, 0, ' ', ' ');?> руб.</b>
                                     <?php } else { ?>
-                                        <b><?php echo number_format(($free_date->price * 2), 0, ' ', ' ');?> руб.</b>
+                                        <b><?php echo number_format(($min_price_flight * 2), 0, ' ', ' ');?> руб.</b>
                                     <?php } ?>
                                 </div>
                             </div>
@@ -465,6 +469,12 @@
                                             $('#email_1').removeClass('error');
                                         }
                                     }
+                                    if(!isValidEmailAddress(email)){
+                                        $('#email_1').addClass('error');
+                                        errors++;
+                                    }else{
+                                        $('#email_1').removeClass('error');
+                                    }
                                     if($('#phone_1').length>0){
                                         var phone = $('#phone_1').val();
                                         if (!phone) {
@@ -523,10 +533,14 @@
                                                 surcharge : surcharge
                                             },
                                             success : function(jsondata) {
-                                                if(payment == 1) {
-                                                    $('#pay_order').html('<p class="lightbox_header">Здравствуйте.  Ваша заявка принята.</p><p class="lightbox_text"><p style="margin-left: 15px; margin-right: 15px;">Спасибо за обращение в компанию «МАРС-тревел». Ждем Вас в течение двух рабочих дней  в офисах компании «МАРС-тревел»  для заключения договора и  совершения оплаты.</p>');
-                                                }else{
-                                                    $('#pay_order').html('<p class="lightbox_header">Здравствуйте.  Ваша заявка принята.</p><p class="lightbox_text" style="margin-left: 15px; margin-right: 15px;">Спасибо за обращение в компанию «МАРС-тревел». В течение одного рабочего дня на данный электронный адрес мы отправим Вам  ДОГОВОР. Вам необходимо  его подписать, отсканировать и выслать нам на почту excursion@turistic.ru в течение одного  рабочего дня после его получения*</p> <p>*Если Вы не получили договор в течение одного  рабочего дня после оформления  заявки  сообщите, пожалуйста, об этом в  компанию «МАРС-тревел» по телефону:  +7 (495) 22 33 829 </p>');
+                                                if(jsondata.number_order == 'false'){
+                                                    $('#pay_order').html('<p class="lightbox_header">Не удалось сделать заказ.</p> </p>');
+                                                }else {
+                                                    if (payment == 1) {
+                                                        $('#pay_order').html('<p class="lightbox_header">Здравствуйте.  Ваша заявка принята.</p><p class="lightbox_text"><p style="margin-left: 15px; margin-right: 15px;">Спасибо за обращение в компанию «МАРС-тревел». Ждем Вас в течение двух рабочих дней  в офисах компании «МАРС-тревел»  для заключения договора и  совершения оплаты.</p>');
+                                                    } else {
+                                                        $('#pay_order').html('<p class="lightbox_header">Здравствуйте.  Ваша заявка принята.</p><p class="lightbox_text" style="margin-left: 15px; margin-right: 15px;">Спасибо за обращение в компанию «МАРС-тревел». В течение одного рабочего дня на данный электронный адрес мы отправим Вам  ДОГОВОР. Вам необходимо  его подписать, отсканировать и выслать нам на почту excursion@turistic.ru в течение одного  рабочего дня после его получения*</p> <p>*Если Вы не получили договор в течение одного  рабочего дня после оформления  заявки  сообщите, пожалуйста, об этом в  компанию «МАРС-тревел» по телефону:  +7 (495) 22 33 829 </p>');
+                                                    }
                                                 }
                                             },
                                             error: function(xhr, status, error) {

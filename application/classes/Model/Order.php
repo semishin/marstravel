@@ -6,7 +6,9 @@ class Model_Order extends ORM
     public $statuses = array(
         1 => 'Новый',
         2 => 'Подтверждён',
-        3 => 'Отменен'
+        3 => 'Отменен',
+        4 => 'Оформлен',
+        5 => 'Использован',
     );
 
     protected $_belongs_to = array(
@@ -119,10 +121,16 @@ class Model_Order extends ORM
                 $status_value = '<span class="label label-info">Новый</span>';
                 break;
             case 'Подтверждён':
-                $status_value = '<span class="label label-primary">Подтверждён</span>';
+                $status_value = '<span class="label btn-warning">Подтверждён</span>';
                 break;
             case 'Отменен':
                 $status_value = '<span class="label label-danger">Отменен</span>';
+                break;
+            case 'Оформлен':
+                $status_value = '<span class="label label-primary">Оформлен</span>';
+                break;
+            case 'Использован':
+                $status_value = '<span class="label label-success">Использован</span>';
                 break;
         }
         return $status_value;

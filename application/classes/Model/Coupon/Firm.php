@@ -4,10 +4,29 @@ class Model_Coupon_Firm extends ORM
 {
     protected $_table_name = 'coupon_firms';
 
-    protected $_has_many = array(
+    protected $_belongs_to = array(
         'coupon' => array(
             'model' => 'Coupon',
             'foreign_key' => 'firm_id'
+        ),
+    );
+
+    protected $_has_many_to_save = array(
+        'tour' => array(
+            'model'=> 'Tour',
+            'foreign_key' => 'firm_id',
+            'through'      => 'firm_tours',
+            'far_key'      => 'tour_id',
+        )
+    );
+
+
+    protected $_has_many = array(
+        'tour' => array(
+            'model'=> 'Tour',
+            'foreign_key' => 'firm_id',
+            'through'      => 'firm_tours',
+            'far_key'      => 'tour_id',
         )
     );
 
@@ -23,7 +42,9 @@ class Model_Coupon_Firm extends ORM
             'contact' => 'Контакты',
             'requisites' => 'Реквизиты',
             'phone' => 'Телефон',
-			'user_id' => 'Пользователь'
+			'user_id' => 'Пользователь',
+            'partner_id' => 'Партнер',
+            'tour' => 'Туры',
         );
     }
 

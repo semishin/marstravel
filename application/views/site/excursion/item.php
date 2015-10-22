@@ -24,15 +24,15 @@
         <div class="col-xs-12">
             <div class="adventure_program">
                 <div class="intro">
-                    <p class="text-center header mb30">Дополнительные изображения</p>
+                    <p class="text-center header">Дополнительные изображения</p>
+                </div>
                     <p class="text">
                         <?php foreach($images as $item) { ?>
                             <a class="images_sight" rel="gallery1" href="<?php echo $item;?>" title="<?php echo $name?>">
-                                <img src="<?php echo $item;?>" class="img-rounded col-xs-3 mb30" />
+                                <img src="<?php echo  Lib_Image::resize_bg($item, 'excursion', $id, 664, 382);?>" class="img-rounded col-xs-3 mb30" />
                             </a>
                         <?php } ?>
                     </p>
-                </div>
             </div>
         </div>
         <?php } ?>
@@ -40,23 +40,26 @@
             <div class="adventure_program">
                 <div class="intro">
                     <p class="text-center header">Туры в которые входит экскурсия:</p>
+                    <h1>rtgfhghf</h1>
                 </div>
                 <div class="row">
-                    <?php foreach($tours as $items) { ?>
+                    <?php $i= 0; foreach($tours as $items) { ?>
                     <div class="col-sm-3">
                         <a href="/tour/<?php echo $items['url'];?>" title="<?php echo $items['name']?>">
                             <img src="<?php echo Lib_Image::resize_bg($items['main_image'], 'tour', $items['id'], 664, 382)?>" class="img-responsive mb30" />
                         </a>
                         <a class="black_link"  href="/tour/<?php echo $items['url'];?>"><?php echo $items['name']?></a>
                     </div>
+                        <?php $i++; if($i%4 == 0) { ?><div style="margin-top: 50px;"></div><?php } ?>
                     <?php } ?>
-                    <?php foreach($tours_facultative as $items) { ?>
+                    <?php $i= 0; foreach($tours_facultative as $items) { ?>
                     <div class="col-sm-3">
                         <a href="/tour/<?php echo $items['url'];?>" title="<?php echo $items['name']?>">
                             <img src="<?php echo  Lib_Image::resize_bg($items['main_image'], 'tour', $items['id'], 664, 382)?>" class="img-responsive mb30" />
                         </a>
                         <a  class="black_link" href="/tour/<?php echo $items['url'];?>"><?php echo $items['name']?> (факультативная экскурсия)</a>
                     </div>
+                        <?php $i++; if($i%4 == 0) { ?><div style="margin-top: 300px;"></div><?php } ?>
                     <?php } ?>
                     </div>
                 </div>

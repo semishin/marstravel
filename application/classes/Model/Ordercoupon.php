@@ -6,7 +6,9 @@ class Model_Ordercoupon extends ORM
     public $statuses = array(
         1 => 'Новый',
         2 => 'Подтверждён',
-        3 => 'Отменен'
+        3 => 'Отменен',
+        4 => 'Оформлен',
+        5 => 'Использован',
     );
     protected $_belongs_to = array(
         'coupon' => array(
@@ -39,7 +41,7 @@ class Model_Ordercoupon extends ORM
             'agreement' => 'Согласие с условиями',
             'coupon_id' => 'Номер сертификата',
             'surcharge' => 'Доплата за одноместное размещение',
-            'number_order' => 'Номер заказа'
+            'number_order' => 'Номер заказа',
         );
     }
 
@@ -50,9 +52,14 @@ class Model_Ordercoupon extends ORM
 
     public function save($validation)
     {
-
         parent::save($validation);
-
+            if ($this->status == 5) {
+                $certificate = ORM::factory('Coupon', $this->coupon_id);
+                if($certificate) {
+                    $certificate->active = 1;
+                    $certificate->update();
+                }
+            }
     }
 
     protected $_grid_columns = array(
@@ -63,6 +70,7 @@ class Model_Ordercoupon extends ORM
         'date' => null,
         'fio' => null,
         'number_order' => null,
+        'status_name' => null,
         'order_info' => array(
             'width' => '40',
             'type' => 'link',
@@ -113,10 +121,16 @@ class Model_Ordercoupon extends ORM
                 $status_value = '<span class="label label-info">Новый</span>';
                 break;
             case 'Подтверждён':
-                $status_value = '<span class="label label-primary">Подтверждён</span>';
+                $status_value = '<span class="label btn-warning">Подтверждён</span>';
                 break;
             case 'Отменен':
                 $status_value = '<span class="label label-danger">Отменен</span>';
+                break;
+            case 'Оформлен':
+                $status_value = '<span class="label label-primary">Оформлен</span>';
+                break;
+            case 'Использован':
+                $status_value = '<span class="label label-success">Использован</span>';
                 break;
         }
         return $status_value;

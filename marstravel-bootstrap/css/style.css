@@ -38,6 +38,7 @@ body {
     color: #000000;
 }
 .mb30{margin-bottom:30px;}
+.mt15{margin-top:15px;}
 /* ↓index page↓ */
 .index_page{}
 .index_page .background_image{
@@ -1218,6 +1219,10 @@ body{
     border: 2px solid red;
     border-radius: 17px;
 }
+.result_comment_save .add_error .error{
+    border: 2px solid red !important;
+    border-radius: 17px !important;
+}
 .order_tour .counter label,
 .order_tour .form-group.rounded label{
     margin-bottom: 12px;
@@ -2161,12 +2166,13 @@ ul.modified>li:before{
     padding-left: 0px;
 }
 .rating_stars .glyphicon-star{
-    color: #ffcc33;
+    color: #231f20;
     cursor: pointer;
 }
 .rating_stars li.hover .glyphicon-star,
 .rating_stars li.active .glyphicon-star{
-   color: #231f20;
+   color: #ffcc33;
+
 }
 
 .comment_item{

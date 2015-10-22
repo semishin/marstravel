@@ -12,6 +12,11 @@ class Model_Review extends ORM
             'text' => 'Комментарий',
             'image' => 'Картинка',
             'created_at' => 'Дата создания',
+            'tour_id' => 'Тур',
+            'active' => 'Активность',
+            'start_date' => 'Начало тура',
+            'end_date' => 'Окончание тура',
+            'rating' => 'Оценка',
         );
     }
 
@@ -32,7 +37,6 @@ class Model_Review extends ORM
             'route_str' => 'admin-review:edit?id=${id}',
             'title' => '${name}'
         ),
-        'id' => null,
         'created_at' => null,
         'active' => 'bool',
         'edit' => array(

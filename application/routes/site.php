@@ -119,12 +119,40 @@ Route::set('site-awards', 'awards')
         'controller' => 'page',
         'action'     => 'awards',
     ));
+
+Route::set('site-review-save', 'review/save')
+    ->defaults(array(
+        'directory' => 'site',
+        'controller' => 'review',
+        'action'     => 'save',
+    ));
+
+Route::set('site-review-more', 'review/more')
+    ->defaults(array(
+        'directory' => 'site',
+        'controller' => 'review',
+        'action'     => 'more',
+    ));
+
+Route::set('site-review-save-file', 'review/file/ajax')
+    ->defaults(array(
+        'directory' => 'site',
+        'controller' => 'review',
+        'action'     => 'file',
+    ));
+Route::set('site-review-ajax', 'review/ajax')
+    ->defaults(array(
+        'directory' => 'site',
+        'controller' => 'review',
+        'action'     => 'ajax',
+    ));
 Route::set('site-review', 'review')
     ->defaults(array(
         'directory' => 'site',
         'controller' => 'review',
         'action'     => 'index',
     ));
+
 
 Route::set('site-advertising', 'advertising')
     ->defaults(array(

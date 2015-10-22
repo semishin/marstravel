@@ -34,6 +34,8 @@
     <script type="text/javascript" src="/marstravel-bootstrap/js/jquery.localScroll.min.js"></script>
     <script src="/marstravel-bootstrap/js/script.js?v2"></script>
     <script src="/marstravel-bootstrap/js/holder.js"></script>
+    <script src="/marstravel-bootstrap/js/stickyKit.js"></script>
+    <script src="http://vk.com/js/api/openapi.js" type="text/javascript"></script>
 </head>
 <body>
 <div class="container-fluid">

@@ -279,4 +279,18 @@ return array(
         'route' => 'admin-priceflight:create',
         'parent' => 'admin.priceflight.index'
     ),
+    'admin.review.index' => array(
+        'title' => 'Список отзывов',
+        'route' => 'admin-review'
+    ),
+    'admin.review.edit' => array(
+        'title' => 'Редактирование отзывова',
+        'route' => 'admin-review:edit',
+        'parent' => 'admin.review.index'
+    ),
+    'admin.review.create' => array(
+        'title' => 'Добавление отзывова',
+        'route' => 'admin-review:create',
+        'parent' => 'admin.review.index'
+    ),
 );

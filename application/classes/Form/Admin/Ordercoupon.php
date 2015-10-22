@@ -15,6 +15,7 @@ class Form_Admin_Ordercoupon extends CM_Form_Abstract
 		
         $this->add_plugin(new CM_Form_Plugin_ORM());
 
+        $this->set_field('status', new CM_Field_Select(ORM::factory('Ordercoupon')->statuses), 0);
         $this->set_field('tour_id', new CM_Field_Select_ORM(ORM::factory('Tour')), 1);
         $this->set_field('date', new CM_Field_String(), 3);
         $this->set_field('quantity_adults', new CM_Field_String(), 5);

@@ -7,7 +7,7 @@ return array(
         'connection' => array(
             'username'   => 'root',
             'password'   => '',
-            'database'   => 'mars.local',
+            'database'   => 'mars_local',
             'hostname'   => 'localhost',
         ),
         'table_prefix' => '',

@@ -48,6 +48,7 @@ function numFormat(n, d, s) { // number format function
 
 // A $( document ).ready() block.
 $( document ).ready(function() {
+
     $("#phone").mask("+7 (999) 999-9999",{placeholder:" "});
     $("#phone_1").mask("+7 (999) 999-9999",{placeholder:" "});
     $("#Phone_0").mask("+7 (999) 999-9999",{placeholder:" "});
@@ -785,41 +786,6 @@ $( document ).ready(function() {
             });
     });
 
-    //$(document).on('click', '.created_new_certificate', function(e) {
-    //    e.preventDefault();
-    //    alert('sdgf');
-    //        var tour_id = $(this).attr('data-tour_id');
-    //        var name = $('input[name="name"]').val();
-    //        var email = $('input[name="email"]').val();
-    //        var phone = $('input[name="phone"]').val();
-    //        var name_manager = $('input[name="name_manager"]').val();
-    //        var date_birth = $('input[name="date_birth"]').val();
-    //        if(!tour_id) {
-    //            return false;
-    //        }
-    //        $.ajax({
-    //            type: "POST",
-    //            url: "/user/create_coupon",
-    //            dataType: "json",
-    //            data: {tour_id: tour_id,
-    //                name: name,
-    //                email: email,
-    //                phone: phone,
-    //                name_manager: name_manager,
-    //                date_birth: date_birth},
-    //            success: function (data) {
-    //                alert('sdfg');
-    //                //if (data.message != 'success') {
-    //                //    alert('Не удалось сгенерировать купон');
-    //                //} else {
-    //                    $('.fancybox-outer').html('<p class="lightbox_header">Был сгенерирован сертификат</p>');
-    //
-    //                   // alert('Купон сгенерирован');
-    //                //}
-    //            }
-    //        });
-    //});
-
     $('button[name="print_page"]').click(function(e){
         e.preventDefault();
         var id = $(this).attr('data-tour_id');
@@ -896,13 +862,9 @@ $( document ).ready(function() {
         }
         var single_price = $('.content_single_price').data('single_price');
         if(((parseInt(quantity_adults) + parseInt(quantity_children)) == 1) &&  single_price > 0){
-            //$('.surcharge').addClass('hidden');
-            //$('.surcharge_single').removeClass('hidden');
             $('.add_content_single_price').removeClass('hidden');
         }else{
             $('.add_content_single_price').addClass('hidden');
-            //$('.surcharge_single').addClass('hidden');
-            //$('.surcharge').removeClass('hidden');
         }
             $.ajax({
                 type: "POST",
@@ -920,7 +882,7 @@ $( document ).ready(function() {
                         $('.change_placeholder').attr("disabled", false);
                         $(".counter>.btn-group>button:last-child").attr('disabled', false);
                         $('#datetimepicker').data("DateTimePicker").destroy();
-                        $('.add_content_flight').html(' ');
+                        //$('.add_content_flight').html(' ');
                         $('input[name="daterange"]').parent().removeClass('error');
                         $('.change_placeholder').attr('placeholder', 'Выберите дату');
                         var days = result.days;
@@ -955,11 +917,11 @@ $( document ).ready(function() {
         if(!quantity_adults){
             quantity_adults = 0;
         }
-        var date = $('.day.active').attr('data-day');
+        //var date = $('.day.active').attr('data-day');
             $.ajax({
                 type: "POST",
                 url: "/tour/get/info",
-                data: {tour_id: tour_id, get_carent_date: get_carent_date, date: date, quantity_adults: quantity_adults, quantity_children: quantity_children},
+                data: {tour_id: tour_id, get_carent_date: get_carent_date,  quantity_adults: quantity_adults, quantity_children: quantity_children},
                 dataType: 'json',
                 success: function (data) {
                     if (data.cost_flight) {
@@ -968,7 +930,7 @@ $( document ).ready(function() {
                         $('.total_price_coupon b').html('' + numFormat(data.total_cost_coupon) + ' руб.');
                         $('.total_cost b').html('' + numFormat(data.total_cost_not_coupon) + ' руб.');
                         $('.total_cost_certificate b').html('' + numFormat(data.total_cost_coupon) + ' руб.');
-                        $('.add_content_flight').html('<p class="content_flight"> <span>Стоимость перелета:</span> <b>' + numFormat(data.cost_flight) + ' руб.</b> </p>');
+                        //$('.add_content_flight').html('<p class="content_flight"> <span>Стоимость перелета:</span> <b>' + numFormat(data.cost_flight) + ' руб.</b> </p>');
                     }
                 }
             })
@@ -1122,6 +1084,12 @@ $( document ).ready(function() {
                 $('#name_manager').removeClass('error');
             }
         }
+        if(!isValidEmailAddress(email)){
+            $('#email').addClass('error');
+            errors++;
+        }else{
+            $('#email').removeClass('error');
+        }
         if(errors > 0){
             return false;
         }else {
@@ -1155,6 +1123,52 @@ $( document ).ready(function() {
         closeClick	: false,
         openEffect	: 'none',
         closeEffect	: 'none'
+    });
+
+
+
+    var offsetReview = 8;
+    var sortReview = 0;
+
+    $('#tour_select').change(function(e) {
+        e.preventDefault();
+        var tour_id = $('#tour_select :selected').val();
+        sortReview = tour_id;
+        $.ajax({
+            type: "POST",
+            url: "review/ajax",
+            data: {tour_id: tour_id},
+            dataType: 'json',
+            success: function (result) {
+                offsetReview = 8;
+                if (!result.more) {
+                    $('#more_review').hide();
+                }else{
+                    $('#more_review').show();
+                }
+                $('.sort_ajax_comment').html(result.html);
+                $('.count_review').html(result.count_review);
+                $('.empty_result').remove();
+            }
+        });
+    });
+
+
+    $('#more_review').click(function(e) {
+        e.preventDefault();
+        $.ajax({
+            type: "POST",
+            url:  "/review/more",
+            data: {offset: offsetReview, sortReview: sortReview},
+            dataType: 'json',
+            success: function(result) {
+                offsetReview += 8;
+                $('.sort_ajax_comment').append(result.html);
+                if (!result.more) {
+                    $('#more_review').hide();
+                }
+            }
+        });
     });
 
 

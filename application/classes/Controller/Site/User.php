@@ -5,10 +5,27 @@ class Controller_Site_User extends Controller_Site_DefaultUserController
     public function action_index()
     {
         $this->set_metatags_and_content('', 'page');
-        $tour = ORM::factory('Tour')
-            ->where('active','=',1)
-            ->order_by('position','asc')
-            ->find_all();
+        $user_id = Auth::instance()->get_user()->id;
+        $firm = ORM::factory('Coupon_Firm')
+            ->where('user_id','=', $user_id)
+            ->find();
+//        $tour = ORM::factory('Tour')
+//            ->where('active','=',1)
+//            ->order_by('position','asc')
+//            ->find_all();
+
+        $PDO = ORM::factory('Tour')->PDO();
+
+        $query = "SELECT tours.id,
+                        tours.name,
+                        tours.url,
+                        tours.active
+                        FROM firm_tours
+                        LEFT JOIN tours ON tours.id = firm_tours.tour_id
+                        WHERE firm_tours.firm_id = $firm->id AND  tours.active = 1";
+
+        $tour = $PDO->query($query)->fetchAll(PDO::FETCH_ASSOC);
+
         $this->template->s_title = 'Туры';
         $this->template->tour = $tour;
         $this->template->set_layout('layout/site/global_user');

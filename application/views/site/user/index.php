@@ -27,13 +27,13 @@
                 <tbody>
                 <?php foreach($tour as $item) {
                     $coupon = ORM::factory('Coupon')
-                        ->where('tour_id','=',$item->id)
+                        ->where('tour_id','=',$item['id'])
                         ->where('user_id','=', Auth::instance()->get_user()->id)
                         ->count_all();
                     ?>
                     <tr>
-                        <td><a href="/user/all_coupons/<?php echo $item->url;?>" target="_blank"><?php echo $item->name;?></a>  <span class="add_quantity">(<?php echo $coupon?>)</span></td>
-                        <td><a href="#generate_code" class="generate_code" data-quantity="<?php echo $coupon;?>" data-tour_id="<?php echo $item->id?>" data-tour_name="<?php echo $item->name?>" target="_blank"><span class="label label-success" style="font-size: 12px;">Сгенерировать сертификат</span></a></td>
+                        <td><a href="/user/all_coupons/<?php echo $item['url'];?>" target="_blank"><?php echo $item['name'];?></a>  <span class="add_quantity">(<?php echo $coupon?>)</span></td>
+                        <td><a href="#generate_code" class="generate_code" data-quantity="<?php echo $coupon;?>" data-tour_id="<?php echo $item['id']?>" data-tour_name="<?php echo $item['name']?>" target="_blank"><span class="label label-success" style="font-size: 12px;">Сгенерировать сертификат</span></a></td>
                     </tr>
                 <?php } ?>
                 </tbody>

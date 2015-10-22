@@ -116,4 +116,16 @@ class Model_Coupon extends ORM
             'active'
         );
     }
+
+    public function save($validation)
+    {
+        parent::save($validation);
+        if ($this->active == 1) {
+            $ordercoupon = ORM::factory('Ordercoupon', $this->id);
+            if($ordercoupon->coupon_id) {
+                $ordercoupon->status = 5;
+                $ordercoupon->update();
+            }
+        }
+    }
 }
