@@ -10,5 +10,5 @@
             </div>
         </div>
     </div>
-    <?php $i++; if($i%3 == 0) { ?> <div class="clear"></div> <?php } ?>
+    <?php $i++; if($i%3 == 0) { ?> <div class="clearfix"></div> <?php } ?>
 <?php } ?>
