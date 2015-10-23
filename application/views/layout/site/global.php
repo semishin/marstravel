@@ -202,7 +202,7 @@
                         </ul>
 
                         <ul class="list-unstyled gold">
-                            <li><b><a href="tel:<?php echo Kohana::$config->load('properties.phone'); ?>"><?php echo Kohana::$config->load('properties.phone'); ?></a></b></li>
+                            <li><b><a href="tel:<?php echo Kohana::$config->load('properties.phone'); ?>"><span class="phone_black"><?php echo Kohana::$config->load('properties.phone'); ?></span></a></b></li>
                             <li><a href="#ask_consultant" class="fancy"><?php echo Kohana::$config->load('properties.email'); ?></a></li>
                         </ul>
                         <div class="clearfix"></div>

@@ -23,9 +23,6 @@
         <?php if($images) { ?>
         <div class="col-xs-12">
             <div class="adventure_program">
-                <div class="intro">
-                    <p class="text-center header">Дополнительные изображения</p>
-                </div>
                     <p class="text">
                         <?php foreach($images as $item) { ?>
                             <a class="images_sight" rel="gallery1" href="<?php echo $item;?>" title="<?php echo $name?>">
@@ -39,7 +36,7 @@
         <div class="col-xs-12">
             <div class="adventure_program">
                 <div class="intro">
-                    <p class="text-center header">Туры в которые входит экскурсия:</p>
+                    <p class="text-center header">Туры, в которых возможно отправиться на экскурсию:</p>
                 </div>
                 <div class="row">
                     <?php $i= 0; foreach($tours as $items) { ?>

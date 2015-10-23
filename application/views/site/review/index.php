@@ -181,6 +181,7 @@
                           var fileSucces = JSON.parse(file.xhr.response);
                             fileName.push(fileSucces.fileName);
                             console.log(fileName);
+                            file.previewElement.classList.remove("file_uploading_status");
                         },
                         removedfile: function(file) {
                             var fileSucces = JSON.parse(file.xhr.response);
@@ -189,13 +190,11 @@
                             var _ref;
                             return (_ref = file.previewElement) != null ? _ref.parentNode.removeChild(file.previewElement) : void 0;
                         },
-                        totaluploadprogress:  function(progress) {
-                            console.log( progress + "%");
-                        },
-                        sending: function(file) {
+                        uploadprogress:  function(file, progress) {
 
                         },
-                        queuecomplete:  function(progress) {
+                        sending: function(file){
+                            file.previewElement.classList.add("file_uploading_status");
 
                         }
                     });
@@ -290,4 +289,5 @@
     <?php if ($count_review > 6) { ?>
         <p class="text-center"><button type="button" id="more_hotel" class="btn load_button black_btn">Загрузить ещё</button></p>
     <?php } ?>
+</div>
 </div>

@@ -38,7 +38,7 @@
         <div class="col-xs-12">
             <div class="sights_block">
                 <div class="row">
-                    <?php foreach ($excursion as $item) { ?>
+                    <?php $i = 0; foreach ($excursion as $item) { ?>
                         <div class="col-xs-4">
                             <div class="sight">
                                 <div class="image">
@@ -56,11 +56,12 @@
                                 </div>
                             </div>
                         </div>
+                        <?php $i++; if($i%3 == 0) { ?> <div class="clear"></div> <?php } ?>
                     <?php } ?>
                 </div>
             </div>
             <?php if ($count_excursion > 6) { ?>
-                <p class="text-center"><button type="button" id="more_excursion" class="btn btn-default load_button">Ещё экскурсии</button></p>
+                <p class="text-center"><button type="button" id="more_excursion" class="btn black_btn load_button">Ещё экскурсии</button></p>
             <?php } ?>
         </div>
     </div>

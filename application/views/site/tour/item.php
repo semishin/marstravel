@@ -275,12 +275,13 @@
                     <input type="text" name="code"  id="code_2" class="form-control" placeholder="Введите код сертификата">
                     <button  id="check_coupon" <?php if($start_count_places <= 0) { ?> disabled="true" <?php } ?>   class="use_code_btn" data-tour_id="<?php echo $id?>" data-coupon_code="">Применить</button>
                 </div>
-
-                <div class="add_content_flight hidden">
-                    <p class="content_flight">
-                        <span>Стоимость перелета:</span>
-                        <b><?php echo number_format($min_price_flight, 0, '', ' ')?> руб.</b>
-                    </p>
+                <div class="<?php if(!$price_single) { ?> hidden <?php } ?>">
+                    <div class="add_content_single_price <?php if(!$price_single || $start_count_places != 1) { ?> hidden <?php } ?>">
+                        <p class="content_single_price">
+                            <span>Доплата за одноместное размещение:</span>
+                            <b><?php echo number_format($price_single, 0, '', ' ')?> руб.</b>
+                        </p>
+                    </div>
                 </div>
                 <div class="coupon_hidden">
                     <p class="total_price"  data-price_adult="<?php echo $price?>" data-price_child="<?php echo $price_child?>">

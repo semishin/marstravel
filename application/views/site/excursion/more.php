@@ -1,4 +1,4 @@
-<?php foreach ($excursion as $item) { ?>
+<?php $i = 0; foreach ($excursion as $item) { ?>
     <div class="col-xs-4">
         <div class="sight">
             <div class="image">
@@ -10,4 +10,5 @@
             </div>
         </div>
     </div>
+    <?php $i++; if($i%3 == 0) { ?> <div class="clear"></div> <?php } ?>
 <?php } ?>

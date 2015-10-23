@@ -19,14 +19,6 @@ class Controller_Site_Tour extends Controller_Site
         }
         $current_date = date("Y-m-d");
 
-        $free_date = ORM::factory('PriceFlight')
-            ->where('tour_id', '=', $this->_model->id)
-            ->where('free_places', '>=', 1)
-            ->where('start_date', '>=', $current_date)
-			->where('active', '=', 1)
-            ->order_by('start_date')->find();
-
-
         $free_date_total = ORM::factory('PriceFlight')
             ->where('tour_id', '=', $this->_model->id)
             ->where('free_places', '>=', 1)

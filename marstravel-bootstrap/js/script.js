@@ -850,8 +850,10 @@ $( document ).ready(function() {
         }
 		if(((parseInt(quantity_adults) + parseInt(quantity_children)) == 1) ){
             $('.forum_link').removeClass('hidden');
+            $('.add_content_single_price').removeClass('hidden');
         }else{
             $('.forum_link').addClass('hidden');
+            $('.add_content_single_price').addClass('hidden');
         }
             $.ajax({
                 type: "POST",

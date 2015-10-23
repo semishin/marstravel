@@ -1343,6 +1343,11 @@ body{
     font-size: 14px;
     color: #111111;
 }
+
+.phone_black{
+    color: black;
+}
+
 .hotels_block{}
 .hotels_block .hotel,
 .sights_block .sight{
@@ -2339,6 +2344,27 @@ ul.modified>li:before{
 }
 #dropzone_previews .dz-image-preview:hover .dz-remove{
     top: 15px;
+}
+
+.dz-progress{
+    margin: 10px auto;
+    max-width: 150px;
+    display: none;
+}
+
+.file_uploading_status .dz-image{
+    background: url('../img/ajax-loader.gif') no-repeat center;
+}
+.file_uploading_status .dz-image img{
+    opacity: 0;
+}
+
+.dz-progress .dz-upload{
+    background-color: red;
+    border-radius: 5px;
+    display: block;
+    height: 10px;
+    width: 0;
 }
 
 .black_btn.none_float,
