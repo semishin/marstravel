@@ -188,6 +188,15 @@
                             console.log(fileName);
                             var _ref;
                             return (_ref = file.previewElement) != null ? _ref.parentNode.removeChild(file.previewElement) : void 0;
+                        },
+                        totaluploadprogress:  function(progress) {
+                            console.log( progress + "%");
+                        },
+                        sending: function(file) {
+
+                        },
+                        queuecomplete:  function(progress) {
+
                         }
                     });
 
