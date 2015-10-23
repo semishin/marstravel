@@ -40,7 +40,6 @@
             <div class="adventure_program">
                 <div class="intro">
                     <p class="text-center header">Туры в которые входит экскурсия:</p>
-                    <h1>rtgfhghf</h1>
                 </div>
                 <div class="row">
                     <?php $i= 0; foreach($tours as $items) { ?>
