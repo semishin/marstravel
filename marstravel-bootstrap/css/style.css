@@ -2356,7 +2356,7 @@ ul.modified>li:before{
     background: url('../img/ajax-loader.gif') no-repeat center;
 }
 .file_uploading_status .dz-image img{
-    opacity: 0;
+    opacity: 0 !important;
 }
 
 .dz-progress .dz-upload{
