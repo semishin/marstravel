@@ -42,7 +42,7 @@ else { ?>
 </div>
 <div class="logo">
     <div style="float: left; width: 45%;text-align:center;">
-        <img class="img-responsive" style="margin-top:10px;" src="<?php echo $partner_image?>">
+        <img style="margin-top:10px; width: 80%" src="<?php echo $partner_image?>">
     </div>
     <div style="float: right; width: 45%;text-align:center;margin:10px 0 35px 0;">
         <img class="img-responsive" src="/marstravel-bootstrap/img/logo-red.png">
