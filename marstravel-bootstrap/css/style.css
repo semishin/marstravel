@@ -2359,6 +2359,8 @@ ul.modified>li:before{
     opacity: 0 !important;
 }
 
+.placeholdr { color: gray }
+
 .dz-progress .dz-upload{
     background-color: red;
     border-radius: 5px;
