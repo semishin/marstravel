@@ -45,6 +45,7 @@ class Model_Coupon_Firm extends ORM
 			'user_id' => 'Пользователь',
             'partner_id' => 'Партнер',
             'tour' => 'Туры',
+            'start_name_certificate' => 'Начало наиминования сертификата'
         );
     }
 

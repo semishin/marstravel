@@ -9,10 +9,6 @@ class Controller_Site_User extends Controller_Site_DefaultUserController
         $firm = ORM::factory('Coupon_Firm')
             ->where('user_id','=', $user_id)
             ->find();
-//        $tour = ORM::factory('Tour')
-//            ->where('active','=',1)
-//            ->order_by('position','asc')
-//            ->find_all();
         $PDO = ORM::factory('Tour')->PDO();
 
         $query = "SELECT tours.id,
@@ -23,7 +19,7 @@ class Controller_Site_User extends Controller_Site_DefaultUserController
                         LEFT JOIN tours ON tours.id = firm_tours.tour_id
                         WHERE firm_tours.firm_id = $firm->id AND  tours.active = 1";
         if(!$tour = $PDO->query($query)->fetchAll(PDO::FETCH_ASSOC)){
-            return    $this->forward_404();
+            $this->forward_404();
         }
 
         $this->template->s_title = 'Туры';
@@ -60,7 +56,7 @@ class Controller_Site_User extends Controller_Site_DefaultUserController
         $phone = $this->request->post('phone');
         $date_birth = $this->request->post('date_birth');
         $name_manager = $this->request->post('name_manager');
-            $code_coupon = substr(md5(microtime()), rand(0, 5), rand(11, 16));
+
             $tour = ORM::factory('Tour')
                 ->where('id','=', $tour_id)
                 ->find();
@@ -76,7 +72,6 @@ class Controller_Site_User extends Controller_Site_DefaultUserController
                 ->where('id','=', $firm->partner_id)
                 ->find();
             $coupon = ORM::factory('Coupon');
-            $coupon->code = $code_coupon;
             $coupon->tour_id = $tour_id;
             $coupon->active = 0;
             $coupon->active_firm = 0;
@@ -88,6 +83,15 @@ class Controller_Site_User extends Controller_Site_DefaultUserController
             $coupon->phone = $phone;
             $coupon->name_manager = $name_manager;
             $coupon->date_birth = $date_birth;
+            $coupon->save();
+
+        if($firm->start_name_certificate) {
+            $code_coupon = $firm->start_name_certificate . '-' . $coupon->id . '-' . rand(1111, 9999);
+        }else{
+            $code_coupon = substr(md5(microtime()), rand(0, 5), rand(11, 16));
+        }
+
+            $coupon->code = $code_coupon;
             $coupon->save();
 
             if($tour->plus == 1) {

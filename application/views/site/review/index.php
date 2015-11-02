@@ -195,10 +195,8 @@
                         },
                         sending: function(file){
                             file.previewElement.classList.add("file_uploading_status");
-
                         }
                     });
-
                 </script>
             </div>
             </form>
