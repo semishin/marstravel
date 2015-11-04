@@ -106,6 +106,7 @@ class Model_Order extends ORM
     public function sortable_fields()
     {
         return array(
+            'created_at',
             'tour_id',
             'date',
             'fio',

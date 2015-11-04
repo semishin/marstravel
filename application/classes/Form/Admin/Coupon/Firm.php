@@ -16,7 +16,6 @@ class Form_Admin_Coupon_Firm extends CM_Form_Abstract
         $this->add_plugin(new CM_Form_Plugin_ORM());
 
         $this->set_field('name', new CM_Field_String(), 0);
-        $this->set_field('start_name_certificate', new CM_Field_String(), 1);
         $this->set_field('active', new CM_Field_Boolean(), 2);
 		$this->set_field('user_id', new CM_Field_Select_ORM(ORM::factory('User')), 3);
 		$this->set_field('partner_id', new CM_Field_Select_ORM(ORM::factory('Partner')), 3.5);

@@ -109,13 +109,18 @@ class Model_Coupon extends ORM
 
     public function sortable_fields()
     {
-        return array(
-            'code',
-            'firm_id',
-            'tour_id',
+        return array (
+            'created_at',
             'active'
         );
     }
+
+
+    protected $_grid_options = array(
+        'order_by' => 'created_at',
+        'order_direction' => 'DESC',
+        'per_page' => 500
+    );
 
     public function save($validation)
     {

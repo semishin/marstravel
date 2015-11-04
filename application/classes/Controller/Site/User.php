@@ -71,6 +71,10 @@ class Controller_Site_User extends Controller_Site_DefaultUserController
             $partner = ORM::factory('Partner')
                 ->where('id','=', $firm->partner_id)
                 ->find();
+
+
+            $code_coupon =  $this->generateCode();
+
             $coupon = ORM::factory('Coupon');
             $coupon->tour_id = $tour_id;
             $coupon->active = 0;
@@ -83,14 +87,6 @@ class Controller_Site_User extends Controller_Site_DefaultUserController
             $coupon->phone = $phone;
             $coupon->name_manager = $name_manager;
             $coupon->date_birth = $date_birth;
-            $coupon->save();
-
-        if($firm->start_name_certificate) {
-            $code_coupon = $firm->start_name_certificate . '-' . $coupon->id . '-' . rand(1111, 9999);
-        }else{
-            $code_coupon = substr(md5(microtime()), rand(0, 5), rand(11, 16));
-        }
-
             $coupon->code = $code_coupon;
             $coupon->save();
 
@@ -156,6 +152,19 @@ class Controller_Site_User extends Controller_Site_DefaultUserController
         readfile($dirPdf.$pdfName);
         exit(json_encode(array('message' => 'success')));
 
+    }
+
+    public function generateCode()
+    {
+        $code_coupon = rand(11111111, 99999999);
+        $check_rand_code = ORM::factory('Coupon')
+            ->where('code','=', $code_coupon)
+            ->find();
+        if ($check_rand_code->code) {
+            $this->generateCode();
+        } else {
+            return $code_coupon;
+        }
     }
 
     public function action_profile()
