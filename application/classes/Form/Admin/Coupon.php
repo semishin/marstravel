@@ -14,6 +14,7 @@ class Form_Admin_Coupon extends CM_Form_Abstract
 		$this->set_field('active_firm', new CM_Field_Boolean(), 0);
         $this->set_field('activate_phone', new CM_Field_Boolean(), 1);
 		$this->set_field('active', new CM_Field_Boolean(), 2);
+		$this->set_field('call_back_date', new CM_Field_Date(), 2);
         $this->set_field('manager_mars', new CM_Field_String(), 10);
         $this->set_field('date_phone', new CM_Field_Date(), 20);
         $this->set_field('status_work_client', new CM_Field_String(), 30);

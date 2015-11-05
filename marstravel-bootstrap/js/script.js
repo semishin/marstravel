@@ -770,10 +770,6 @@ $( document ).ready(function() {
             });
     });
 
-//<<<<<<< HEAD
-//=======
-//
-//>>>>>>> origin/master
     $('button[name="print_page"]').click(function(e){
         e.preventDefault();
         var id = $(this).attr('data-tour_id');

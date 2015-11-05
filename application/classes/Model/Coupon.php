@@ -47,7 +47,8 @@ class Model_Coupon extends ORM
             'phone' => 'Телефон владельца сертификата',
             'email' => 'Email владельца сертификата',
             'name_manager' => 'ФИО менеджера, выдавшего сертификат',
-			'tour_name' => 'Тур'
+			'tour_name' => 'Тур',
+            'call_back_date' => 'Дата повторного звонка'
         );
     }
 
