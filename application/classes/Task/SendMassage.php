@@ -1,6 +1,6 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 
-class Task_ParseComments extends Minion_Task
+class Task_SendMassage extends Minion_Task
 {
     protected function _execute(array $params)
     {
