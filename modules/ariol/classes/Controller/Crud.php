@@ -155,7 +155,9 @@ abstract class Controller_Crud extends Controller_Admin
 
 		if ($sorting && $sortingColumn) {
 			$model = $model->order_by($sortingColumn, $sorting);
-		}
+		} else {
+            $model = $model->order_by('id', 'DESC');
+        }
 
 		$data = $model
 			->offset($offset)
