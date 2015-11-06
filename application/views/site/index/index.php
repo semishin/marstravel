@@ -57,6 +57,7 @@
                                             $min_price_flight = ORM::factory('PriceFlight')
                                                 ->where('tour_id', '=', $item->id)
                                                 ->where('free_places', '>', 0)
+                                                ->where('active', '=', 1)
                                                 ->order_by('price', 'ASC')->find();
                                         ?>
                                         <p>Стоимость на человека</p>

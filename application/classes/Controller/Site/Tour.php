@@ -38,12 +38,8 @@ class Controller_Site_Tour extends Controller_Site
         $days = array();
         foreach($free_date_total as $item){
             $days_array[] =  range(strtotime($item->start_date), strtotime($item->end_date), (24*60*60));
-            $min_price_flight = $item->price;
             if($item->free_places > $count_places) {
                 $count_places = $item->free_places;
-            }
-            if($item->price < $min_price_flight) {
-                $min_price_flight = $item->price;
             }
         }
 
