@@ -52,7 +52,7 @@ class Controller_Site_Tour extends Controller_Site
         $this->template->route = $ids;
         $this->template->current_date = $days[0];
         $this->template->cities = $citiesHash;
-        $this->template->min_price_flight = $min_price_flight;
+        $this->template->min_price_flight = $min_price_flight->price;
         $this->template->start_count_places = $count_places;
     }
 
