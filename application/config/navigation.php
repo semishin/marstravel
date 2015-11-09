@@ -248,7 +248,10 @@ return array(
     ),
 
 
-
+    'admin.statistics.index' => array(
+        'title' => 'Статистика',
+        'route' => 'admin-statistics'
+    ),
 
     'admin.comment.index' => array(
         'title' => 'Список отзывов',

@@ -29,6 +29,7 @@ return array
         '<i class="fa fa-barcode"></i>|Сертификаты' => array(
             '<i class="fa fa-barcode"></i>|Фирмы' => 'admin-coupon_firm',
             '<i class="fa fa-barcode"></i>|Сертификаты' => 'admin-coupon',
+            '<i class="fa fa-barcode"></i>|Статистика' => 'admin-statistics',
         ),
 		'<i class="fa fa-key"></i>|Войти' => 'admin-auth:login',
 		'<i class="fa fa-key"></i>|Сбросить пароль' => 'admin-auth:reset_password_step_1',

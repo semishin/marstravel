@@ -34,7 +34,6 @@ class Controller_Site_Tour extends Controller_Site
             ->where('active', '=', 1)
             ->order_by('price', 'ASC')->find();
 
-
         $days = array();
         foreach($free_date_total as $item){
             $days_array[] =  range(strtotime($item->start_date), strtotime($item->end_date), (24*60*60));

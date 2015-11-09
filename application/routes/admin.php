@@ -135,6 +135,12 @@ Route::set('admin-brief', $adminPrefix . 'brief(/<action>(/<id>))')
     ));
 
 
+Route::set('admin-statistics', $adminPrefix . 'statistics(/<action>(/<id>))')
+    ->defaults(array(
+        'directory' => 'admin',
+        'controller' => 'statistic',
+        'action' => 'index'
+    ));
 
 
 
