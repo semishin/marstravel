@@ -7,6 +7,7 @@
                         <ul class="list-unstyled">
                             <li><a href="/user"  class="active"><i class="icon icon_turkey"></i><span>Сертификаты</span></a></li>
                             <li><a href="/user/profile"><i class="icon icon_attractions"></i><span>Профиль</span></a></li>
+                            <li><a href="/user/api"><i class="icon icon_attractions"></i><span>API</span></a></li>
                         </ul>
                         <p>
                             <a href="/auth/logout" class="black_btn logout_btn">Выйти</a>

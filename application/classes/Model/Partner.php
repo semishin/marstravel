@@ -4,14 +4,6 @@ class Model_Partner extends ORM
 {
     protected $_table_name = 'partners';
 
-//    protected $_has_many = array(
-//        'ourproducts' => array(
-//            'model' => 'Ourproduct',
-//            'foreign_key' => 'master_id'
-//        )
-//    );
-
-
     public function labels()
     {
         return array(

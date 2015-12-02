@@ -2394,7 +2394,9 @@ ul.modified>li:before{
 }
 .btntobus:hover,.btntobus:active,.btntobus:focus{background-color:#ccc;color:#333}
 
-
+.panel-title > * {
+    cursor: pointer;
+}
 
 @media (min-width: 992px) and (max-width: 1240px){
     .left_menu .icon{

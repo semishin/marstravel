@@ -7,6 +7,7 @@
                         <ul class="list-unstyled">
                             <li><a href="/user" class="active"><i class="icon icon_turkey"></i><span>Сертификаты</span></a></li>
                             <li><a href="/user/profile"><i class="icon icon_attractions"></i><span>Профиль</span></a></li>
+                            <?php if ($firm->api == 1) { ?><li><a href="/user/api"><i class="icon icon_attractions"></i><span>API</span></a></li> <?php } ?>
                         </ul>
                         <p>
                             <a href="/auth/logout" class="black_btn logout_btn">Выйти</a>
@@ -20,6 +21,7 @@
             <table class="table table-striped table-hover table-bordered">
                 <thead>
                 <tr>
+                    <th></th>
                     <th>Наименование тура</th>
                     <th>Сертификат</th>
                 </tr>
@@ -32,6 +34,7 @@
                         ->count_all();
                     ?>
                     <tr>
+                        <td><?php echo $item['id'];?></td>
                         <td><a href="/user/all_coupons/<?php echo $item['url'];?>" target="_blank"><?php echo $item['name'];?></a>  <span class="add_quantity">(<?php echo $coupon?>)</span></td>
                         <td><a href="#generate_code" class="generate_code" data-quantity="<?php echo $coupon;?>" data-tour_id="<?php echo $item['id']?>" data-tour_name="<?php echo $item['name']?>" target="_blank"><span class="label label-success" style="font-size: 12px;">Сгенерировать сертификат</span></a></td>
                     </tr>

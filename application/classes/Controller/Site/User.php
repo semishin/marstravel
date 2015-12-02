@@ -23,6 +23,7 @@ class Controller_Site_User extends Controller_Site_DefaultUserController
         }
 
         $this->template->s_title = 'Туры';
+        $this->template->firm = $firm;
         $this->template->tour = $tour;
         $this->template->set_layout('layout/site/global_user');
     }
@@ -173,6 +174,7 @@ class Controller_Site_User extends Controller_Site_DefaultUserController
             ->where('user_id','=', Auth::instance()->get_user()->id)
             ->find();
         $this->template->profile = $profile;
+        $this->template->firm = $profile;
         $this->template->name =  Auth::instance()->get_user()->name;
         $this->template->email =  Auth::instance()->get_user()->email;
         $this->template->s_title = 'Профиль';
@@ -217,7 +219,11 @@ class Controller_Site_User extends Controller_Site_DefaultUserController
             ->where('tour_id', '=', $tour->id)
             ->where('user_id', '=',  Auth::instance()->get_user()->id)
             ->count_all();
+        $firm = ORM::factory('Coupon_Firm')
+            ->where('user_id','=', Auth::instance()->get_user()->id)
+            ->find();
         $this->template->tour = $tour;
+        $this->template->firm = $firm;
         $this->template->coupon = $coupon;
         $total_page = ceil($total_coupon / $limit);
         $this->template->s_title = 'Сертификаты';
@@ -230,6 +236,34 @@ class Controller_Site_User extends Controller_Site_DefaultUserController
                     'current_page'   => array('source' => 'query_string', 'key' => 'page'),
                 )
             )->render();
+        $this->template->set_layout('layout/site/global_user');
+    }
+
+    public function action_api()
+    {
+        $this->set_metatags_and_content('api', 'page');
+
+        $user_id = Auth::instance()->get_user()->id;
+        $firm = ORM::factory('Coupon_Firm')
+            ->where('user_id','=', $user_id)
+            ->find();
+
+        $PDO = ORM::factory('Tour')->PDO();
+
+        $query = "SELECT tours.id,
+                        tours.name,
+                        tours.url,
+                        tours.active
+                        FROM firm_tours
+                        LEFT JOIN tours ON tours.id = firm_tours.tour_id
+                        WHERE firm_tours.firm_id = $firm->id AND  tours.active = 1";
+        if(!$tour = $PDO->query($query)->fetchAll(PDO::FETCH_ASSOC)){
+            $this->forward_404();
+        }
+
+        $this->template->s_title = 'Туры';
+        $this->template->tour = $tour;
+        $this->template->firm = $firm;
         $this->template->set_layout('layout/site/global_user');
     }
 

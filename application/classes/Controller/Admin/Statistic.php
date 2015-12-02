@@ -23,7 +23,5 @@ class Controller_Admin_Statistic extends Controller_Crud
         $coupons = $PDO->query($query)->fetchAll(PDO::FETCH_ASSOC);
 
         $this->template->coupons = $coupons;
-
-
     }
 }

@@ -45,7 +45,9 @@ class Model_Coupon_Firm extends ORM
 			'user_id' => 'Пользователь',
             'partner_id' => 'Партнер',
             'tour' => 'Туры',
-            'start_name_certificate' => 'Начало наиминования сертификата'
+            'start_name_certificate' => 'Начало наиминования сертификата',
+            'code' => 'Код для доступа к api',
+            'api' => 'работа с api'
         );
     }
 
@@ -90,5 +92,27 @@ class Model_Coupon_Firm extends ORM
             'name',
             'active'
         );
+    }
+
+    public function save(Validation $validation = NULL)
+    {
+        parent::save($validation);
+        if (!$this->code) {
+            $this->code = $this->generateCode();
+        }
+        $this->saved();
+    }
+
+    public function generateCode()
+    {
+        $code = rand(11111111, 99999999);
+        $check_rand_code = ORM::factory('Coupon_Firm')
+            ->where('code','=', $code)
+            ->find();
+        if ($check_rand_code->code) {
+            $this->generateCode();
+        } else {
+            return $code;
+        }
     }
 }

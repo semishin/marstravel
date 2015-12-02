@@ -27,6 +27,13 @@ Route::set('site-user', 'user')
         'action'     => 'index',
     ));
 
+Route::set('site-user-api', 'user/api')
+    ->defaults(array(
+        'directory' => 'site',
+        'controller' => 'user',
+        'action'     => 'api',
+    ));
+
 Route::set('site-user-create-coupon', 'user/create_coupon/<id>')
     ->defaults(array(
         'directory' => 'site',
@@ -315,17 +322,25 @@ Route::set('site-search', 'search(/<page>)', array('page' => '\d+'))
         'action' => 'index',
     ));
 
-Route::set('site-comment', 'comment')
+Route::set('site-api-certificate', 'api/certificate')
     ->defaults(array(
         'directory' => 'site',
-        'controller' => 'comment',
-        'action'     => 'index',
+        'controller' => 'api',
+        'action'     => 'certificate',
     ));
 
-Route::set('site-comments', 'comments/add')
+Route::set('site-api-list', 'api/list')
     ->defaults(array(
         'directory' => 'site',
-        'controller' => 'comment',
-        'action'     => 'add',
+        'controller' => 'api',
+        'action'     => 'list',
     ));
+
+Route::set('site-api-item', 'api/item')
+    ->defaults(array(
+        'directory' => 'site',
+        'controller' => 'api',
+        'action'     => 'item',
+    ));
+
 
