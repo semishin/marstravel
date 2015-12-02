@@ -139,7 +139,7 @@ class Controller_Site_Api extends Controller_Site_DefaultUserController
             ->where('code', '=', $code)
             ->find();
 
-        if (!$firm) {
+        if (!$firm->id) {
             exit(json_encode(array('error' => 'bad user')));
         } else {
             $coupon = ORM::factory('Coupon')
